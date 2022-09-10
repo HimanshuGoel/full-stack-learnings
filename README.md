@@ -14,6 +14,7 @@ This is a web application to showcase various learnings acquired from different 
 - [Roadmap](./ROADMAP.md)
 - [Changelog](./CHANGELOG.md)
 - [Commands](./COMMANDS.md)
+- [Keyboard Shortcuts](./KEYBOARD_SHORTCUTS.md)
 - [Best Practices](./BEST_PRACTICES.md)
 
 ## Development server
