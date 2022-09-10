@@ -9,29 +9,21 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'angular',
-    pathMatch: 'full',
+    pathMatch: 'full'
   },
   {
     path: 'angular',
-    loadChildren: () =>
-      import('./features/angular/angular.module').then((m) => m.AngularModule),
+    loadChildren: () => import('./features/angular/angular.module').then((m) => m.AngularModule)
   },
   {
     path: 'typescript',
     loadChildren: () =>
-      import('./features/typescript/typescript.module').then(
-        (m) => m.TypescriptModule
-      ),
-  },
+      import('./features/typescript/typescript.module').then((m) => m.TypescriptModule)
+  }
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    BrowserModule,
-    MaterialModule,
-    RouterModule.forRoot(routes),
-  ],
-  exports: [],
+  imports: [CommonModule, BrowserModule, MaterialModule, RouterModule.forRoot(routes)],
+  exports: []
 })
 export class AppRoutingModule {}
