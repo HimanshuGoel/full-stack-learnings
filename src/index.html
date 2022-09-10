@@ -23,25 +23,31 @@
       rel="stylesheet"
     />
 
-    <script>
-      window.global = window;
-    </script>
+    <style media="screen">
+      #loader {
+        position: absolute;
+        display: block;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 1;
+        -webkit-transform: translate3d(0, -50%, 0);
+        -moz-transform: translate3d(0, -50%, 0);
+        -o-transform: translate3d(0, -50%, 0);
+        -ms-transform: translate3d(0, -50%, 0);
+        transform: translate3d(0, -50%, 0);
+        text-align: center;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        top: 50%;
+      }
+    </style>
   </head>
   <body>
     <app-root>
-      <div class="loader">
-        <svg class="circular" viewBox="25 25 50 50">
-          <circle
-            class="path"
-            cx="50"
-            cy="50"
-            r="20"
-            fill="none"
-            stroke-width="2"
-            stroke-miterlimit="10"
-          />
-        </svg>
-      </div>
+      <div id="loader"><img src="assets/img/loader-preview.svg" alt="loading" /></div>
     </app-root>
   </body>
 </html>
