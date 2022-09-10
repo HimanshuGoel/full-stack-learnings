@@ -59,11 +59,11 @@
   }
 }
 
-@function bmd-drawer-breakpoint-name($breakpoint, $suffix: "") {
+@function bmd-drawer-breakpoint-name($breakpoint, $suffix: '') {
   // e.g. &, &-sm, &-md, &-lg
-  $name: "&-#{$breakpoint}#{$suffix}";
+  $name: '&-#{$breakpoint}#{$suffix}';
   @if $breakpoint == xs {
-    $name: "&";
+    $name: '&';
   }
   @return $name;
 }
@@ -116,7 +116,7 @@
 // breakpoint based open to a particular size
 @mixin bmd-drawer-x-in-up($size, $breakpoint) {
   // e.g. &, &-sm, &-md, &-lg
-  $name: bmd-drawer-breakpoint-name($breakpoint, "-up");
+  $name: bmd-drawer-breakpoint-name($breakpoint, '-up');
 
   .bmd-drawer-in {
     #{unquote($name)} {
@@ -139,7 +139,7 @@
 // breakpoint based open to a particular size
 @mixin bmd-drawer-y-in-up($size, $breakpoint) {
   // e.g. &, &-sm, &-md, &-lg
-  $name: bmd-drawer-breakpoint-name($breakpoint, "-up");
+  $name: bmd-drawer-breakpoint-name($breakpoint, '-up');
 
   .bmd-drawer-in {
     #{unquote($name)} {
@@ -198,7 +198,7 @@
 // Overlay - left/right responsive overlay classes and marker class
 @mixin bmd-drawer-x-overlay-down($breakpoint) {
   // e.g. &, &-sm, &-md, &-lg
-  $name: bmd-drawer-breakpoint-name($breakpoint, "-down");
+  $name: bmd-drawer-breakpoint-name($breakpoint, '-down');
 
   .bmd-drawer-overlay {
     #{unquote($name)} {
@@ -227,7 +227,7 @@
 // Overlay - top/bottom responsive overlay classes and marker class
 @mixin bmd-drawer-y-overlay-down($breakpoint) {
   // e.g. &, &-sm, &-md, &-lg
-  $name: bmd-drawer-breakpoint-name($breakpoint, "-down");
+  $name: bmd-drawer-breakpoint-name($breakpoint, '-down');
 
   .bmd-drawer-overlay {
     #{unquote($name)} {

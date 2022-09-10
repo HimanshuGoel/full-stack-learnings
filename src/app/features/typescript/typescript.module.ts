@@ -8,6 +8,6 @@ import { TypescriptRoutingModule } from './typescript-routing.module';
 
 @NgModule({
   declarations: [TypescriptContainerComponent, TypescriptHomepageComponent],
-  imports: [TypescriptRoutingModule, SharedModule, MaterialModule],
+  imports: [TypescriptRoutingModule, SharedModule, MaterialModule]
 })
 export class TypescriptModule {}

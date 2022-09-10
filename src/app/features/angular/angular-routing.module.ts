@@ -10,13 +10,13 @@ const routes: Routes = [
     component: AngularContainerComponent,
     children: [
       { path: '', redirectTo: 'homepage', pathMatch: 'full' },
-      { path: 'homepage', component: AngularHomepageComponent },
-    ],
-  },
+      { path: 'homepage', component: AngularHomepageComponent }
+    ]
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AngularRoutingModule {}

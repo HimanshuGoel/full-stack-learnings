@@ -1,14 +1,14 @@
 import PerfectScrollbar from 'perfect-scrollbar';
 
 import { Location } from '@angular/common';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   constructor(public location: Location) {}
 
   ngAfterViewInit() {
@@ -17,7 +17,7 @@ export class AppComponent {
 
   runOnRouteChange(): void {
     if (window.matchMedia(`(min-width: 960px)`).matches) {
-      const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
+      const elemMainPanel = document.querySelector('.main-panel') as HTMLElement;
       const ps = new PerfectScrollbar(elemMainPanel);
       ps.update();
     }

@@ -10,13 +10,13 @@ const routes: Routes = [
     component: TypescriptContainerComponent,
     children: [
       { path: '', redirectTo: 'homepage', pathMatch: 'full' },
-      { path: 'homepage', component: TypescriptHomepageComponent },
-    ],
-  },
+      { path: 'homepage', component: TypescriptHomepageComponent }
+    ]
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class TypescriptRoutingModule {}

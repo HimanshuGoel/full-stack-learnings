@@ -1,4 +1,10 @@
-@mixin bmd-tabs-color($color, $active-color, $active-border, $disabled-link-color, $disabled-link-hover-color) {
+@mixin bmd-tabs-color(
+  $color,
+  $active-color,
+  $active-border,
+  $disabled-link-color,
+  $disabled-link-hover-color
+) {
   .nav-link {
     color: $color;
 
@@ -22,40 +28,38 @@
 }
 
 @mixin set-wizard-color($color) {
+  .moving-tab {
+    background-color: $color;
+    @include shadow-big-color($color);
+  }
 
-    .moving-tab{
-        background-color: $color;
-        @include shadow-big-color($color);
+  .picture {
+    &:hover {
+      border-color: $color;
     }
+  }
 
-    .picture{
-        &:hover{
-            border-color: $color;
-        }
-    }
-
-    .choice{
-        &:hover,
-        &.active{
-            .icon{
-                border-color: $color;
-                color: $color;
-            }
-        }
-    }
-
-
-    .checkbox input[type=checkbox]:checked + .checkbox-material{
-        .check{
-            background-color: $color;
-        }
-    }
-
-    .radio input[type=radio]:checked ~ .check {
-        background-color: $color;
-    }
-
-    .radio input[type=radio]:checked ~ .circle {
+  .choice {
+    &:hover,
+    &.active {
+      .icon {
         border-color: $color;
+        color: $color;
+      }
     }
+  }
+
+  .checkbox input[type='checkbox']:checked + .checkbox-material {
+    .check {
+      background-color: $color;
+    }
+  }
+
+  .radio input[type='radio']:checked ~ .check {
+    background-color: $color;
+  }
+
+  .radio input[type='radio']:checked ~ .circle {
+    border-color: $color;
+  }
 }

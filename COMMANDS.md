@@ -5,3 +5,7 @@
 - firebase login
 - firebase init (hosting)
 - firebase deploy
+
+## Misc.
+
+- npx prettier --write .

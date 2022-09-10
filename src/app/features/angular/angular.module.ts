@@ -8,6 +8,6 @@ import { AngularRoutingModule } from './angular-routing.module';
 
 @NgModule({
   declarations: [AngularContainerComponent, AngularHomepageComponent],
-  imports: [AngularRoutingModule, SharedModule, MaterialModule],
+  imports: [AngularRoutingModule, SharedModule, MaterialModule]
 })
 export class AngularModule {}

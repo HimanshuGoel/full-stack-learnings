@@ -1,8 +1,8 @@
 # Roadmap
 
 - [x] Deploy on Firebase environment
-- [ ] Perform ESLint migration
-- [ ] Add prettier file
+- [x] Perform ESLint migration
+- [x] Add prettier file
 - [ ] Add one click deployment and setup build pipeline
 - [ ] Refactor polyfills.ts and tests.ts file
 - [ ] Remove window.global from index.html file
