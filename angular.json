@@ -118,7 +118,6 @@
       }
     }
   },
-  "defaultProject": "frontend-learnings",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

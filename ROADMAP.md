@@ -11,5 +11,6 @@
 - [ ] Add one click deployment and setup build pipeline
 - [ ] Refactor scss and css folder from assets
 - [ ] Fix console build errors and warnings
+- [ ] Remove unused imports in angular.json file
 
 ## Priority 2
