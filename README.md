@@ -16,6 +16,7 @@ This is a web application to showcase various learnings acquired from different 
 - [Commands](./COMMANDS.md)
 - [Keyboard Shortcuts](./KEYBOARD_SHORTCUTS.md)
 - [Best Practices](./BEST_PRACTICES.md)
+- [Extracted Notes](./EXTRACTED_NOTES.md)
 
 ## Development server
 
