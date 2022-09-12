@@ -12,8 +12,6 @@
 
 - Installing extension locally – copy your extension to the VS code extension directory. (windows - %USERPROFILE%\.vscode\extensions)
 
-## User Experience
-
 ## Angular
 
 - Angular is a tool to help you build interactive websites, you can call it a framework. It provides tools to communicate with the server and to improve the performance, package application, maintain state, organize code/logic, ease display of data, synchronize state as it changes.
@@ -59,3 +57,67 @@
 - Angular testing utilities – TestBed – helpful in testing component with templates. It helps to constructs component in small, live, angular environment and gives us handles to wrapper around component and DOM created by its model. Async and fakeAsync, MockBackend.
 
 - AOT – browser needs to compile the templates into DOM Functions i.e. the actual views. The AOT does it during the compile time itself.
+
+## User Experience
+
+- Software has to work and be easy and enjoyable to work. User can easily and quickly accomplish their tasks.
+
+- Wireframe types - Low-fidelity, High-fidelity.
+
+- Principles - Alignment, Contrast, Visual heirarchy, Proximity, Layouts, Whitespace, Consistency.
+
+- UX Testablity 
+    - Visiblity of System Status - the system should always keep users informed about what is going on, through appropriate feedback within reasonable time. Like showing username on login, showing copy/delete progress windows OS.
+    - Match between system and the real world - the system should speak the user's language, with words, phrases and concepts familier to user. Like not using words like `Accept/Decline` but `Save password/Nope`.
+    - Error prevention - like showing auto-compmlete, showing confirm dialog before deleting the record.
+    - Recognition rather than recall - showing dropdown, intellisense
+
+- The good user experience has 3 desired results – happy, satisfied and productive. Our ultimate results should be delighted, contented, and empowered.
+
+- Avoid common pitfalls - throwing data on the screen, exposing tech to the user, forcing the user to think like DBA, Messy UI, coding for expert user.
+
+- 10 UX myths - low friction clicks are okay, vertical scrolling is okay.
+
+- Leading hack - making the user brain work less by leading them to their goal. Showing steps (wizard) on the screen.
+
+- Limit the number of colors used should be 5 or less.
+
+- Reading in upper case takes 10% more time than lower case, so avoid using them.
+
+- A UX developer can bring efficiency, logic, relevance, user advocacy, research, communication, effectiveness, interaction, elegance, simplicity.
+
+- Types of industry - Finance, Education, Retail, Healthcare, Business & IT Services, Research & Developement, Goverment and Defence.
+
+- In natural world there is no monochrome except blue sky overhead on a clear day, even sky is a gradient. So, while creating UI component use gradient from light to dark as top down lighting bias to makes the screen appear as more natural not as artificial monochrome. And the gradient shouldn’t be noticeable and flashy
+
+- Instead of rectangle design, we should use curves. Humans usually prefer curved things over sharp-edged things – curved connotes safety, sharp-edged connotes danger. Curve soften the design and less stressful.
+
+- We should bring the UI element on screen on more gradual way and move that from one place to another in gradual way too or changing the size. Using animation as it feels more natural and don’t surprise or confuse user. While changing the screen from one to another also try to implement a subtle animation. Animation also help in maintaining context.
+
+- When an action is not appropriate, prevent the user from doing it, provide a visual signal that the action is not available, like disabling a button instead of allowing it to click and showing error message or any popup.
+
+- Sliders component are good for numbers with large increments of numbers where the user is not quite so interested in precision.
+
+- Reserve confirmation for very exceptional circumstances, otherwise it will dilute its value like in windows vista. Instead of this we can provide some undo like functionality or show a countdown before making the commit to the database, this is called forgiveness
+
+- Web fonts recommendations
+    - ![web-fonts-recommendatsions1](src/assets/snipping/web-fonts-recommendations1.png)
+    - ![web-fonts-recommendatsions1](src/assets/snipping/web-fonts-recommendations1.png)
+    
+- Color meanings
+    - ![ux-color-meaning-blue](src/assets/snipping/ux-color-meaning-blue.png)
+    - ![ux-color-meaning-brown](src/assets/snipping/ux-color-meaning-brown.png)
+    - ![ux-color-meaning-green](src/assets/snipping/ux-color-meaning-green.png)
+    - ![ux-color-meaning-orange](src/assets/snipping/ux-color-meaning-orange.png)
+    - ![ux-color-meaning-red](src/assets/snipping/ux-color-meaning-red.png)
+    - ![ux-color-meaning-voilet](src/assets/snipping/ux-color-meaning-voilet.png)
+    - ![ux-color-meaning-white-black](src/assets/snipping/ux-color-meaning-white-black.png)
+    - ![ux-color-meaning-yellow](src/assets/snipping/ux-color-meaning-yellow.png)
+
+- Color preferences
+    - ![ux-color-preference-blue](src/assets/snipping/ux-color-preference-blue.png)
+    - ![ux-color-preference-green](src/assets/snipping/ux-color-preference-green.png)
+    - ![ux-color-preference-orange](src/assets/snipping/ux-color-preference-orange.png)
+    - ![ux-color-preference-red](src/assets/snipping/ux-color-preference-red.png)
+    - ![ux-color-preference-yellow](src/assets/snipping/ux-color-preference-yellow.png)
+
