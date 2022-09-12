@@ -10,3 +10,7 @@
 
 - npx prettier --write .
 - ng update @angular-eslint/schematics
+
+## Angular
+
+- ng g c home --standalone
