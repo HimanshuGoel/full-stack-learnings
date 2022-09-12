@@ -44,7 +44,7 @@
 
 - Zone.js is a wrapper on the things which can change the state change like user interactions, http and timers, it knows when these things gets completed. Angular then subscribed to notification from zone.js so that it can run the change detection and re-render the display.
 
-  ![zone with angular](./src/assets/snipping/zone-with-angular.png)
+  ![Angular Zone](./src/assets/snipping/angular-zone.png)
 
 - Rendering targets provided by angular – browser/DOM, server-side, native mobile apps, native desktop apps.
 
