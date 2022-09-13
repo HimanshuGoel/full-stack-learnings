@@ -121,3 +121,41 @@
     - ![ux-color-preference-red](src/assets/snipping/ux-color-preference-red.png)
     - ![ux-color-preference-yellow](src/assets/snipping/ux-color-preference-yellow.png)
 
+## Unit Testing
+
+- In constructor method we should only build objects and prepares them for use. Don’t construct other dependencies, talk to external resources, execute initialization logic or application logic. Don’t write any logic in constructor. Just use assignments. We should inject dependencies assign to the private variables inside constructor.
+
+- Actually, legacy code is the one which doesn’t have automated test for it. It makes the code more brittle and harder to maintain and extend.
+
+- ![TDD History](unit-testing-tdd-history)
+
+- Types of testing - unit testing, integration testing, acceptence testing (user interface).
+
+- Immutability – an object can’t change its state. Anytime a method would change the state of the object like pushing an item on a stack, it needs to return a new copy of the object with the change. The previous instant remains unchanged. It helps us in writing concurrent code more easily
+
+- Test doubles - it is a generic term for any kind of pretend object used in place of a real object for testing purpose. Types - stubs, fakes, mocks, spies.
+
+- Stubs provide canned answers to calls made during the test. when a fake is being used as a means to guarantee a certain date is returned. A fake is stub when it needs to be setup before the action so that the action can be controlled better, but the results from the action remain the thing being tested, not the fake itself, for what the mock is used for. When a fake is the thing being tested then it is mock as a assertion.
+
+- Mocks are pre-programmed with expectations which forms a specification to be verified.
+
+- Fakes – to isolate our unit test from external resources like API calls. MOQ is a faking library that will help us avoid some of the boilerplate of faking our tests.
+
+- Unit tests are less brittle that’s why they are preferred a lot. It tests smallest behaviour.
+
+- What is pragmatism? A reasonable and logical way of doing thing. that is based on dealing with specific situations instead of ideas and theories.
+
+- Testing structure types - AAA (Act, Arrange, assert), Behavioural (Given, When, Then)
+
+- Anti-patterns – we should test the overall behaviour details instead of implementation details. So, don’t overuse of mock, prefer stub. Focus of return of the function instead of inner details. Tests should be short and to the point.
+
+- Static method should be used only for pure functions like those methods which returns same value for same input, and in future there would be not change needed for those method implementations like math library inbuilt function.
+
+- When adding code to a fixture setup or teardown is that only code that is 100 percent common to all methods should go over there. If a lot not all methods have some common code then use helper method.
+
+-In unit testing don’t use random number to generate random number to test some value, it can generate random failures. So, we should not have random logic.
+
+-We can also have the stub return a certain value if the test subject is expecting a return value. For cases where we are testing interaction behaviour we will create a mock that knows it was called, with what parameters and how many times.
+
+- Naming convention of the test method – choose any naming convention for unit tests that works for you and only try to stick with it consistently throughout the project.
+- Instead of using the manual mock we should use automatic mock like MOQ library.
