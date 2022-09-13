@@ -153,9 +153,9 @@
 
 - When adding code to a fixture setup or teardown is that only code that is 100 percent common to all methods should go over there. If a lot not all methods have some common code then use helper method.
 
--In unit testing don’t use random number to generate random number to test some value, it can generate random failures. So, we should not have random logic.
+- In unit testing don’t use random number to generate random number to test some value, it can generate random failures. So, we should not have random logic.
 
--We can also have the stub return a certain value if the test subject is expecting a return value. For cases where we are testing interaction behaviour we will create a mock that knows it was called, with what parameters and how many times.
+- We can also have the stub return a certain value if the test subject is expecting a return value. For cases where we are testing interaction behaviour we will create a mock that knows it was called, with what parameters and how many times.
 
 - Naming convention of the test method – choose any naming convention for unit tests that works for you and only try to stick with it consistently throughout the project.
 - Instead of using the manual mock we should use automatic mock like MOQ library.
