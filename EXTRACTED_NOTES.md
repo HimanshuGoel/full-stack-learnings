@@ -159,3 +159,105 @@
 
 - Naming convention of the test method – choose any naming convention for unit tests that works for you and only try to stick with it consistently throughout the project.
 - Instead of using the manual mock we should use automatic mock like MOQ library.
+
+- We should avoid loops and branching instruction in tests, they may lead to bugs in testing code. It also reduces the cyclomatic complexity.
+
+- Precondition and postconditions of a method pattern, like passing an empty array to an method. In this case the caller function should check the param input before calling to the function, in preconditions a Boolean condition which must be satisfied before a method is invoked, in postcondition a Boolean condition which must be satisfied after a method completes
+    - Method precondition - condition which must be satisfied before method is invoked.
+    - Method postcondition - condition which must be satisfied by the invoked method after it executes.
+
+- Try to avoid giving classes same names as interfaces they implement, what is specific to this class. Interface names are operating at abstract levels, class names are operating at implementation levels. Interface names are normally vague, inconclusive, while class names are sharp and to the point.
+- If a method does not want to accept null parameter then it should not throw an exception as it would be meaningless to the caller function.
+
+- We should handle exceptions like below - 
+![handling-of-exceptions](src/assets/img/unit-testing-how-to-handle-exceptions.png)
+
+- Styles of unit testing – output verification or functional verification, state verification, collaboration verification.
+
+- Writing the test is easier then running the application. Testing is not like frosting on the cake, but it is sugar or flour which needs to bake when we are preparing the cake not in the end. This is also same issue with automation testing.
+
+- We should break into code into two type of classes, one which have business logic and others which make stuffs. Don’t combine both classes.
+
+- Benefits of unit testing – higher quality, fewer defects, living documentation, well-crafted code, automatic regression harness. A unit test confirms functionality of a small unit of functionality or component in a larger system.
+
+- Code refactoring should not change the functionality of the application, in the same way the unit test case should not be fail. Refactoring is like cleaning the kitchen after serving food to customer. It improves readability, maintainability and scalability of code. We should refactor the code after fixing a failing test, before adding a new feature or after identifying a quality problem. Simple refactoring – rename, introduce parameter, extract method.
+
+- Isolating code -
+    - Dummy – it is the simplest and most primitive type of test double and will contain no implementation.
+
+```typescript
+  var person = new Person();
+  person.first = "John";
+  person.last = "Snow";
+  Assert.IsNotNull(person.fullName);
+```
+
+    - Stubs – it is a minimal implementation of a class that likely implements a given interface or some abstract base class. It doesn’t maintain state and leaves method unimplemented like it just return some hard-code value directly:
+```typescript
+public class StubRepo: IOwnerRepository
+{
+public IOwner FindById(int id){}
+public IOWner save(IOwner owner)
+{
+return new Owner();
+}
+public void Delete(IOwner owner){}
+}
+```
+    - Fake – building on a stub and adding a bit more sophistication is the idea of fake. It contains a bit more complex implementation by having state but not functional implementation. Like below we actually add and delete the list.
+    ![unit-testing-fake](src/assets/img/unit-testing-fake.png)
+    - Spy – it records the information about the interaction that it has with the SUT. This information can be available for assertion purpose by the test itself.
+    ![unit-testing-spy](src/assets/img/unit-testing-spy.png)
+    - Mock – can be used to simulate complex behaviour. We should not develop mock our self, we should use mock libraries which allows us to configure mock behaviour. Libraries example – type mock, rhino mock and MOQ.
+ 
+- We can have separate build environment for acceptance test running and can trigger once a day. We can also share it reports to business for progress:
+![unit-testing-acceptance-testing-progress-report](src/assets/img/unit-testing-acceptance-testing-progress-report.png)
+
+- Prudent code coverage – 100% code coverage doesn’t mean no defects. Use code coverage as a developer tool not a performance metric. Let the code coverage find things that are important enough to add test, but realize that it is only contextually important and it is very rare that we need to strive for any sort of code coverage numbers up around 90 and 100%.
+
+- Devi’s advocate, Gollum style and Ping Pong technique to write unit test case:
+![unit-testing-devils-advocate](unit-testing-devils-advocate)
+![unit-testing-ping-pong](unit-testing-ping-pong)
+
+- While creating an interface it should either contains all properties or all functions not both.
+
+- It is not creation of millions of objects that keep application from being efficient but it is rather the efficiency of methods that we are executing that may make it slow. So, we can create many objects using immutable objects without causing any performance issue.
+
+- We should only throw exception if there is no way for the application to continue working under circumstances, otherwise implement different use case as-well. Also, don’t handle the exception in immediate caller but at the top most caller, the one which initiated the whole operation, by this the lower parts of the code will be clean from complicated error handling code, they will focus on normal control flow. We can handle this by showing a pop-up to user, retry the function or simply ignoring the error and moving forward. While using the immutable objects try to keep them small.
+
+- While designing a class it should contains operations which naturally belongs to the class, if operation doesn’t belong to a class the move it out to a dependency and use the dependency to complete the operation.
+
+- Test doubles – dummies like a placeholder, stubs objects that return predefined data, fakes slightly more realistic, mocks objects pre-programmed with expected outputs for given inputs and also able to verify their calls, spies real object and verify interactions like mocks it is an hybrid of stubs, fakes and mocks.
+
+- Marble testing is a technique where we draw marble diagrams using ACSII characters while writing unit test to visualize asynchronous observables behavior in a synchronous way. Benefits of marble testing – readable code, test synchronously and helps to find out race condition in our code. Marble syntax - -, |, #, ^, !, a, ()
+
+- For empty observable use |, for never use _ or ----. 
+
+- Hot observables start emitting the values before any subscribe method is called on. Any subscribers can subscribe at any time and they can get the latest values at the time of subscription. They are multicast means more than one subscriber can subscribe to this observable however they will listen to the same producer. Publish and share are used to make a hot observable like tune radio channel, cinema theater, mouse clicks, live movies, live cricket match, stock tickers, live life events.
+
+![unit-testing-jasmine-marble-hot-observable](assets/img/unit-testing-jasmine-marble-hot-observable)
+
+- Cold Observable – In RxJs the observables are cold by nature. Cold is when the producer is owned by the observable. Observable creates and activates the producer at the time of subscription only. The data is created from the observable itself. Will produce data only when subscribe method has been called. Subscriber get their own copy of values and they are unicast i.e. one subscriber per producer like of, from, interval, timers. Real life example – watching downloaded movies, recorded podcast or song, snapshot movies in which each have their own copy.
+
+![unit-testing-jasmine-marble-cold-observable1](assets/img/unit-testing-jasmine-marble-cold-observable1)
+![unit-testing-jasmine-marble-cold-observable2](assets/img/unit-testing-jasmine-marble-cold-observable2)
+
+- Frame – Jasmine-marbles convers observable sequence into frames. Frame is a JSON that consists of RxJs notification object that wraps the actual delivered value with additional metadata and message type.
+
+![unit-testing-jasmine-marble-frame](assets/img/unit-testing-jasmine-marble-frame)
+
+- RxJS schedulers are centre to control the time for any operator or observables in our project. Also, RxJS has made this schedulers injectable so that we can mock these schedulers and control the time in our test cases.
+
+- Scheduler is a primitive inside RxJS, RxJS operators take scheduler as the second optional parameter. It is async by default. Marble testing uses virtual time so that we can test these async function synchronously.
+
+- Race condition scenario – in a scenario where we are searching a string, and first search return the value with a delay than second one, then in the result we will get the first result as a final response by overriding the second one. To avoid this we can use the switchMap operator, it will cancel the previous Http request in-case of second has been triggered and always return the latest result.
+
+- In integration test we test component and its template together. In integration if we only test parent component then it becomes shallow integration test otherwise if we also test its working with its child or directive component then it becomes deep integration test.
+
+- To write the integration test to test the template along with component, we need to use the ‘Testbed’.
+
+- A component fixture is a wrapper for component that also has few extra properties for testing, we can use its one of the properties called componentInstance to get the instance of the component itself.
+
+- Use fixture.detectChanges() on component spec files to tell the component to run change detection and update any binding that may exist on the component. It will also cause to ngOnInit() lifecycle to run.
+
+- The flush() method lets us decide what data to send back when the call is made.
