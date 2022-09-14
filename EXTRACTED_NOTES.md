@@ -261,3 +261,5 @@ public void Delete(IOwner owner){}
 - Use fixture.detectChanges() on component spec files to tell the component to run change detection and update any binding that may exist on the component. It will also cause to ngOnInit() lifecycle to run.
 
 - The flush() method lets us decide what data to send back when the call is made.
+
+## Typescript
