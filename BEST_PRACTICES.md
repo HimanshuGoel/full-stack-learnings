@@ -4,12 +4,22 @@ These best practices more of a knowledge sharing which have been acquired collec
 
 Not every practices herein has to be strictly followed, and even fewer will be universally agreed upon. These are guidelines and nothing more.
 
+## Table of Contents
 
-# Angular
+1. [Angular](#Angular)
+2. [CSS](#CSS)
+3. [HTML](#HTML)
+4. [Typescript](#Typescript)
+5. [Markdown](#Markdown)
+6. [Security](#Security)
+7. [UserExperiance](#User Experience)
+8. [Git](#Git)
 
-## 1. General
+## Angular
 
-### 1.1 Use proper `file namings`
+### General
+
+#### 1.1 Use proper `file namings`
 
 The Angular official style guide is pretty straight forward in providing the best way to name the files that contain the building blocks of Angular.
 
@@ -22,7 +32,7 @@ The Angular official style guide is pretty straight forward in providing the bes
 - `Routing` Modules should be suffixed with `-routing.module.ts`
 - `Other files` should be named according to what they do, for example a file containing `utility filter` functions should be stored in a file named `filtering.ts` inside a `utils` folder at the `src` level.
 
-### 1.2 Avoid using `nested subscriptions`
+#### 1.2 Avoid using `nested subscriptions`
 
 We should use `higher-order` observables like `switchMap()` to flatten or join the inner observables.
 
@@ -48,7 +58,7 @@ this.todoStore.todos.subscribe({todo: Todd[]} => {
 }
 ```
 
-### 1.3 Naming convention for `subject` and `observable`
+#### 1.3 Naming convention for `subject` and `observable`
 
 We should postfix `subject` with `subject` and observable with `$`
 
@@ -60,7 +70,7 @@ We should postfix `subject` with `subject` and observable with `$`
 );
 ```
 
-### 1.4 Do not use `functions` in the `templates`
+#### 1.4 Do not use `functions` in the `templates`
 
 We should use functions in the templates as they are bad for performance. Instead of this, we use `pipes` for smoother code execution.
 
@@ -79,11 +89,11 @@ We should use functions in the templates as they are bad for performance. Instea
 <span> {{ getSourceDetails(travelDetailsJson); }} </span>
 ```
 
-### 1.5 Use `asapSchedule` instead of `setTimeOut`
+#### 1.5 Use `asapSchedule` instead of `setTimeOut`
 
 We should use `asapSchedule` from `rxjs` instead of `setTimeOut` for adding delay.
 
-### 1.6 Use `takeUntil` or `take(1)`
+#### 1.6 Use `takeUntil` or `take(1)`
 
 Instead of writing the code for `unsubscribe` from an `observable` on a specific event like on destroying of a component, we should use `takeUntil`, `take(1)`.
 
@@ -110,7 +120,7 @@ public ngOnDestroy (): void {
 
 ```
 
-### 1.7 Avoid `logic` inside the `subscribe` function
+#### 1.7 Avoid `logic` inside the `subscribe` function
 
 By this, our code become more functional from imperative and even looks cleaner.
 
@@ -139,7 +149,7 @@ pokemon$.subscribe((pokemon: Pokemon) => {
 });
 ```
 
-### 1.8 Use `json` pipe for debugging
+#### 1.8 Use `json` pipe for debugging
 
 We should use `json` pipe to see the `data` on the `template` which is useful for debugging purpose.
 
@@ -149,7 +159,7 @@ We should use `json` pipe to see the `data` on the `template` which is useful fo
 <div><pre> {{profileForm | json}}</pre></div>
 ```
 
-### 1.9 Use `child component` when using `ngFor`
+#### 1.9 Use `child component` when using `ngFor`
 
 Whenever we write an `ngFor` directive on an HTML element with children, consider separating that element into a dependent component. This makes for lesser code in the parent component and allows to delegate any repeating logic to the child components
 
@@ -169,7 +179,7 @@ Whenever we write an `ngFor` directive on an HTML element with children, conside
 </div>
 ```
 
-### 1.10 Delegate harder than `primitive logic` from `templates` to `component methods`
+#### 1.10 Delegate harder than `primitive logic` from `templates` to `component methods`
 
 Any logic other than checking straightforward conditions should be written in the component's class method, not in the template directly. It is, writing `\*ngIf=”someVariable === 1”` in our template is OK, anything longer should be moved away.
 
@@ -194,7 +204,7 @@ Any logic other than checking straightforward conditions should be written in th
 </div>
 ```
 
-### 1.11 Use `ngFor` with `trackBy`
+#### 1.11 Use `ngFor` with `trackBy`
 
 We use the `ngFor` directive to iterate arrays in Angular templates. When we change an array, the complete `DOM tree` gets re-renders, which is not performance-wise. To solve this, we must use `ngFor` with `trackBy`, which uniquely identifies each DOM element and enables Angular to re-render only the modified element
 
@@ -218,9 +228,9 @@ export class App {
   }
 ```
 
-## 2. Patterns
+### Patterns
 
-### 2.1 Use `Declarative Data Access` pattern
+#### 2.1 Use `Declarative Data Access` pattern
 
 We should use this pattern from getting the data from service to showing it on the UI. The advantage is that we don't have to use the 'subscribe' and 'unsubscribe' code block as we use the 'async' pipe.
 
@@ -245,26 +255,25 @@ product$ = this.http.get<Product[]>(this.url).pipe(
 );
 ```
 
-### 2.2 Use `adapter pattern`
+#### 2.2 Use `adapter pattern`
 
 We should use `adapter pattern` while consuming the `3rd party library` so that we can replace them later-on without any issue.
 
+## CSS
 
-# CSS
+### General
 
-## 1. General
-
-### 1.1 Don't write `inline styles`
+#### 1.1 Don't write `inline styles`
 
 We should not write inline styles. We should use external stylesheets.
 
 **Otherwise:** You cannot reuse the styles anywhere else. Also, it the html markup of the page becomes cumbersome, and tough to parse.
 
-### 1.2 Use `class` selectors
+#### 1.2 Use `class` selectors
 
 Instead of using the `IDs` selector we should use the `class` selectors as they are reusable.
 
-#### Code Example - `Do`
+##### Code Example - `Do`
 
 ```html
 <header>
@@ -272,7 +281,7 @@ Instead of using the `IDs` selector we should use the `class` selectors as they 
 </header>
 ```
 
-#### Code Example - `Avoid`
+##### Code Example - `Avoid`
 
 ```html
 <header>
@@ -280,52 +289,51 @@ Instead of using the `IDs` selector we should use the `class` selectors as they 
 </header>
 ```
 
-### 1.2 Use `hidden` attribute
+#### 1.2 Use `hidden` attribute
 
 To hide a DOM element, you don't need JavaScript. A native HTML attribute is enough hidden. The effect is similar to adding a style `display: none;`. The element simply disappears from the page.
 
-#### Code Example
+##### Code Example
 
 ```html
 <p hidden>This paragraphs is not visible on page</p>
 ```
 
-# HTML
+## HTML
 
-## 1. General
+### General
 
-### 1.1 Do not use `placeholder` if it same as `label`
+#### 1.1 Do not use `placeholder` if it same as `label`
 
 Do not use `placeholder` if it same as `label`. The placeholder should be used to provide `hints and tips`.
 
 **Otherwise:** It will cause duplication.
 
-### 1.2 Do not use `plain text`
+#### 1.2 Do not use `plain text`
 
 We should not have plan text into HTML it should be enclosed in some element like `div` or `span`.
 
-### 1.3 Use `links` instead of `buttons`
+#### 1.3 Use `links` instead of `buttons`
 
 If `buttons` are outside of the form then we should use `links` instead of `buttons`.
 
-
 # Markdown
 
-## 1. General
+### General
 
-### 1.1 Using `numeric` list, instead of `alphabetic` list
+#### 1.1 Using `numeric` list, instead of `alphabetic` list
 
 We should use numeric list, instead of alphabetic list.
 
-# Node JS
+## Node JS
 
-## 1. General
+### General
 
-### 1.1 Do not return the `plain text` as a response
+#### 1.1 Do not return the `plain text` as a response
 
 We should not return the plain text as a response from the API. Although this is not imposed or mandated by any REST architectural style, most REST APIs by convention use `JSON` as the data format.
 
-### 1.2 Return the `error details` in the `response body`
+#### 1.2 Return the `error details` in the `response body`
 
 We should return the error details in the response body. Even better if you include which fields were affected by the error.
 
@@ -340,7 +348,7 @@ We should return the error details in the response body. Even better if you incl
 }
 ```
 
-### 1.3 Use `kebab-case` for `URLs`
+#### 1.3 Use `kebab-case` for `URLs`
 
 We should use kebab-case for URLs - For example, if you want to get the list of orders.
 
@@ -356,7 +364,7 @@ We should use kebab-case for URLs - For example, if you want to get the list of 
 /systemOrders or /system_orders
 ```
 
-### 1.4 Use `camelCase` for `Parameters`
+#### 1.4 Use `camelCase` for `Parameters`
 
 We should use camelCase for parameters. For example, if you want to get products from a particular shop.
 
@@ -372,7 +380,7 @@ We should use camelCase for parameters. For example, if you want to get products
 /system-orders/{order_id} or /system-orders/{OrderId}
 ```
 
-### 1.5 Use `Plural Name` to Point to a `Collection`
+#### 1.5 Use `Plural Name` to Point to a `Collection`
 
 We should use Plural Name to Point to a Collection.
 
@@ -388,7 +396,7 @@ GET /users
 GET /user or GET /User
 ```
 
-### 1.6 `URL` Should point to a `property` instead of a `resource`
+#### 1.6 `URL` Should point to a `property` instead of a `resource`
 
 URL should starts with a collection and ends with an identifier to keep the concept singular and consistent.
 
@@ -404,7 +412,7 @@ GET /shops/:shopId/ or GET /category/:categoryId
 GET /shops/:shopId/category/:categoryId/price
 ```
 
-### 1.7 Keep `Verbs` out of `Resource URL`
+#### 1.7 Keep `Verbs` out of `Resource URL`
 
 We should not use verbs to express our intention in the URL. Instead, use proper HTTP methods to describe the operation.
 
@@ -420,7 +428,7 @@ PUT /users/{userId}
 POST /updateUser/{userId} or GET /getUsers
 ```
 
-### 1.8 Use `Verbs` for `Non-Resource URL`
+#### 1.8 Use `Verbs` for `Non-Resource URL`
 
 If we have an endpoint that returns nothing but an operation. In this case, we can use verbs. These are not our CRUD operations but considered as functions that do a specific job in our system.
 
@@ -432,7 +440,7 @@ If you want to resend the alert to a user.
 POST /alerts/245743/resend
 ```
 
-### 1.9 Use `camelCase` for `JSON` property
+#### 1.9 Use `camelCase` for `JSON` property
 
 If we are building a system in which the request body or response is JSON, the property names should be in camelCase
 
@@ -454,7 +462,7 @@ If we are building a system in which the request body or response is JSON, the p
 }
 ```
 
-### 1.10 Include the `total` number of `resources` in the response
+#### 1.10 Include the `total` number of `resources` in the response
 
 If an `API` returns a list of objects always include the total number of resources in the response. We can use the total property for this.
 
@@ -475,13 +483,13 @@ If an `API` returns a list of objects always include the total number of resourc
 }
 ```
 
-### 1.11 Validate the `Content-Type`
+#### 1.11 Validate the `Content-Type`
 
 The server should not assume the content type. Always validate the content-type and if we want to go with a default one then use `content-type: application/json`
 
 **Otherwise:** For example, if you accept `application/x-www-form-urlencoded` then an attacker can create a form and trigger a simple POST request.
 
-### 1.12 Use correct `HTTP Methods`
+#### 1.12 Use correct `HTTP Methods`
 
 We should use correct HTTP Methods for CRUD Functions. HTTP methods serve the purpose of explaining CRUD functionality.
 
@@ -491,7 +499,7 @@ We should use correct HTTP Methods for CRUD Functions. HTTP methods serve the pu
 - `PATCH`: To update existing resources. It only updates the fields that were supplied, leaving the others alone
 - `DELETE`: To delete existing resources.
 
-### 1.13 Return correct `Status Code`
+#### 1.13 Return correct `Status Code`
 
 We should return the correct status code against the verbs. A response’s status is specified by its status code: `1xx` for information, `2xx` for success, `3xx` for redirection, `4xx` for client errors and `5xx` for server errors
 
@@ -501,11 +509,11 @@ We should return the correct status code against the verbs. A response’s statu
 - `PATCH`: 200 OK
 - `DELETE`: 204 No Content
 
-### 1.14 Use `Async/Await`
+#### 1.14 Use `Async/Await`
 
 We should use `Async/Await` instead of callbacks as it makes code more readable.
 
-### 1.15 Use `__dirname` variable and `path()` function
+#### 1.15 Use `__dirname` variable and `path()` function
 
 We should use `__dirname` variable and `path()` function to avoid different window inconsistency while defining path of a file.
 
@@ -517,30 +525,29 @@ app.get('/', function (req, res) {
 });
 ```
 
-### 1.16 Use `util.inspect()` to debug an `object`
+#### 1.16 Use `util.inspect()` to debug an `object`
 
 To debug the code we can use `util.inspect(object, showHidden=false, depth=2, colorize=true);` method. It returns a string representation of an object.
 
 # Security
 
-## 1. General
+### General
 
-### 1.1 Use `Guid ID's`
+#### 1.1 Use `Guid ID's`
 
 We should use `Guid ID's` as a random ID generator instead of using the `Sequential ID's`.
 
 **Otherwise:** It might lead to the Broken object level authorization security issue.
 
-### 1.2 Harden the `environment`
+#### 1.2 Harden the `environment`
 
 We should keep all software and its components up-to-date, remove unused features.
 
+## Typescript
 
-# Typescript
+### General
 
-## 1. General
-
-### 1.1 No `Mental Mapping`
+#### 1.1 No `Mental Mapping`
 
 We usually make mental mapping when coding quickly. Of course, things are readable and clear for us, but that's not professional since your future self or a future other developer won't understand your mapping right away.
 
@@ -560,7 +567,7 @@ names.forEach((u) => {
 });
 ```
 
-### 1.2 `Functions` should do one thing
+#### 1.2 `Functions` should do one thing
 
 A function name should be a verb or a phrase, fully exposing the intent behind it and the intent of the arguments. Their name should say what they do. You can check if your function is clean and successful if it does one thing and it does it well, as well as having a clear and meaningful name.
 
@@ -596,7 +603,7 @@ function createFile(name, isPublic) {
 }
 ```
 
-### 1.3 Use `includes()` to instead `multiple conditions`
+#### 1.3 Use `includes()` to instead `multiple conditions`
 
 We often use multiple conditions when coding. We can use an array to store multiple values because the Array object has already a built-in method named `includes`
 
@@ -616,7 +623,7 @@ if (x === 'orange' || x === 'red' || x === 'gray') {
 }
 ```
 
-### 1.4 Use `Template Literals` to concatenate strings
+#### 1.4 Use `Template Literals` to concatenate strings
 
 We should use template literals to concatenate the strings variables instead of using `+`, we can make it much lighter with the `${}` and ```
 
@@ -639,7 +646,7 @@ const msg =
   'we have supported programmes to help alleviate human suffering. \n\t';
 ```
 
-### 1.5 Avoid using `Magic Numbers`
+#### 1.5 Avoid using `Magic Numbers`
 
 A magic number means we are assigning a number with no clear meaning. Sometimes we use a value for a specific purpose, and we don't assign the value in a meaningful variable. The problem is that when someone works with your code, then the person doesn't know the meaning of that direct value.
 
@@ -660,7 +667,7 @@ for (let i = 0; i < 50; i++) {
 }
 ```
 
-### 1.6 Avoid `Deep Nesting`
+#### 1.6 Avoid `Deep Nesting`
 
 Sometimes we use nested loops that are difficult to understand. The way to handle that is to extract all loops into separate functions instead. Suppose we have an array of another array that contains another array, and we want the value of the last array. We can write a nested loop that will work for our requirements. But this is not the proper way. It will make code much cleaner, easier, less repetitive, easier to read, and reusable.
 
@@ -690,7 +697,7 @@ array.forEach((firstArr) => {
 });
 ```
 
-### 1.7 Avoid `Large Functions`
+#### 1.7 Avoid `Large Functions`
 
 When a function or a class is much larger, then it is suggested to separate it into multiples. This will make our code easier, clean, easy to understand, and also reusable. When there are individual functions, then this will be reusable in the whole application.
 
@@ -720,7 +727,7 @@ const addSub = (a, b) => {
 };
 ```
 
-### 1.8 Favor `Descriptive` Over `Concise`
+#### 1.8 Favor `Descriptive` Over `Concise`
 
 Try to use detail for any naming. Suppose we need a function that will find a user with their phone. Here we can use meaningful names, but there is a huge possibility of mistakes if there are other, similar functions. We must use a detailed, meaningful name that expresses the meaning in a nutshell.
 
@@ -740,7 +747,7 @@ const searchUser = (phone) => {
 };
 ```
 
-### 1.9 `Capitalize` Constant Values (SNAKE UPPER CASE)
+#### 1.9 `Capitalize` Constant Values (SNAKE UPPER CASE)
 
 We should fully capitalized names for constants. Snake uppercase means all the letters will be uppercase, and an underscore will separate all the words.
 
@@ -750,7 +757,7 @@ We should fully capitalized names for constants. Snake uppercase means all the l
 const DAYS_IN_A_YEAR = 365;
 ```
 
-### 1.10 Avoid `Inlining Function Types`
+#### 1.10 Avoid `Inlining Function Types`
 
 Instead of that, you should declare your types explicitly above the function. The function becomes much easier to read and understand what is going on. You will still get your IntelliSense in your editor and if you still need to understand the types, the types are declared immediately above.
 
@@ -800,7 +807,7 @@ const getBooks=(
 }
 ```
 
-### 1.11 Use `strong type checks`
+#### 1.11 Use `strong type checks`
 
 We should use `===` instead of `==`
 
@@ -820,7 +827,7 @@ if (val == 123) {
 }
 ```
 
-### 1.12 Use proper `variable naming`
+#### 1.12 Use proper `variable naming`
 
 Name your variables in a way that they reveal the intention behind them. This way they become searchable and easier to understand after a person sees them. Also, don't add extra unneeded words or context to the variable names.
 
@@ -884,7 +891,7 @@ const product = {
 product.productName;
 ```
 
-### 1.13 Use proper `function naming`
+#### 1.13 Use proper `function naming`
 
 Use long and descriptive names. Considering that it represents a certain behavior, a function name should be a verb or a phrase fully exposing the intent behind it as well as the intent of the arguments. Their name should say what they do.
 
@@ -953,7 +960,7 @@ function createShape(type) {
 }
 ```
 
-### 1.14 Use `scan` instead of `reduce` operator
+#### 1.14 Use `scan` instead of `reduce` operator
 
 Because reduce is an aggregate operator which emits aggregate result on completion, but scan is a transformational operator which emits accumulated result at each interval. It is preferred because while working with streams we want an intermittent result rather than waiting for a single aggregated result at completion.
 
@@ -971,7 +978,7 @@ source$
   .subscribe((x) => console.log(x));
 ```
 
-### 1.15 Place most of the code outside the `conditional branch`
+#### 1.15 Place most of the code outside the `conditional branch`
 
 If we have to run a certain code only if a condition is met, The problem with this approach is that the execution of the function can become difficult to follow, especially if the code in the if the branch is much longer.
 
@@ -1011,7 +1018,7 @@ function drawRectangle(e) {
 }
 ```
 
-### 1.16 Use `Optional Chaining`
+#### 1.16 Use `Optional Chaining`
 
 Optional chaining is useful when you have a big object that contains other nested objects and you want to check if some properties are available on that object without getting an error. The optional chaining `?.` is used to check if a value or a property before `?.` is `null` or `undefined`. If it is, it returns `undefined`. Otherwise, it just returns the value.
 
@@ -1044,7 +1051,7 @@ if (data && data.test) {
 }
 ```
 
-### 1.17 Use `Nullish Coalescing`
+#### 1.17 Use `Nullish Coalescing`
 
 The nullish coalescing operator `??` is a logical operator that returns its right-hand side operand when its left-hand side operand is `null` or `undefined` , and otherwise returns its left-hand side operand.
 
@@ -1069,7 +1076,7 @@ let safeValue = maybeValue || 'value';
 console.log(safeValue); // I exist
 ```
 
-### 1.18 Passing `arguments` as `objects`
+#### 1.18 Passing `arguments` as `objects`
 
 This way of passing arguments has lots of benefits: The order of the parameters does not matter anymore, allowing you to concentrate on delivering high-quality code instead of repeatedly checking the function definition. Auto-completion becomes easier as the `IDE` will focus on the specific argument that you are providing.
 
@@ -1087,7 +1094,7 @@ createProduct({
 });
 ```
 
-### 1.19 Use `Object.entries()` to check empty object
+#### 1.19 Use `Object.entries()` to check empty object
 
 We can use the `Object.entries()` method to check whether an object is empty or not. Since `Object.entries()` returns the array of the object's enumerable properties, therefore if the length of that array is `0`, that means the object is empty such that the object has `0` property.
 
@@ -1103,7 +1110,7 @@ console.log(Object.entries(sampleObj).length === 0); // false
 console.log(Object.entries(emptyObj).length === 0); // false
 ```
 
-### 1.20 Use `early return` pattern
+#### 1.20 Use `early return` pattern
 
 A code full of `if` and `else` is Inefficient, Hard to read and Hard to maintain. `Return early` is a pattern where it is recommended to return your results as early as possible instead of `else` statement usages. By applying the return early pattern, our code has become More contrived, More readable and More efficient.
 
@@ -1139,7 +1146,7 @@ function FizzBuzz(i) {
 }
 ```
 
-### 1.21 Use `dot` over `bracket` syntax
+#### 1.21 Use `dot` over `bracket` syntax
 
 We should use `dot` syntax whenever we know what our properties are, it makes code more succinct and easier to read. The only time we should use `bracket` syntax is when the property is a variable that may be subject to change.
 
@@ -1155,7 +1162,7 @@ book.preface.intro = 'Section 1';
 book['preface']['intro'] = 'Section 1';
 ```
 
-### 1.22 Use `spread` operator to conditionally add properties to object
+#### 1.22 Use `spread` operator to conditionally add properties to object
 
 We should the `spread` operator, `...`, to quickly add properties to a `object` conditionally.
 
@@ -1170,7 +1177,7 @@ const person = {
 };
 ```
 
-### 1.23 Use `in` keyword to check property exist in an object
+#### 1.23 Use `in` keyword to check property exist in an object
 
 We should use the `in` keyword to check whether a property exists in an object
 
@@ -1182,7 +1189,7 @@ console.log(salary in person); // returns true
 console.log(age in person); // returns false
 ```
 
-### 1.24 Use `multiline` over `single-line` comment
+#### 1.24 Use `multiline` over `single-line` comment
 
 We should prefer the multiline comments instead of using the single-line comment incase for the long comment text.
 
@@ -1202,7 +1209,7 @@ We should prefer the multiline comments instead of using the single-line comment
 // Which is written as multiple single line comment.
 ```
 
-### 1.25 Use `Union Types` instead of `Enum`
+#### 1.25 Use `Union Types` instead of `Enum`
 
 We should use union types instead of `enum` as they supports more features, linear and doesn't get compiled.
 
@@ -1237,7 +1244,7 @@ Const Enum
   }
 ```
 
-### 1.26 Avoid `Code Duplication`
+#### 1.26 Avoid `Code Duplication`
 
 We should do our absolute best to avoid duplicate code. Duplicate code is bad because it means that there's more than one place to alter something if you need to change some logic.
 
@@ -1302,7 +1309,7 @@ function showManagerList(managers) {
 }
 ```
 
-### 1.27 Avoid using `flags` as `function parameters`
+#### 1.27 Avoid using `flags` as `function parameters`
 
 Flags means that this function does more than one thing. Functions should do one thing. Split out your functions if they are following different code paths based on a boolean.
 
@@ -1330,7 +1337,7 @@ function createFile(name, temp) {
 }
 ```
 
-### 1.28 Avoid `positional markers`
+#### 1.28 Avoid `positional markers`
 
 They usually just add noise. Let the functions and variable names along with the proper indentation and formatting give the visual structure to your code.
 
@@ -1367,7 +1374,7 @@ const actions = function () {
 };
 ```
 
-### 1.29 Avoid `Contraction`
+#### 1.29 Avoid `Contraction`
 
 We should not use contractions. They contribute to nothing but decreased readability of the code. We should find a short, descriptive name.
 
@@ -1383,7 +1390,7 @@ const onItemClick = () => {};
 const onItmClk = () => {};
 ```
 
-### 1.30 Use `named parameters`
+#### 1.30 Use `named parameters`
 
 We should use named parameters instead of using `options` object which makes it hard to know what options a function accepts. Using named parameters for optional settings makes it easier to understand how a function should be invoked. We also doesn't have to assign it into the local variables. Also, it is okay to omit some options when invoking a function with named parameters, these properties will be marked as `undefined`.
 
@@ -1407,7 +1414,7 @@ function setPageThread(name, options = {}) {
 }
 ```
 
-### 1.31 Avoid calling `Object.prototype` methods directly
+#### 1.31 Avoid calling `Object.prototype` methods directly
 
 `Object.prototype` methods like `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf` shouldn't be called on the object itself since it may be shadowed by the properties on the `object` in question. Our object may have non-inherited properties with the same name, or it might have been created without the `Object` prototype by calling `Object.create(null)`. Therefore, to make sure that we can call those methods, we should use `call` method.
 
@@ -1420,7 +1427,7 @@ const obj = {
 const hasA = Object.prototype.hasOwnProperty.call(obj, 'a');
 ```
 
-### 1.32 Avoid using `nested subscriptions`
+#### 1.32 Avoid using `nested subscriptions`
 
 We should use `higher-order` observables like `switchMap()` to flatten or join the inner observables.
 
@@ -1446,7 +1453,7 @@ this.todoStore.todos.subscribe({todo: Todd[]} => {
 }
 ```
 
-### 1.33 Use `Type Annotations` over `Type Assertions`
+#### 1.33 Use `Type Annotations` over `Type Assertions`
 
 This enforces type safety and will cause compile-time errors if the declared type is missing any properties or wrongly typed.
 
@@ -1474,15 +1481,15 @@ const william = <Person>{
 };
 ```
 
-### 1.34 Use `compound operators`
+#### 1.34 Use `compound operators`
 
 The `++` operator was used to do `pointer arithmetic`, now it is used to add `1` to variable. We should not use this operator. Instead of this, we use `compound operators` like `+=`.
 
-### 1.35 Avoid assigning variable as `undefined`
+#### 1.35 Avoid assigning variable as `undefined`
 
 As a developer we should not assign `undefined` to `variables`, we let the `JavaScript` to do that, we should use `null` assignment in that case. The `null` is an object type and type of `undefined` is `undefined` itself.
 
-### 1.36 Use conditionals encapsulation
+#### 1.36 Use conditionals encapsulation
 
 We should wrap the conditional block into a function by having descriptive name. It will increase the readiablity.
 
@@ -1502,7 +1509,7 @@ if (fsm.state === 'fetching' && isEmpty(listNode)) {
 }
 ```
 
-### 1.37 Don't ignore caught errors
+#### 1.37 Don't ignore caught errors
 
 Doing nothing with a caught error doesn't give you the ability to ever fix or react to said error. Logging the error to the `console` (console.log) isn't much better as often times it can get lost in a sea of things printed to the `console`. If you wrap any bit of code in a `try/catch` it means you think an error may occur there and therefore you should have a plan, or create a code path, for when it occurs.
 
@@ -1532,7 +1539,7 @@ try {
 }
 ```
 
-### 1.38 Don't ignore rejected promises or observables
+#### 1.38 Don't ignore rejected promises or observables
 
 For the same reason you shouldn't ignore caught errors from `try/catch`.
 
@@ -1566,7 +1573,7 @@ getData()
   });
 ```
 
-### 1.39 Use Logical nullish assignment (??=)
+#### 1.39 Use Logical nullish assignment (??=)
 
 The logical nullish assignment (`x ??= y`) operator only assigns if `x` is `nullish` (null or undefined).
 
@@ -1586,7 +1593,7 @@ if (!user.twitterName) {
 }
 ```
 
-### 1.40 No Implicit Else
+#### 1.40 No Implicit Else
 
 Tt causes problems like readability, cognitive load, unforeseen conditions and fail-fast principle violation. Th solution can be to write the explicit else. If we early return on an `if` sentence then we can omit the `else` part.
 
@@ -1616,7 +1623,7 @@ function carBrandImplicit(model) {
 }
 ```
 
-### 1.41 Avoid using private keyword
+#### 1.41 Avoid using private keyword
 
 In TypeScript, we have 2 ways to make fields in a class private. There is the old private keyword, which can only be used in TypeScript. Then there’s the new #field syntax, a feature of ECMAScript 2022.
 
@@ -1638,7 +1645,7 @@ class Test {
 }
 ```
 
->Optional properties - Defining properties as optional that are sometimes there and sometimes not. We should clearly expressed,model which combinations exist and which don’t. Defining properties as optional in lieu of dividing types is easier and generates less code. It also needs a sound understanding of the product being developed and can limit usage of code if assumptions about the product change.
+> Optional properties - Defining properties as optional that are sometimes there and sometimes not. We should clearly expressed,model which combinations exist and which don’t. Defining properties as optional in lieu of dividing types is easier and generates less code. It also needs a sound understanding of the product being developed and can limit usage of code if assumptions about the product change.
 
 **Avoid**
 
@@ -1666,7 +1673,7 @@ type: 'physical'
 sizeInKg?: number
 }
 
->One letter generics - Should Give a full descriptive type name.
+> One letter generics - Should Give a full descriptive type name.
 
 **Avoid**
 function head<T>(arr: T[]): T | undefined {
@@ -1679,29 +1686,29 @@ function head<Element>(arr: Element[]): Element | undefined {
 return arr[0]
 }
 
-# User Experience
+## User Experience
 
-## 1. General
+### General
 
-### 1.1 Use `Typeahead` or `Combobox`
+#### 1.1 Use `Typeahead` or `Combobox`
 
 If a `lookup` has lots of values then make it `Typeahead` component or `combobox`. It will give `select` and `textbox` both to the user.
 
 **Otherwise:** User might have bad user experience while scanning all the value.
 
-### 1.2 `Forms` should be `one column`
+#### 1.2 `Forms` should be `one column`
 
 One-column forms are more comfortable to scan and conform better to mobile displays.
 
 **Otherwise:** Multiple columns can strain a user and cause them to skip fields accidentally.
 
-### 1.3 Present `checkboxes` and `radios` vertically
+#### 1.3 Present `checkboxes` and `radios` vertically
 
 It's easier to scan checkbox and radio options when presented vertically. However, presenting options with associated graphics can add an extra dimension to the design that negates the need for a vertical presentation.
 
 ![image](images/developers/user-experience/show-vertically.jpeg)
 
-### 1.4 Show all `selection options` if < `6`
+#### 1.4 Show all `selection options` if < `6`
 
 Use a drop-down selector when there are over 5 options and incorporate search within the drop-down when greater than 25 options otherwise we should use radio-box. However, it's okay to use a drop-down selector for under 6 options if space is limited, like in certain inline editing situations.
 
@@ -1709,32 +1716,33 @@ Use a drop-down selector when there are over 5 options and incorporate search wi
 
 ![image](images/developers/user-experience/show-radio-instead-selections.jpeg)
 
-### 1.5 Size the `modal` window appropriately
+#### 1.5 Size the `modal` window appropriately
 
 The size of modal window shouldn't be too large. The modal window shouldn't take the entire screen. Ideally, it shouldn't take more than 25% of the screen for the overlay. If you cannot fit your content in a window and want to use a scroll bar, its' probably better to create a separate page for that purpose.
 
-### 1.6 Don't use `nested modals`
+#### 1.6 Don't use `nested modals`
 
 Never design a modal window that triggers a modal window.
 
 **Otherwise:** It will add visual complexity to your design.
 
-### 1.7 Use `flat` buttons on modals
+#### 1.7 Use `flat` buttons on modals
 
 To unify the button action with the dialog content.
 
 ![image](images/developers/user-experience/flat-buttons-on-modals.png)
 
-### 1.8 Use `Raised` and `Ghost` buttons
+#### 1.8 Use `Raised` and `Ghost` buttons
 
 For primary actions, use raised buttons and for secondary or tertiary content we can use ghost buttons.
 
 ![image](images/developers/user-experience/primary-and-ghost-buttons.png)
 
+## Git
 
+### 1. General -
 
-
-## Git commit message
+#### 1.1 Use prefixes for message
 
 ```shell
 docs - , feat - , fix - , perf - , refactor - , revert - , style - , test -
