@@ -7,6 +7,7 @@
 3. [User Experience](#user-experience)
 4. [Typescript](#typescript)
 5. [Unit Testing](#unit-testing)
+6. [Security](#security)
 
 ## VS Code
 
@@ -271,3 +272,69 @@ public void Delete(IOwner owner){}
 - The flush() method lets us decide what data to send back when the call is made.
 
 ## Typescript
+
+## Security
+
+- Content Security Policies (CSP) Reporting - It is regarding the policies send alongside with website says where can this page load images, scripts and styles from, and where the form can post the requests and the browser will restrict the page accordingly. We can send it either in http header or metatags. We can also mention the report-uri where those reports will be sent. It was originally design to stop cross side scripting.
+
+```typescript
+Content-Security-Policy: upgrade-insecure-requests
+Content-Security-Policy-Report-Only: default-src https:;report-uri https://demo.report-uri.com/r/default/csp/reportOnly
+```
+
+- Certificate Authority Authorization (CAA) Reporting - CAA is much safer than HPKP, by which we can say whom we want to authorize some particular CAs to be able to issue certificates for us.
+
+- Cross-site Scripting (XSS) Reporting - Now, the browser has built-in an XSS auditor, in XSS attack we generally have kind of get parameter they sent to the server, rendered into the DOM and then reflected back to the browser.
+
+```typescript
+x-xss-protection: 1; report=https://report.uri.com/xss/enforce
+```
+
+- Broken Authentication – passwords are very vulnerable and very in-secure. We can refer haveibeenpwned.com and avoid user to choose the password which were breached in history. The password rotation was never a good policy and it works against us as humans are terrible at passwords.
+
+- Sensitive data exposure – SSN, credit cards information, addresses, religion, health records, political affiliation, birthday. Combination of these information can become dangerous.
+
+- XML external entities (XXE) – SAST static source code analysis (manual code reviews), we can also use DAST tool for testing.
+
+- Broken access control – IDOR, indirect object references, where we can twiddle a value in the URL to get someone else’s data. We should test access control so that we can’t do things outside of our privilege level.
+
+- Security Misconfiguration – weak ciphers, SSL problems, we can use tools to check them. 
+
+- Cross-site scripting (XSS) – latest frameworks are helping to prevent this vulnerability.
+
+- Insecure deserialization – remote command execution (RCA) running command on other server, and another thing is changing the serialized objects to elevate our privileges to do something interested, tempering of objects. To avoid this, we can use HMAC and check the validity of object type on server to check its integrity.
+
+- Using components with knows vulnerabilities – we should break our build if any vulnerable component is found. Latest package manager automatically detects such problem with 3rd party libraries and CICD we should break the build. We can use CSP to avoid such issues.
+
+- Insufficient logging and monitoring – we should have some sort of audit trails in place.
+
+- HSTS helps us ensure that connections are always made securely and they never drop back to HTTP.
+
+- What Is Serialization and Deserialization? - When we want to store an object to disk then we need to represent the multi-dimensional object into a flattened format. So, serialization is converting an object into a byte stream. A byte stream can be a file or a data stream over a network.
+
+- Insecure deserialization – (serialized) data abusing the security of an application when being deserialized. Abuse of logic, corrupt data, denial of service, remote code execution. It is possible to execute arbitrary code merely by deserializing a corrupted or untrusted file. It affects confidentiality, integrity and availability.
+
+- We should not use equal sign to compare the two strings as it is not cryptographically secure, as it will lead to timing attach, so always use built-in functions to compare hashes with each other.
+
+- The dangers of logging too much – legislation, confidentiality (credentials, payment details, sensitive information), information overload, cost of processing information. Information exposure through and error message – the dangers of showing users, or non-privileged accounts error messages.
+
+- Certificate authorities – it is an entity that issues digital certificates. Our machine needs to trust a CA. The CA signs the certificate; and when it is returned to the browser from the website, our machine validates that the certificate is legitimate by referring to our local list of trusted authorities. To check this list use certmgr.msc from run command, this list is used by windows, ie and chrome.
+
+- SSL vs. TLS – we should ideally use term TSL not SSL as SSL is dead already:
+
+- HTTP strict transport security (HSTS) – now redirect will give 307 status instead of 301, also the size would be 0. The browser will perform 307 internal redirect. Once our browser sees the STS response header, for the period of time, specified in that max age value, it will not make an insecure request to that domain.
+
+```typescript
+strict-transport-security: max-age=2592000
+```
+
+```typescript
+Status Code: 307 Internal Redirect
+Non-Authoritative-Reason: HSTS
+```
+
+- Secure cookies – capturing someone cookie will lead to session hijacking. Secure cookie will not get send over insecure connection. So, always use secure cookies flag as default setting:
+
+![secure cookie settings](security/secure-cookie-settings)
+
+- 
