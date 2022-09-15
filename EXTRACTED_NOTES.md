@@ -1,4 +1,12 @@
-# Extracted
+# Extracted Learnings
+
+## Table of Contents
+
+1. [VS Code](#vs-code)
+2. [Angular](#angular)
+3. [User Experience](#user-experience)
+4. [Typescript](#typescript)
+5. [Unit Testing](#unit-testing)
 
 ## VS Code
 
