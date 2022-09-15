@@ -12,7 +12,7 @@ Not every practices herein has to be strictly followed, and even fewer will be u
 4. [Typescript](#Typescript)
 5. [Markdown](#Markdown)
 6. [Security](#Security)
-7. [User Experiance](#User Experiance)
+7. [User Experiance](#User-Experiance)
 8. [Git](#Git)
 
 ## Angular
