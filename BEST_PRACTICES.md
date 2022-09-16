@@ -181,7 +181,7 @@ Whenever we write an `ngFor` directive on an HTML element with children, conside
 
 #### 1.10 Delegate harder than `primitive logic` from `templates` to `component methods`
 
-Any logic other than checking straightforward conditions should be written in the component's class method, not in the template directly. It is, writing `\*ngIf=”someVariable === 1”` in our template is OK, anything longer should be moved away.
+Any logic other than checking straightforward conditions should be written in the component's class method, not in the template directly. It is, writing `\*ngIf="someVariable === 1"` in our template is OK, anything longer should be moved away.
 
 **Code Example** - `Do`
 
@@ -220,8 +220,8 @@ We use the `ngFor` directive to iterate arrays in Angular templates. When we cha
 })
 export class App {
   products:[];
-  {id:0, name: “product 1”},
-  {id:1, name: “product 2”}
+  {id:0, name: "product 1"},
+  {id:1, name: "product 2"}
   ];
   productById(index, product){
     return product.id;
