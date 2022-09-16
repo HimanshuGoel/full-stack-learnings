@@ -1,5 +1,7 @@
 # Extracted Learnings
 
+These learnings have been pulled out from various notes acquired from various trainings, articles, books, etc. These learnings can be considered as a quick reference notes in case of a brush up on a particular topic.
+
 ## Table of Contents
 
 1. [VS Code](#vs-code)
