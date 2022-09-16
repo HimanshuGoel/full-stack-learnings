@@ -339,4 +339,112 @@ Non-Authoritative-Reason: HSTS
 
 ![secure cookie settings](security/secure-cookie-settings)
 
+- Using HTTPS will reduce the load on client and server both sides. As HTTP uses 1.1 protocol but HTTPS uses h2 protocol i.e. HTTP2, and HTTP2 allows for a binary stream of content, so lots of data coming down to the parallel. HTTP2 is only supported over TLS.
+
+- Getting new certificate and renewing it has very less cost involved. We can use letsencrypt.org for free certificate authority. We can use cerbot.eff.org for automatically renewal of the certificates.
+
+- To avoid enumeration risk, show below message when login failed, like a generic message, don’t say that user doesn’t exist:
+
+![security-avoid-enumeration-risk]()
+
+- Even in below case, if user type unavailable password then don’t show that it doesn’t exist, as we don’t want to show presence of a user on our system:
+
+![security-avoid-enumeration-risk2]()
+
+- To solve an issue where account is already exist, sent an email to their registered email, so do not show message like "Username already taken".
+
+- Brute force attack is to guess someone else password again and again, hackers use botnet for this which provides thousands of different IP addresses, so we cannot verify the request per address. If someone try to do failed login with many attempts, we can simply lock his account or can have a buffer for some minutes to let them retry. Or use OAuth with google or Facebook to delegate this problem to them.
+
+- In password strength do not put maximum limit threshold, as user want to use pass phrase.
+
+- With anti-automation aka Captcha is bad for user experience, it is used to avoid bot to create spam registrations. Using Captcha on registration/signup is okay as it will be one-time activity for a user, but we should not use it on login.
+
+- Multiple simultaneous logins – it depends upon business needs, like for bank website we should not allow it, but for website like stackoverflow.com we might allow it as user wants to open that website from multiple of devices. It is also not feasible on server to know whether a user is logged-in or not, as the cookie is based on client interaction.
+
+- Broken authentication and session management – to protect the cookie from session hijacking, we can secure it by setting it as HTTP only by this cookie cannot be read by client script to avoid XHR attach to read that cookie, if we also set the secure flag to true then it can only be sent over HTTPS connection.
+
+- X-Frame-Options – if we use deny value then it means this page cannot be framed, means cannot be put inside iframe of any other page. This helps in prevent click checking.
+
+```typescript
+X-Frame-Options: Deny
+```
+
+- Security threats on server side - SQL injection, insufficient authorization, weak credential storage
+
+- Security threats on client side - Cross site scripting, insufficient transport layer security, clickjacking
+
+- Non-standard and browser prefixed headers – headers started with X was browser specific and has been deprecated now – X-Content-Security-Policy, X-WebKit-CSP, X-Frame-Options, X-XSS-Protection.
+
+- Using HSTS (HTTP Strict Transport Security) – it will tell the browser you may not make an insecure request. Internally within the browser, you need to redirect or effectively go and make that request securely. That’s it also took only fraction of millisecond for first request with 307 status code, so by this the man in the middle won’t see this first request but the second request only.
+
+```typescript
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+```
+
+- HTTP Public Key Pinning (HPKP) - This is progression over HSTS, which tells the website must also serve a particular certificate that the browser expects, not just on that’s valid but one that adheres to a very specific set of criteria, to avoid a scenario where certificate authority itself gets compromised.
+
+```typescript
+Public-Key-Pins: pin-sha256=[pin 1]; pin-sha256=[pin 2]; max-age=2592000; report-uri=[uri];includeSubdomains
+```
+
+- The frame-ancestors – to avoid clickjacking attacks. Attacker would embed the targeting website in his website into an iframe, then making that target website transparent putting content the attacker provides under the target website and enticing the user to click what they think is a button the attacker’s website but instead clicking a button on the target website. We can avoid this by this header so that our websites won’t be framed into some other website.
+
+```typescript
+frame-ancesors: 'none';
+```
+
+- Brute force attacks – an attacker trying over and over again to execute some sort of online process like trying to login into someone account with different password.
+
+- Cross site request forgery – changing the password or account details using context of hacker. Use anti-forgery token to avoid this.
+
+- Encryption is also not secure, because as soon as the encrypted key is found, entire system can be decrypted back.	 Instead of this we should use cryptography using hash so that no one can decrypt them back.
+
+- We need to use hashing with a salt to avoid getting same output with same input, it also protects with rainbow table problems, but we need to use hash algorithm properly:
+
+![security-hash-with-salt]()
+
+- Email as username vs. free text for username for uniqueness – we should prefer email as username. Email as username is easier to remember, one less field to capture at signup, it is already unque per user, must be able to change in future. Free text for username can be dispalyed to user with less privacy risk, enable multiple accounts agains one email, requires a "retrieve my username feature".
+
+- Password strength criteria – don’t limit the max entry criteria, also don’t put any condition for not having special characters, don’t discriminate with some character, allow user to pass any character. Pass phrases are stronger. We can use utility like 1password to generate password and saving it into centralize place.
+
+- We can also make backend call to check whether password is very simple to crack, then show as invalid like below, we can check it with bad list of passwords.
+
+- Don’t disable the password paste option on the field. People disable it to avoid brute force attack, but disabling the paste option, make the other worst problems like bad UX. To solve a problem, if that solution makes the problem worse than it is called as cobra effect.
+
+- Verifying accounts via Email to avoid entering fake and corrupted emails, as user can use any random or someone else email’s id.
+
+- Using CAPTCHA for anti-automation – suppose someone made a automation tool and in make thousands to call for sign-up then that email person will get those many emails which will lead to spamming. To avoid this, we use re-captcha.
+
+- Protecting the logon against brute force – degrade the service means for each time failed logon take some more time for re-login and sending the response back by using thread sleep, and we can return a message that maximum retry has been exceeded, please try after sometime. So, each request will take longer time, server can track number of hits against the account.
+
+- Don’t lock an account out as it will lead to DoS (denial of service) attack. We should degrade the service and log everything. Don't lock an account out, restrict logon by IP and limit attemts with a cookie.
+
+- We should generally allow simultaneous logons by a user from different machine, unless business requirement like banking website, but to not allowing multiple simultaneous logons will have many edge cases which we need to support as-well like unsaved data.
+
+- Remember Me - This feature frequently implemented insecurely, by using user name and password in cookie and using it for re-login. It is a feature which requires trade-offs: security versus usability. It can disclose the credential of a user. It reduces the fiction of return visits for frequently used services like stackoverflow.com. It allows long-running sessions. But it increases numerous risks – someone else using the PC, a CSRF risk being exploited, if someone has access to unlocked machine. To make available this feature, it depends upon the nature of the application. We can give this option just for remembering the Client ID not password for sensitive websites, but this is not a remember me feature completely as it won’t do the auto login when user comes back to the website
+
+- If we have expiry as ‘session’, then if we close the browser and reopen it, we won’t be able to logged on, the cookie will go away. If we use remember me feature, then it will have one more cookie for expiry of 1 year, it will not go away and reauthenticate the user again automatically. To implement it securely, don’t create remember me cookie, just change the auth token cookie from session scope to sometime duration scope like for a week, also mark http and secure flag as true. Additional security controls – like ebay we can choose an approach where we are breaking the cookie into two parts, first for user identity for long expiration time, and another cookie which requires for financial activity for short duration and re-authenticate user for the financial activity only.
+
+- How attackers change account details – direct browser access, credential theft, CSRF, session hijacking (sending session on HTTP connection on in query strings), social engineering.
+
+- Account attributes attackers want to change – password, email, identity, credit card, attackers can chain together these many information and processes in order to gain access to a victim’s account.
+
+- To change the password or email, we should also ask the current password as-well, also keep change password feature on its own page
+
+- Account change notification – to cater a scenario where attacker already got the access for legitimate password, we need to notify the changes on different channel as-well like email or SMS. We should not allow to change the email address without first confirming via the original email address on the account. But if user not have access to original email then it will be a problem, then we can solve this by directing to manual human interaction at support desk.
+
+- The risk of password hints – don’t use password hint in any circumstances.
+
+- Why logging off is important – due to remember me we can have a long running session – also in browser if we choose below feature, then browser won’t delete the cookie after browser gets closed browser even if we don’t use remember me feature, so to avoid this we need to provide explicitly logoff functionality.
+
+- What constitutes of logging off – it removes the authentication token, by setting remember me token as empty and setting cookie expiry one day ago already.
+
+-  Web application firewalls (WAF) – we can get it by using Cloudflare service, it will look request pattern and reject it if it found malicious before allowing it to hit the actual web server:
+
+![security-web-application-firewalls]()
+
+- We should keep common barrier of defines around and apply same business rules like for brute force check, whether it is getting called by API, mobile, desktop or some admin. To have code reuse pattern will help here to avoid inconsistency of codding logic for different channels.
+
+- We humans are the weakest link in the security chain.
+
 - 
