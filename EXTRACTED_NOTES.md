@@ -447,4 +447,88 @@ frame-ancesors: 'none';
 
 - We humans are the weakest link in the security chain.
 
+- In symmetric cryptography same key is used to decrypt and encrypt the message, but asymmetric cryptography uses different keys to avoid man in the middle attack
+
+- Types of cryptograph algorithms – symmetric, asymmetric and hash functions.
+
+- Asymmetric algorithms – public and private keys, the RSA algorithm.
+
+- Big O notation allows us to express in terms of the size of the input, the amount of work takes to solve the problem -
+
+- ![security-bigo-notation-types](security-bigo-notation-types)
+
+- Public key can identify somebody, and their private key can prove their identity.
+
+- OpenID Connect – it allows users to log in to 3rd party sites using their Facebook or twitter or google credentials. It is built on top of OAuth.
+
+- Evolution of software ecosystem -
+
+![security-evolution-of-software-ecosystem](security-evolution-of-software-ecosystem)
+
+- Types of versioning – calendar based, sequence based and semantic based versioning. Recommended is semantic based versioning.
+
+- Common sources of untrusted data – in the URL via a query string or route, posted via a form, in cookies, in the request headers, external services, our own database.
+
+- We should sanitize the data right after receiving from the user. So, if user trying to search like “<i>enzo</i>” then the text should display on the screen in encoding form of it i.e. &lt;i&gt;enzo&lt;/i&gt;
+
+- Cookies - It is simply a text of data stored in browser. Cookie attributes – domain, path, expiration, HttpOnly, secure. To reduce risk further we can set expiration time on cookies. For some we can set for current session only and for some for a shorter or longer time even if user close his browser.
+
+- We should trim down all the header from HTTP response which might disclose the framework or the server underline technologies details. We can also change the header properties sort order and default bad request or default response format which was specific to some server format to avoid attacker guessing the server details.
+
+- HTTP fingerprinting of servers – it is to identifying various attributes of a particular website which might lead it to disclose what is running underneath.
+
+- Fuzz testing – it is the process for searching for vulnerabilities does commonly adhere to a very regular pattern like in XSS to avoid laborious manual testing, and we bombarding an application with random data with those patterns. We can use third party tool like intruder21 or fuzzdb for doing fuzz testing.
+
+- Mounting a clickjacking attack – in this the attacker will also get the access of anti-forgery token by rendering the website into iframe and setting as opacity to 0, and below to that page will render the corrupted website. In below the I “Wanna win!” button is overlay on “Change Password” button
+
+- We should store password using hashed approach while saving the database. If we store it into plain text then there is cryptography, everthing is immediately exposed if the password storage is breached. If we use ecrypted approach, then it can also get decrypted which makes is less secure. Only if we use hashed approach, it would become one-way, dterministic algorithm which means that password can't be unhashed.
+
+- We should re-authenticate the user before key actions, like asking current password on change password screen.
+
+- Unlike browser, mobile app doesn’t have secure paddle lock icon, as mobile app doesn’t run in browser. The mobile app, company itself handle the client communication, so we should not always trust the mobile apps.
+
+- We can have two types of certificates DV and AV. Below is an AV certificate, it requires a business name also need to be registered.
+
+![security-padlock](security-padlock)
+
+- We can connect fiddler for the remote machine-like android device from our computer. By this we can intercept mobile app data in fiddler. By we can get a sense for how device is communicating with backend servers.
+
+- Instead of using the .png format we should use .jpeg format as it has better compression and can reduce the data size 75%.
+
+- By using Wi-Fi Pineapple and LAN Tap, we can monitor the traffic even for those devices which makes hard to proxy traffic like IOT devices. 
+
+- Discovering leaky API’s – we should not return sensitive data from the web API in normal text form, also don’t return the data which is not need or non-essentials data on client side
+
+- The role of OpenID Connect and OAuth – OpenID Connect is a simple identity layer on top of the OAuth protocol. It allows clients to verify the identity of the end-user based on the authentication performed by an Autorization Server, as well as to obtain basic profile information about the end-user in an interoperable and REST-like manner. OpenID is for authentication and OAuth is for Authorizatio
+
+- Configuring fiddler to decrypt encrypted connections – it will install its root certificate on our windows machine, by this we  just compromised our system (PC) only.
+
+- LDAP kept our user directory together, assign roles and query information about the user.
+
+- OAuth2 is about requesting access tokens from an authorization serve, then we can use this token to talk with backend service. OAuth is an open protocol to allow secure authorization in a simple and standard method from web, mobile and desktop applications. OAuth is about delegating authorization; means we want to authorize a client to access our resources on our behalf.
+
+![security-oauth-architecture](security-oauth-architecture)
+
+- The idea of OAuth2 is how we can create valet parking key, not the master key. By which a resource owner gives the client a key to access the resources on the resource’s behalf, without giving the client master key aka the password.
+
+- OpenID connect means the application doesn’t need to connect with back-end service, but it needs to know who the user is. It is for authentication.
+
+- Security tokens are protected data structures, contain information about issuer and subject, signed and typically contain an expiration time. A client requests a token, an issuer issues a token and a resource like API consumes a token, that resource has a trust relationship with the issuer.
+
+- History of token - SAML (XML based, very expression, many ecryption & signature options), Simple Web Token (SWT), JSON web tokens (JWT).
+
+- JWT structure and format - headers (metadata, algorithems & keys used), claims (issuer, audeince, issue at, expiration, subject, other application defined claims)
+
+![security-jwt-token-format](security-jwt-token-format)
+
+- There are two type of tokens access tokens (short lived) and refresh token (long lived).
+
+- OpenID Connect - It is built on top of OAuth2, and sometime we just need authentication at least to begin with to identify user in an application. OAuth2 is regularly abused for that.
+
+- OpenID connects adds some new concepts like ID token and UserInfo endpoint. OpenID code flow – identity provider, authorization endpoint, token endpoint, userinfo endpoint.
+
+- OAuth2 Concerns - Specification bloat, bearer tokens, security theatre, attack surface.
+
+## Node JS
+
 - 
