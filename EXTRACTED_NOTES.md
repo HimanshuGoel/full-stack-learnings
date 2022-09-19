@@ -4,16 +4,19 @@ These learnings have been pulled out from various notes acquired from various tr
 
 ## Table of Contents
 
-1. [VS Code](#vs-code)
-2. [Angular](#angular)
-3. [User Experience](#user-experience)
-4. [Typescript](#typescript)
-5. [Unit Testing](#unit-testing)
-6. [Security](#security)
+- [Extracted Learnings](#extracted-learnings)
+  - [Table of Contents](#table-of-contents)
+  - [VS Code](#vs-code)
+  - [Angular](#angular)
+  - [User Experience](#user-experience)
+  - [Unit Testing](#unit-testing)
+  - [Typescript](#typescript)
+  - [Security](#security)
+  - [Node JS](#node-js)
 
 ## VS Code
 
-- Fast, cross platform, intellisene and auto complete, debugging, rich refactoring, sits perfectly between editor and IDE.
+- Fast, cross platform, intellisense and auto complete, debugging, rich refactoring, sits perfectly between editor and IDE.
 
 - What is Editor - lightweight/fast, file/folders, many languages, many workflows, keyboard centered
 
@@ -75,13 +78,14 @@ These learnings have been pulled out from various notes acquired from various tr
 
 - Wireframe types - Low-fidelity, High-fidelity.
 
-- Principles - Alignment, Contrast, Visual heirarchy, Proximity, Layouts, Whitespace, Consistency.
+- Principles - Alignment, Contrast, Visual hierarchy, Proximity, Layouts, Whitespace, Consistency.
 
-- UX Testablity 
-    - Visiblity of System Status - the system should always keep users informed about what is going on, through appropriate feedback within reasonable time. Like showing username on login, showing copy/delete progress windows OS.
-    - Match between system and the real world - the system should speak the user's language, with words, phrases and concepts familier to user. Like not using words like `Accept/Decline` but `Save password/Nope`.
-    - Error prevention - like showing auto-compmlete, showing confirm dialog before deleting the record.
-    - Recognition rather than recall - showing dropdown, intellisense
+- UX Testability
+
+  - Visibility of System Status - the system should always keep users informed about what is going on, through appropriate feedback within reasonable time. Like showing username on login, showing copy/delete progress windows OS.
+  - Match between system and the real world - the system should speak the user's language, with words, phrases and concepts familiar to user. Like not using words like `Accept/Decline` but `Save password/Nope`.
+  - Error prevention - like showing auto-complete, showing confirm dialog before deleting the record.
+  - Recognition rather than recall - showing dropdown, intellisense
 
 - The good user experience has 3 desired results – happy, satisfied and productive. Our ultimate results should be delighted, contented, and empowered.
 
@@ -97,7 +101,7 @@ These learnings have been pulled out from various notes acquired from various tr
 
 - A UX developer can bring efficiency, logic, relevance, user advocacy, research, communication, effectiveness, interaction, elegance, simplicity.
 
-- Types of industry - Finance, Education, Retail, Healthcare, Business & IT Services, Research & Developement, Goverment and Defence.
+- Types of industry - Finance, Education, Retail, Healthcare, Business & IT Services, Research & Development, Government and Defense.
 
 - In natural world there is no monochrome except blue sky overhead on a clear day, even sky is a gradient. So, while creating UI component use gradient from light to dark as top down lighting bias to makes the screen appear as more natural not as artificial monochrome. And the gradient shouldn’t be noticeable and flashy
 
@@ -112,25 +116,27 @@ These learnings have been pulled out from various notes acquired from various tr
 - Reserve confirmation for very exceptional circumstances, otherwise it will dilute its value like in windows vista. Instead of this we can provide some undo like functionality or show a countdown before making the commit to the database, this is called forgiveness
 
 - Web fonts recommendations
-    - ![web-fonts-recommendatsions1](src/assets/snipping/web-fonts-recommendations1.png)
-    - ![web-fonts-recommendatsions1](src/assets/snipping/web-fonts-recommendations1.png)
-    
+
+  - ![web-fonts-recommendations1](src/assets/snipping/ux-web-fonts-recommendations1.png)
+  - ![web-fonts-recommendations2](src/assets/snipping/ux-web-fonts-recommendations2.png)
+
 - Color meanings
-    - ![ux-color-meaning-blue](src/assets/snipping/ux-color-meaning-blue.png)
-    - ![ux-color-meaning-brown](src/assets/snipping/ux-color-meaning-brown.png)
-    - ![ux-color-meaning-green](src/assets/snipping/ux-color-meaning-green.png)
-    - ![ux-color-meaning-orange](src/assets/snipping/ux-color-meaning-orange.png)
-    - ![ux-color-meaning-red](src/assets/snipping/ux-color-meaning-red.png)
-    - ![ux-color-meaning-voilet](src/assets/snipping/ux-color-meaning-voilet.png)
-    - ![ux-color-meaning-white-black](src/assets/snipping/ux-color-meaning-white-black.png)
-    - ![ux-color-meaning-yellow](src/assets/snipping/ux-color-meaning-yellow.png)
+
+  - ![ux-color-meaning-blue](src/assets/snipping/ux-color-meaning-blue.png)
+  - ![ux-color-meaning-brown](src/assets/snipping/ux-color-meaning-brown.png)
+  - ![ux-color-meaning-green](src/assets/snipping/ux-color-meaning-green.png)
+  - ![ux-color-meaning-orange](src/assets/snipping/ux-color-meaning-orange.png)
+  - ![ux-color-meaning-red](src/assets/snipping/ux-color-meaning-red.png)
+  - ![ux-color-meaning-violet](src/assets/snipping/ux-color-meaning-violet.png)
+  - ![ux-color-meaning-white-black](src/assets/snipping/ux-color-meaning-white-black.png)
+  - ![ux-color-meaning-yellow](src/assets/snipping/ux-color-meaning-yellow.png)
 
 - Color preferences
-    - ![ux-color-preference-blue](src/assets/snipping/ux-color-preference-blue.png)
-    - ![ux-color-preference-green](src/assets/snipping/ux-color-preference-green.png)
-    - ![ux-color-preference-orange](src/assets/snipping/ux-color-preference-orange.png)
-    - ![ux-color-preference-red](src/assets/snipping/ux-color-preference-red.png)
-    - ![ux-color-preference-yellow](src/assets/snipping/ux-color-preference-yellow.png)
+  - ![ux-color-preference-blue](src/assets/snipping/ux-color-preference-blue.png)
+  - ![ux-color-preference-green](src/assets/snipping/ux-color-preference-green.png)
+  - ![ux-color-preference-orange](src/assets/snipping/ux-color-preference-orange.png)
+  - ![ux-color-preference-red](src/assets/snipping/ux-color-preference-red.png)
+  - ![ux-color-preference-yellow](src/assets/snipping/ux-color-preference-yellow.png)
 
 ## Unit Testing
 
@@ -138,9 +144,9 @@ These learnings have been pulled out from various notes acquired from various tr
 
 - Actually, legacy code is the one which doesn’t have automated test for it. It makes the code more brittle and harder to maintain and extend.
 
-- ![TDD History](unit-testing-tdd-history)
+- ![TDD History](src/assets/snipping/unit-testing-tdd-history.png)
 
-- Types of testing - unit testing, integration testing, acceptence testing (user interface).
+- Types of testing - unit testing, integration testing, acceptance testing (user interface).
 
 - Immutability – an object can’t change its state. Anytime a method would change the state of the object like pushing an item on a stack, it needs to return a new copy of the object with the change. The previous instant remains unchanged. It helps us in writing concurrent code more easily
 
@@ -156,9 +162,9 @@ These learnings have been pulled out from various notes acquired from various tr
 
 - What is pragmatism? A reasonable and logical way of doing thing. that is based on dealing with specific situations instead of ideas and theories.
 
-- Testing structure types - AAA (Act, Arrange, assert), Behavioural (Given, When, Then)
+- Testing structure types - AAA (Act, Arrange, assert), Behavioral (Given, When, Then)
 
-- Anti-patterns – we should test the overall behaviour details instead of implementation details. So, don’t overuse of mock, prefer stub. Focus of return of the function instead of inner details. Tests should be short and to the point.
+- Anti-patterns – we should test the overall behavior details instead of implementation details. So, don’t overuse of mock, prefer stub. Focus of return of the function instead of inner details. Tests should be short and to the point.
 
 - Static method should be used only for pure functions like those methods which returns same value for same input, and in future there would be not change needed for those method implementations like math library inbuilt function.
 
@@ -166,22 +172,23 @@ These learnings have been pulled out from various notes acquired from various tr
 
 - In unit testing don’t use random number to generate random number to test some value, it can generate random failures. So, we should not have random logic.
 
-- We can also have the stub return a certain value if the test subject is expecting a return value. For cases where we are testing interaction behaviour we will create a mock that knows it was called, with what parameters and how many times.
+- We can also have the stub return a certain value if the test subject is expecting a return value. For cases where we are testing interaction behavior we will create a mock that knows it was called, with what parameters and how many times.
 
 - Naming convention of the test method – choose any naming convention for unit tests that works for you and only try to stick with it consistently throughout the project.
 - Instead of using the manual mock we should use automatic mock like MOQ library.
 
 - We should avoid loops and branching instruction in tests, they may lead to bugs in testing code. It also reduces the cyclomatic complexity.
 
-- Precondition and postconditions of a method pattern, like passing an empty array to an method. In this case the caller function should check the param input before calling to the function, in preconditions a Boolean condition which must be satisfied before a method is invoked, in postcondition a Boolean condition which must be satisfied after a method completes
-    - Method precondition - condition which must be satisfied before method is invoked.
-    - Method postcondition - condition which must be satisfied by the invoked method after it executes.
+- Precondition and post-conditions of a method pattern, like passing an empty array to an method. In this case the caller function should check the param input before calling to the function, in preconditions a Boolean condition which must be satisfied before a method is invoked, in post-condition a Boolean condition which must be satisfied after a method completes
+
+  - Method pre-condition - condition which must be satisfied before method is invoked.
+  - Method post-condition - condition which must be satisfied by the invoked method after it executes.
 
 - Try to avoid giving classes same names as interfaces they implement, what is specific to this class. Interface names are operating at abstract levels, class names are operating at implementation levels. Interface names are normally vague, inconclusive, while class names are sharp and to the point.
 - If a method does not want to accept null parameter then it should not throw an exception as it would be meaningless to the caller function.
 
-- We should handle exceptions like below - 
-![handling-of-exceptions](src/assets/img/unit-testing-how-to-handle-exceptions.png)
+- We should handle exceptions like below -
+  ![handling-of-exceptions](src/assets/snipping/unit-testing-how-to-handle-exceptions.png)
 
 - Styles of unit testing – output verification or functional verification, state verification, collaboration verification.
 
@@ -194,41 +201,47 @@ These learnings have been pulled out from various notes acquired from various tr
 - Code refactoring should not change the functionality of the application, in the same way the unit test case should not be fail. Refactoring is like cleaning the kitchen after serving food to customer. It improves readability, maintainability and scalability of code. We should refactor the code after fixing a failing test, before adding a new feature or after identifying a quality problem. Simple refactoring – rename, introduce parameter, extract method.
 
 - Isolating code -
-    - Dummy – it is the simplest and most primitive type of test double and will contain no implementation.
 
-```typescript
-  var person = new Person();
-  person.first = "John";
-  person.last = "Snow";
-  Assert.IsNotNull(person.fullName);
-```
+  - Dummy – it is the simplest and most primitive type of test double and will contain no implementation.
 
-    - Stubs – it is a minimal implementation of a class that likely implements a given interface or some abstract base class. It doesn’t maintain state and leaves method unimplemented like it just return some hard-code value directly:
-```typescript
-public class StubRepo: IOwnerRepository
-{
-public IOwner FindById(int id){}
-public IOWner save(IOwner owner)
-{
-return new Owner();
-}
-public void Delete(IOwner owner){}
-}
-```
+    ```typescript
+    var person = new Person();
+    person.first = 'John';
+    person.last = 'Snow';
+    Assert.IsNotNull(person.fullName);
+    ```
+
+  - Stubs – it is a minimal implementation of a class that likely implements a given interface or some abstract base class. It doesn’t maintain state and leaves method unimplemented like it just return some hard-code value directly:
+
+    ```typescript
+    public class StubRepo: IOwnerRepository
+    {
+    public IOwner FindById(int id){}
+    public IOwner save(IOwner owner)
+    {
+    return new Owner();
+    }
+    public void Delete(IOwner owner){}
+    }
+    ```
+
     - Fake – building on a stub and adding a bit more sophistication is the idea of fake. It contains a bit more complex implementation by having state but not functional implementation. Like below we actually add and delete the list.
-    ![unit-testing-fake](src/assets/img/unit-testing-fake.png)
+      ![unit-testing-fake](src/assets/snipping/unit-testing-fake.png)
+
     - Spy – it records the information about the interaction that it has with the SUT. This information can be available for assertion purpose by the test itself.
-    ![unit-testing-spy](src/assets/img/unit-testing-spy.png)
-    - Mock – can be used to simulate complex behaviour. We should not develop mock our self, we should use mock libraries which allows us to configure mock behaviour. Libraries example – type mock, rhino mock and MOQ.
- 
+
+      ![unit-testing-spy](src/assets/snipping/unit-testing-spy.png)
+
+    - Mock – can be used to simulate complex behavior. We should not develop mock our self, we should use mock libraries which allows us to configure mock behavior. Libraries example – type mock, rhino mock and MOQ.
+
 - We can have separate build environment for acceptance test running and can trigger once a day. We can also share it reports to business for progress:
-![unit-testing-acceptance-testing-progress-report](src/assets/img/unit-testing-acceptance-testing-progress-report.png)
+  ![unit-testing-acceptance-testing-progress-report](src/assets/snipping/unit-testing-acceptance-testing-progress-report.png)
 
 - Prudent code coverage – 100% code coverage doesn’t mean no defects. Use code coverage as a developer tool not a performance metric. Let the code coverage find things that are important enough to add test, but realize that it is only contextually important and it is very rare that we need to strive for any sort of code coverage numbers up around 90 and 100%.
 
 - Devi’s advocate, Gollum style and Ping Pong technique to write unit test case:
-![unit-testing-devils-advocate](unit-testing-devils-advocate)
-![unit-testing-ping-pong](unit-testing-ping-pong)
+  ![unit-testing-devils-advocate](src/assets/snipping/unit-testing-devils-advocate.png)
+  ![unit-testing-ping-pong](src/assets/snipping/unit-testing-ping-pong.png)
 
 - While creating an interface it should either contains all properties or all functions not both.
 
@@ -242,20 +255,20 @@ public void Delete(IOwner owner){}
 
 - Marble testing is a technique where we draw marble diagrams using ACSII characters while writing unit test to visualize asynchronous observables behavior in a synchronous way. Benefits of marble testing – readable code, test synchronously and helps to find out race condition in our code. Marble syntax - -, |, #, ^, !, a, ()
 
-- For empty observable use |, for never use _ or ----. 
+- For empty observable use |, for never use \_ or ----.
 
 - Hot observables start emitting the values before any subscribe method is called on. Any subscribers can subscribe at any time and they can get the latest values at the time of subscription. They are multicast means more than one subscriber can subscribe to this observable however they will listen to the same producer. Publish and share are used to make a hot observable like tune radio channel, cinema theater, mouse clicks, live movies, live cricket match, stock tickers, live life events.
 
-![unit-testing-jasmine-marble-hot-observable](assets/img/unit-testing-jasmine-marble-hot-observable)
+![unit-testing-jasmine-marble-hot-observable](src/assets/snipping/unit-testing-jasmine-marble-hot-observable.png)
 
 - Cold Observable – In RxJs the observables are cold by nature. Cold is when the producer is owned by the observable. Observable creates and activates the producer at the time of subscription only. The data is created from the observable itself. Will produce data only when subscribe method has been called. Subscriber get their own copy of values and they are unicast i.e. one subscriber per producer like of, from, interval, timers. Real life example – watching downloaded movies, recorded podcast or song, snapshot movies in which each have their own copy.
 
-![unit-testing-jasmine-marble-cold-observable1](assets/img/unit-testing-jasmine-marble-cold-observable1)
-![unit-testing-jasmine-marble-cold-observable2](assets/img/unit-testing-jasmine-marble-cold-observable2)
+![unit-testing-jasmine-marble-cold-observable1](src/assets/snipping/unit-testing-jasmine-marble-cold-observable1.png)
+![unit-testing-jasmine-marble-cold-observable2](src/assets/snipping/unit-testing-jasmine-marble-cold-observable2.png)
 
 - Frame – Jasmine-marbles convers observable sequence into frames. Frame is a JSON that consists of RxJs notification object that wraps the actual delivered value with additional metadata and message type.
 
-![unit-testing-jasmine-marble-frame](assets/img/unit-testing-jasmine-marble-frame)
+![unit-testing-jasmine-marble-frame](src/assets/snipping/unit-testing-jasmine-marble-frame.png)
 
 - RxJS schedulers are centre to control the time for any operator or observables in our project. Also, RxJS has made this schedulers injectable so that we can mock these schedulers and control the time in our test cases.
 
@@ -300,7 +313,7 @@ x-xss-protection: 1; report=https://report.uri.com/xss/enforce
 
 - Broken access control – IDOR, indirect object references, where we can twiddle a value in the URL to get someone else’s data. We should test access control so that we can’t do things outside of our privilege level.
 
-- Security Misconfiguration – weak ciphers, SSL problems, we can use tools to check them. 
+- Security Misconfiguration – weak ciphers, SSL problems, we can use tools to check them.
 
 - Cross-site scripting (XSS) – latest frameworks are helping to prevent this vulnerability.
 
@@ -337,7 +350,7 @@ Non-Authoritative-Reason: HSTS
 
 - Secure cookies – capturing someone cookie will lead to session hijacking. Secure cookie will not get send over insecure connection. So, always use secure cookies flag as default setting:
 
-![secure cookie settings](security/secure-cookie-settings)
+![secure cookie settings](src/assets/snipping/security-secure-cookie-settings.png)
 
 - Using HTTPS will reduce the load on client and server both sides. As HTTP uses 1.1 protocol but HTTPS uses h2 protocol i.e. HTTP2, and HTTP2 allows for a binary stream of content, so lots of data coming down to the parallel. HTTP2 is only supported over TLS.
 
@@ -345,11 +358,11 @@ Non-Authoritative-Reason: HSTS
 
 - To avoid enumeration risk, show below message when login failed, like a generic message, don’t say that user doesn’t exist:
 
-![security-avoid-enumeration-risk]()
+![security-avoid-enumeration-risk](src/assets/snipping/security/../security-avoid-enumeration-risk.png)
 
 - Even in below case, if user type unavailable password then don’t show that it doesn’t exist, as we don’t want to show presence of a user on our system:
 
-![security-avoid-enumeration-risk2]()
+![security-avoid-enumeration-risk2](src/assets/snipping/security-avoid-enumeration-risk2.png)
 
 - To solve an issue where account is already exist, sent an email to their registered email, so do not show message like "Username already taken".
 
@@ -371,7 +384,7 @@ X-Frame-Options: Deny
 
 - Security threats on server side - SQL injection, insufficient authorization, weak credential storage
 
-- Security threats on client side - Cross site scripting, insufficient transport layer security, clickjacking
+- Security threats on client side - Cross site scripting, insufficient transport layer security, click jacking.
 
 - Non-standard and browser prefixed headers – headers started with X was browser specific and has been deprecated now – X-Content-Security-Policy, X-WebKit-CSP, X-Frame-Options, X-XSS-Protection.
 
@@ -387,7 +400,7 @@ Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
 Public-Key-Pins: pin-sha256=[pin 1]; pin-sha256=[pin 2]; max-age=2592000; report-uri=[uri];includeSubdomains
 ```
 
-- The frame-ancestors – to avoid clickjacking attacks. Attacker would embed the targeting website in his website into an iframe, then making that target website transparent putting content the attacker provides under the target website and enticing the user to click what they think is a button the attacker’s website but instead clicking a button on the target website. We can avoid this by this header so that our websites won’t be framed into some other website.
+- The frame-ancestors – to avoid click jacking attacks. Attacker would embed the targeting website in his website into an iframe, then making that target website transparent putting content the attacker provides under the target website and enticing the user to click what they think is a button the attacker’s website but instead clicking a button on the target website. We can avoid this by this header so that our websites won’t be framed into some other website.
 
 ```typescript
 frame-ancesors: 'none';
@@ -397,13 +410,13 @@ frame-ancesors: 'none';
 
 - Cross site request forgery – changing the password or account details using context of hacker. Use anti-forgery token to avoid this.
 
-- Encryption is also not secure, because as soon as the encrypted key is found, entire system can be decrypted back.	 Instead of this we should use cryptography using hash so that no one can decrypt them back.
+- Encryption is also not secure, because as soon as the encrypted key is found, entire system can be decrypted back. Instead of this we should use cryptography using hash so that no one can decrypt them back.
 
 - We need to use hashing with a salt to avoid getting same output with same input, it also protects with rainbow table problems, but we need to use hash algorithm properly:
 
-![security-hash-with-salt]()
+![security-hash-with-salt](src/assets/snipping/security-hash-with-salt.png)
 
-- Email as username vs. free text for username for uniqueness – we should prefer email as username. Email as username is easier to remember, one less field to capture at signup, it is already unque per user, must be able to change in future. Free text for username can be dispalyed to user with less privacy risk, enable multiple accounts agains one email, requires a "retrieve my username feature".
+- Email as username vs. free text for username for uniqueness – we should prefer email as username. Email as username is easier to remember, one less field to capture at sign-up, it is already unique per user, must be able to change in future. Free text for username can be displayed to user with less privacy risk, enable multiple accounts against one email, requires a "retrieve my username feature".
 
 - Password strength criteria – don’t limit the max entry criteria, also don’t put any condition for not having special characters, don’t discriminate with some character, allow user to pass any character. Pass phrases are stronger. We can use utility like 1password to generate password and saving it into centralize place.
 
@@ -417,7 +430,7 @@ frame-ancesors: 'none';
 
 - Protecting the logon against brute force – degrade the service means for each time failed logon take some more time for re-login and sending the response back by using thread sleep, and we can return a message that maximum retry has been exceeded, please try after sometime. So, each request will take longer time, server can track number of hits against the account.
 
-- Don’t lock an account out as it will lead to DoS (denial of service) attack. We should degrade the service and log everything. Don't lock an account out, restrict logon by IP and limit attemts with a cookie.
+- Don’t lock an account out as it will lead to DoS (denial of service) attack. We should degrade the service and log everything. Don't lock an account out, restrict logon by IP and limit attempts with a cookie.
 
 - We should generally allow simultaneous logons by a user from different machine, unless business requirement like banking website, but to not allowing multiple simultaneous logons will have many edge cases which we need to support as-well like unsaved data.
 
@@ -439,9 +452,9 @@ frame-ancesors: 'none';
 
 - What constitutes of logging off – it removes the authentication token, by setting remember me token as empty and setting cookie expiry one day ago already.
 
--  Web application firewalls (WAF) – we can get it by using Cloudflare service, it will look request pattern and reject it if it found malicious before allowing it to hit the actual web server:
+- Web application firewalls (WAF) – we can get it by using Cloudflare service, it will look request pattern and reject it if it found malicious before allowing it to hit the actual web server:
 
-![security-web-application-firewalls]()
+![security-web-application-firewalls](src/assets/snipping/security-web-application-firewalls.png)
 
 - We should keep common barrier of defines around and apply same business rules like for brute force check, whether it is getting called by API, mobile, desktop or some admin. To have code reuse pattern will help here to avoid inconsistency of codding logic for different channels.
 
@@ -455,7 +468,7 @@ frame-ancesors: 'none';
 
 - Big O notation allows us to express in terms of the size of the input, the amount of work takes to solve the problem -
 
-- ![security-bigo-notation-types](security-bigo-notation-types)
+- ![security-bigo-notation-types](src/assets/snipping/security-bigo-notation-types.png)
 
 - Public key can identify somebody, and their private key can prove their identity.
 
@@ -463,13 +476,13 @@ frame-ancesors: 'none';
 
 - Evolution of software ecosystem -
 
-![security-evolution-of-software-ecosystem](security-evolution-of-software-ecosystem)
+![security-evolution-of-software-ecosystem](src/assets/snipping/security-evolution-of-software-ecosystem.png)
 
 - Types of versioning – calendar based, sequence based and semantic based versioning. Recommended is semantic based versioning.
 
 - Common sources of untrusted data – in the URL via a query string or route, posted via a form, in cookies, in the request headers, external services, our own database.
 
-- We should sanitize the data right after receiving from the user. So, if user trying to search like “<i>enzo</i>” then the text should display on the screen in encoding form of it i.e. &lt;i&gt;enzo&lt;/i&gt;
+- We should sanitize the data right after receiving from the user. So, if user trying to search like "<i>enzo</i>"`then the text should display on the screen in encoding form of it i.e.`&lt;i&gt;enzo&lt;/i&gt;
 
 - Cookies - It is simply a text of data stored in browser. Cookie attributes – domain, path, expiration, HttpOnly, secure. To reduce risk further we can set expiration time on cookies. For some we can set for current session only and for some for a shorter or longer time even if user close his browser.
 
@@ -479,9 +492,9 @@ frame-ancesors: 'none';
 
 - Fuzz testing – it is the process for searching for vulnerabilities does commonly adhere to a very regular pattern like in XSS to avoid laborious manual testing, and we bombarding an application with random data with those patterns. We can use third party tool like intruder21 or fuzzdb for doing fuzz testing.
 
-- Mounting a clickjacking attack – in this the attacker will also get the access of anti-forgery token by rendering the website into iframe and setting as opacity to 0, and below to that page will render the corrupted website. In below the I “Wanna win!” button is overlay on “Change Password” button
+- Mounting a click jacking attack – in this the attacker will also get the access of anti-forgery token by rendering the website into iframe and setting as opacity to 0, and below to that page will render the corrupted website. In below the I “Wanna win!” button is overlay on “Change Password” button
 
-- We should store password using hashed approach while saving the database. If we store it into plain text then there is cryptography, everthing is immediately exposed if the password storage is breached. If we use ecrypted approach, then it can also get decrypted which makes is less secure. Only if we use hashed approach, it would become one-way, dterministic algorithm which means that password can't be unhashed.
+- We should store password using hashed approach while saving the database. If we store it into plain text then there is cryptography, everything is immediately exposed if the password storage is breached. If we use encrypted approach, then it can also get decrypted which makes is less secure. Only if we use hashed approach, it would become one-way, deterministic algorithm which means that password can't be un-hashed.
 
 - We should re-authenticate the user before key actions, like asking current password on change password screen.
 
@@ -489,25 +502,25 @@ frame-ancesors: 'none';
 
 - We can have two types of certificates DV and AV. Below is an AV certificate, it requires a business name also need to be registered.
 
-![security-padlock](security-padlock)
+![security-padlock](src/assets/snipping/security-padlock.png)
 
 - We can connect fiddler for the remote machine-like android device from our computer. By this we can intercept mobile app data in fiddler. By we can get a sense for how device is communicating with backend servers.
 
 - Instead of using the .png format we should use .jpeg format as it has better compression and can reduce the data size 75%.
 
-- By using Wi-Fi Pineapple and LAN Tap, we can monitor the traffic even for those devices which makes hard to proxy traffic like IOT devices. 
+- By using Wi-Fi Pineapple and LAN Tap, we can monitor the traffic even for those devices which makes hard to proxy traffic like IOT devices.
 
 - Discovering leaky API’s – we should not return sensitive data from the web API in normal text form, also don’t return the data which is not need or non-essentials data on client side
 
-- The role of OpenID Connect and OAuth – OpenID Connect is a simple identity layer on top of the OAuth protocol. It allows clients to verify the identity of the end-user based on the authentication performed by an Autorization Server, as well as to obtain basic profile information about the end-user in an interoperable and REST-like manner. OpenID is for authentication and OAuth is for Authorizatio
+- The role of OpenID Connect and OAuth – OpenID Connect is a simple identity layer on top of the OAuth protocol. It allows clients to verify the identity of the end-user based on the authentication performed by an Authorization Server, as well as to obtain basic profile information about the end-user in an interoperable and REST-like manner. OpenID is for authentication and OAuth is for Authorization
 
-- Configuring fiddler to decrypt encrypted connections – it will install its root certificate on our windows machine, by this we  just compromised our system (PC) only.
+- Configuring fiddler to decrypt encrypted connections – it will install its root certificate on our windows machine, by this we just compromised our system (PC) only.
 
 - LDAP kept our user directory together, assign roles and query information about the user.
 
 - OAuth2 is about requesting access tokens from an authorization serve, then we can use this token to talk with backend service. OAuth is an open protocol to allow secure authorization in a simple and standard method from web, mobile and desktop applications. OAuth is about delegating authorization; means we want to authorize a client to access our resources on our behalf.
 
-![security-oauth-architecture](security-oauth-architecture)
+![security-oauth-architecture](src/assets/snipping/security-oauth-architecture.png)
 
 - The idea of OAuth2 is how we can create valet parking key, not the master key. By which a resource owner gives the client a key to access the resources on the resource’s behalf, without giving the client master key aka the password.
 
@@ -515,20 +528,20 @@ frame-ancesors: 'none';
 
 - Security tokens are protected data structures, contain information about issuer and subject, signed and typically contain an expiration time. A client requests a token, an issuer issues a token and a resource like API consumes a token, that resource has a trust relationship with the issuer.
 
-- History of token - SAML (XML based, very expression, many ecryption & signature options), Simple Web Token (SWT), JSON web tokens (JWT).
+- History of token - SAML (XML based, very expression, many encryption & signature options), Simple Web Token (SWT), JSON web tokens (JWT).
 
-- JWT structure and format - headers (metadata, algorithems & keys used), claims (issuer, audeince, issue at, expiration, subject, other application defined claims)
+- JWT structure and format - headers (metadata, algorithms & keys used), claims (issuer, audience, issue at, expiration, subject, other application defined claims)
 
-![security-jwt-token-format](security-jwt-token-format)
+![security-jwt-token-format](src/assets/snipping/security-jwt-token-format.png)
 
 - There are two type of tokens access tokens (short lived) and refresh token (long lived).
 
 - OpenID Connect - It is built on top of OAuth2, and sometime we just need authentication at least to begin with to identify user in an application. OAuth2 is regularly abused for that.
 
-- OpenID connects adds some new concepts like ID token and UserInfo endpoint. OpenID code flow – identity provider, authorization endpoint, token endpoint, userinfo endpoint.
+- OpenID connects adds some new concepts like ID token and UserInfo endpoint. OpenID code flow – identity provider, authorization endpoint, token endpoint, user info endpoint.
 
 - OAuth2 Concerns - Specification bloat, bearer tokens, security theatre, attack surface.
 
 ## Node JS
 
-- 
+-
