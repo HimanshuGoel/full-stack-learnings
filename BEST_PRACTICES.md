@@ -6,14 +6,73 @@ Not every practices herein has to be strictly followed, and even fewer will be u
 
 ## Table of Contents
 
-1. [Angular](#Angular)
-2. [CSS](#CSS)
-3. [HTML](#HTML)
-4. [Typescript](#Typescript)
-5. [Markdown](#Markdown)
-6. [Security](#Security)
-7. [User Experience](#user-experience)
-8. [Git](#Git)
+1. [HTML](#html)
+2. [CSS](#css)
+3. [Angular](#angular)
+4. [Typescript](#typescript)
+5. [Node JS](#node-js)
+6. [User Experience](#user-experience)
+7. [Security](#security)
+8. [Git](#git)
+9. [Markdown](#markdown)
+
+## HTML
+
+### General
+
+#### 1.1 Do not use `placeholder` if it same as `label`
+
+Do not use `placeholder` if it same as `label`. The placeholder should be used to provide `hints and tips`.
+
+**Otherwise:** It will cause duplication.
+
+#### 1.2 Do not use `plain text`
+
+We should not have plan text into HTML it should be enclosed in some element like `div` or `span`.
+
+#### 1.3 Use `links` instead of `buttons`
+
+If `buttons` are outside of the form then we should use `links` instead of `buttons`.
+
+## CSS
+
+### General
+
+#### 1.1 Don't write `inline styles`
+
+We should not write inline styles. We should use external stylesheets.
+
+**Otherwise:** You cannot reuse the styles anywhere else. Also, it the html markup of the page becomes cumbersome, and tough to parse.
+
+#### 1.2 Use `class` selectors
+
+Instead of using the `IDs` selector we should use the `class` selectors as they are reusable.
+
+##### Code Example - `Do`
+
+```html
+<header>
+  <h4 class="sidebar-heading">Sub Heading</h4>
+</header>
+```
+
+##### Code Example - `Avoid`
+
+```html
+<header>
+  <h4 id="sidebar-heading">Sub Heading</h4>
+</header>
+```
+
+#### 1.3 Use `hidden` attribute
+
+To hide a DOM element, you don't need JavaScript. A native HTML attribute is enough hidden. The effect is similar to adding a style `display: none;`. The element simply disappears from the page.
+
+##### Code Example
+
+```html
+<p hidden>This paragraphs is not visible on page</p>
+```
 
 ## Angular
 
@@ -258,290 +317,6 @@ product$ = this.http.get<Product[]>(this.url).pipe(
 #### 2.2 Use `adapter pattern`
 
 We should use `adapter pattern` while consuming the `3rd party library` so that we can replace them later-on without any issue.
-
-## CSS
-
-### General
-
-#### 1.1 Don't write `inline styles`
-
-We should not write inline styles. We should use external stylesheets.
-
-**Otherwise:** You cannot reuse the styles anywhere else. Also, it the html markup of the page becomes cumbersome, and tough to parse.
-
-#### 1.2 Use `class` selectors
-
-Instead of using the `IDs` selector we should use the `class` selectors as they are reusable.
-
-##### Code Example - `Do`
-
-```html
-<header>
-  <h4 class="sidebar-heading">Sub Heading</h4>
-</header>
-```
-
-##### Code Example - `Avoid`
-
-```html
-<header>
-  <h4 id="sidebar-heading">Sub Heading</h4>
-</header>
-```
-
-#### 1.3 Use `hidden` attribute
-
-To hide a DOM element, you don't need JavaScript. A native HTML attribute is enough hidden. The effect is similar to adding a style `display: none;`. The element simply disappears from the page.
-
-##### Code Example
-
-```html
-<p hidden>This paragraphs is not visible on page</p>
-```
-
-## HTML
-
-### General
-
-#### 1.1 Do not use `placeholder` if it same as `label`
-
-Do not use `placeholder` if it same as `label`. The placeholder should be used to provide `hints and tips`.
-
-**Otherwise:** It will cause duplication.
-
-#### 1.2 Do not use `plain text`
-
-We should not have plan text into HTML it should be enclosed in some element like `div` or `span`.
-
-#### 1.3 Use `links` instead of `buttons`
-
-If `buttons` are outside of the form then we should use `links` instead of `buttons`.
-
-# Markdown
-
-### General
-
-#### 1.1 Using `numeric` list, instead of `alphabetic` list
-
-We should use numeric list, instead of alphabetic list.
-
-## Node JS
-
-### General
-
-#### 1.1 Do not return the `plain text` as a response
-
-We should not return the plain text as a response from the API. Although this is not imposed or mandated by any REST architectural style, most REST APIs by convention use `JSON` as the data format.
-
-#### 1.2 Return the `error details` in the `response body`
-
-We should return the error details in the response body. Even better if you include which fields were affected by the error.
-
-**Code Example** -
-
-```json
-{
-  "error": "Invalid payload.",
-  "detail": {
-    "name": "This field is required."
-  }
-}
-```
-
-#### 1.3 Use `kebab-case` for `URLs`
-
-We should use kebab-case for URLs - For example, if you want to get the list of orders.
-
-**Code Example** -`Do`
-
-```url
-/system-orders
-```
-
-**Code Example** - `Avoid`
-
-```url
-/systemOrders or /system_orders
-```
-
-#### 1.4 Use `camelCase` for `Parameters`
-
-We should use camelCase for parameters. For example, if you want to get products from a particular shop.
-
-**Code Example** - `Do`
-
-```url
-/system-orders/{orderId}
-```
-
-**Code Example** - `Avoid`
-
-```url
-/system-orders/{order_id} or /system-orders/{OrderId}
-```
-
-#### 1.5 Use `Plural Name` to Point to a `Collection`
-
-We should use Plural Name to Point to a Collection.
-
-**Code Example** - `Do`
-
-```url
-GET /users
-```
-
-**Code Example** -`Avoid`
-
-```url
-GET /user or GET /User
-```
-
-#### 1.6 `URL` Should point to a `property` instead of a `resource`
-
-URL should starts with a collection and ends with an identifier to keep the concept singular and consistent.
-
-**Code Example** -`Do`
-
-```url
-GET /shops/:shopId/ or GET /category/:categoryId
-```
-
-**Code Example** -`Avoid`
-
-```url
-GET /shops/:shopId/category/:categoryId/price
-```
-
-#### 1.7 Keep `Verbs` out of `Resource URL`
-
-We should not use verbs to express our intention in the URL. Instead, use proper HTTP methods to describe the operation.
-
-**Code Example** -`Do`
-
-```url
-PUT /users/{userId}
-```
-
-**Code Example** -`Avoid`
-
-```url
-POST /updateUser/{userId} or GET /getUsers
-```
-
-#### 1.8 Use `Verbs` for `Non-Resource URL`
-
-If we have an endpoint that returns nothing but an operation. In this case, we can use verbs. These are not our CRUD operations but considered as functions that do a specific job in our system.
-
-**Code Example** -
-
-If you want to resend the alert to a user.
-
-```url
-POST /alerts/245743/resend
-```
-
-#### 1.9 Use `camelCase` for `JSON` property
-
-If we are building a system in which the request body or response is JSON, the property names should be in camelCase
-
-**Code Example** - `Do`
-
-```json
-{
-  "userId": "1",
-  "userName": "John Snow"
-}
-```
-
-**Code Example** - `Avoid`
-
-```json
-{
-  "user_id": "1",
-  "user_name": "John Snow"
-}
-```
-
-#### 1.10 Include the `total` number of `resources` in the response
-
-If an `API` returns a list of objects always include the total number of resources in the response. We can use the total property for this.
-
-**Code Example** - `Do`
-
-```json
-{
-  "users": [{}, {}, ...],
-  "total": 34
-}
-```
-
-**Code Example** - `Avoid`
-
-```json
-{
-  "users": [{}, {}, ...]
-}
-```
-
-#### 1.11 Validate the `Content-Type`
-
-The server should not assume the content type. Always validate the content-type and if we want to go with a default one then use `content-type: application/json`
-
-**Otherwise:** For example, if you accept `application/x-www-form-urlencoded` then an attacker can create a form and trigger a simple POST request.
-
-#### 1.12 Use correct `HTTP Methods`
-
-We should use correct HTTP Methods for CRUD Functions. HTTP methods serve the purpose of explaining CRUD functionality.
-
-- `GET`: To retrieve a representation of a resource.
-- `POST`: To create new resources and sub-resources.
-- `PUT`: To update existing resources.
-- `PATCH`: To update existing resources. It only updates the fields that were supplied, leaving the others alone
-- `DELETE`: To delete existing resources.
-
-#### 1.13 Return correct `Status Code`
-
-We should return the correct status code against the verbs. A response’s status is specified by its status code: `1xx` for information, `2xx` for success, `3xx` for redirection, `4xx` for client errors and `5xx` for server errors
-
-- `GET`: 200 OK
-- `PUT`: 200 OK
-- `POST`: 201 Created
-- `PATCH`: 200 OK
-- `DELETE`: 204 No Content
-
-#### 1.14 Use `Async/Await`
-
-We should use `Async/Await` instead of callbacks as it makes code more readable.
-
-#### 1.15 Use `__dirname` variable and `path()` function
-
-We should use `__dirname` variable and `path()` function to avoid different window inconsistency while defining path of a file.
-
-**Code Example** -
-
-```typescript
-app.get('/', function (req, res) {
-  res.sendFile(path.join(_dirname, 'views/index.html'));
-});
-```
-
-#### 1.16 Use `util.inspect()` to debug an `object`
-
-To debug the code we can use `util.inspect(object, showHidden=false, depth=2, colorize=true);` method. It returns a string representation of an object.
-
-# Security
-
-### General
-
-#### 1.1 Use `Guid ID's`
-
-We should use `Guid ID's` as a random ID generator instead of using the `Sequential ID's`.
-
-**Otherwise:** It might lead to the Broken object level authorization security issue.
-
-#### 1.2 Harden the `environment`
-
-We should keep all software and its components up-to-date, remove unused features.
 
 ## Typescript
 
@@ -1686,6 +1461,210 @@ function head<Element>(arr: Element[]): Element | undefined {
 return arr[0]
 }
 
+## Node JS
+
+### General
+
+#### 1.1 Do not return the `plain text` as a response
+
+We should not return the plain text as a response from the API. Although this is not imposed or mandated by any REST architectural style, most REST APIs by convention use `JSON` as the data format.
+
+#### 1.2 Return the `error details` in the `response body`
+
+We should return the error details in the response body. Even better if you include which fields were affected by the error.
+
+**Code Example** -
+
+```json
+{
+  "error": "Invalid payload.",
+  "detail": {
+    "name": "This field is required."
+  }
+}
+```
+
+#### 1.3 Use `kebab-case` for `URLs`
+
+We should use kebab-case for URLs - For example, if you want to get the list of orders.
+
+**Code Example** -`Do`
+
+```url
+/system-orders
+```
+
+**Code Example** - `Avoid`
+
+```url
+/systemOrders or /system_orders
+```
+
+#### 1.4 Use `camelCase` for `Parameters`
+
+We should use camelCase for parameters. For example, if you want to get products from a particular shop.
+
+**Code Example** - `Do`
+
+```url
+/system-orders/{orderId}
+```
+
+**Code Example** - `Avoid`
+
+```url
+/system-orders/{order_id} or /system-orders/{OrderId}
+```
+
+#### 1.5 Use `Plural Name` to Point to a `Collection`
+
+We should use Plural Name to Point to a Collection.
+
+**Code Example** - `Do`
+
+```url
+GET /users
+```
+
+**Code Example** -`Avoid`
+
+```url
+GET /user or GET /User
+```
+
+#### 1.6 `URL` Should point to a `property` instead of a `resource`
+
+URL should starts with a collection and ends with an identifier to keep the concept singular and consistent.
+
+**Code Example** -`Do`
+
+```url
+GET /shops/:shopId/ or GET /category/:categoryId
+```
+
+**Code Example** -`Avoid`
+
+```url
+GET /shops/:shopId/category/:categoryId/price
+```
+
+#### 1.7 Keep `Verbs` out of `Resource URL`
+
+We should not use verbs to express our intention in the URL. Instead, use proper HTTP methods to describe the operation.
+
+**Code Example** -`Do`
+
+```url
+PUT /users/{userId}
+```
+
+**Code Example** -`Avoid`
+
+```url
+POST /updateUser/{userId} or GET /getUsers
+```
+
+#### 1.8 Use `Verbs` for `Non-Resource URL`
+
+If we have an endpoint that returns nothing but an operation. In this case, we can use verbs. These are not our CRUD operations but considered as functions that do a specific job in our system.
+
+**Code Example** -
+
+If you want to resend the alert to a user.
+
+```url
+POST /alerts/245743/resend
+```
+
+#### 1.9 Use `camelCase` for `JSON` property
+
+If we are building a system in which the request body or response is JSON, the property names should be in camelCase
+
+**Code Example** - `Do`
+
+```json
+{
+  "userId": "1",
+  "userName": "John Snow"
+}
+```
+
+**Code Example** - `Avoid`
+
+```json
+{
+  "user_id": "1",
+  "user_name": "John Snow"
+}
+```
+
+#### 1.10 Include the `total` number of `resources` in the response
+
+If an `API` returns a list of objects always include the total number of resources in the response. We can use the total property for this.
+
+**Code Example** - `Do`
+
+```json
+{
+  "users": [{}, {}, ...],
+  "total": 34
+}
+```
+
+**Code Example** - `Avoid`
+
+```json
+{
+  "users": [{}, {}, ...]
+}
+```
+
+#### 1.11 Validate the `Content-Type`
+
+The server should not assume the content type. Always validate the content-type and if we want to go with a default one then use `content-type: application/json`
+
+**Otherwise:** For example, if you accept `application/x-www-form-urlencoded` then an attacker can create a form and trigger a simple POST request.
+
+#### 1.12 Use correct `HTTP Methods`
+
+We should use correct HTTP Methods for CRUD Functions. HTTP methods serve the purpose of explaining CRUD functionality.
+
+- `GET`: To retrieve a representation of a resource.
+- `POST`: To create new resources and sub-resources.
+- `PUT`: To update existing resources.
+- `PATCH`: To update existing resources. It only updates the fields that were supplied, leaving the others alone
+- `DELETE`: To delete existing resources.
+
+#### 1.13 Return correct `Status Code`
+
+We should return the correct status code against the verbs. A response’s status is specified by its status code: `1xx` for information, `2xx` for success, `3xx` for redirection, `4xx` for client errors and `5xx` for server errors
+
+- `GET`: 200 OK
+- `PUT`: 200 OK
+- `POST`: 201 Created
+- `PATCH`: 200 OK
+- `DELETE`: 204 No Content
+
+#### 1.14 Use `Async/Await`
+
+We should use `Async/Await` instead of callbacks as it makes code more readable.
+
+#### 1.15 Use `__dirname` variable and `path()` function
+
+We should use `__dirname` variable and `path()` function to avoid different window inconsistency while defining path of a file.
+
+**Code Example** -
+
+```typescript
+app.get('/', function (req, res) {
+  res.sendFile(path.join(_dirname, 'views/index.html'));
+});
+```
+
+#### 1.16 Use `util.inspect()` to debug an `object`
+
+To debug the code we can use `util.inspect(object, showHidden=false, depth=2, colorize=true);` method. It returns a string representation of an object.
+
 ## User Experience
 
 ### General
@@ -1738,6 +1717,20 @@ For primary actions, use raised buttons and for secondary or tertiary content we
 
 ![image](images/developers/user-experience/primary-and-ghost-buttons.png)
 
+## Security
+
+### General
+
+#### 1.1 Use `Guid ID's`
+
+We should use `Guid ID's` as a random ID generator instead of using the `Sequential ID's`.
+
+**Otherwise:** It might lead to the Broken object level authorization security issue.
+
+#### 1.2 Harden the `environment`
+
+We should keep all software and its components up-to-date, remove unused features.
+
 ## Git
 
 ### 1. General -
@@ -1747,3 +1740,11 @@ For primary actions, use raised buttons and for secondary or tertiary content we
 ```shell
 docs - , feat - , fix - , perf - , refactor - , revert - , style - , test -
 ```
+
+## Markdown
+
+### General
+
+#### 1.1 Using `numeric` list, instead of `alphabetic` list
+
+We should use numeric list, instead of alphabetic list.
