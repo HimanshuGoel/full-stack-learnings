@@ -289,7 +289,7 @@ Instead of using the `IDs` selector we should use the `class` selectors as they 
 </header>
 ```
 
-#### 1.2 Use `hidden` attribute
+#### 1.3 Use `hidden` attribute
 
 To hide a DOM element, you don't need JavaScript. A native HTML attribute is enough hidden. The effect is similar to adding a style `display: none;`. The element simply disappears from the page.
 
