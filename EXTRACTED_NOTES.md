@@ -544,4 +544,88 @@ frame-ancesors: 'none';
 
 ## Node JS
 
--
+- What is REST - REST means representational state transfer (ReST). If we are storing information about the request or about the client, then we are not writing a truly a restful service. We also need to tell the client of caching, means caching timeout so that next time client doesn’t to call server to fetch data. One more constraint is the uniform interface, we need to deal with resources those are nouns not actions so don’t name authorize or login but like books and authors. HTTP verbs defines actions, also use PUT for update the object.
+
+- Mongoose is an ORM for MongoDB. We don’t have to deal with MongoDB directly, mongoose is going to do that for us.
+
+- Updating data - PUT verb replaces and item but PATCH only changes a piece.
+
+- Middleware – It is going to inject itself in between the calls and this route.
+
+![node-js-middleware](node-js-middleware)
+
+- Implementing PATCH – Need to use the Object.entries() method to out an array of key-value pairs from req.body and run for-each on it to modify only those properties on object which got change, so need to check every property manually
+
+```typescript
+const { book } = req;
+if(req.body._id) {
+delete req.body._id;
+}
+
+Object.entries(req.body).forEach((item) => {
+const key = item[0];
+const value = item[1];
+book[key] = value;
+});
+
+req.book.save((err) => {
+if(err) {
+return res.send(err);
+} 
+ return res.json(book);
+});
+```
+
+- HATEOAS - Using hypermedia to building self-documenting API, it is very easy for someone to navigate and understand what options are available to them anytime while they are using our API. HATEOAS means that list of links available to us that help us navigate the API.
+
+- Node.js provides a wrapper around V8 JS Runtime engine to provide additional functionalities for building network applications. It is fast because all written in C language. We can build WebSocket server, fast file uploading client, Ad Server, Any real-time data apps. Node.js is not a multi-threaded application. Benefits of non-blocking code – files will be read in parallel
+
+![node-js-blocking-vs-non-blocking](node-js-blocking-vs-non-blocking)
+
+- We use javascript with Node.js because javascript makes easy to do evented programming using the event loop and makes the code non-blocking.
+
+- Node register the event whenever request comes in, whenever it is done registering the script, it starts the event loop when finished means it checking for events continuously, whenever a request comes it trigger its call-back. Known events are request, connection, close, timeout these evets further more events, one event at a time will get processed in event queue, other will be queued in event queue.
+
+![node-js-event-loop](node-js-event-loop)
+
+- Node JS server can simultaneously handle uploading of two files, one of main reason of Node JS creation is to handle the file upload. Other web apps try to load entire file into memory before writing it to the disk which can cause all sorts of issue at server side, also tricky to provide the progress of file uploads, but in Node JS we can do it very simply.
+
+- Express is Sinatra inspired web development for Node.js, i.e. insanely fast, flexible, and simple.
+
+- Node is generally deployed on Linux machines in production.
+- Execution of javascript on the server is not done by Node, but it is done with a virtual machine, VM like V8 or Chakra. Node is just the coordinator, it is the one who instructs a VM like V8 to execute our javascript. So Node.js is a wrapper around a VM like V8. V8 will tell the results to Node and Node will tell this result to us. Node comes with built-in modules providing rich features through easy-to-use asynchronous API’s. this works great because V8 itself is single threaded, this is also true for browser.
+
+- Node offers async API’s that we can use and not worry about threads, to do things in parallel without needing to deal with threads this is the biggest benefits of using a runtime like node. We can also create addons using C++.
+
+- NPM is basically the world’s largest of free and reusable code.
+
+- Node has a reliable module dependency manager usually referred to as CommonJS. This is basically the “require” function in Node combined with the “module” object.
+
+- Node.js is like the kitchen itself, it allows you to execute lines in our recipes by using built-in modules like our oven and sink.
+
+- REPL stands for Read, Eval, Print and Loop. Use the ctrl + l to break the REPL session.
+
+- Using Async/Await – it is easier to read.
+
+- Due to the package.lock.json file, other team members will also get the exact same versions event for the sub-dependencies tree. This contains the project’s direct dependencies but also whole dependencies tree for the project.
+
+- The event Loop – what node uses to process asynchronous actions and interface them for you so that you don’t have to deal with threads.
+
+- We should run our node process under PM2 tool, it will automatically use all the available cores in our server and it will automatically create a new process every time an active process crashes and exits. It will also reload our application without any downtime. This tool is must in production.
+
+- Event emitters -
+
+```typescript
+const EventEmitter = require('events');
+const myEmitter = new EventEmitter();
+
+setImmediate(() => {
+myEmitter.emit('TEST_EVENT');
+});
+
+myEmitter.on('TEST_EVENT', () => {
+console.log('TEST_EVENT was fired');
+})
+```
+
+- 
