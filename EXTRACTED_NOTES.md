@@ -628,4 +628,65 @@ console.log('TEST_EVENT was fired');
 })
 ```
 
+- By using Electron, we can create cross platform desktop applications.
+
+- Instead of using console.log() use debug(), it will only log when we are running in development mode not in production mode.
+
+- For callbacks, use arrow function instead of normal function.
+
+- Middleware – we can use router.all() for using middleware.
+
+![node-js-router-all-middleware](node-js-router-all-middleware)
+
+- Using passport for user authentication and authorization, this is a default option for express library, and a simple way to implement. It manages user object in the session. It also deals with dropping it in a cookie, and pulling it out of a cookie and applying it to the session. We also need to use cookie-parser and express-session package for this
+
+- Node has inbuilt HTTP module to create http server and connection. But due to some limitation and code needs to write, we generally prefer express web framework it has routes and middleware.
+
+- REST is not a framework nor HTTP pattern or protocol. Its full name is representational state transfer. The request should be stateless, it should not pass around the information about previous requests or next one. It should transfer data in JSON or XML. We should design the routes to access the resource like business modal.
+
+- Blueprint of a restful service -
+
+![node-js-restful-services-blueprint](node-js-restful-services-blueprint)
+
+- Use express.static to serve everything within client as a static resource, and it will serve the index.html on the root of that directly on a GET to ‘/’
+
+![image](https://user-images.githubusercontent.com/6235979/191412937-5a57ebe8-149c-43f1-bf69-a0219b64677f.png)
+
+![node-js-express-static](node-js-express-static)
+
+- Always send back the data which has been created or modified on POST request itself so that we don’t have to call it back by using another REST service.
+
+- While using PUT request to update the object, use assign / extend function like below -
+
+![node-js-update-data-put-request](node-js-update-data-put-request)
+
+- If we are building API for our application then don’t return all other unnecessary details from API, but if we are building API as a service then we can return all the information.
+
+- Middleware is kind of like setting utility classes to help express to do the dirty work. Middleware is just a function that has access to the request object, the response object and the next function to go to the next middleware. Type of middleware – 3rd party, router level, application level, error-handling, built-in
+
+- We should group our folder based on feature not types, also contain config and utils folder
+
+![node-js-folder-structure-group-by-feature](node-js-folder-structure-group-by-feature)
+
+- Schema is like a blueprint the way we would like to have our data, the model is the JS representation of data, the document is the instance that belongs to the collection. Collection is group of documents.
+
+- Middleware is more tied to routes, validations are more tied to models, so we should bake the validation logic into the model itself using mongoose.
+
+- Promises are invented for JS for single threaded environment.
+
+- Authentication - There are many ways to protect our API like JSON Web Tokens (JWT) is popular one. It is a token approach due to this we don’t need to keep track of who is signed in with a session store or have cookies. The JWT will be sent on every request because REST is stateless and we not know of the previous request. The token has to be stored on the client at the is requesting resources.
+
+- Mongoose, like express, has support for middleware. Middleware is perfect for validating, changing, notifying, input sanitization etc. we will use middleware to hash our passwords before a user is created. Middleware will attach to lifecycle events around our documents like before save, before validations, after save, etc.
+
+- Understanding CORS – if we are on localhost:4500, and we are trying to get access a route on localhost:3000, the browsers aren’t going to let me in due to security concern. To work around this we need to enable CORS on our server. By this the browser makes two requests, the first request is called pre-flight check by using verbs OPTIONS to check if it is allowed to make request to that server, server responds like yes or no like 200.
+
+- Before deploying checklist - 
+![node-js-pre-deployment-checklist](node-js-pre-deployment-checklist)
+
+- Factors we can use for two-factor authentication - something you know (password), something you have (badge, id card, token), something you are (biometric)
+
+- Server less is an architecture it is building your application based on 3rd party services that is known as backend as a service, we also rely on custom code which runs in ephemeral containers that is known as functions as a service. We can also use this to create web hooks and notifications.
+
+- We can ship a software update if we have added value without removing any existing value even though the new value feature is not complete, so user can’t still use it from UI, it is called dark release.
+
 - 
