@@ -689,4 +689,116 @@ console.log('TEST_EVENT was fired');
 
 - We can ship a software update if we have added value without removing any existing value even though the new value feature is not complete, so user can’t still use it from UI, it is called dark release.
 
+- Node’s architecture – V8 and libuv
+
+![node-js-architecture](node-js-architecture)
+
+- NPM is not really part of node, it is just come packaged with node since it is the default and most popular package manager.
+
+- The event loop – the entity that handles external events and converts them into callback invocations. It is a loop that picks events from the event queue and pushes their callbacks to the call stack.
+
+- How call stack actually works: event queue will only send the callbacks to call stack once call stack is empty otherwise it will wait until it gets empty.
+
+![node-js-callstack-working](node-js-callstack-working)
+
+- The setImmediate will take preference over setTimeout. So, use setImmediate if we want to execute it on next tick of the event loop, node has similar api called process.nextTick.
+
+- Parsing URLs and query strings – components of a parsed URL. Use url.parse for parsing an URL and other helper methods -
+
+![node-js-url-components](node-js-url-components)
+
+- Working with big amounts of data in node js means working with streams. Streams are simple collection of data that might not be available all at once and don’t have to fit in memory. Types of streams – readable, writable, duplex, transform.
+
+- Duplex and transform streams – with duplex streams we can implement both a readable and writeable stream with the same object. It is like if we are inheriting from both interfaces. In transform stream its output is computed from its input like converting small caps into upper case or file conversion into different format.
+
+- Using multiple processes is the only way to scale a node js application. Node JS is designed for building distributed applications with many nodes. To increase the scalability, we have strategies like cloning, decomposing (micro services), splitting into multiple instances (horizontal partitioning or sharding).
+
+- The cluster module can be used to enable load balancing over an environment multiple CPU core. It is based on form function, it basically allows us to fork our main application process as many times as we have CPU cores, and then it will take over and load balance all request to the main process across all forked processes. This module is a helper for implementing cloning strategies but only on one machine. We can use process manager like PM2.
+
+![node-js-load-balancing](node-js-load-balancing)
+
+- Load balancing and HTTP server – if a machine has 8 cores, it will start the 8 processes. These are completely different node js processes, each worker process will have its own even loop and memory space. The loaded will be distribute among different worker process.
+
+- Availability and zero-downtime restarts – with multiple instances the availability of the system will get increased in-case of any instance gets down. When we want to restart all of the processes like for a deployment of new code, in this instead of restarting them together we can simply restart them on at a time to allow other workers to continue to serve requests while on worker is being restarted. It is called zero-downtime restart
+
+- Node works well on windows, but it is much safer option to host production Node applications on Linux platform, many other production tools are more stable on Linux.
+
+- Shared state and sticky load balancing – due to load balancing we had problem of thread safety which is sharing data between threads or worker processes. So, with a cluster setup we can no longer cache things in memory because every worker process has its own memory space, so if we cache something in one worker’s memory, other worker’s will not have access to it. If we need cache thing with a cluster setup, we have to use a separate entity and read write to that entity’s API from all workers, this entity can be a database server or in-memory cache service like Redis.
+
+- In cluster setup stateful communication also become a problem. Since the communication is not guaranteed to be with the same worker, creating a stateful channel on any one worker is not an option, like problem in authentication to one worker and next time sending its request to another worker which doesn’t know its authentication status. This problem can be solved by simply share the state across the many workers we have by storing these session’s information in a shared database or a Redis node, or better way is using sticky load balancing in this we send the same user request to same worker process but by this we don’t really get the full benefits of load balancing for authenticated users -
+
+![node-js-state-share](node-js-state-share)
+
+- Pruning – to remove unused package from the project, it gives extraneous error if package is installed but not mentioned in package.json file. We can use npm prune, npm prune grunt it will match the installed the package with package.json file and remove the non-specified ones. We can use npm prune –production to remove dev dependencies package before going to production.
+
+- Gulp is in-memory streams, fast and code over configuration by more declarative, and has large plugin ecosystem. Instead of using Grunt or Gulp, we should use NPM directly which has simpler debugging, better docs, easy to learn, simple and no need for separate plugins.
+
+- Transpilers - Babel, TypeScript, Elm
+
+![node-js-transpilers-typescript-vs-babel](node-js-transpilers-typescript-vs-babel)
+
+- ECMASript versions -
+
+![node-js-ecmascript-versions](node-js-ecmascript-versions)
+
+- Module formats - IIFE, Asynchronous Module Definition (AMD), CommonJS (CJS), Universal Module Definition (UMD), ES6 Modules
+
+- Cache busting – by default we set the cache expiration to 1 year, and if JavaScript file changes then change the bundle name to force request for latest version. For this we need to hash the bundle filename, and generate that name into HTML dynamically.
+
+- Package vs. module – a module is a single javascript file that has some reasonable functionality, a package is a directory with one or more models inside of it and package.json file which has metadata about the package. It can be from simpler like from lodash to complex one like express. While working with NPM we are working with packages, which is why it is called node package manager.
+
+- The package-lock.json files gets created when we installed some packages, it specify the exact versions of every package that got installed. By this it will be sure that everybody in the team using the same exact versions of all packages even if that team member join after a while to the team.
+
+- Semantic versioning – 1.8.3 where 1 is major version, 8 is minor version and 3 is the revision or the patch number. Patch will be used when some bug fix or performance improvement, that doesn’t change the functionality. Minor means new feature is introduced but no breaking changes, major is when breaking changes like changing the function signature.
+
+- Tilde (~) operator will get the latest patch version, carrot (^) will get the latest minor version, use * or ‘x’ if we even okay to get the latest major version
+
+- The package-lock.json file overrides the package.json file, so while installing a package it will take the version from package-lock.json file instead of from package.json file, if we don’t want this then we need to delete it temporary for avoiding this.
+
+- Node js provides a wrapper on V8 Javascript runtime engine to provide additional functionalities for building network applications. It is very fast because it is written in C language. By using node js, we can build chat server, fast file upload client, ad server, real time data apps.
+
+- Node js creates an event loop which listens for events like request, connection, close, etc. It supports non-blocking operations.
+
+- For efficiency, whenever we are dealing large size of data that needs to be send across the network wire, we should access that data piece by piece so that server doesn’t not store the large file data in the memory . Streams are like channels where the date can simply flow through. Streams can be readable, writeable or both. The ‘request’ and ‘response’ is also a stream type.
+
+- Javascript Event loop – Javascript is a single threaded due to which we can execute only one chunk of code at a time i.e. a function. It executes a synchronous task in “Sync Task Queue” this is a callstack for our application. The callback functions which needs to be executed in asynchronously, they needs to be added in the “Async Task Queue” by “Sync Task Queue” and when “Sync Task Queue” is done with execution the Synchronous task, it will pick the async task from the “Async Task Queue. There is also a “Async Micro Task Queue”, it will contains asynchronous microtask which will have higher priority than normal asynchronous tasks resides in “Async Task Queue”. We should not block the event loop, so wherever possible we should write the asynchronous code using async and await keywords.
+
+![node-js-javascript-event-loop](node-js-javascript-event-loop)
+
+- Generators enabled the functionality for async-await keywords because of pause-resume feature. Generator functions can be paused and resumed unlike normal functions. They also stored the state of the function while paused. They return generators object which implement the iterator protocol by this they provide a method name ‘next()’, this method restarts a paused generator function. They works upon concept of lazy execution by which they compute the values on demand.
+
+- Async-await let us write the asynchronous code more like the way we write the synchronous code. Data returned from async func is automatically wrapped in a promise. Using the await keyword will automatically extract data from a promise. Also, we need to use try-catch while using async-await because await will only return value when it gets success result.
+
+- Because of an asynchronous event-driven runtime, Node.js is designed to build scalable network applications.
+
+- We can write event-driven code with EventEmitters classes. The EventEmitter calls all listeners synchronously in the order in which they were registered. This ensures the proper sequencing of events and helps to avoid race conditions and logic errors. But we can made them async for a particular case by using setImmediate(), it will push the code execution into the next cycle of the event loop.
+
+- Worker threads helps us to write CPU intensive tasks by running events in parallel. It will create a new thread by making main thread available for new user request. This is similar to web workers. Using worker thread is like creating a new event loop. We can pass messages between main and worker thread. Worker threads should be used only with CPU intensive tasks. For IO bound code like disk access or network calls, it is more efficient to use the async API’s.
+
+![node-js-worker-threads](node-js-worker-threads)
+
+- Underneath all the http calls uses XML HTTP Request (XHR) object which is a javascript API to create AJAX requests. Its methods provide the ability to send network requests between the browser and a server.
+
+- When we read a file, node open that file and put that content into the memory become making it available in the code. In-case of a large file, it may throw an error, to avoid this, we should use steam to read file through stream.
+
+- Use omitBy() function from lodash to send only the changed property with a PATCH request –
+
+![node-js-using-omitby-with-patch-request](node-js-using-omitby-with-patch-request)
+
+- In case of wrong entity/data send from frontend and it fails the validation of server, then we should return 422 – Unprocessable entity status code. We should not send status 200 if the data is not valid.
+
+- In case of cookie scenario, if server sends a cookie to the browser, then for further requests the browser automatically sends the cookie to the server for that same domain, so we don’t to write any specific code in client side unlike token approach in auth header. If our token contains sensitive information then we should use JSON web encryption (JWE).
+
+- We should send hypermedia links with each request, it reduces the decoupling between client and server as client can directly use those hypermedia while forming the request for the server.
+
+- Lifecycle scripts – prestart, start and test. Custom scripts – debug, predebug-compile, debug-compile, prebuild, build, etc. If we are running lifecycle script then we don’t have to specify ‘run’ while running that script like “npm start”.
+
+- Sample Node JS architecture -
+
+[node-js-sample-architecture](node-js-sample-architecture)
+
+- Sample REST API
+
+[node-js-sample-rest-api](node-js-sample-rest-api)
+
 - 
