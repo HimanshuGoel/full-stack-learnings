@@ -1716,6 +1716,18 @@ To unify the button action with the dialog content.
 For primary actions, use raised buttons and for secondary or tertiary content we can use ghost buttons.
 
 ![image](images/developers/user-experience/primary-and-ghost-buttons.png)
+                                              
+#### 1.9 Provide meaningful placeholder
+
+Use placeholder text to give the user a hint about the data they need to provide. For example, if you ask the user to provide a tracking number, you can add a placeholder with an example of a tracking number).
+                                              
+![user-experiance-meaningful-placeholder](user-experiance-meaningful-placeholder.png)
+                                              
+#### 1.10 Add a help icon (“?” or “i”) next to the field to help the user enter the data
+                                              
+A tooltip with helpful information becomes visible when the user hovers over the icon. This feature will be helpful when you want to provide a quick guide on data input ( i.e., you ask the user to provide social security number, but they might know where to find it) or when you collect personal information (i.e., you ask the user to provide a phone number, and want to explain how you will use it).
+                                              
+![user-experiance-help-icon.png](user-experiance-help-icon.png)
 
 ## Security
 
