@@ -13,6 +13,7 @@ These learnings have been pulled out from various notes acquired from various tr
   - [Typescript](#typescript)
   - [Security](#security)
   - [Node JS](#node-js)
+  - [Markdown](#markdown)
 
 ## VS Code
 
@@ -801,4 +802,65 @@ console.log('TEST_EVENT was fired');
 
 [node-js-sample-rest-api](node-js-sample-rest-api)
 
-- 
+- We need to set the form attribute enctype as multipart/form-data for and input type as file.
+
+- There is no server required to run node js, it is itself a server. Node js is also gets used for building command line applications like webpack, gulp, eslint and yeoman. Node uses libuv library for asynchronous I/O and event loop.
+
+- History of Node JS - New major versions gets released every 6 months of Node js.
+
+![node-js-history](node-js-history)
+
+- Node js shines in I/O intensive uses that is in network applications. In order for event loop to function properly, our code can’t spend too much time doing anything of its own, this includes works that requires heavy use of CPU.
+
+- In node js event loop at a time only one function will be executing, all the async request like network, file i/o or timer is listened by the event loop for a callback function.
+
+- For the https communication, the default port is 443 and for http the default port is 8080.
+
+- Cookie gets deleted whenever user closes the browser.
+
+- HTML 5 storage API – session (per origin and per instance, tied to domain origin) storage, local storage.
+
+- Local storage is also attached to per origin but available across all browser instances.
+
+- Storage API issues – function are synchronous, no access from web workers, vulnerable to XSS attacks.
+
+- We should not store any sensitive data in storage. The storage API is designed for simple key-value storage. We can save the complex object as-well but we need to stringy if before saving, but it causes the performance overhead.
+
+- We can create polling request for an API on some specific intervals by using setInterval() method.
+
+- HTTPS is called TLS (transport layer security), it encrypts payloads over the network using certificates.
+
+- The history of distributed APIs
+
+![node-js-history-of-distributed-api](node-js-history-of-distributed-api)
+
+- Common formats of data - JSON, XML, JSONP, RSS, ATOM
+
+- Association – design API’s like “api/regions/africa/sites/123/locations/1” but it still be okay “api/sites?country=usa” if it going too deeply nested
+
+- The response code status 304 means it is served from cache and not modified.
+
+- We can cache the request using ETags. We can send this ETag which we receive from server by setting a header key “if-none-match” (in-case of GET) and if-match (in-case of update the resource).
+
+- Functional APIs – they are not RESTful but sometimes we need to handle these operation like calculate premium or start a machine, etc. For these APIs we should use OPTIONS or LINK verbs.
+
+![node-js-functional-apis](node-js-functional-apis)
+
+- If users rely on the API not changing, then we should use versioning. Types of design – URI path, Query String, with Headers, Accept header and versioning with Content Type. For simple APIs the query string is the recommended one, but for complex APIs the versioning with Content Type is recommended.
+
+- Authentication types for APIs – Cookies, Basic Auth, Token Auth and OAuth.
+
+- OAuth - It uses trusted third-party to identify users. So the application which uses OAuth, never gets the credentials. User authenticates with third party and use token to confirm identity, it is safer for the application (don’t have to dealt with the user credential and authentication) and the user.
+
+![node-js-how-oauth-works](node-js-how-oauth-works)
+
+- CSRF support is indirectly inbuilt in angular which will check any XSRF-TOKEN from the server response headers and set it to the request header automatically so that it will get match on the server side. We can override this behavior to provide a different token by using XSRF strategy service 
+
+- Mocha is a testing framework and Chai is an assertion library. Sinon is a mocking library.
+
+- Require() Vs. Import statements –
+
+![node-js-require-vs-import-statements](node-js-require-vs-import-statements)
+
+## Markdown
+
