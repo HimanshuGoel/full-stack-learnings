@@ -14,6 +14,8 @@ These learnings have been pulled out from various notes acquired from various tr
   - [Security](#security)
   - [Node JS](#node-js)
   - [Markdown](#markdown)
+  - [Cypress](#cypress)
+  - [Git](#git)
 
 ## VS Code
 
@@ -864,3 +866,97 @@ console.log('TEST_EVENT was fired');
 
 ## Markdown
 
+- We can use fence block of code syntax by using 3 back ticks like ```html
+
+- Two of the most popular of the lightweight variety are Markdown and reStructuredText.
+
+- Use * for italics, ** for bold and `` for code words. Use * for unordered list, #. for numeric list.
+
+- Artifact are the result of the build, if this process of creating artifacts doesn’t require any person to do anything for it to happen, other than make the change to source control, the you have continuous integration. If it also gets deployed automatically then I become continuous deployment as well.
+
+![markdown-cd-ci](markdown-cd-ci)
+
+- For technical document writing reStructuredText is better than Markdown.
+
+- Purpose of technical writing: Developers (Get information out of the heads of the creators), users (into the heads of users in a way they can use it).
+
+- Writing process - plan -> research -> write -> review/edit -> launch
+
+- Don’t be vague but be simple and user friendly. Don’t use passive sentence but use active sentences:
+
+![markdown-writing-tips1](markdown-writing-tips1)
+
+- But sometimes we should use passive voice, which makes a sentence a bit soft -
+
+![markdown-writing-tips1](markdown-writing-tips2)
+![markdown-writing-tips1](markdown-writing-tips3)
+![markdown-writing-tips1](markdown-writing-tips4)
+
+- Layout and Design
+    - Serif fonts are considered classic, traditional, and embellished.
+    - Sans is French for Without, Sans Serif fonts are considered modern, minimalist and clean.
+    - Script fonts are more fluid in their stroke and they resemble handwriting particularly cursive handwriting. They are considered as handwritten, calligraphic and fancy.
+    - Decorative fonts are also known as ornamental or display fonts. They should be used sparingly and for a very distinct purpose. They are fun, unique and expressive.
+
+- Recommendation of uses - 
+
+![markdown-recommendation-of-uses](markdown-recommendation-of-uses)
+
+- If document is more than 10 pages then use table of contents. It will allow readers to locate information and pages quickly and easily.
+
+- Use visuals – screenshots, icons, tables, graphs and flow charts.
+
+- Create story stories as per below format -
+
+- [markdown-user-story-format](markdown-user-story-format)
+
+- Software design document (SDD) - A written description of a software product that gives a development team overall guidance to the architecture of the software project.
+
+![markdown-software-design-document-format](markdown-software-design-document-format)
+
+- README Files – a file that helps users/other developers know how to do things with your software. Even we should write README file before we code.
+
+- Release notes – documents the differences between two versions of the same software.
+
+## Cypress
+
+- We can use Cypress to test any web application built on any type of technology.
+
+- It has four key folders – fixtures, integrations, support and plugins.
+
+Best practices – we should avoid using id’s or css classes to select element from the DOM, it will make the test brittle, because those things are likely to change. We should either use data attribute or actual component name itself.
+
+- Whereas selenium executes remote commands through the network, Cypress runs in the same run-loop as our application. Other tools like protector uses selenium under the hood unlike Cypress. It provides features like real time loading, time travel, consistent results.
+
+- With Cypress, all related things are available out of the box –
+
+![cypress-things-available](cypress-things-available)
+
+- Cypress command API – it is a chained API where subject is passed through the chain.
+
+![cypress-chained-api](cypress-chained-api)
+
+- Test commands are executed in a deterministic manner, resulting in flake-free testing. Cypress will automatically wait for this assertion “.should” (4 seconds by default). So we don’t need to write code for wait and sleep until element is ready
+
+- In cypress we can also stub network response with fixtures by using cy.server() command.
+
+- Selenium and similar tools were designed to test applications that require a full-page refresh. Supporting SPAs with Ajax data fetching was an afterthought. This lead to many issues with timing and flakey tests. Tests would sometimes fail due to slow API requests or network latency. Fixing these flakey tests typically required adding sleep statements and increasing timeouts. This made the test code more brittle. Not to mention extremely slow.
+
+- It’s worth mentioning Google’s Puppeteer has inner access to web browser events, allowing us to wait on things like Ajax calls. However, writing tests with Puppeteer requires more initial setup work and more effort to write each test than it should.
+
+- Cypress.io is a relatively new framework. It overcomes many shortcomings found in Selenium, Phantom.js, and others before them. It uses an event-based architecture that hooks into Google Chrome’s lifecycle events. This enables it to wait for things like Ajax requests to complete without using a polling/timeout mechanism. This leads to reliable and fast tests. In short, it is truly the future of E2E testing and how it should have been in the first place.
+
+- You can run Cypress in two modes: full-mode and headless-mode. The former lets you see your app’s UI and tests performed one step at a time. This mode is excellent for building up your test suite and debugging. The latter is great for a Continuous Integration (CI) environment. Another use case for headless-mode: you just want to make sure you haven’t broken anything with new changes but don’t care about the detailed steps.
+
+- Headless-mode is useful for running on a Continuous Integration (CI) server like CircleCI. Once you start writing tests more regularly as part of your development, you should invest time in getting a CI server configured so that every git commit runs the entire test suite.
+
+- Cypress is an end-to-end framework that was created by Brian Mann, who wanted to solve some pain points that a lot of developers face when writing integration tests: hard to write, unreliable and too slow. Similar to TestCafe, it was built on top of Node, with no dependencies on Selenium, and is a standalone testing framework that supports Javascript.
+
+- You can have a 100% code coverage with unit-tests that test all your components in isolation, but your application might still fail when components start to communicate with each other.
+
+- The real important tests are the ones that test functionalities that your users use every day. These are things like: “Can a user buy a product?” and “Will my order be shipped to the right address if I change the address later?” These kinds of things are impossible to test with unit tests, as they use all components of your application.
+
+
+## Git
+
+- 
