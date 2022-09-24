@@ -564,21 +564,21 @@ frame-ancesors: 'none';
 
 ```typescript
 const { book } = req;
-if(req.body._id) {
-delete req.body._id;
+if (req.body._id) {
+  delete req.body._id;
 }
 
 Object.entries(req.body).forEach((item) => {
-const key = item[0];
-const value = item[1];
-book[key] = value;
+  const key = item[0];
+  const value = item[1];
+  book[key] = value;
 });
 
 req.book.save((err) => {
-if(err) {
-return res.send(err);
-} 
- return res.json(book);
+  if (err) {
+    return res.send(err);
+  }
+  return res.json(book);
 });
 ```
 
@@ -626,12 +626,12 @@ const EventEmitter = require('events');
 const myEmitter = new EventEmitter();
 
 setImmediate(() => {
-myEmitter.emit('TEST_EVENT');
+  myEmitter.emit('TEST_EVENT');
 });
 
 myEmitter.on('TEST_EVENT', () => {
-console.log('TEST_EVENT was fired');
-})
+  console.log('TEST_EVENT was fired');
+});
 ```
 
 - By using Electron, we can create cross platform desktop applications.
@@ -686,8 +686,8 @@ console.log('TEST_EVENT was fired');
 
 - Understanding CORS – if we are on localhost:4500, and we are trying to get access a route on localhost:3000, the browsers aren’t going to let me in due to security concern. To work around this we need to enable CORS on our server. By this the browser makes two requests, the first request is called pre-flight check by using verbs OPTIONS to check if it is allowed to make request to that server, server responds like yes or no like 200.
 
-- Before deploying checklist - 
-![node-js-pre-deployment-checklist](node-js-pre-deployment-checklist)
+- Before deploying checklist -
+  ![node-js-pre-deployment-checklist](node-js-pre-deployment-checklist)
 
 - Factors we can use for two-factor authentication - something you know (password), something you have (badge, id card, token), something you are (biometric)
 
@@ -757,7 +757,7 @@ console.log('TEST_EVENT was fired');
 
 - Semantic versioning – 1.8.3 where 1 is major version, 8 is minor version and 3 is the revision or the patch number. Patch will be used when some bug fix or performance improvement, that doesn’t change the functionality. Minor means new feature is introduced but no breaking changes, major is when breaking changes like changing the function signature.
 
-- Tilde (~) operator will get the latest patch version, carrot (^) will get the latest minor version, use * or ‘x’ if we even okay to get the latest major version
+- Tilde (~) operator will get the latest patch version, carrot (^) will get the latest minor version, use \* or ‘x’ if we even okay to get the latest major version
 
 - The package-lock.json file overrides the package.json file, so while installing a package it will take the version from package-lock.json file instead of from package.json file, if we don’t want this then we need to delete it temporary for avoiding this.
 
@@ -859,7 +859,7 @@ console.log('TEST_EVENT was fired');
 
 ![node-js-how-oauth-works](node-js-how-oauth-works)
 
-- CSRF support is indirectly inbuilt in angular which will check any XSRF-TOKEN from the server response headers and set it to the request header automatically so that it will get match on the server side. We can override this behavior to provide a different token by using XSRF strategy service 
+- CSRF support is indirectly inbuilt in angular which will check any XSRF-TOKEN from the server response headers and set it to the request header automatically so that it will get match on the server side. We can override this behavior to provide a different token by using XSRF strategy service
 
 - Mocha is a testing framework and Chai is an assertion library. Sinon is a mocking library.
 
@@ -873,7 +873,7 @@ console.log('TEST_EVENT was fired');
 
 - Two of the most popular of the lightweight variety are Markdown and reStructuredText.
 
-- Use * for italics, ** for bold and `` for code words. Use * for unordered list, #. for numeric list.
+- Use _for italics, \*\* for bold and `` for code words. Use_ for unordered list, #. for numeric list.
 
 - Artifact are the result of the build, if this process of creating artifacts doesn’t require any person to do anything for it to happen, other than make the change to source control, the you have continuous integration. If it also gets deployed automatically then I become continuous deployment as well.
 
@@ -896,12 +896,13 @@ console.log('TEST_EVENT was fired');
 ![markdown-writing-tips1](markdown-writing-tips4)
 
 - Layout and Design
-    - Serif fonts are considered classic, traditional, and embellished.
-    - Sans is French for Without, Sans Serif fonts are considered modern, minimalist and clean.
-    - Script fonts are more fluid in their stroke and they resemble handwriting particularly cursive handwriting. They are considered as handwritten, calligraphic and fancy.
-    - Decorative fonts are also known as ornamental or display fonts. They should be used sparingly and for a very distinct purpose. They are fun, unique and expressive.
 
-- Recommendation of uses - 
+  - Serif fonts are considered classic, traditional, and embellished.
+  - Sans is French for Without, Sans Serif fonts are considered modern, minimalist and clean.
+  - Script fonts are more fluid in their stroke and they resemble handwriting particularly cursive handwriting. They are considered as handwritten, calligraphic and fancy.
+  - Decorative fonts are also known as ornamental or display fonts. They should be used sparingly and for a very distinct purpose. They are fun, unique and expressive.
+
+- Recommendation of uses -
 
 ![markdown-recommendation-of-uses](markdown-recommendation-of-uses)
 
@@ -959,7 +960,6 @@ Best practices – we should avoid using id’s or css classes to select element
 
 - The real important tests are the ones that test functionalities that your users use every day. These are things like: “Can a user buy a product?” and “Will my order be shipped to the right address if I change the address later?” These kinds of things are impossible to test with unit tests, as they use all components of your application.
 
-
 ## Git
 
 - Code review serves as an exchange of best practices and experiences. Code reviews should be classless, it should provide an opportunity for mentorship and collaboration. Means a junior can also review the pull request raised by senior member.
@@ -976,7 +976,7 @@ Best practices – we should avoid using id’s or css classes to select element
 
 - Git was developed by Linus Torvalds for managing the Linux kernel. It can be used offline and online for doing all the related operations. We can push or pull our changes after connecting with the network. Git is actually a bunch of individual scripts, most of which are written in Perl.
 
-- Other source code control system works with files, but Git works with content. When we say add to a file, it takes a snapshot of that, adds that to the index and then that’s what gets committed. We can fake this file based thing by saying Git commit –a, this commands stage any changes that are in the whole project right now, add those and do commits. 
+- Other source code control system works with files, but Git works with content. When we say add to a file, it takes a snapshot of that, adds that to the index and then that’s what gets committed. We can fake this file based thing by saying Git commit –a, this commands stage any changes that are in the whole project right now, add those and do commits.
 
 - The Git commands are called porcelain commands. At core Git is simply a map (a table with keys and values), a simple structure that maps keys to values. This structure is persistent and stored on our disk. Values are content of file, when we give values Git will calculate a key for us i.e. a SHA1 hash.
 
@@ -1000,7 +1000,7 @@ Best practices – we should avoid using id’s or css classes to select element
 
 ![git-peer-to-peer-model](git-peer-to-peer-model)
 
-- Centralize Model - 
+- Centralize Model -
 
 ![git-centralized-model](git-centralized-model)
 
@@ -1033,14 +1033,15 @@ Best practices – we should avoid using id’s or css classes to select element
 
 - The three stages of a git project - working directory, staging area (index), .git Directory (repository)
 
-- Rewriting History - Rebase – it replays a set of commits on top of a specific base commits. D* and E* are new commits but with same messages:
+- Rewriting History - Rebase – it replays a set of commits on top of a specific base commits. D_and E_ are new commits but with same messages:
 
 ![git-visualizing-a-rebase](git-visualizing-a-rebase)
 
-- Difference between collaborators (key people) and contributors (everyone outside from the core team and have lower permissions). 
-    - Maintainers - key decision makers within your company who are responsible for driving a project's vision and for managing day-to-day contributions.
-    - Contributors - Members within the company that help drive the software forward. Contributors are no necessarily part of the direct project team but help build software by contributing code, submitting bug fixes, and more.
-    - Community members - people who use the project or software within the company.
+- Difference between collaborators (key people) and contributors (everyone outside from the core team and have lower permissions).
+
+  - Maintainers - key decision makers within your company who are responsible for driving a project's vision and for managing day-to-day contributions.
+  - Contributors - Members within the company that help drive the software forward. Contributors are no necessarily part of the direct project team but help build software by contributing code, submitting bug fixes, and more.
+  - Community members - people who use the project or software within the company.
 
 - Creating GitHub pages – to share information, it can be a static site hosting website without server-side code.
 
@@ -1051,31 +1052,28 @@ Best practices – we should avoid using id’s or css classes to select element
 ![git-repo-permissions]](git-repo-permissions)
 
 - By using cherry pick we can copy specific commit to another branch. It creates duplicate commit in each branch and can cause confusion. Just use command git cherry-pick <commit> by specify the commit sha.
-  
 - Popular open source licenses – apache 2.0, bsd 2-caluse, bsd 3 clause, gnu gpl, gnu lgpl, mit (or expat license), Mozilla public license, cddl, eclipse public license version 2.0.
- 
+
 - License file deals with the legal side, Contribution Guidelines file deals with the technical side, Code of Conduct file deals with the ethical side.
-  
+
 ## Others
-  
+
 - Elements, console, sources tabs are called panel and windows inside each of them are called pane.
-  
 - Use $0, $1, $2, $3, $4 to evaluate currently or previous selected elements from console.
-  
+
 ## Accessibility
 
-- History of accessibility 
-  
- ![accessibility-history](accessibility-history)
-  
+- History of accessibility
+
+![accessibility-history](accessibility-history)
+
 - Who needs accessibility –
-  
+
   ![accessibility-who-needs-it.png](accessibility-who-needs-it.png)
-  
+
 - Create accessible forms – each control should have label or aria-labelled-by, use grouping of controls, provide clear notifications, break up long forms. We should avoid placeholder text in your forms. It is often low contrast and difficult to see.
 
 - Assistive technology – screen readers, screen magnification software, speech input software, head pointers, eye tracking, single switch entry devices.
-  
 - Web accessibility guidelines – WCAG (A, AA, AAA).
 
 - 4 types of disability – physical, vision-related, cognitive and hearing-related.
@@ -1091,7 +1089,6 @@ Best practices – we should avoid using id’s or css classes to select element
 - For low vision user, the content should be zoomable, it should not lead to any loss of functionality and content.
 
 - Too much use of the animation can cause distractions among users, the website should also provide pause, stop and hide the animation. We can use chrome emulation for testing
-  
 - We should have language, charset=utf-8, title tags on the HTML page. The title bar of browser should also include company name.
 
 - HTML landmarks such as header, nav, main, footer, aside, form and section should have accessible name by providing aria-label attribute.
@@ -1099,35 +1096,27 @@ Best practices – we should avoid using id’s or css classes to select element
 - Links are for navigation or change of context, buttons are for action.
 
 - The email field should have autocomplete attribute as `email`.
-  
-- The WCAG (web content accessibility guidelines)  measure to accessibility of a website. Level A, Level AA, Level AAA. Who benefits – who only has one arm so can’t operate mouse, only the keyboard, a person who is blind so uses a screen reader, a person who has dexterity problem, can’t click on a small item, uses keyboard if she is struggling with the mouse.
+- The WCAG (web content accessibility guidelines) measure to accessibility of a website. Level A, Level AA, Level AAA. Who benefits – who only has one arm so can’t operate mouse, only the keyboard, a person who is blind so uses a screen reader, a person who has dexterity problem, can’t click on a small item, uses keyboard if she is struggling with the mouse.
 
 - Basic commands on form which can be interacted with like button, link and input controls, they are called focusable elements, pressing enter on that link or button should activate it. Space bar is used to toggle a checkbox and open a select control. Up and down arrows are used to scrolling the page or scroll through select component.
 
 - Mouse should be required only for drawing in an art program, some games, but drag and drop and resizing and rotating can be handled through the keyboard.
 
 - If we set tab index as -1 then we cannot tab to it with keyboard, but can set focus programmatically. If we set 0 then we can tab to element and focus order determined by the HTML.
-  
 - ARIA is a technical specification for improving the accessibility of web pages, it allows us to update the accessibility tree.
 
 - Common navigation patters are navigation bars, side navs, breadcrumb and hamburger menus.
-  
 - It will be hard and require more money to support accessibility if we try to implement it after project has been complete, if we start the project with accessibility in mind then it will become easy and without any additional budget.
-  
 - Typography – choosing right typeface and hierarchy of font sizes it should be in rage of 16px to 20px.
-  
 - Every transition or animation should have purpose. When everything is just flashing and sliding around all over the page, it is not good for anyone, it makes user sick. We should provide an option to the user to disable animations.
-  
 - Images are inaccessible so we need to use alt attribute to provide description of content of the image.
-  
 - Aria roles is about filing the gap between what is available and the semantics of the code that we are using and what’s actually occurring in our rich internet applications.
 
 - ARIA states – describe dynamic states and changed with JavaScript: aria-busy, aria-disabled, aria-grabbed, aria-hidden, aria-invalid.
-  
 - For forms the spacebar should activates controls and the enter key should submit the default action of the form.
 
 - We should only use custom elements, widgets and ARIA when we either do not have an HTML equivalent control or when we absolutely cannot use the existing control because it doesn’t have the functionality that we need.
 
 ## Data Structures
-  
-- 
+
+-
