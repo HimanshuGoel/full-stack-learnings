@@ -16,6 +16,9 @@ These learnings have been pulled out from various notes acquired from various tr
   - [Markdown](#markdown)
   - [Cypress](#cypress)
   - [Git](#git)
+  - [Others](#others)
+  - [Accessibility](#accessibility)
+  - [Data Structures](#data-structures)
 
 ## VS Code
 
@@ -959,4 +962,172 @@ Best practices – we should avoid using id’s or css classes to select element
 
 ## Git
 
+- Code review serves as an exchange of best practices and experiences. Code reviews should be classless, it should provide an opportunity for mentorship and collaboration. Means a junior can also review the pull request raised by senior member.
+
+- The PR should be small, it can contains changed lines from 100 to 500 and 5 to 10 files changed.
+
+- We should have a self-review, before submitting the pull request. Also, We should reply to all comments, whether we fixed them as suggested, or fixed the way we preferred or push back the comment.
+
+- We should have at least 2 code reviewers and one of them should know the business logic behind the code and customer requirement.
+
+- Praise the author in the comment if work exceeds expectations, new team member picks up quickly, high quality code, reinforces good practices.
+
+- If we found a nitpick and still want to approve it then we can comment like “nitpick: several types in comments. Approving anyway”. We should not be doing pre-approving frivolously.
+
+- Git was developed by Linus Torvalds for managing the Linux kernel. It can be used offline and online for doing all the related operations. We can push or pull our changes after connecting with the network. Git is actually a bunch of individual scripts, most of which are written in Perl.
+
+- Other source code control system works with files, but Git works with content. When we say add to a file, it takes a snapshot of that, adds that to the index and then that’s what gets committed. We can fake this file based thing by saying Git commit –a, this commands stage any changes that are in the whole project right now, add those and do commits. 
+
+- The Git commands are called porcelain commands. At core Git is simply a map (a table with keys and values), a simple structure that maps keys to values. This structure is persistent and stored on our disk. Values are content of file, when we give values Git will calculate a key for us i.e. a SHA1 hash.
+
+- Git Branches - Another layer will make it a revision control system which includes features like branches and merges. When we do our first commit, Git creates a default branch the name is master branch. Git save its details in heads folder in refs folder of .git folder, it is the SHA1 of the last commit, the branch is nothing else but a simple reference to a commit. Branches are just references to the commit.
+
+- Detached Head – it is a situation when we checkout a commit. Then the head will refer to that commit, not the current branch. Git also runs a garbage collection like in below scenario, if we wanted to avoid that then we must create a branch which will refer to these isolated commits.
+
+- By using tags, we can tag a commit with a tag name. The command can be git tag –a dinner. The tag information saved into tags folder inside ref folder. Tag is also just a reference to an object just like branch but it doesn’t move. On a new commit, the current branch will move not the tag.
+
+- Git Fork – it is kind of like clone, but it is a remote clone. By this we are cloning the project from someone else account to our GitHub account, and then we clone it from out account to our local machine. Upstream – to track the changes to the original project, then we need to add another remote point at it. It is called upstream. We can pull and push the changes to our account project, but only do pull from the upstream original account. We can send a pull request to this original account maintainer to pull our changes.
+
+- Git is a source control system used by GitHub. GitHub is a Git Repository for open source. Along with Bitbucket they provide a great user experience for Git users in the cloud. Git uses snapshots instead of deltas like other source control system. Atlassian Source Tree is a famous GUI toll for Git.
+
+- Stashing – it means if things go messy, save changes for later and then apply when needed. It is like shelve set in TFS; they will no longer be present in working area.
+
+- Recovering deleted commits – we can recover this dangling commit, we need to get back the value of SHA1 using commands reflog, and fsck.
+
+- Reverting commits – use command git revert #commit SHA1. Be careful while reverting the reverting a merge. Revert doesn’t mean undo operation.
+
+- Peer to Peer Model -
+
+![git-peer-to-peer-model](git-peer-to-peer-model)
+
+- Centralize Model - 
+
+![git-centralized-model](git-centralized-model)
+
+- Pull request model -
+
+![git-pull-request-model](git-pull-request-model)
+
+- Dictator and Lieutenants model
+
+![git-dictator-and-lieutenants-model](git-dictator-and-lieutenants-model)
+
+- In general, we have integration, release, feature and hotfix branches.
+
+- Constraints – we can use Git Hooks feature to raise some notification on different Events before committing like checking if build is red on server then showing warning while doing another commit.
+
+- Evil merge – we should never introduce changes in the merge commit.
+
+- Disadvantages of doing all work in main branch instead of multiple feature branches - difficult to track, difficult to manage merges, difficult to back out, difficult to experiment
+
+- Creating a Hotfix - If we spot something wrong in release production code to fix these issues are called hot fixes by creating hot fixes branch. In this we create this branch from master and then merge the code back into master and development.
+
+- Version control system: it is a time travel machine for our project.
+
+- Evolution of version control - Local computer -> local version control systems -> centralized version control systems -> distributed version control system
+
+![git-short-history](git-short-history)
+![git-history](git-history)
+
+- Git maintained integrity using check-summed generated by SHA1 hashing algorithm.
+
+- The three stages of a git project - working directory, staging area (index), .git Directory (repository)
+
+- Rewriting History - Rebase – it replays a set of commits on top of a specific base commits. D* and E* are new commits but with same messages:
+
+![git-visualizing-a-rebase](git-visualizing-a-rebase)
+
+- Difference between collaborators (key people) and contributors (everyone outside from the core team and have lower permissions). 
+    - Maintainers - key decision makers within your company who are responsible for driving a project's vision and for managing day-to-day contributions.
+    - Contributors - Members within the company that help drive the software forward. Contributors are no necessarily part of the direct project team but help build software by contributing code, submitting bug fixes, and more.
+    - Community members - people who use the project or software within the company.
+
+- Creating GitHub pages – to share information, it can be a static site hosting website without server-side code.
+
+- Label can be applied on issues and PR. Labels are used to organize and also prioritize items such as issues. Built-in labels - bug, duplicate, enchancement, help-wanted, question, wontfix, good-first-issue, invalid.
+
+- GitHub calls it pull request instead of merge request because it let you tell others about the changes you pushed to a branch the action they would do is pull those changes in once that merged. Repo permissions related to pull requests.
+
+![git-repo-permissions]](git-repo-permissions)
+
+- By using cherry pick we can copy specific commit to another branch. It creates duplicate commit in each branch and can cause confusion. Just use command git cherry-pick <commit> by specify the commit sha.
+  
+- Popular open source licenses – apache 2.0, bsd 2-caluse, bsd 3 clause, gnu gpl, gnu lgpl, mit (or expat license), Mozilla public license, cddl, eclipse public license version 2.0.
+ 
+- License file deals with the legal side, Contribution Guidelines file deals with the technical side, Code of Conduct file deals with the ethical side.
+  
+## Others
+  
+- Elements, console, sources tabs are called panel and windows inside each of them are called pane.
+  
+- Use $0, $1, $2, $3, $4 to evaluate currently or previous selected elements from console.
+  
+## Accessibility
+
+- History of accessibility 
+  
+ ![accessibility-history](accessibility-history)
+  
+- Who needs accessibility –
+  
+  ![accessibility-who-needs-it.png](accessibility-who-needs-it.png)
+  
+- Create accessible forms – each control should have label or aria-labelled-by, use grouping of controls, provide clear notifications, break up long forms. We should avoid placeholder text in your forms. It is often low contrast and difficult to see.
+
+- Assistive technology – screen readers, screen magnification software, speech input software, head pointers, eye tracking, single switch entry devices.
+  
+- Web accessibility guidelines – WCAG (A, AA, AAA).
+
+- 4 types of disability – physical, vision-related, cognitive and hearing-related.
+
+- Focusable elements – links, buttons, form elements – text input, text area, select, checkboxes, radio buttons.
+
+- On the website load, the first tab should go to the ‘skip link’, it generally skips the site navigation or repetitive contents.
+
+- In radio button, if a radio is selected then we need to use the arrows to move around other options, but if none is selected then we can use tab key to move around other options. It is called widget navigation where too many focusable elements on a control, it provides skip links functionality.
+
+- Interactive form controls are activated with SPACE key. For links to activate use enter key.
+
+- For low vision user, the content should be zoomable, it should not lead to any loss of functionality and content.
+
+- Too much use of the animation can cause distractions among users, the website should also provide pause, stop and hide the animation. We can use chrome emulation for testing
+  
+- We should have language, charset=utf-8, title tags on the HTML page. The title bar of browser should also include company name.
+
+- HTML landmarks such as header, nav, main, footer, aside, form and section should have accessible name by providing aria-label attribute.
+
+- Links are for navigation or change of context, buttons are for action.
+
+- The email field should have autocomplete attribute as `email`.
+  
+- The WCAG (web content accessibility guidelines)  measure to accessibility of a website. Level A, Level AA, Level AAA. Who benefits – who only has one arm so can’t operate mouse, only the keyboard, a person who is blind so uses a screen reader, a person who has dexterity problem, can’t click on a small item, uses keyboard if she is struggling with the mouse.
+
+- Basic commands on form which can be interacted with like button, link and input controls, they are called focusable elements, pressing enter on that link or button should activate it. Space bar is used to toggle a checkbox and open a select control. Up and down arrows are used to scrolling the page or scroll through select component.
+
+- Mouse should be required only for drawing in an art program, some games, but drag and drop and resizing and rotating can be handled through the keyboard.
+
+- If we set tab index as -1 then we cannot tab to it with keyboard, but can set focus programmatically. If we set 0 then we can tab to element and focus order determined by the HTML.
+  
+- ARIA is a technical specification for improving the accessibility of web pages, it allows us to update the accessibility tree.
+
+- Common navigation patters are navigation bars, side navs, breadcrumb and hamburger menus.
+  
+- It will be hard and require more money to support accessibility if we try to implement it after project has been complete, if we start the project with accessibility in mind then it will become easy and without any additional budget.
+  
+- Typography – choosing right typeface and hierarchy of font sizes it should be in rage of 16px to 20px.
+  
+- Every transition or animation should have purpose. When everything is just flashing and sliding around all over the page, it is not good for anyone, it makes user sick. We should provide an option to the user to disable animations.
+  
+- Images are inaccessible so we need to use alt attribute to provide description of content of the image.
+  
+- Aria roles is about filing the gap between what is available and the semantics of the code that we are using and what’s actually occurring in our rich internet applications.
+
+- ARIA states – describe dynamic states and changed with JavaScript: aria-busy, aria-disabled, aria-grabbed, aria-hidden, aria-invalid.
+  
+- For forms the spacebar should activates controls and the enter key should submit the default action of the form.
+
+- We should only use custom elements, widgets and ARIA when we either do not have an HTML equivalent control or when we absolutely cannot use the existing control because it doesn’t have the functionality that we need.
+
+## Data Structures
+  
 - 
