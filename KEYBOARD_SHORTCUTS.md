@@ -31,3 +31,9 @@
 ## NPM
 
 - list for all of the components that NPM's installed globally - `npm list –g –depth=0`
+
+## Chrome Dev Tools
+
+- open the command menu - `ctrl + shift + p`
+
+- open the elements panel - `ctrl + shift + c`
