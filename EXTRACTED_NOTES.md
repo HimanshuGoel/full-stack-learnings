@@ -19,6 +19,7 @@ These learnings have been pulled out from various notes acquired from various tr
   - [Others](#others)
   - [Accessibility](#accessibility)
   - [Data Structures](#data-structures)
+  - [Angular JS](#angular-js)
 
 ## VS Code
 
@@ -1119,4 +1120,208 @@ Best practices – we should avoid using id’s or css classes to select element
 
 ## Data Structures
 
--
+- Node chains – 
+  
+  ![ds-node-chains](ds-node-chains)
+  
+- Linked list – single chain of nodes, head pointer, tail pointer, operations – add, remove, find, enumerate.
+
+  - Doubly linked list – singly linked list works great when we need only forward access to the nodes, but for backwords combability as-well we need to use doubly linked list.
+
+!{ds-doubly-linked-list](ds-doubly-linked-list)
+  
+- Stack - It is based on LIFO concept. Each pop reduces the stack depth.
+
+- Stack using linked list – pros with linked list approach – no hard size limit, easy to implement – no bounds checking, empty list means empty stack, cons – memory allocation on push, per node memory overhead, potential performance issues.
+
+- Stack using arrays – cons with arrays approach – overallocation of array. While enumerating we need to iterate it backwords.
+  
+- Postfix calculator – postfix notation also known as reverse polish notation in this approach operator follows the operands by this, we can avoid the ambiguity in operation order.
+  
+- ![ds-postfix-calculator](ds-postfix-calculator)
+  
+- Undo implementation using Stack – we use stack to store the changes and to reverse the changes when undo is clicked.
+  
+- Queue - It is based on FIFO concepts. We can do enqueue and dequeue operations on it.
+
+- Queue using linked list implementation – in this we will add last and remove first, not add first and remove last due to enumeration order. Add last/remove first allow list enumeration to “just work”. Queue allows to take incoming data and store it in a way that allows us to process it later, but in the order, it showed up, which is a sort of fairness.
+  
+- Handling growth of an array – we also need to copy from 0 to head – 1 in case of non-empty values. Arrays has benefits over linked list approach like data locality and performance gains, reducing the overall number of allocations and incredibly fast enqueue and dequeue times when there isn’t an allocation being performed.
+  
+- Priority queue – highest priority items dequeued first, not first in and first out. Only enqueue operation need to be change in implementation others operations will be same.
+  
+- What is a tree – instead of a linear structure which can be traversed backword and forward, these are a hierarchical rather than a linear manner. Terms are root or head node, leaf nodes, child nodes. A node can have any number of children but only one parent. Fundamental rule for a tree structure is that there is exactly one path from the head node to any other node in the tree and likewise exactly one path from any node in the tree back to the head node, therefore there is exactly one path can be taken between any nodes in the tree.
+  
+- Binary tree – it can have most 2 child nodes called left and right children.
+  
+- Binary search tree – sorted hierarchy of data. Small values on left and larger values are on right. Left most node contains the smallest value and right most node contains the largest value.
+  
+- Finding data – searching. Data ordering requirements make the binary search tree a really efficient structure for searching for data, as we don’t need to traverse all node to search the data.
+  
+Traversals – to enumerate in well-defined order they are pre-order, in-order and post-order. Pre-order and post-order are used in mathematical expression evaluation, and evaluation of run time behaviours in a language like compilers use trees, dependency graph for which depends upon which operation.
+  
+- Hash Tables - Hash tables are fit into the broad category of structures knows as associative arrays. Associative arrays provide the storage of key/value pairs into an array or an array like collection. But unlike an array, the index can be any comparable type not just an integer, each key is unique. The key type is mapped to an index.
+
+ - This GetIndex() method hashed the string, hashing is a process that derives a fixed size result from an arbitrary input. Any string of any length when hashed would return a fixed size i.e. 32-bit integer hash value. The features of a hashing algorithm - stable (same input generates the same output everytime), uniform (hash value should be uniformly distributed through available space), efficeint and secure.
+  
+ - String hashing - Naive implementation - summing of the ASCII value of character.
+  
+ - Handling collisions – if two distinct items have same hash value, then we have collision as items are assigned to the same index in the has table. To handle this, we can follow two strategies – open addressing (moving to next index in table), chaining (storing item in a linked list)
+  
+ - Counting words – real world example of hash table. Hash table shines in a scenario where key/value pairs we are updating the values and we have a stable key.
+  
+ - Sorting means arranging data in a collection based on a comparison algorithm like any object with a notion of greater-than/less-than/equality. Two general families of sorting algorithms – linear sorting, divide and conquer. Linear algorithms treat the problem of sorting as a single large operation. Divide and conquer algorithms partition the data to be sorted into smaller sets that can be independently sorted. Measuring performance – number of comparisons, swaps operations.
+
+- Bubble sort – simplest sorting algorithm. Consist of many passes until no swaps are performed in a pass. Performance is not good O(n2), not appropriate for large unsorted data sets. But for the best-case performance is very good i.e. O(n) also for the space requirement it is good i.e. O(n) as it directly operates on the input array and it is a candidate algorithm when minimizing space is paramount.
+
+  ![ds-bubble-sort1](ds-bubble-sort1)
+  ![ds-bubble-sort2](ds-bubble-sort2)
+  
+  - Insertion sort – sorts each item in the array as they are encountered. It uses only simple pass, everything left of the item is known to be sorted and everything to the right is unsorted. Performance and space matrixes are same as bubble sort.
+  
+  ![ds-insertion-sort](ds-insertion-sort)
+  
+- Selection sort – another linear algorithm, hybrid between bubble and insertion sort. It sorts the data by finding the smallest item and swapping it into the array in the first unsorted location. Performance is similar to bubble and insertion sort. Best case performance is O(n2). It Is not appropriate for large unsorted data set. For a system where comparison is cheap and swaps are costly then we can use this algorithm.
+  
+![ds-selection-sort1](ds-selection-sort1)
+![ds-selection-sort2](ds-selection-sort2)
+  
+- Merge sort – it is a divide and conquer algorithm. They array is recursively split in half, and splitting continues until the array is in groups of 1, it is reconstructed in the sort order. Each reconstructed array is merged with the other half. Worst, average and best cases performance is O (n log n), data splitting means that the algorithm can be made parallel, that’s why it is appropriate for large datasets. Space required is O(n), merge can be, but is often not, performed in-place. These extra allocations increase the memory footprint required to sort data.
+  
+ ![ds-merge-sort](ds-merge-sort)
+  
+- Quick sort – commonly used general purpose language and also based on divide and conquer. Pick a pivot value and partition the array.
+  
+ ![ds-quick-sort1](ds-quick-sort1)
+  ![ds-quick-sort2](ds-quick-sort2)
+  ![ds-quick-sort3](ds-quick-sort3)
+  
+- Worst case is O (n2) not appropriate for large pathologically sorted (inverse sorted) data sets, average case performance is O (n log n) appropriate for large data sets, best case performance is O (n log n) very good best case performance and can efficiently sort small and nearly sorted data sets, space required O (n).
+  
+- AVL Tree - Binary tree is a collection that stores data in a tree structure. AVL tree are self-balancing binary tree invented by Adelson-velsky and landis (1942). Only insertion and deletion differ in running the balance algorithm from binary tree. AVL tree new concepts are self-balancing, height, balance factor, right/left heavy. An unbalance binary tree can cause performance issues like reduce the search time; it might become a linked list as below, like loading a English dictionary –
+
+  ![ds-avl-unbalance-tree](ds-avl-unbalance-tree)
+  
+Balanced binary tree – the tree remains balanced as nodes are inserted or deleted, height or left and right tree differ by at most 1.
+  
+![ds-balance-tree](ds-balance-tree)
+  
+- Balancing is done using node rotation. Rotation changes the physical structure of the tree within the constraints of the binary tree, smaller values on the left and larger or equal on the right. Rotation algorithms are right rotation, left rotation, right-left rotation, left-right rotation.
+  
+- AVL tree vs. Binary tree visualization – AVL tree won’t get much height and depth unlike binary tree. For bad 100 number, the binary tree will become the linked list like linear structure. Also, it is shows the difference between balanced tree and unbalanced trees.
+  
+![ds-avl-tree-visualization](ds-avl-tree-visualization)
+  ![ds-binary-tree-visualization](ds-binary-tree-visualization)
+  
+- String Searching Algorithms - API Overview – by using interface we can implement algorithms in a uniform manner and this will allow us to use them interchangeably.
+
+  - Naïve Search - We can use run the loop till the string length minus the search string length to get some optimization. This algorithm is most appropriate when the string to search and find are both small.
+  
+  ![ds-naive-search1](ds-naive-search1)
+  ![ds-naive-search2](ds-naive-search2)
+  
+  Boyer Moore Horspool Search – it minimizes the overall cost of search by skipping as many characters as possible. This is appropriate as a general-purpose string search algorithm. It will also improve the performance if search string is longer.
+  
+  ![ds-boyer-moore-horspool-search.png](ds-boyer-moore-horspool-search.png)
+  
+  - Data structures is a way of storing data. Data structures and algorithms are heavily linked. DS typically use some sort of algorithm to perform their inner organization, and algorithms typically uses data structure to store internal states.
+  
+- Ways of measuring performance – timing with stopwatch (but it depends on hardware, programming language, environment, etc.), counting instructions executed by machine, looking at execution curve, best case, worst case, average case.
+  
+- Asymptotic performance – In Asymptotic Analysis, we evaluate the performance of an algorithm in terms of input size (we don’t measure the actual running time). We calculate, how does the time (or space) taken by an algorithm increases with the input size.
+  
+- Big Theta – it can be used to express the complexity of a program.
+  
+- Big O – worst-case complexity of the program.
+  
+ - Binary search – complexity in terms of Big O
+  
+  ![ds-binary-search-big-o](ds-binary-search-big-o)
+  
+  - Amortized complexity – it deals with the complexity of performing the same operation multiple times for varying inputs like inserting multiple elements in a data structure.
+  
+ - Priority queues – internally elements are organized in a data structure called heap, types of heaps are min heap, max heap and min-max heap, interval heap. A heap is an binary balanced tree structure where each node has at most two children, in min-heap each element is smaller than its immediate children.
+  
+- Hash table – two flavours – first is a container that store the values that are added directly, just like arrays and linked lists, this container is often called a set or a hash set. The other flavour is a container that maps a setup of keys to a set of values, this is referred to as a map or a dictionary. Search operation is much faster in hash table.
+  
+- By hash table we can quickly lookup the name of a certain user id and this makes hash tables ideal data structure for caches, fast insertion, fast lookup and fast deletion, but elements order as per we receive them can’t be possible in hash table unlike arrays.
+  
+  ![ds-common-big-o-examples](ds-common-big-o-examples)
+  
+- Brute force and greedy algorithm – problem solving strategy where all possible combinations or solution candidates are tried out blindly until a solution is found is called brute force.
+  
+  ![ds-brute-force-combinations](ds-brute-force-combinations)
+  
+  - Greedy algorithms work smarter than brute faster, they may speed up the search for a solution, but they come with a catch of stalling at a local maximum or minimum if we search for a small solution.
+  
+  ![ds-greedy-algorithms](ds-greedy-algorithms)
+  
+- Divide and conquer – key ingredient is to discover how to divide the larger, original problem into sub-problems. Once divided, each of the smaller and easier-to-understand sub-problems are solved, leaving us with sub-solutions. Finally, find a way to combine, or deduce these sub-solutions into a solution to the original and larger problem, thereby conquering it. We can also apply it recursively. Example – quicksort
+  
+  ![ds-quick-sort-divide-and-conquer](ds-quick-sort-divide-and-conquer)
+  
+  - Dynamic programming – this is also built on the core idea of divide and conquer. If sub problems cannot be separated but overlaps, then overlapping part would need to be solved in both sub-problems. We can cache the solved result of sub-problem. It will improve the performance.
+  
+- The 0/1 Knapsack problem – using dynamic problem we can get the performance advantages as it has lower complexity.
+  
+  ![ds-knapsack-problem](ds-knapsack-problem)
+  
+- Other examples – where to put line breaks to obtain a nice and even text justification, finding shortest paths, finding difference between two files, sequence alignment, various games
+  
+  ![ds-knapsack-problem-other-examples.png](ds-knapsack-problem-other-examples.png)
+  
+  - P vs. NP – exponential functions grow much faster than polynomials. The complexity category P covers problems that can be solved in polynomial time i.e. easy problems like sorting, traversing, lists, etc. But problems in NP category are decision problems (in which answer is yes or no) verifiable in polynomial time.
+  
+  ![ds-p-vs-np1](ds-p-vs-np1)
+  ![ds-p-vs-np2](ds-p-vs-np2)
+  
+  NP hard – at least as hard as NP complete, they don’t need to be decision problem, and they do not need to be verifiable in polynomial time like knapsack problem, halting problem, traveling salesman problem.
+  
+  ![ds-np-hard](ds-np-hard)
+  
+  - Heuristics and approximation algorithms – they are general techniques for dealing with computationally hard problems. Heuristics – wanted speed, trade with accuracy.
+
+  - Cuckoo hashing to create hash table – it is an open addressing scheme, inspired by cuckoo bird.
+  
+  - Prefix-querying Sequences Efficiently with Tries - Tries – represent a number of strings in a single tree structure where the root node represents the enter string with no letters added yet and with each subsequent level of the tree corresponding to a pending one more letter to a string.
+
+  ![ds-tries](ds-tries)
+  
+  Radix tree – a compressed tries structure, it improves the performance. We can use it if read-only or read-mostly operations. Tries is useful for autocompletion, prefix only scenario.
+  
+  ![ds-radix-trees](ds-radix-trees)
+  
+  Suffix trees also allows to search a pattern anywhere in a string.
+  
+  ![ds-suffix-trees](ds-suffix-trees)
+  
+  - Data structure is a method of organizing information so that the information can be stored and retrieved efficiently.
+  
+  - Big O notation – computer science defines performance by something called Big O notation. It shows how the data structure will perform as the data increase.
+  
+  ![ds-big-o-notation](ds-big-o-notation)
+  ![ds-big-o-notation2](ds-big-o-notation2)
+  ![ds-big-o-notation3](ds-big-o-notation3)
+  
+- One of the problems with a hash structure is when we run into collisions when putting data into the hash. Collisions slow down the performance of the hash, which kind of defeats one of the main points of using the hash. We can reduce has collisions by increasing the has capacity or improve the hashCode() method quality to improve the uniqueness of hash value.
+  
+- The binary tree doesn’t need to always have two nodes per parent. the tree additions are based on comparisons rather than keeping the tree balanced. Because the tree data is dispersed based on comparison, it makes adding and finding the data quite efficient, so don’t have to traversed all the elements like array list due to which the Big O notation would be logarithmic which is one of the best access performance we can get out of a data structure. But implementing a tree data structure is a bit of complex in code.
+  
+- Safely Using Arrays - Arrays are used in examples like storing share prices of a company in different points of time, use arrays of pixels to store and process images. Arrays properties – contiguous memory locations as it is a very cache friendly data structure, same element type cannot have mixed up type of elements in a same array, direct fast element access by index, indexes are zero-based.
+
+- Big O notation and Asymptotic runtime complexity – Big O also commonly known as asymptotic complexity is a notation that is often used to express a trend to evaluate the performance of algorithm when some quantity grows like number of items that algorithm process. By Big O we get estimate the runtime performance, by this metrices we can pick one algorithm or another.
+
+- Data transfer algorithms – physical vs. internet data transfer. We should pick the constant one because at some point it will be faster than linear complexity.
+
+  ![ds-physical-vs-internet-data-transer](ds-physical-vs-internet-data-transer)
+  ![ds-physical-vs-internet-data-transer2](ds-physical-vs-internet-data-transer2)
+  
+- Stack overflow – if internal array to store stack values gets full, then push operation will cause it outside of stack area which is not owned by stack. In this case, we should throw an exception from code.
+  
+- Arrays vs. linked lists – memory layout – direct fast element access by index not possible in linked list we have to traverse all the elements, also it is not cache friendly as it is not having continuous memory allocations. Linked list is good for inserting new item as all don’t have to shift. So, no reallocation overhead. The nodes of the linked list are stored in sparse memory locations. They are scattered all over computer’s memory.
+  
+![ds-array-vs-linked-list](ds-array-vs-linked-list)
+  
+## Angular JS
+  
+- 
