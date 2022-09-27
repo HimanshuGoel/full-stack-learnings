@@ -20,6 +20,7 @@ These learnings have been pulled out from various notes acquired from various tr
   - [Accessibility](#accessibility)
   - [Data Structures](#data-structures)
   - [Angular JS](#angular-js)
+  - [HTML](#html)
 
 ## VS Code
 
@@ -1452,5 +1453,45 @@ Best Practice: do not use the replace attribute. And always prefix your directiv
 - 3 categories of modules – angular js modules, 3rd party modules, custom modules (which we create our self).
   
 - Exceptions cannot be avoided entirely but they can be handled gracefully.
+  
+- It is developed by Misko Hevery. Publicly released as version 0.9.0 in October 2010.
+  
+- Bower is a NPM for the web components, to get the dependency files.
+  
+- Lifecycle - When the page loads it loads our static DOM. Angular JS is then loaded then we have our ‘on content ready’ event that’s fired. Which kicks off, that’s what Angular is listening for. That is the entry point. Then angular looks for the application within the HTML, so that is our ng-app. From there it goes through and compile all of our services, and controller and everything that we have declared on our model basically gets compiled. It then goes through the DOM and says what directives do I have, what are the angular js pieces within the HTML and generate the template. This is the compilation phase.
+Then it goes back through and it links it together says this template gets this scope, binds it together and we have our view.
+
+  ![angular-js-lifecycle](angular-js-lifecycle)
+  
+  - $digest() processes all of the watchers of the currentscope, $apply() is used to notify that something has happend outside of the Angular JS domaim, $apply forces a $digest cycle.
+  
+![angular-js-digest-loop](angular-js-digest-loop)
+  
+- If we use factory then it works on revealing module pattern, and service is worked with ‘.’ dot syntax pattern, in this we are attaching methods and properties to a ‘this’ object. Prefer to use factory.
+  
+- DSL – directives allows HTML to be extended into DSL. By creating custom tags in HTML, we can start to show what we are doing and convey it in a way that makes sense for domain experts. HTML becomes very expressive and self-documented. People find DSLs valuable because a well-designed DSL can be much easier to program with than a traditional library. This improves programmer productivity, which is always valuable. In particular it may also improve communication with domain experts which is an important tool for tackling one of the hardest problem in software developemnt.
+  
+- Angular does not have dependency on jQuery, it has subset of jQLite and have DOM querying functionality baked into it, except other like Ajax calls capabilities. So above element is a jQuery object.
+  
+- Use the compiler function for template manipulation before the directive was actually attached to the DOM. The compile function takes our HTML and scope and put them together. The compile function gets broke into two functions pre and post. What we get from post link, in the compile function, is what we look in the linker which is our scope and HTML together.
+  
+- Use Green Sock for javascript HTML5 animations.
+  
+- Cookies present problems today, because the browser sends a cookie on every request, even on requests that do not need a cookie to authenticate the user, and sometines on requests that have been put together as part of a malicious cross-site request forgery, a CSRF. Cookies do not work well with web API that works on a different domain as they are limited to a specific domain. We have more control over token.
+  
+- when we use an ng-repeat and you repeat over something like ‘star in stars’ collection from the scope, angular really wants to see distinct values inside of there, so distinct object references, or distinct number values, or distinct strings. So in case like we have an array with empty elements, in order to work with ng-repeat, we need to tell angular to track these elements by index, instead of the values that are inside of the elements.
+
+  - Creating stars ratings functionality:
+  
+  ![angular-js-creating-starts-review1](angular-js-creating-starts-review1)
+  ![angular-js-creating-starts-review2](angular-js-creating-starts-review2)
+
+- Forms are always start off simple, but then the business wants to add rounded corners and cute icons to make the form look friendly and inviting, and the real complexity starts when the business starts adding validation rules to a form.
+  
+- Function binding to isolate scope: whenever we use the ‘&’ binding, we are essentially creating a proxy function on our isolated scope, when we invoke this proxy function, angular goes out and looks at the expression here and it figures out how to invoke that expression to get it to work. We have to understand that angular actually understands expressions like this at a very deep level. If we look thorough the angular source code, we will see lots of regular expression to parse things out, and angular even knows the name of this parameter that of this parameter that we want to pass to the method on objects. Angular understands that it needs a value to pass into this function. So when want to invoke these proxy function, we do not want to just pass parameters along, we to want to pass essentially, a hash that tells angular in the expression being used, if there is something with this name value, then pass along what is inside of this variable for that function argument. So we need to use an object literal syntax like below to get a parameter into an expression that is bound to a proxy function on our isolated scope.
+  
+- The first version of angular known as Angular JS. Angular 2.0 or above known as just Angular.
+  
+## HTML
   
 - 
