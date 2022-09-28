@@ -71,3 +71,7 @@
 - Flex Layout - <https://flexbox.malven.co/>
 
 - Grid Layout - <https://grid.malven.co/>
+
+## Role model websites
+
+- E-commerce site - <https://www.mcmaster.com/>

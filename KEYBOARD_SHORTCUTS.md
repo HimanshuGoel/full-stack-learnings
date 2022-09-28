@@ -37,3 +37,5 @@
 - open the command menu - `ctrl + shift + p`
 
 - open the elements panel - `ctrl + shift + c`
+
+- open console window – `ctrl + shift + j`
