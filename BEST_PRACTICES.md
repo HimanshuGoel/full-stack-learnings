@@ -1461,6 +1461,76 @@ function head<Element>(arr: Element[]): Element | undefined {
 return arr[0]
 }
 
+#### 1.42 at() method for array and string
+  
+We can access an item of an array at position i by writing A[i]. But what if i is negative and we want to get the element from the end of the array? We can write A[A.length + i]. But it’s not very convenient. Another way is use A.slice(i)[0]. But it’s not very efficient.
+  
+**prefer**
+  
+  ```typescript
+  const A = [2, 4, 6, 8, 10]
+A.at(-1)    // 10
+const S = "Hello World"
+S.at(-1)    // 'd'
+  
+  ```
+  
+#### 1.43 Find an item in an array from the end with findLast()
+  
+**prefer**
+  
+```typescript
+  const A = [1, 20, 3, 40, 5];
+A.find(v => v%10 == 0)     // 20
+A.findLast(v => v%10 == 0) // 40
+A.findIndex(v => v%10 == 0)     // 1
+A.findLastIndex(v => v%10 == 0) // 3
+A.findLastIndex(v => v == 0)    // -1
+```
+  
+#### 1.44 Let’s use hasOwn() instead of hasOwnProperty()
+  
+There is Object.prototype.hasOwnProperty() method to check if an object has a property as its direct property. But it’s quite cumbersome to use. Keep in mind that JavaScript is a dynamic language. We can add a property to any object. So hasOwnProperty() can be shadowed by a property of the object with the same name. To avoid this, we can use hasOwn() method
+  
+**avoid**
+  
+  ```typescript
+  let hasOwnProperty = Object.prototype.hasOwnProperty;
+if (hasOwnProperty.call(object, 'foo')) {
+  console.log('has property foo');
+}
+  ```
+  
+**prefer**
+  ```typescript
+  if (Object.hasOwn(object, 'foo')) {
+  console.log('has property foo');
+}
+  ```
+  
+  #### 1.45 cause is a new property of error
+  
+  It’s very common to see error handling code like this:
+  
+  ```typescript
+  await fetch('https://example.com/data.csv')
+  .catch((err) => {
+     throw new Error('failed to get: ' + err.message);
+  })
+  ```
+  
+  What it does is wrapping the original error with a new error. But the original error is lost. Now we can use cause property to store the original error and retrieve it later:
+  
+  ```typescript
+  await fetch('https://example.com/data.csv')
+  .catch((err) => {
+     throw new Error('failed to get', { cause: err })
+  })
+  .catch((err) => {
+     console.log('cause', err.cause)
+  })
+  ```
+  
 ## Node JS
 
 ### General
