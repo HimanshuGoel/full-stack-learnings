@@ -125,4 +125,70 @@ CSS is the styling mechanism for the web. It is a standard of selectors, propert
 
 ## CSS
     
+- types of selectors - The pseudo classes are just something that the browser will implicitly apply.
+
+![css-types-of-selectors](css-types-of-selectors)
+
+- The 1.0em; states for the size which is default to the page. If we say width: 50%; then it will be half of its parent width.
+
+- We also have a star selector which matches everything on the page:
+
+```css
+*
+{
+color: White
+}
+```
+
+- Ordering rules – if two conflicting rules are coming from the same source it just uses the last rule.
+
+- CSS Reset – it is a stylesheet that effectively override the default styles given by a web browser for all HTML elements. Because every browser has slightly different default styles, it will remove this different in style by making it all to reset. There are many available like from yahoo, meyerweb.com. we need to just give the reference of that stylesheet to our main page.
+
+- Specificity – the higher is the specificity number the more important the rule is. It contains 3 parts ABC like below:
+
+![css-specificity](css-specificity)
+
+- Inheritance – some property values of an element will be inherited form the elements parents. Like text in div which is inside paragraph will inherit paragraph font size. But border, margin, paddings will not inherited form the parents. So, border set on paragraph will not have border on div or em or other tags inside it.
+
+- Vertical margins collapse – when top and bottom margins meet they will overlap or collapse, technically the will overlap until one of the margins touches the border. But horizontal margins do not collapse.
+
+- Width – when we specify the exact width it will specify of the content area. Any border, margin, or padding that we add will add to the width and require more space.
+
+![css-width](css-width)
+
+- Layout with CSS - default position value is static. it stacked up elements one after the other down the page. relative position moves an element from its default position in some direction.  we can set the top and left properties values. fixed and absolute removes the elements from the flow of documents.  Absolute position moves an element to a specific position relative to the body of the document the top and left will be consider from the body element. while fixed position is relative to the window itself. When we apply relative position, we can set top or left kind of properties on it, it is unlike the padding and margin. It will sit on top on the element instead of just pushing them around.
+
+![css-position](css-position)
+
+- Fixed positioning – it fixes the position of an element relative to the browser window. The element always stays fixed in place, even when scrolling. Generally, we use this in menu bar or navigation.
+
+- Absolute positioning – it will not scroll with the browser window unlike fixed positioning. It takes an element out of the document flow, meaning the browser acts as if the element has no width and height, and the other elements on the page move up as if it was never there.
+
+- By default, if the element is inside a container and we apply absolute on the element then it will relative to the body top left corner, but if we apply absolute on the container as well then it will be relative to that container.
+
+- Relative Positioning -  in this, other elements do not ignore its width and height. It doesn’t take out from the document flow. The original space will be maintained. The bottom: 0 value will make it to stay as it is because the bottom will be the same bottom of the element unlike absolute which will move it to the bottom of the window. And setting the position of the container element as relative does nothing at all unlike absolute positioning. If we have container with relative positioning and element as absolute, then the element will be relative to the container.
+
+- Z-index – it allows us to control the stacking order of the elements. It will start from the negative value -1 and all the way up to highest z-index value.
+
+- We should not have an orphan character on a new line, we can use typogrify module to make last two letters with “no break space” on every line.
+
+- The full form of SASS is syntactically awesome stylesheets.
+
+- Instead of putting money to make UI better for older browser which market is going down, we should put it in the modern browser to make it better for future.
+
+- Visual break points in Bootstrap
+
+![css-bootstrap-visual-break-points](css-bootstrap-visual-break-points)
+
+- types of selectors - relational, atribute, structural
+
+- Relational selectors 
+
+![css-relational-selectors](css-relational-selectors)
+
+
+- Other selectors
+
+![css-other-selectors](css-other-selectors)
+
 - 
