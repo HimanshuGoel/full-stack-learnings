@@ -422,3 +422,66 @@ color: White
 
 - Angular treats the UI as a DMZ, accessible to anyone untrusted and untrustable. Angular treats all values as untrusted by default. Angular only trusts template HTML, binding expressions, and attributes. It will sanitize or cleanse any content it doesn’t trust before adding it to the DOM. It will still display it like a script by converting first into simple string text so that browser doesn’t parse it.
 
+- structural directives - *ngIf
+
+- View child -  it is like getElementById() method.
+
+- We can create three types of services to share the data – property bag, basic statement management of entities, and state management with notification. For advance we can use redux.
+
+- For change detection we can use the timer pool if the property is not binding by angular expression:
+
+```
+onOnInit() {
+timer(0, 1000).subscribe(t => {
+console.log(this.prod)
+}
+}
+```
+
+- angular communication approaches
+
+![angular-communication-approaches](angular-communication-approaches)
+
+- Angular Material is a reference implementation of Google’s material design specification. It provides a set of reusables, well tested, and accessible UI components based on Material Design. It supports Asymmetric acceleration and deceleration which create more natural and delightful motion than symmetric motion:
+
+![angular-Asymmetric-accelaration-and-decelaration](angular-Asymmetric-accelaration-and-decelaration)
+
+- The goal of angular CDK is to give developers more tools to build awesome components for the web. This will be especially useful for projects that want to take advantage  of the features of Angular Material without adopting  the material design visual language.
+
+![angular-flex-layout-model](angular-flex-layout-model)
+
+- AOT Compiler – improve performance, earlier JIT process compile the functions in DOM functions it takes time. But now using AOT it directly sends the DOM function without compiler.
+
+![angular-jit-process](angular-jit-process)
+![angular-jit-process](angular-aot-process)
+
+- We get the below CORS error unless the URL’s match, including the ports themselves:
+
+![angular-cors-error](angular-cors-error)
+
+-Pure and impure pipe performance – pipes are pure by default means they do not work with data mutation, they only get re-evaluated if the object reference got changes that the pipes is applied to. We can resolve this by making the pipe impure but it will impact the performance. Like even initial loading of page this sorting pipe will be called many times due to object changes
+
+- While doing interpolation we can’t use assignments, it only allows read-only data.
+
+- If we don’t want to use brackets () for event binding then we can prefix it by “on”, like on-click.
+
+- Content projection is same as transclusion in angular 1.x, now we use term ng-content tag for it
+
+- Lifecycle hooks - Constructor() – only  dependency injection will happen in this step, ngOnChanges() – anytime an input property changes this lifecycle hook gets called, ngOnInit() – input properties have been initialized, ngDoCheck() – when we are working with change detection, when input property gets changes if we want to perform our own change detection, ngAfterContentInit() – when the components or directives content has been initialized, ngAfterContentChecked() – content has been checked out and we are being notified that the checking is complete, ngAfterViewInit() – when the components view has been initialized, ngAfterViewChecked() when view gets checked, ngOnDestroy() – gets called right before the instance gets destroyed and we can free up any resources we have.
+
+- Module organization – Core module should contain single use classes or singleton for the entire application, it should be imported only once in app module. We should have one more module i.e. AppRoutingModule for containing routing related information. Shared module should contain modules which are re-exported and shared throughout the app.
+
+![angular-module-organization](angular-module-organization)
+
+- Unit Test – jasmine is main testing framework, and karma is the framework that executes our tests.
+
+- If we want to take up the control while newing up the instance of the recipe class, we need to create a factory that will be executed to create a new service instance. By this we will have more control for how it is created:
+
+![anguar-use-factory](anguar-use-factory)
+
+![angular-use-factory2](angular-use-factory2)
+
+- SkipSelf decorators to make sure it is properly checking for a separate input of the core.module. SkipSelf tells the injection system to begin looking for an existing instance of the module in the parent injector. Optional instructs the injector to pass in null if no other instance is found.
+
+- The execution will become pause at the await keyword, so we need to use async keywork in function method name so that it will not block the caller of this function.
+
