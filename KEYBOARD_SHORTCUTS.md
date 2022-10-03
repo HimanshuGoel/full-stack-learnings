@@ -39,3 +39,5 @@
 - open the elements panel - `ctrl + shift + c`
 
 - open console window – `ctrl + shift + j`
+
+- open the elements panel - `ctrl + shift + c`
