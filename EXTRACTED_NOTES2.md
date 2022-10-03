@@ -839,6 +839,84 @@ Angular’s compiler serves as a bridge between developer experience and run tim
 ng new my-app --create-application=false | ng new my-app --createApplication=false
 ```
 
-## TypeScript
+## Soft Skills
     
-- 
+- LinkedIn - A place to find and be found. Profile pic should be a head shot with proper background color.
+
+- 5 parts of formula for more effective message – don’t have the long paragraph. Next step is phone call, over the email, or face to face meeting.
+
+- As an interviewer we also need to sell the opportunity like the projects, team, company, perks, contribution impact, preparation, promptness, attitude and vibe, our stories.
+
+- Interviewee’s tell their experience in stories, concise answers, thoughtful questions, choice of words, body language and kindness.
+
+- Don’t ask many yes / no questions but open-ended questions like “tell me about a time when,”, “tell me more about that project” or “how you solve this problem”.
+
+- We can ask the complex problem they have worked upon, any new technology how they will learn, any project or shared code or ask for any homework. And then ask questions based on that homework. We can first have panel interview then give homework then call.
+
+- Interview questions-
+
+how many technologies you have worked and how much you would rate each of these?
+which languages are you procient in and could teach others?
+tell me about the users you have worked with? what do your users do that make you upset
+how long have you worked with this language? what are the best and worst changes you have seen since started
+if you were asked to present to a group of engineers about a particular technology, what would you present?
+what technical projects do your do at home
+if you had more time what technology you would study
+what do you think of working with older technology
+when you are learning a new technology, what process do you use to bring yourself up to speed
+what do you do when you see a colleague is approaching a problem the wrong way? let them do it and learn, or...?
+do you read books? what arethe last three books you have read?
+
+- Illegal questions – age, religion, arrested, married, children, weight, personal finances, alcoholic, health, nationality, disabilities, military discharge.
+
+- Enunciate – speak the words clearly.
+
+- Key elements of a email – subject, introduction, the message, call to action (last part of the body), email signature.
+
+- We should avoid using BCC feature, but we can use it to hide addresses from the recipients. If you are BCC recipients then you should not reply to that email.
+
+- We should avoid underlining and italic, but can use bold and yellow highlighting. Some emoticons fine but don’t overuse. Also, use bullets points. Do not change background, use default white.
+
+- Try to avoid acronyms.
+
+- In capitalize title casing the connection words should be lower case i.e. a, an, and, at, by, for, in, of, on, or, the, to, etc.
+
+- Animals names should not be capitalized or foods.
+
+- We can use parenthesis to add additional information in a sentence. Dashes better at interrupting and emphasizing an important point. Colons indicates what follow is an explanation, a description or a pertinent list of items.
+
+- Use semicolon when comma is insufficient but colon or period is excessive. It serves the same function as an audible pause when speaking.
+
+- We should try to use active voice instead of passive voice, as active voice is less wordy and more clear. But if the action is more important than subject then we can remove the subject from the sentence like “by the team” in below passive example. Passive voice is often preferred in scientific and technical writing.
+
+- Try to avoid overused and unclear words – almost, basically, different, feel, good, just, large/small/long, never, new/old, very/really, thing(s). instead of using them, we should be more precise.
+
+- It is the editing and proofreading the text which separates from the bad writer.
+
+- High performance consultant would often arrive the next day with a solution to a problem that he’d managed to solve at home the night before.
+
+- A consultant who handles this competence with difficulty, takes on too much and then finds it hard to admit that the workload is too much for him. 
+
+- Whether you are young professional, a student, or a CEO, understanding yourself is critical for becoming a better professional. It will help you enhance your strengths and improve your weakness to make you a better boss and a better colleague.
+
+![soft-skills-johari-window](soft-skills-johari-window)
+
+- Values act as our personal compass, helping us to navigate choices and decisions, both personally and professionally. Values are formed by your life experience.
+
+![soft-skills-4-factors-of-trust](soft-skills-4-factors-of-trust)
+
+- Credibility is essential for hiring, promoting and trusting people. Those who end up establishing expertise are confident about showcasing their qualifications and achievements. The more we care about the success of others around us, the more they will trust us, paving the way for collaboration.
+
+![soft-skill-trust-factors](soft-skill-trust-factors)
+
+- Just being chatty is not same as being open. The attributes of openness are vulnerability, trasperancy and maintaining confidentiality.
+
+- If we do something extra over and beyond which we normally do early on that will help us build the trust, then we can reap onto it rest of the time of the relationship.
+
+- Rebuilding credibility and reliability – coming to a meeting prepared, putting your point across and taking notes to share with other are great steps to rebuild credibility, be more knowledgeable, communicate confidently. For reliability, be punctual, dependable, consistent with action, avoid last minute surprises.
+
+- Rebuilding openness and self-orientation – should have candid conversations about feedback or misunderstanding, give help people in small ways, be interesting in entire person (hobby, past things).
+
+- Put yourself into other person shoe to reduce self-orientation, be fully present while listening.
+
+- Teams Calling - It uses phone system technology and PSTN to call internally and externally.
