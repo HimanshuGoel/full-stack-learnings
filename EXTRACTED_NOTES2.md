@@ -920,3 +920,173 @@ do you read books? what arethe last three books you have read?
 - Put yourself into other person shoe to reduce self-orientation, be fully present while listening.
 
 - Teams Calling - It uses phone system technology and PSTN to call internally and externally.
+
+    
+## Miscellaneous - Life
+    
+- It is not the finances that should scare you, it is the loneliness and illness during your sunset years
+
+- Bertrand Russell: “The fundamental cause of the trouble is that in the modern world the stupid are cocksure while the intelligent are full of doubt.”
+
+- Don’t interrupt the other person while they are speaking - by your interruption, you’re insinuating that your thoughts and ideas are more important than theirs.”
+
+- Be tough on the process, but gentle on the output - You need to set aside time to write and that is where you cannot be easy on yourself. You need to follow the process. If you plan to write for two hours every day, do that. If you wake up at 5 and your process is to be at your desk by 5:30 and you feel like sleeping in, that’s the time to be tough on yourself. Protect the process of writing every day.
+
+- You can go fast or go far. Not both.
+
+- Mind is made for processing of things not for remind them. so note down everything which are important to you.
+
+- We should never ask our children, instead we should tell them what they will be eating for dinner – a steady, simple and nutritious meal.
+
+- Ayurveda rejects the stale, easy, ready-in-a-minute choices in the urban world and encourages all things natural.
+
+- The nature of water is dry and sharp. It slowly pulls natural oils from our skin, which is naturally unctuous in its healthy state. That is why Ayurveda advises us to oil our bodies before rinsing with water.
+
+- We should have seven inner small bowls with one lid – mustard, jeera, kalonji, ajwain, turmeric, panchaparan and fennel.
+
+- Life is very short and anxious for those who forget the past, neglect the present, and fear the future.
+
+- What would have happened, Doctor if you died first, and your wife would have had to survive you?
+
+- Don’t try to see God. Act in such a way that God will see you.
+
+- Many Japanese people never really retire – they keep doing what they love for as long as their health allows.
+
+- The greater the stress, the greater the degenerative effect on cells.
+
+- If you keep moving with your fingers working, 100 years will come to you.
+
+- Put your hand on a hot stove for a minute and it seems like an hour. Sit with a pretty girl for an hour, and it seems like a minute. That is relativity.
+
+- Flow state is when pleasure, delight, creativity, and process when we are completely immersed in life.
+
+- We often think that combing tasks will save us time, but scientific evidence shows that it has the opposite effect.
+
+- Food won’t help you live longer. The secret is smiling and having a good time. To live a long time you need to do three things: exercise to stay healthy, eat well and spend time with people.
+
+- The things we love are like the leaves of a tree: They can fall at any moment with a gust of wind.
+
+- Surround yourself with good friends.
+
+- We should never forget what a privilege it is to be in the here and now in a world so full of possibilities.
+    
+## Miscellaneous - Health
+
+- Engineers used to give complex names for the technology but under the hood it is very simple and have same base concept.
+
+- Now a day, the technology and hardware are not the bottlenecks but the people skillsets.
+
+- Skill transfer is very easy in angular, as most of the angular projects looks the same.
+
+- When you use angular, you are getting everything like route, forms package, http package, there is a kind of prescribed way to code with angular but products like react are much more pick and choose, so you can choose which router you want, which http package you want to use.
+
+- By low-code we can deliver better software faster. One way is to abstracting automating things so professional developers can go faster. It also takes the constraint away from people who can only build that and it open an ability to adapt to this new world in real time with people who has no traditional skills in software development. It provides speed, simplicity, no huge army of engineers and get live quickly and save tons of the cost to the business, anybody can develop software, business and IT will be on same page by providing common language, has guidance and guard rails, no long red tape of processes.
+
+- Many developers still behave like unskilled, unmotivated workers, providing very poor service to their employers and clients.
+
+- Companies are demanding professional software developers and not just cheap coders who do whatever they are told to do.
+
+- Software development should be qualified as art, craft, trade, engineering, or science.
+
+- Well-crafted software means that , regardless of how old the application is, developers can understand it easily. The side effects are well known and controlled. It has high and reliable test coverage, clear and simple design, and business language well expressed in the code.
+
+- Software craftsmanship is a mindset – a lifestyle that many professional developers adopt. Software craftsmen live and breathe software. They see software as a craft and are committed to do whatever they can to master their craft.
+
+- When we say yes, people take that into account and make plans based on it. Our bosses will make promises to their bosses, other teams, customers, or partners based on what we said. Not being honest and transparent may cause huge damage to the entire team company.
+
+- Always saying no is also not a professional attitude. Every no, ideally, should be followed by a list of alternatives. Remember the story of getting orange by two different persons with different approach.
+
+- Craftsmen are gardeners. They are constantly looking after the code base, quickly refactoring it without fear – they are backed by a good battery of automated tests that can test the entire application in just few minutes.
+
+- Use job description template provided at page #127. (software craftsman)
+
+- When a software craftsman makes recommendation, it is implied that the recommended developer is also a software craftsman, and that he or she shares the same passion, values, principles, and dedication.
+
+- A good interview is like a good and informal chat between passionate developers. It is an exchange of information: a good debate about techniques, tools, challenges, and approaches to software development.
+
+- Clients may decide not to pay for quality and ask for a quick and cheap solution, but deep inside, they will always be expected quality and won’t be happy if they don’t get it.
+
+- Well-crafted code is simple, small, testable, easy to understand, and most important, does the job.
+
+- Software craftsmen are humble, always ready to learn from more-experienced developers and eager to help the less experienced.
+
+- Chrome dev tools - Elements, console, sources tabs are called panel and windows inside each of them are called pane.
+
+- Time begins on 1st jan 1970 with the unix epoch, when we say Date.now(), it gives miliseconds from this time.
+
+- IDE’s Evaluation -  vi -> emics -> vim -> neo vim -> nano -> notepad++ -> Dreamweaver -> visual studio code -> visual studio -> WebStorm (features looks more reliable and polished than vs code)
+
+- Choosing the framework depends whether website mostly have static content or highly interactive, if highly interactive then whether it needs SEO, if SEO and content rarely change like in blogs website then use JAM stack and prerender the content and cache on the CDN. if dynamic content then need full SSR + hydration.
+
+- Angular bootstrap process - angular.json (main) -> main.ts (bootstrapModule) -> app.module (bootstrap) -> app.component -> app.compnent.html -> index.html (<app-root></app-root> selector is used as an element to get the app component) -> The javascript files {runtime.js, polyfile.js, … etc } are responsible to make our application a single page and they are handled by the browser itself. But, the Html code should be available in our application itself.
+
+- If you act without thinking, you are wasting the very edge that you have over machines. You are a candidate to being replaced in the near future (either by a thoughtful human or for a cheaper dumb machine). Always try to understand what’s the purpose of the task you’ve been assigned to. Unless, of course, you want to become a bad developer.
+
+- Google searching tips - cut the crap - Forget “what,” “how,” and other words that serve only a syntactical purpose. Demand answers using meaningful and descriptive verbs example - instead of 'what is algorithmic complexity' use 'define algorithmic complexity'. Order keywords from broad to specific, instead of 'consume an api using typescript with axios' use 'typescript axios consume api'. Use Images for Diagrams and Visualizations. Many times, Images will contain concise and informative graphics that will answer your question much faster than a web page could.
+
+- Useful http status codes - 100 Information - 100 — Continue; 101 — Switching protocol; 103 — Checkpoints. 200 Successful. 300 Redirection - 301 — Moved Permanently; 302 — Found; 304 — Not Modified; 305 — Use Proxy; 307 — Temporary Redirect. 400 Client Errors - 400: Bad Request; 401: Unauthorized; 403: Forbidden; 404: Not Found; 408: Request Timeout; 410: Gone; 429: Too Many Requests. 500 Server Errors - 500 — Internal Server Error; 502 — Bad Gateway; 503 — Service Unavailable; 504 — Gateway Timeout.
+
+- Keep yourself healthy, keep yourself fit and keep writing amazing code!!!
+
+## Architectural
+    
+- We should use arrows one way and two accordingly and shapes doesn’t represent any meaning, we just need to be consistent in shapes.
+
+- We should have a key section to define the meaning of different attributes used in the diagrams
+
+- We describe the following levels and diagram names:
+	- Level 0 — Business Capabilities Diagram: The key audience is business executives and non-technical stakeholders.
+	- Level 1 — Technology Capabilities Diagram: The key audience is CIOs, CTOs, CISOs and Strategy & Planning managers.
+	- Level 2 — Architecture Diagram: The key audience is Designers and Project Managers.
+	- Level 3 — Design Diagram: The key audience is coders, testers and architects.
+
+
+- Five architecture diagrams types
+	- Application Architecture Diagram
+	- Integration Architecture Diagram
+	- Deployment Architecture Diagram
+	- DevOps Architecture Diagram
+	- Data Architecture Diagram
+
+
+- The Flow Diagram - This diagram illustrates the moving parts in a business process.
+
+![architectural-flow-diagram](architectural-flow-diagram)
+
+- The Persona Diagram - It is important to show that your architecture solves the business problem. A persona diagram describes a chronological view and actors in a particular workflow. This is your best tool for proving that you’ve taken the business into consideration when developing your solution.
+
+![architectural-personal-diagram.png](architectural-personal-diagram.png)
+
+- The Infrastructure Diagram - The purpose of this diagram is to show what has been built and how the system currently works. Consider this a blueprint of the application you built.
+
+![architectural-infrastructural-diagram](architectural-infrastructural-diagram.png)
+
+![architectural-infrastructural-diagram2](architectural-infrastructural-diagram2.png)
+
+![architectural-technology-diagram](architectural-technology-diagram)
+
+![architectural-application-diagram.png](architectural-application-diagram)
+    
+## Digit Magazine
+    
+- WordPress is an open-source, free platform for building and developing websites. WordPress is the most user-friendly and efficient blogging and website builder on the market right now.
+
+- Anonymous comments can cause serious damage to your website’s reputation.
+
+- WWW or no WWW – whether your website is brand-new or has been hosted for a few months already will depend entirely on its stage. If it brand-new, you must definitely choose whether to use www or non-www in the URL of your site.
+
+- One calorie of heat energy is the amount of energy that is required to raise the temperature of 1g of water from 14.5 degree Celsius to 15.5 degree Celsius.
+
+- Temperature is defined as a parameter that helps us define the level of hotness or coldness of its body.
+
+- The quantity of heat that is absorbed by  a body is generally dependent on three factors, which are as follows – mass, increase in temperature, material.
+
+- Not all the materials can have transfer of heat through this process, for example, plastic. Such material called insulators. Conductors are known to carry heat easily because of their low specific heat capacities.
+
+- The process of heat transfer through a vacuum is called radiation.
+
+- Motion is a combined outcome of a body under observation and the observer.
+
+- Magnetism – The core of the earth was made from iron, while the planet itself was a magnet, which he quoted to be the reason for compasses to point to the north. The unit of the strength of a magnetic field is Tesla. Magnet types – permanent, temporary and electromagnets. A current-carrying wire produces a magnetic field around it. Magnet uses – scrap lifting, surgical extraction, dc motor, ac generators. The payment card strip is made of magnet, audio cassette, CRT’s monitor, speaker system. Over-exposure to static magnetic fields can be harmful to our health.
+    
+ 
