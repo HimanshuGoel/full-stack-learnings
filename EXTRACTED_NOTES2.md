@@ -1089,4 +1089,169 @@ do you read books? what arethe last three books you have read?
 
 - Magnetism – The core of the earth was made from iron, while the planet itself was a magnet, which he quoted to be the reason for compasses to point to the north. The unit of the strength of a magnetic field is Tesla. Magnet types – permanent, temporary and electromagnets. A current-carrying wire produces a magnetic field around it. Magnet uses – scrap lifting, surgical extraction, dc motor, ac generators. The payment card strip is made of magnet, audio cassette, CRT’s monitor, speaker system. Over-exposure to static magnetic fields can be harmful to our health.
     
- 
+ ## Mongo DB
+
+- BSON - MongoDB represents JSON documents in binary form called BSON internally. It enriches JSON with additional data types that Mongo uses like Object Id, date, etc.
+
+- Mongo DB is schemaless. Mongo does not enforces a schema, but documents inside the same collection should have a similar structure for consistency.
+
+- The find() method returns a cursor to the documents that match the query criteria. In projection, 1 means inclusion and 0 for exclusion.
+
+```shell
+db.aircraft.find({}, {model: 1, range:1, _id: 0})
+```
+
+- Cursor - A virtual object where MongoDB stores the documents returned by the find method. It can have any methods like below -
+
+```shell
+db.aircraft.find().pretty()
+db.aircraft.find().count()
+db.aircraft.find().skip(3)
+db.aircraft.find().limit(5)
+db.aircraft.find().sort({model: 1})
+
+```
+
+- Mongo DB does not guarantee the order of the returned documents unless sort() method is used. 1 for the ascending order and -1 for descending order.
+
+- The find() method returns a cursor, however the findOne() method returns an actual document. If no document match the criteria, the method returns null.
+
+- Best Practice - We should pass an empty object to find() method when we want to return all the documents instead of using blank find() method -
+
+```shell
+db.aircraft.find({})
+```
+
+- Comparison query operations - $eq, $ne, $in, $nin, $lt, $lte, $gt, $gte
+
+```shell
+db.aircraft.find({model: 'Boeing'})
+db.aircraft.findOne({model: 'Boeing'})
+db.aircraft.findOne({model: {$ne: 'Boeing'}})
+db.aircraft.findOne({model: {$in: ['Boeing', 'Airbus]}})
+db.aircraft.findOne({model: {$in: [/^A/]}}) // using regular expression
+
+```
+
+- Logical Query Operators - $and and $or.
+
+```shell
+db.aircraft.find({$and:[{capacity: 124}, {range: {$gt: 6000}}]})
+db.aircraft.find({range: {$lt: 600, $gt: 6000}}) // short-hand syntax if same field
+```
+
+- CAP Theoram - consistency, availability, partition tolerance (system won't fail). MongoDB supports consistency and partition tolerance.
+
+- Types of NoSQL databases - relational database, document database, key-value databases (Redis DB), white-column stores (Cassandra DB), Graph Database
+
+- MongoDB is a document database.
+
+- Why use MongoDB - open source, document database, high performance, rich query language, high availability, horizon scalability.
+
+- JSON is a UTF-8 String but BSON is a Binary. JSON is human and machine readable but BSON is a machine readable only.
+
+- We cannot replace the _id value with another value.
+
+- MongoDB is a case-sensitive language. It supports MongoDB query language (MQL). It has dynamic JSON based schema unlike predefined in MySQL. It has no foreign keys or joins or triggers. It follows CAP theorem not ACID properties. It is horizontal scalable unlike SQL which have vertical scalable.
+
+- Which is best database - is your data structured or unstructured? preferred scalability strategy? No need for ORM (object relational mappings) with MongoDB.
+
+- There is no schema enforcement from MongoDB, it is a application responsibility.
+
+- Replicate sets - Minimum replica sets in MongoDB - primary db (only writable instance), secondary db (read-only instances, data is replicated from primary db) and arbiter db (no data, provides additional vote to elect the db in-case if primary gets failed).
+
+- By using the BSON and memory mapped files concept to store the data, makes the MongoDB very fast and efficient.
+
+- The _id can contains any type of data except array.
+
+- The ObjectId() will return a new object id and it also contains a timestamp ObjectId().getTimestamp() in ISODate format. We can use it for sorting in created by format.
+
+- MongoDB uses a cursor to support the efficient retrieval of the document as documents might be in huge number which might support the memory to load. By this, it will give you a batch of documents and close the connection.
+
+- We can use index to speed up the queries. The scanning ofeach location on the disk is bad for performance which finding a record, the solution is to use an index, it basically holds mapping to those locations from field values. By this, we can jump directly to the disk location where document is stored is good for performance and less i/o operations. It also good for sorting performance purpose as-well. Without index it will show n number of objects has been scanned, after index it will show 1 number od object has been scanned. Index on the _id field can not be dropped.
+
+- Index types - Regular (B-tree), Geo (sort nearby locations), Text, Hashed, TTL (expiration date for documents)
+
+- To know about how MongoDB will find the document, we can use explain() method -
+
+```shell
+db.animals.find({name: 'cat}).explain()
+```
+
+- Covering index - we use query using index and all the information is with index itself then there is no need to go to the dist to get the actual document, we can use the index itself to the actual result. In the explain() it will say indexOnly as true. Suppose we have applied index on name field and returning only the name field, not even _id, then the covering index will be used.
+
+- When our database is large, we can create index in the background so that read and write action won't get blocked.
+
+
+## Miscellaneous Technical
+
+- JWT has three segments, each separated by dots. If it is a base64-encoded JSON then its first two segments would start from characters “eyJ” because when decode it becomes base64({“). First part it has Header that describes the token itself and how to read & validate the token. It has properties like type, alg and kid. The second part is the payload, it is the content of the token itself. It contains claims about the entity. The final part is the signature value, it is created using the header, payload and signing key. Its length varies based on the algorithm and key.
+
+- The JWT pronounce as “jot”. It is originally created by the OAuth working group due to demand for JSON representation of claims and to replace SAML assertion.
+
+- When to use JWTs – for API access, for information transfer (identity token), security proofs. We should always use JWTs in combination with something else like OAuth or Open Identity Connect protocols where rules are defined and low risk of misuse.
+
+- JWTs are not a replacement for cookies and sessions. Browsers cannot maintain JWT sessions, we have to implement token storage and management. There is no out-of-the-box method to invalidate a single JWT.
+
+- We should not store application or permission data as we should keep our JWTs small as it can easily hit header size limits.
+
+- JOSE (JavaScript object signing and encryption) standards – JWON Web Tokens, JSON Web Signature, JSON Web Encryption, JSON Web Key, JSON Web Algorithms.
+
+- Initial format check of JWT  - three sections, two dots, base64url data, valid JSON objects.
+
+- We should first validate the token like checking the issuer, subject value, audience, expiration date, before parsing it.
+
+- JWE has 5 distinct section instead of 3 of JWT –
+
+![misc-technical-jwe](misc-technical-jwe)
+
+- When to use JWE – if we use PII (personally identifiable information) like names, email address street address, IP address, account number, telephone number etc., if token needs to be passed through multiple systems (including the 3rd party).
+
+- It is short for YAML aren’t markup language. It is human-readable data serialization language. It can be used to keep and transfer the data. Its most common purposes is the configuration files. It is a true superset of JSON.
+
+- YAML use cases – cross-language data sharing, configuration files, log files, object persistence, working with language like ruby, python, etc.
+
+- It has two style – block (human readable) and flow (less human readable like JSON)
+
+![misc-technical-block-vs-flow-style](misc-technical-block-vs-flow-style)
+
+- Building blocks – sequence (arrays), mapping (key-value) and scalar (string, number, boolean and dates). We should do indentation with spaces not with tabs.
+For list we need to use (-) and for key-value we need to (:). Scalar values – with string values we can use quotes or without quotes. By using the ‘#’ we can add comment.
+One YAML file can contain multiple documents. The documents can be separated by 3 hyphens (---).
+
+![misc-technical-yaml-key-value-and-array](misc-technical-yaml-key-value-and-array)
+![misc-technical-yaml-nested-array.png](misc-technical-yaml-nested-array.png)
+![misc-technical-yaml-nested-mappings.png](misc-technical-yaml-nested-mappings.png)
+
+- Explicit typing – by using like !!str is an explicit typing which will convert the date into a string type.
+
+![misc-technical-yaml-explicit-typing.png](misc-technical-yaml-explicit-typing.png)
+
+- Repeated nodes – to avoid code repeat.
+
+![misc-technical-repeated-nodes](misc-technical-repeated-nodes)
+
+- Processing of YAML –
+
+![misc-technical-processing-of-yaml](misc-technical-processing-of-yaml)
+
+- YAML vs. JSON – YAML is standard for configuration and JSON is standard for service API.
+
+![misc-technical-yaml-vs-json.png](misc-technical-yaml-vs-json.png)
+
+- YAML vs. XML
+
+![misc-technical-yaml-vs-xmsl.png](misc-technical-yaml-vs-xmsl.png)
+
+- GitLab is a single platform that provides entire DevOps toolchain for organizations of any scale and size.
+
+- A pipeline contains below things – jobs, runners, stages
+
+- To create table of contents from headings automatically, we can use [[_TOC_]] syntax.
+
+- Github is a cloud based git repository hosting service.
+
+- We can run a workflow on any Github event –
+
+![misc-technical-github-events](misc-technical-github-events)
+
