@@ -238,3 +238,220 @@
 - Pregnable property bug – for-in works with arrays and other types, however, it is most valuable when iterating over an object, but it will also iterate the prototype properties as-well, to avoid this use hasOwnProperty() method
 
 - JSON is a subset of the object literal notation of JavaScript – JSON keys need to be double quotes and JSON strings are also need to be double quoted. But object literals are much more flexible, they can have single quote or double quoted, or keys can have without quote. There is no such thing as JSON object, JSON is a string, it is not an object but it is serialized data which comes from server which gets formed with some kind of special library.
+
+- The for-of loop iterates over property values, and it is a better way to loop over arrays and other iterable objects.
+
+- The for-of statement cannot be used to iterate over properties in plan JS object out of the box. In order to work with for-of, objects need a special function assigned to the Symbol.Iterator property. The presence of this property allows us to know whether an object is iterable
+
+- Issues with using Objects as Maps – when using objects as maps, its key are always converted to strings. We should stop using the object, but use Map objects which is a simple key/value data structure. Any value may be used as either a key or a value, and the objects are not converted to strings. Also, we can use maps when keys are unknown until runtime, use objects if keys are predefined. We should also use maps when keys are of same type and all values are of same type. Maps are iterable, so they can be used in a for-of loop. Each run of the loops returns a [key, value] pair for an entry in the Map.
+
+![typescript-using-maps-instead-of-objects](typescript-using-maps-instead-of-objects)
+
+- The WeakMap is a type of Map where only objects can be passed as keys, primitive data types such as strings, numbers, Booleans, etc. are not allowed. WeekMaps are not iterable, so they can’t be used with for-of loop. Weakmaps are better with memory, they can be garbage collected. Individual entries in a weakmap can be garbage collected, while the weakmap itself still exists.
+
+- Limitations with arrays, they don’t enforce uniqueness of items, duplicate entries are allowed. But the set object stores unique values of any type, whether primitive values or object references, it will ignore the duplicate entries. Sets objects are iterable so we can use them for-of and destructuring.
+
+- Weaksets is a type of set where only objects are allowed to be stored. But we cannot use for-of loop with them. Good use case of weaksets, we want to add a different background color to posts that have not yet been read. One way to ‘tag’ unread posts is to change a property on each post objects once they are read, but we can use weaksets to create special groups from existing objects without mutating them. Favouring immutable objects allows for much simpler code with no unexpected side effects.
+
+- A common approach to encapsulation in JS is using a constructor function. But adding functions to prototype required quite a bit coding and some repetition. Using class we can write it into much simpler way. The class syntax is not introducing a new object model to javascript. It is just syntactical sugar over the existing prototype-based inheritance.
+
+- ES2017 is unofficially called ES8. JS was created by Brendan Eich, he was told to create java like language for Netscape browser. ES is a standard that guides the path of JS.
+
+- The exponentiation operator can be use by ‘**’, earlier we used to use Math.pow() method.
+
+- A web-worker is another option to run tasks in parallel in JS. They are designed for browsers. They are started by main thread and every worker gets his own isolated global environment, nothing is shared between main thread and worker thread. SharedArrayBuffer supports a scenario where many worker thread need to share same data. Normal arrays are not optimized for this kind of work, due to which ArrayBuffer and TypedArrays have been introduced, they reduces memory footprint and optimize data transfer.
+
+- By using Object.values we can get the values of all keys, it is the same way in which we get all the keys from Object.keys method. By using Object.entries we can get both the keys and values in one go, it produces array of arrays.
+
+- The number type in JS is IEEE-754 format, this format is prone to rounding errors, but by this we can represent integers and floating point numbers.
+
+- JS is interpreted, in C# compilation includes verification of syntactically correctness of code and creating intermediate language (IL) code packages. But in JS we can use JSLint to check for correctness and minification for packaging.
+
+- Functional programming has main terms like pure functions, higher order functions, immutability, and side effects.
+
+- Pure functions – similar to math functions, they don’t depend on data other than what is passed in, and don’t alter data other than what they returned, but math.random() is not a pure function.
+
+- Module Pattern - This is the pattern Douglas Crockford came up initially. The main pros is that it expose only public members which hiding private members. So, unlike porotype pattern we can define variables or functions as public or private. Main con is that function will get duplicated because we are not using prototype, also it is very hard to extend, so we want to create a library that can be extend by consumer then this is not a good pattern, we should choose porotype pattern in this case.
+
+- The revealing module pattern is similar to this only, it will just make the return object much simpler and easy to read.
+
+- Revealing Prototype Pattern - It combines porotype and revealing module pattern to get the best from both of them. Functions loaded into memory once, also it is extensible.
+
+- Webpack process –
+
+![typescript-webpack-process](typescript-webpack-process)
+
+- The call() and apply() methods allows us to call a function and change the ‘this’ value, but sometimes we need to make a copy of the function and also change the this value, we can do this by ‘bind()’ method.
+
+- In JS constructor functions are used to create new objects. When we use the new keyword the function gets a branch new empty context, here we store the properties and functions for this object on ‘this’. By using prototype property we can create a function directly on function without having duplicate copies on every object. Prototype also helps us to extend an objects to add new functionalities to the instance of that object. Polyfills also uses prototypes for their working.
+
+- BOM refers to the browser object model and that lets us access functionality in the browser. We can change the URL we are pointing at, get information on the URL. DOM is document object model we use this to change the actual web page.
+
+- Window is a global object in JS, we can access it from anywhere. Important key things are below –
+
+![typescript-important-document-api](typescript-important-document-api)
+
+- By using eval() keyword, it will open our application for injection attacks. Like the string is coming from database or web api which might be compromised, then eval will execute then string as a javascript script.
+
+- Any data we have set on global scope can be easily to look at watch window, this is also one of the reason not to use global variables
+
+- We can use webpack web server for local development environment, it serves the bundle file in-memory which makes our debugging and application fast on localhost. It will keep all JS files into one bundle file
+
+- But when our application is complete we need to build it for a production environment, so we need a package file that we can send off to store on the server, we need to minimize the code for production. For production, webpack will create a dist folder and files like below, it will also have a map file, this file is useful in some tools for getting the exact line numbers, it maps the minimize code to the original code. Webpack do all of these for us. Three main files one is html, another is JS file and finally one is a map file
+
+- Single threaded means a bank with one teller or a bar with only one bathroom. This behaviour is unlike with multithreaded environment more than one piece of code can execute at the same time.
+
+- The event queue – if at a time only person can go to the teller, then there has to be a queue to hold the other people, this queue is a part of event loop in JS. This is where work is stored until the current operation or task is done executing.
+
+
+![typescript-event-queue](typescript-event-queue)
+
+- The javascript engine will only execute one piece of JS code at a time, behind the scenes there are a pool of threads that are used for things like making web requests. This pool of threads can have multiple connections open to multiple different servers to request data for multiple different requests at the same time. This is all hidden behind the scenes, this is how we can still achieve parallelism within JS. We still have behind the scenes the ability for multithreading, it is not just applied to our JS code itself.
+
+- So, JS supports concurrency by not blocking for I/O, the non-blocking nature of code in JS allows us to still have performant programs because we don’t have to wait for results of long running operations to complete like a web requests or opening a file. It is like a person forget the ID or paperwork, then the teller can serve the next person in queue, and once that person come back then the teller can pick up where they left off.
+
+- Run to completion – for a blocking operation it will run for completion, until that code runs completely like a ‘for’ loop, then only next code will rung. It is like satisfy customer before next by a teller. If we need to avoid this then we need to use web workers, it would be lot like opening up another line at the bank if somebody is taking a long time. This run to completion approach in JS is in stark contrast to multithreaded language where it is possible that a chunk of code could be pre-empted, means essentially interrupting our code wherever it is executing, to give the thread to somebody else. It is like if a person is taking more time, then moving him back at the bottom of line and serving next customer.
+
+- Cooperative concurrency – the person servicing the queue usually has control over the queue like the teller can eject someone from the queue, but in JavaScript that is not the case, in JS it is much more like bar/bathroom situation. The person who is using the bar has control over the rest of the line means he use read newspaper while others are waiting outside. Cooperative concurrency means customers play nice to each other. As long as our program doesn’t abuse and hold up the rest of the queue, our programs will appear to have the ability to execute multiple things at the same time. So, each program should execute itself in smaller pieces of chunks.
+
+- The JS engine and the browser tab that we are working has a separate event loop dedicated just to our application, this event loop contains a queue, inside of this queue work can be placed that will be eventually executed when whatever is running is complete. In addition to this queue, there is a call stack it contains whatever is executing at this current time, a call stack is like a todo list while performing a task. Work will be pushed on call stack and then once it is done it will vanish. A todo item can also have sub-task like to create a hamburger we might need to find many items to look for same with the work, it will be further pushed to the stack only, as usual after completion of that subtask, it will be removed from the stack and controls get back to the earlier item on the stack.
+
+![typescript-event-loop2](typescript-event-loop2)
+
+- The black box items will be handle by browser behind the scenes for us, and a mechanism in browser will also listen for the their responses as-well, after getting the response it will push those response inside the queue. Behind the scene the browser is handling these requests not the JS engine, so that multiple threads handling multiple request at the same time. So it is possible while our single-
+threaded JS engine is doing work that behind the scenes other things can be happening, we just don’t have those things happening inside of our JS engine –
+
+![typescript-event-loop3](typescript-event-loop3)
+
+- In setTimeout() function there is not guarantee that our function will be called at exactly at the mentioned time, at that time elapse the function will be pushed in the queue, but it will called once all other prior work in the queue gets completed. Also when we say 0 milliseconds the browser is putting in as 4.
+
+- In the browser the call stack pane is real life stack of JS event queue.
+
+- Nodejs nextTick and setImmediate – these are like timers. In Nodejs 0 milliseconds will be default to 1 milliseconds.
+
+- The process.nextTick take precedence over setTimeout. In nextTick() all the callbacks that we register will be run at the end of the current event loop turn. Means whatever is running right now once it is done, the registered nextTick() will be called. nextTick() is like a bouncer that lets people cut in line, lets the VIP people get in ahead of everybody else.
+
+- Event listeners are synchronous like below – it is because to avoid race condition which happens with the order of operations in the queue with async requests. Then if the data coming from events are not in sync order then it could jumble up the form or operation, and the order of the events won’t be persevered. But there would be asynchronicity between an event and another event of the same type being raised.
+
+- Key terms of functional programming – pure functions, composition, higher order functions, currying, immutable data, closure. We can use libraries like – immutable.js, ramda, folktale, skit, sanctuary, monet.
+
+- The console.log() is not pure function as it change the state of console. We should never return null or undefined from a pure function.
+
+- Higher order functions – a function which takes a function as a parameter or return a function as a value.
+
+- Currying is the act of taking a function which accepts 1 to n parameters, and producing a collection of 1 to n function, which each take 1 parameter.
+
+- Immutablity helps in performance, if we have an object that needs to be change the value stored in one of its properties, it may take a long time for JS to recognize that that properties has been changed, basically every property on that object has to be checked to see if its changed in order to determine that our data has changed. By enforcing immutability all JS has to do is check the object reference to see if that’s changed. If it has changed then that some property value is changed, checking for object reference changes in very fast. So in this case immutability is performance enhancer. It is mainly for objects/arrays other data types are already immutable.
+
+- Human head has two systems – head and gut. Head is the higher level one, its analytic, its algorithm, it is where we do mathematics and reasoning and logic, it requires tremendous amount of effort and a bit slow, most of the time we need to turn it off, due to its slowness only we needed to invent computer. Another part is gut, it is intuitive, heuristic, associative and very, very fast, requires no effort and we cannot turn it off, it is on all the time. Head gets its assumptions from gut and it is not aware of that connection, its think it is getting results from vault of deep truth, but as it is getting from gut, sometimes head can get wrong input.
+
+- The computer programs are most complicated thigs that people make, there is nothing else in human experience which is composed of as many tiny little pieces which all have to go together perfectly that have to work in real time with changing states and changing inputs in a dynamic situation.
+
+- Initially the goal of the AI originally was to figure out a way to have the computer write their own programs because it was just too hard to have humans writing them.
+
+- There is no test for the perfection of a program, we have tests for imperfection. None of our programs are perfect.
+
+- Programming uses head and gut both. But we don’t understand how we write program, we just write instruction to create a program and hand it over to someone else those instructions, we cannot tell someone else how to do it and that’s why we can’t tell the machines how to do it. We look at a problem and we will look at top-down and bottom-up and take a macro view and a micro view, we keep constantly shifting our point of view until eventually a program emerges and we don’t know how we do that.
+
+- JSLint defines a professional subset of JS, it will hurt our feelings as we get really emotional about how we write our programs.
+
+- JS was designed as a language for beginners, that was the original goal.
+
+- Switch statement is having fall-through hazards, so we should use ‘break’ keywords.
+
+- A good style can help produce better programs, it should not be about personal preference and self-expression but to reduce the error rates.
+
+- In English language itself lowercase, word breaks, and punctuation into their manuscripts to helped reduce their error rates and easier to read, earlier it was all caps letter with no space.
+
+- Unfortunately, in the browser the use of global variables is required because there is no kind of linkage mechanism that allows one compilation unit to find another. They just share a common global scope. So, in browser use very minimum global variables and named the as UPPER_CASE.
+
+- The ‘++’ operator was used to do pointer arithmetic, now it is used to add 1 to variable, we should not use this operator. Instead of this use compound operators like ‘+=’.
+
+- History of JS – at the national centre for super computing applications at the university of Illinois, there were couple of kids who were developing a client program for internet for number of protocols like WAIS, Archie, Gopher, FTB, Finger and WWW, they called this program MOSAIC. Finally, out of these protocols the WWW won, this format can also display image tag. A bunch of the people from that project were lured to California where they become part of a company called Netscape. Netscape made the first commercial web browser called Netscape navigator and it was a huge hit. For the new release of this navigator they also wanted to make it easy for end-user programming, they remembered something that had been on Macintosh called HyperCard, that was a simple application program based on a simple metaphor of stacks of cards and it was an event driven script thing and remarkably easy to use and they wanted something like that in the web browser. So, they gave this job to Brendan Eich, his idea was he would write a scheme interpreter to do this like he was told to do in a language like java or visual basic which people like and popular at that time, this if for the kids. He was given 10 days to create a prototype of this new interactive browser and in those 10 days he designed and implemented a new programming language which is an amazing achievement. So, from java he took syntax another language was scheme which is a dialect of LISP, scheme has lambdas i.e. functions, there is a dialect of small talk called Self it was having better performance and expressive, from Self he didn’t took the feature of classes, by removing classes they could make it much faster and much better to program. Netscape called this initial language as LiveScript. While this is going on another language that was being developed by a guy at Sun named Jim Gosling, they wrote a web browser in this language the browser called hot java, the language name was Java and become wildly successful. These both companies were working against Microsoft, so they form an alliance the first thing they agreed upon that Netscape adds java to the web browser in-exchange for that Sun will drop their hot java browser. Another thing is that they have to kill LiveScript as they were saying to the world that Java is the last programming language world ever need, but Netscape denied that because Java was not for beginners and they also wanted to launch the new browser right away and so the way they put Java in was they had Java talk to LiveScript through an interface called Live Connect. So, LiveScript could talk to the browser and java could talk to LiveScript through Live Connect. And if they took LiveScript out, Java wouldn’t work, so to save the alliance they change the name of language from LiveScript to javascript, and to showcase not a new language but as a subset to javas, interpreted java and they lied about the relationships of these two languages.
+
+- Meanwhile after seeing this Microsoft had completely missed the web and the internet, they thought the future of telecommunications was going to be fax and cable TV. So they bought out a browser company, it was another spinoff out of Illinois called spyglass, took their thing and relabelled it as IE and decided that they also need one more thing related to JS. So, they reverse engineering the first JS engine. MS also noticed all the blunders, bugs, errors, design defects, MS carefully documents all of them and replicates them, they called it Jscript. Then Netscape went to w3c to make the standard of their language, but w3c denied then they went to ISO, and then European computer manufactures association (ECMA), MS also joined this committee and dominates the committee. Also, MS told that all the bugs will remain in the standard, those standards where published by name ECMAScript.
+
+- Other OO programming language has inheritance is classical where objects are instance of classes and classes inherit from other classes, but in JS it is based on prototypes where objects inherit from objects and that’s it. There are no classes, this idea it got from Self language.
+
+- Javascript provides concept of delegations i.e. differential inheritance, where an object can only do what it can do and if its asked to do something that it can’t do, it will designate another object to do that work on its behalf.
+
+- By using Object.create(null) we can create an object that inherits nothing, not even from object.prototype. It will act much more like hash table.
+
+- Everything in JS are objects like from number, Boolean, string, array, date, regexp, function, etc. In JS there is only one number type, no integer types, it is based on 64-bit binary floating point which is also call double based on IEEE-754. But binary floating point and a binary floating point cannot accurately represent most of the decimal fractions. It can only approximate them, but it approximates them with infinite repeating bit patterns
+
+- We also get NaN as a confusing thing from IEEE format; it is the result of confusing or erroneous operations.
+
+- Array is a contiguous series or span of memory divided into equal size slots where each slot is indexed by a number; very fast, very efficient. One advantage is that we don’t need to provide length or type when creating an array. We don’t have to worry about out of bound array, as it is not an actual array but an hash table, so every value is in bounds, in first version of javascript they forget to add the concept of array.
+
+- The Date function is based on Java’s Date class and due to this it was no Y2K ready.
+
+- RegExp are not readable and understandable easily if they are long, there is tool regulex (http://jex.im/regulex/) which we can use to see it in a diagrammatic form to understand it better.
+
+- In JS all values are objects, except null and undefined, they are bottom values in JS. So, we should only choose one bottom values that is undefined.
+
+- Closure are good parts of JS. Closure – the context of an inner function includes the scope of the outer function. An inner function enjoys that context even after the parent functions have returned. Function scope works like a block scope. To the value of a retain while executing the inner function for this the solution was don’t allocate the activation records on the stack, allocate them on the heap, get a good garbage collection. JS was the first language to bring this concept then python, ruby, C#, C++, then java followed it
+
+- In a function object there is basically an object with two extra pointers in it, one for the pointer to the code and one for the pointer to the activation of the creating function. There will also be a link to the prototype object which is a waste because we are not going to use it. So, no much memory in these things, not a lot of work to initialize them, so it is very light weight.
+
+- The Metamorphosis of AJAX - The web comes from word processing and word processing historically comes in two very distinct schools – binary proprietary and textual open. For this the first program was runoff then GML (general mark-up language then html comes from GML). The angular brackets for tabs from Brian Reid’s scribe to distinguish between format and content.
+
+- Initially HTML was intended for simple document viewers, it wasn’t intended to be an application platform. The DOM is the API that the browser presents to JS and it is one of the worst APIs ever invented. The inventory tried to implement the HyperCard like system as DOM.
+
+- When those kinds then move to Netscape, their goal was to kill Mosaic, they wanted to create a monster that kills Mosaic so they make a Mozilla. In this instead of waiting for the images to get downloaded they put a placeholder at that point and continue resume parsing, it improved the user experience.
+
+- W3C was not happy about JS surviving in the web after they rejected it. There was a lot more sympathy for Java at W3C then JS, so over these years they have been trying to replace the API with something that would be more friendly for Java than for JS, even though the Java has never lived in browsers in this way. So, they added methods like getAttribute() and setAttribute().
+
+- CSS and DOM were both designed about the same time and each project was aware of the other. The guy who designed CSS was aware that someday programming language were going to manipulate style sheets, he thought that was a certainty, and yet he choose to use the minus sign as a hyphen, knowing that most of our programming languages want to do subtraction with it and this creates syntactic difficulty for all of us.
+
+- The W3C standard doesn’t provide access to the HTML parser, all browsers implement MS innerHTML property but it is a security hazard.
+
+- Browsers are really good at is parsing HTML and they can do that really quickly and they can get the whole thing done in one transaction whereas messing with the DOM, every time we touch the DOM we are going to pay a big time penalty.
+
+- Netscape 2 version introduced the Events, the browser has an even-driven, single threaded programming model. Events are targeted to particular nodes; events cause the invocation of event handler functions. The target is the topmost (z-index) node containing the cursor.
+
+- Trickling and Bubbling – MS choose the bubbling approach which was correct way to do it.
+
+- The reason that JSON requires quotes around its names was because of this deign problem in ES3 which got fixed in ES5 in which we can use the reserved word on property names
+
+- The Object.create() is a primitive which makes a new object that inherits from another object. It gives us a direct way of doing prototypal inheritance.
+
+- Meta object API – a property is a named collection of attributes, earlier this api wasn’t exposed for outside world.
+
+![typescript-meta-object-api](typescript-meta-object-api)
+
+- We can stop object extensibility by using preventExtensions() method, the object won’t accept new property assignment. The freeze() stop its extension and also make all property as read-only and immutable. By this we can pass this object to third party and be confident that third party can’t be able to corrupt this object
+
+- Currying function – the process of taking a function with multiple arguments and turning into multiple arguments and turning into multiple functions that take a single argument is called currying. It is named after Haskell Curry who is a mathematician. By normalizing all functions to take only one argument, it made a lot of operations easier to think about.
+
+- Object.toString() doesn’t show you anything about what it is in the object so it is useless, so we need to use JSON.stringify()
+
+- Retursion -it is when we have a function that returns itself. In recursion a function calls itself.
+
+- We have two distinct kind of objects, we have objects which just contain data, only data, and objects contain only functions, which are frozen, and those objects are very strong and very reliable, they cannot be tempered with, they provide the interface for dealing with the objects which are containing the data. By this we can create good API which can defend themselves, which can remain robust in the face of all the confusion happening inside our system. So, in above image put data in member variables.
+
+- Event driven model was inspired by HyperCard
+
+![typescript-hyper-card](typescript-hyper-card)
+
+- In node.js we got non-blocking file i/o which is the main advantage. Node.js implements a web server in a JS event loop. It is a high-performance event pump.
+
+- Servers are significantly different than browsers, in a server, we are not dealing with events, we are dealing with messages like messages coming from network, we will do something, we will send another message out.
+
+- It seems that perfection is attained not when there is nothing more to add, but when there is nothing more to subtract.
+
+- Danger driven development – where we are doing crazy reckless stuff in the code just to keep in interesting. Always take the time to code well.
+
+- In ES6 there is proper tail calls, so the compiler will turn that into a jump instead of a call return. It will go a little faster, take less memory in getting there. It enables continuation passing style, by this JS become finally become the real functional programming language.
+
+- Everything takes at least generation, is because we don’t change minds, we have to wait for a generation to retire or die before we can get critical mass on the next new idea. And that’s the way progress goes.
+
+- The big advantage in prototypal systems is we eliminate or reduce coupling between classes unlike classification inheritance.
+
+- In 40s when the first Von Neumann machines start coming online they are integer-only machines, but most of the programmers are mathematicians and they are trying to figure out how to do read computation and it is hard, they were trying to do stuff with scaled integers and it is lot of work, and it is error prone. And someone figures out floating point, that we will have two numbers per number, one is the number itself and other is a scale factor, which tells us how many positions to move the decimal point. Then we can just give it to a subroutine, and subroutine will figure out how to add these things. And it worked and it made programming much easier to do. Unfortunately, those libraries were really slow. So, when we get to the 50s, there is now interest in putting floating point into hardware, but we were making out stuff of tubes, and it is hard to do. Someone has figured it out that if we use binary floating pinot instead of decimal floating point, we don’t have to implement a dive by 10 in order to do a scaling, we can just shift 1 bit, which is free. That worked great for scientific computing because in scientific computing, our lower digits are probably wrong anyway, but it doesn’t work for business processing because they are adding up money and they need to be exact. They have to give the cents exact. So, even successor like java is not good with business types, that is the tragedy we are in now. The solution might be below, this might be only 1 number system which a future language needs to be adopt –
+
+![typescript-dec-64](typescript-dec-64)
+
+- If we are adding integers in a software implementation, it can add two integers and five instructions, in a hardware implementation adding integers should happen in once cycle, which means we don’t need to have int as a separate type in order to get performance. We can get performance and range of values that we need in one number type.
+
+- CSS was designed to format technical document, that was its purpose of life, but that is not what we use it for. We use it for all kinds of stuff that it is very badly suited for. We use it as it is only option.
+
