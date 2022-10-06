@@ -75,3 +75,7 @@
 ## Role model websites
 
 - E-commerce site - <https://www.mcmaster.com/>
+
+## UX Guidelines
+
+- UI Notifications - <https://uxplanet.org/5-types-of-ui-notifications-dbfbda284456>
