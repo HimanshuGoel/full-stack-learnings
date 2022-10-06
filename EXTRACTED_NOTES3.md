@@ -455,3 +455,121 @@ threaded JS engine is doing work that behind the scenes other things can be happ
 
 - CSS was designed to format technical document, that was its purpose of life, but that is not what we use it for. We use it for all kinds of stuff that it is very badly suited for. We use it as it is only option.
 
+- Using Glob we can specify which files should be compiled. It lets us specify a file named patter for the compiler to match. “.” Is for the current directory, “**” for the searching recursively inside the child directories.
+
+- Basic typescript types – Boolean, Number, String, Arrays, Enum, Void, Null, Undefined, Never – it’s the type assigned to values that will never occur like function that will never return because it throws exception or kicks off an infinite loop, Any – use when we effectively want to opt out of type checking of the compiler like while using third party javascript library .
+
+- Type assertions – if we do not know the type of a variable, then we can assign it a specific using type assertion. (<number> value) or use “as” keyword
+
+- Traditional functions are still easier to read when we are writing function that will be called from multiple places, however arrow functions are nice when we need to pass an anonymous function to another function.
+
+- TypeScript implements structural type system, so in below the object developer can be directly treated as interface as it has all the interface properties. As long as the structure match, we can treat the object as the type with that structure event if it wasn’t explicitly declared with that type. This is also called duck typing:
+
+![typescript-duck-typing](typescript-duck-typing)
+ 
+- Static members are a nice way to add utility or helper methods that are related to the purpose of class but aren’t dependent on any data that might be stored in instances of the class.
+
+- Constructors – special type of function gets executed when new instance of the class are created. Using super() we call constructor of parent class from child class, if child class has constructor method then we need to call super()
+
+- There is different module syntax like AMD, Common JS, TS has adapted ES2015 module syntax by default. Benefits – encapsulation, reusability, create higher-level abstraction. We will also need module loader/bundler to run our code. Webpack will prepare our modules to execute in a browser as part of a build step.
+
+![typescript-supported-technologies](typescript-supported-technologies)
+
+- Relative vs. non-relative imports – ‘./’, ‘/’, ‘../’ all are same for current directive. We should give relative reference when giving our own modules and non-relative paths when referring third party modules.
+
+- Type Declaration Files - They are also called type definition types or type libraries, these are just wrapper for existing javascript libraries. The goal of type declaration file is to declare types for the variables, functions, objects and other constructs in the library that match the intended use of those items. This allows the typescript compiler to make sure that we are using the library correctly. We can find the problems at compile time. They are just development-time tool to assist the compiler. They end with “d.ts” extensions.
+
+- Generics – as below we can create collection of T, it is being to known when we create the instance of the class. Behind the scene the typescript will create a hidden class of that type and will be present in the transpiled code. We can also create generic interfaces and functions not just classes.
+
+- Static and Dynamic typing – typescript is static typing and have type safety is a compile time feature.
+
+- Modules - By this we can have separation in our code, we are able to separate out in different units of work that we have in different module like one for Animation, UI integration, Data Access. It improves testability, reusability and maintainability.
+
+- Creating an internal module – if we don’t wrap our class in module keyword then that class name will be added to global namespace on widow object. It is an internal module that gets added and extended to the global namespace.
+
+- Duck Typing – in below we don’t need to specify the probablyADuck variable as a Duck type, it is considered automatically as it has all its methods.
+
+![typescript-duck-typing2](typescript-duck-typing2)
+
+- Abstract class are created with the abstract keyword, we cannot directly instantiate this class but they can contain the implementation details but also can have abstract methods which are not implemented but these methods must be implemented in derived classes.
+
+- Module loaders – Node has inbuilt module loaders capability means it understands the Common JS format and how to retrieve all of the necessary dependencies when running code written in or compiled to that format. As of now browsers don’t provide that capability natively. However, there are couple of very good libraries that give us the ability to load and use modules in browser apps like Require.js, it understands AMD format, System JS understands AMD, Common JS, ES2015 and its own system format.
+
+- Default Exports – they are useful when we only want to export one item from a module. Once we have specified that item as the default export, other modules can import it without even knowing its name. assigning a name to a default export is optional since the importing module doesn’t need to know its name.
+
+- Generic Constraints – they describe the types that may be passed as a type parameter. Constraints are most often implemented as interfaces that describe the shape of types that may be used as a type parameter. We need to use the extend keyword.
+
+- Ambient modules – large JS libraries could potentially have lots of modules in them. Each module in a large library would have its own d.ts file and that would quickly become unwieldy and inconvenient. The solution is to declare ambient modules inside a single d.ts file. Ambient modules don’t provide any implementation details. In type definition files they are just the wrapper aournd an implementing that defined in the actual library. Since there aren’t any top-level exports, it can’t be imported directly. We first need to add a triple slash reference to the d.ts file, then we can write the import statement, we don’t need to define the path for the module to import but just the name of the module in the double quote exactly it was defined in d.ts file.
+
+![typescript-ambient-modules](typescript-ambient-modules)
+
+- Babel is a second stage transpiler and provides a handy backup plan just in case Typescript doesn’t transpile something as we expected.
+
+![typescript-babel-working](typescript-babel-working)
+
+- Nested arrow functions share the same ‘this’ instance, the ‘this’ value is always the containing code which is also called Lexical Binding.
+
+- There is no built-in arguments object in arrow function, if we need to iterate over arguments the use ES6 rest parameter instead. Also arrow functions aren’t new-able as they use lexical scope. Always use a standard function as the constructor of a function style class.
+
+- UMD module format – at runtime scripts in the UMD format check for global variables that are distinctive between AMD and CommonJS and depending upon which globals are found the module will be initialized in the appropriate manner. If we writing a module that is appropriate to use in both CommonJS and AMD environments we can consider using the UMD format.
+
+- Declaration merging - The compiler merges two seperate declarations declared with the same same into a single defination. allowed merges - interfaces, enums, namespaces with classes/functions/enums. disallowed - classes with classes. We can use declaration merging to implement module augmentation. It is a technique that allows us to extend existing modules with new members. It is a nice way to extend modules that we might not maintain or to extend the 3rd party code that we may not be responsible for maintaining.
+
+![typescript-declaration-merging](typescript-declaration-merging)
+
+- Type Guards – they are a way for us to check the type of a variable. They are a way for the compiler to narrow a variable to a specific type. By this the compiler can check more error based on type. The typeof type guard, instanceof guard, user-defined type guards
+
+- Symbols – they are new primitive data type, they are unique and immutable. Every symbol we create is different from every other symbol. Once we created them we can’t change them. Use case for them – to make good unique constants, enum like behaviour, computer property declarations to avoid name collisions, customize internal language behaviour. The string passed below in symbol is just for debugging purpose.
+
+![typescript-symbol1](typescript-symbol1)
+
+![typescript-symbol2](typescript-symbol2)
+
+- Decorators - They are like annotations in java and attributes in c#. In JS they are implemented as functions.
+
+- Promises – much cleaner code than callbacks. Simple API – then and catch methods, chain together as then function also returns promise.
+
+- Generics are not supported in Javascript, due to this it is a feature of Typescript. It is a reusable code that works with multiple types. It may be function, interfaces or classes, it uses a type (<T>) parameter. Generic constraints increase practicality and generic function type add flexibility. We can’t use generic with static functions or classes as generic gets applied on the instances. Generic classes offer type-safe versality (with or without implementing an interface).
+
+- It is like a JavaScript, with guard rails.
+
+- An interface defines the shape of data. It is like a mold used to create baked goods such as muffins. It drives consistency across the objects. Unlike Interface, Type can also be used to represent primary types not just object like data structure.
+
+![typescript-interface-vs-types](typescript-interface-vs-types)
+
+- The ‘typeof null’ will return generic ‘object’ value.
+
+- By using an immediately-invoked function, we can call returning function instantly instead of variable storage.
+
+- A closure wraps up an entire environment, binding necessary variable from other scope. It is unlike a function’s local variables as they aren’t available once the function’s scope is closed. Closures are very useful in creating function ‘construction zones’, a closure can make the creation of very similar functions ultra-efficient. We should aware that bound variables won’t be evident in the stored function, examining the contents of our new variables doesn’t reveal closures. 
+
+![typescript-closuer](typescript-closuer)
+
+- Order of operations – PEMDAS.
+
+- Arrow function have lexical binding scope, it means they get bind to the scope where they are defined, not where there are run.
+
+- By using Object.assign, the source object remain unchanged, the target object is modified and used as return value. In case of duplicate properties on source objects, the value from the last object on the chain always prevails.
+
+- Iterables return an iterator object. This object knows how to access items from a collection 1 at a time, while keeping track of its current position within the same sequence.
+
+![typescript-iterables](typescript-iterables)
+
+- Proxies and reflection are both forms of meta programming generally to know information about itself or for a program to control how is executing while it is executing other programs. Reflection is getting information about the program and proxy is changing how the program execute during execution. Proxy object sits between other code and target object. Proxies are slower than regular object. Revocable proxies allow the system to recover resources – use in very large applications with lots of data.
+
+![typescript-proxy-and-relfection](typescript-proxy-and-relfection)
+
+- Typescript also support new features of ECMAScript and other features which even didn’t introduced yet in ECMAScript like interface.
+
+- When using the typescript types we should not use the uppercase javascript types, we should be using the typescript types i.e. lowercase versions of them – like number instead of the Number.
+
+- The void type is not exist in javascript language.
+
+- We can use ‘never’ type when a function is not going to return any value like if that function throw an error.
+
+- To define different types of data in a array we can use tuple to enforce king of fixed structure instead of a loosely one. So, if use type as [string, number, boolean] then the values should match the same order type unlike union type.
+
+- We cannot add a property to interface declaration if it is private or protected. Only public properties can be added to the interface signature. 
+
+- Module formats – es2015 syntax is in-built one which TypeScript adapted from JavaScript. Earlier ones were CommonJS, AMD (for browser), UMD, System JS formats.
+	
