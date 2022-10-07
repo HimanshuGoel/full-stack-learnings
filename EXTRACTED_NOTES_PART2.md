@@ -1,3 +1,18 @@
+# Extracted Notes - Part 2
+
+## Table of Contents
+
+- [HTML](#html)
+- [CSS](#css)
+- [Angular](#angular)
+- [Soft Skills](#soft-skills)
+- [Architectural](#architectural)
+- [Mongo DB](#mongo-db)
+- [Digit Magazine](#digit-magazine)
+- [Miscellaneous Technical](#miscellaneous-technical)
+- [Miscellaneous - Life](#miscellaneous---life)
+- [Miscellaneous - Health](#miscellaneous---health)
+
 ## HTML
 
 - HyperText Markup Language – HTML is the language that we use to create document that we want to share across the world wide we or more appropriately across the internet. HTML was created to share research documents which includes text, data, images, and all linked together.
@@ -6,137 +21,130 @@
 
 - The doctype declaration let the client know which standards we are following.
 
-- <head> tag is used for metadata information which includes title, meta elements, script, style, link, base. The link specifies the related documents and base specify base address for all relative links on the page.
+- `<head>` tag is used for metadata information which includes title, meta elements, script, style, link, base. The link specifies the related documents and base specify base address for all relative links on the page.
 
-- Block vs. Inline – Block elements are container for elements for grouping they can contain other block elements and in-line element example – paragraph.  Block level element will start from new a new line.
+- Block vs. Inline – Block elements are container for elements for grouping they can contain other block elements and in-line element example – paragraph. Block level element will start from new a new line.
 
-- Use ‘&nbsp;’ for telling browser, do not break at this particular point. So, when we resize the browser it will not break that words in between but it show it as a whole in any line.
+- Use `&nbsp;` for telling browser, do not break at this particular point. So, when we resize the browser it will not break that words in between but it show it as a whole in any line.
 
 - We used links to linking within a document or another document. Likes can be absolute or relative. If files on the server use absolute path, or if they in our local site content folder then use relative path.
 
 - History of HTML5 – WHATWG accounted that it will no longer work on named versions of HTML so there will be no HTML6, HTML7, but the HTML spec is now a living standard. So HTML 5 no longer exists as new features are found in living standard.
 
-![html-history](html-history)
+![html-history](./assets/images/html-history.png)
 
 - Standard Bodies for HTML – W3C, WHATWG, ECMASCRIPT
 
-- Inbuilt APIs - Elements with API – canvas, audio, video, Forms element – meter, progress, math, data-list, New JavaScript APIs –  canvas, web animations, Interaction, events and messaging APIs -  battery status, clipboard API and events, cross document messaging, device and screen orientation, full screen, geolocation, media capture, notifications, touch events, vibration
-Storage and files APIs – Blob URL’s File API, File Reader, IndexedDB, Local Storage, Real time communication APIs – Push API, server sent events, web sockets
+- Inbuilt APIs - Elements with API – canvas, audio, video, Forms element – meter, progress, math, data-list, New JavaScript APIs – canvas, web animations, Interaction, events and messaging APIs - battery status, clipboard API and events, cross document messaging, device and screen orientation, full screen, geo-location, media capture, notifications, touch events, vibration, Storage and files APIs – Blob URL’s File API, File Reader, IndexedDB, Local Storage, Real time communication APIs – Push API, server sent events, web sockets
 
 - Fallbacks and Polyfills – fall back is to provide similar functionality as a native feature but maybe just with a different API. A Polyfills, on the other hand, is meant to replicate the exact same interface as well as functionality as how the native implementation would be built in the browser. For this use www.html5please.com website.
 
 - Types of images
-    - Vector – used for displaying simple images, and we can enlarge them without losing pixels. The image is made of a set of instructions of how to draw an image. It is rendered on fly when image is displayed.
-    - Raster image – jpeg, png or gif. These are images with a set dimension where every pixel within the defined space of the image has a designated colour. These are great for pictures but will lose pixels when enlarge. HTML5 canvas works upon raster images. 
-    - Canvas -  it is just a drawing surface. We can draw shapes, apply colours and even manipulate images on the canvas. Due to rasterized nature of the canvas gives us a pixel by pixel control of that drawing surface. It uses underline grid system.
+
+  - Vector – used for displaying simple images, and we can enlarge them without losing pixels. The image is made of a set of instructions of how to draw an image. It is rendered on fly when image is displayed.
+
+  - Raster image – jpeg, png or gif. These are images with a set dimension where every pixel within the defined space of the image has a designated color. These are great for pictures but will lose pixels when enlarge. HTML5 canvas works upon raster images.
+
+  - Canvas - it is just a drawing surface. We can draw shapes, apply colors and even manipulate images on the canvas. Due to rasterize nature of the canvas gives us a pixel by pixel control of that drawing surface. It uses underline grid system.
 
 - Semantic HTML – mark-up that conveys meaning about its contents. It is mostly beneficial for the machines and also helps human too. Tags – small, footer, address. HTML mark-up is also used by search engines and screen readers and machine are not smart enough to understand the meaning of content.
 
-- We should avoid using generic elements, inconsistent structure, presentational (CSS) mark-up into HTML. Like we should not use <strong/> tag just to bold a text, we should use it if we wanted to give text more important to other text. It should not use just for presentational purpose.
+- We should avoid using generic elements, inconsistent structure, presentational (CSS) mark-up into HTML. Like we should not use `<strong/>` tag just to bold a text, we should use it if we wanted to give text more important to other text. It should not use just for presentational purpose.
 
 - Sectioning elements – elements whose intended use in to divide content up into logical sections like div, aside, article, section, figure, main, address, header, nav, footer
 
 - To enable the proper parsing, use doctype tag on first line of the HTML page. Specify the lang attribute for main language of the page it is important for screen reader. For proper parsing and rendering use http-equiv and content attributes.
 
-- To avoid CSS styles and JavaScript scripts to override our DOM subtree, The shadow DOM seeks to solve these systemic problems by creating an encapsulate spot to define our mark-up in CSS by creating a hidden and encapsulate subtree that is separate from the light DOM. Shadow DOM in native HTML like video, date, input type range tag. To see the shadow DOM, we need to enable setting “show user agent shadow DEOM” in browser. Native elements already using shadow DOM.
+- To avoid CSS styles and JavaScript scripts to override our DOM subtree, The shadow DOM seeks to solve these systemic problems by creating an encapsulate spot to define our mark-up in CSS by creating a hidden and encapsulate subtree that is separate from the light DOM. Shadow DOM in native HTML like video, date, input type range tag. To see the shadow DOM, we need to enable setting `show user agent shadow DOM` in browser. Native elements already using shadow DOM.
 
-- Shadow DOM alternatives – we have iframe but it is clunky to read, undescriptive, excessive encapsulation, no clean API. We also have canvas but has accessibility issues, seo issues, can not easily compose, cannot extent existing elements.
-Shadow DOM encapsulates DOM subtrees and styles. Shadow DOM is like an iframe without all the baggage in a friendlier API
+- Shadow DOM alternatives – we have iframe but it is clunky to read, nondescriptive, excessive encapsulation, no clean API. We also have canvas but has accessibility issues, seo issues, can not easily compose, cannot extent existing elements.
+  Shadow DOM encapsulates DOM subtrees and styles. Shadow DOM is like an iframe without all the baggage in a friendlier API
 
 - Web real time communication lets us incorporate peer to peer video, audio and data communication in the browser without any plug-ins. Use cases and inspiration of WebRTC
 
-![html-webrtc-usecases](html-webrtc-usecases)
+![html-webrtc-use-cases](./assets/images/html-webrtc-use-cases.png)
 
 - History of web
 
-    ![html-history-of-web](html-history-of-web)
-    
- - What is WWW – is an information space where documents and other web resources are identified by URL in linked by hypertext links and can be accessed via the internet. The internet has been around since the 80s and the web has been around since the 90s.
-![html-history-of-html](html-history-of-html)
+![html-history-of-web](./assets/images/html-history-of-web.png)
+
+- What is WWW – is an information space where documents and other web resources are identified by URL in linked by hypertext links and can be accessed via the internet. The internet has been around since the 80s and the web has been around since the 90s.
+
+![html-history-of-html](./assets/images/html-history-of-html.png)
+
 - History of css
-    
-![html-history-of-css](html-history-of-css)
-    
+
+![html-history-of-css](./assets/images/html-history-of-css.png)
+
 CSS is the styling mechanism for the web. It is a standard of selectors, properties and attributes. As it is just a standard so it doesn’t do anything, it just tells the people of created the web browsers how to interpret the CSS language and how to style HTML with it.
-    
+
 - History of JavaScript
-    
-[html-history-of-javascript](html-history-of-javascript)
-    
+
+![html-history-of-javascript](./assets/images/html-history-of-javascript.png)
+
 - Html file naming conventions – always start with a lowercase letter, no special characters, no spaces, hyphens, underscores, or camel case can be used for file names with multiple word. Index.html is the standard name for a home page, browser looks for this name page to display as your lading or home page.
 
 - HTML is made up of tags, tags tell the browser where an element should start and end. Tags should be lowercase, and each tag and its content is an HTML element.
 
-- For checkbox and radio box, wrapped them into <legend> and <fieldset> tags
-    
-  - Disabled field doesn’t get included into form data submit, but read-only field will be included. Generally, we use read-only if that user has filled its value in previous page and we don’t allow to edit it on current page.
-    
- - ID vs Class attributes – use class attribute for styling instead of id.
-    
-    ![html-id-vs-class-attribute](html-id-vs-class-attribute)
+- For checkbox and radio box, wrapped them into `<legend>` and `<fieldset>` tags
+
+- Disabled field doesn’t get included into form data submit, but read-only field will be included. Generally, we use read-only if that user has filled its value in previous page and we don't allow to edit it on current page.
+
+- ID vs Class attributes – use class attribute for styling instead of id.
+
+![html-id-vs-class-attribute](./assets/images/html-id-vs-class-attribute.png)
 
 - If images are deemed as part of the content, we should add it as HTML. If its is there for presentation and style, it should be added using CSS.
-    
 - SASS has two different syntax, the original SASS syntax a bit different from CSS. It essentially removes the curly braces and semicolons from CSS, and it relies on white space. Because of this we can’t take a CSS spreadsheet and change the extension and treat it as SASS. So, for exiting projects with large CSS stylesheet porting to SASS is problematic. Due to this an alternative syntax has been developed by name SCSS. SASS is built on Ruby, LESS and Stylus built on Node.
 
 - Responsive Page - text, images, buttons size become large/small, also page layout changes based on screen size changes. We can use media queries for it
-    
 - Cookies are just additional pieces of information that the server asks the browser to store and send back to the server with every request. But now local storage is preferred. These generally stores authentication and configuration related information which server needs to see in any request. In JavaScript object we can define properties that are functions, in JSON functions are not a legal property.
 
- - Page request lifecycle: when we request a webpage in our browser, either by clicking a link to a new page or typing a URL in the browser. The server sends down the HTML to our page in the body of the response. Now after this browser has received the HTML it begins processing it. And part of that processing is to look four kind of different directions in the HTML i.e. CSS links, scripts tags of the source attributes, image tags, and font face directives in CSS rules. New requests were made based on these and response included their assets.
+- Page request lifecycle: when we request a webpage in our browser, either by clicking a link to a new page or typing a URL in the browser. The server sends down the HTML to our page in the body of the response. Now after this browser has received the HTML it begins processing it. And part of that processing is to look four kind of different directions in the HTML i.e. CSS links, scripts tags of the source attributes, image tags, and font face directives in CSS rules. New requests were made based on these and response included their assets.
 
 - App shell architecture – cached shell loads instantly on repeat visits, it is a main u ser interface for our application without any content. by this we can avoid showing black page while loading which frustrates users.
-    
 - We will use the service worker to cache the app shell. The cache API is a cache storage for requests and responses, it is a pre-requisite for service workers. It stores values in key value pairs, and available from window scope and service worker scope. Like below it will cache the entire request and response.
-    
 - Web worker – a script running int the background. It initiated from the main document, runs separately from main document and doesn’t have access to the DOM. It is often used as a programmable network proxy which lets you control incoming and outgoing network request. We can combine it with the cache API to serve requests from the cache. Specially if network request fails from server, it can handle it
-    
-![html-service-worker-life-cycle](html-service-worker-life-cycle)
-    
- - Workbox caching strategies –
-    
-    ![html-workbox-cache-stratergies](html-workbox-cache-stratergies)
-    
+
+![html-service-worker-life-cycle](./assets/images/html-service-worker-life-cycle.png)
+
+- Workbox caching strategies –
+
+![html-workbox-cache-strategies](./assets/images/html-workbox-cache-strategies.png)
+
 - Browser cache, if files are already in browser cache then it will not make request to sever for them. In application, all the cache files will be in grouped to a single manifest file. We should not mix browser caching and application caching. In browser, we can specify when a file will be expired, but in application cache we can only send updated files if we change the manifest file.
-    
- - Web storage comes in two flavour in local storage and session base. Security is per session and per domain. Capacity is between 2 to 10 MB. Web storage is client only (don’t need to send every time to the server) and larger capacity unlike cookies. It has simple API, key/value pair and widespread availability.
-    
+
+- Web storage comes in two flavour in local storage and session base. Security is per session and per domain. Capacity is between 2 to 10 MB. Web storage is client only (don’t need to send every time to the server) and larger capacity unlike cookies. It has simple API, key/value pair and widespread availability.
 - Web workers – it brings background threading as a first-class citizen to web browsers. We can splice an intensive process logic into a worker and it will run independent of the UI thread.
 
- - Two types – dedicated (linked to browser that spawned the worker so it has a very tight relationship), shared (runs in the background and basically any script that’s running within that domain can send messages to that worker. It is largely unimplemented in browser currently.).
+- Two types – dedicated (linked to browser that spawned the worker so it has a very tight relationship), shared (runs in the background and basically any script that’s running within that domain can send messages to that worker. It is largely unimplemented in browser currently.).
 
 - The data which is stored in a sandbox so if website A creates it then it cannot be access by website B. local storage will work as session storage if working in private mode. Data is serialized to file system in a hard drive outside of the browser. It is synchronous.
-    
 - Browser represent a web page in memory is through the document object model.
 
 - Using javascript we cannot set a class using .class, we need to use classList as class is a reserved word.
-    
-- To indicate emphasis use italic tag in the text, we can use <em> for meaning purpose and <i> for just styling purpose. So, use <em> not <i>, same with use <strong> not <b>.
-    
+- To indicate emphasis use italic tag in the text, we can use `<em>` for meaning purpose and `<i>` for just styling purpose. So, use `<em>` not `<i>`, same with use `<strong>` not `<b>`.
 - HTML is derived from SGML.
-    
- - Why should we structure our text – users can get to information quickly, enables accessibility tools to understand information, enables browsers to style the content, helps search engines to understand content.
-    
+
+- Why should we structure our text – users can get to information quickly, enables accessibility tools to understand information, enables browsers to style the content, helps search engines to understand content.
 - The term progressive enhancement refers to the use of newer features that add to the experience in modern browsers that support those features, but doesn’t detract from the experience in older browsers.
-    
 - URL part composition
-    
-    ![html-url-parts-composition](html-url-parts-composition)
+
+![html-url-parts-composition](./assets/images/html-url-parts-composition.png)
 
 ## CSS
-    
+
 - types of selectors - The pseudo classes are just something that the browser will implicitly apply.
 
-![css-types-of-selectors](css-types-of-selectors)
+![css-types-of-selectors](./assets/images/css-types-of-selectors.png)
 
 - The 1.0em; states for the size which is default to the page. If we say width: 50%; then it will be half of its parent width.
 
 - We also have a star selector which matches everything on the page:
 
 ```css
-*
-{
-color: White
+* {
+  color: White;
 }
 ```
 
@@ -146,7 +154,7 @@ color: White
 
 - Specificity – the higher is the specificity number the more important the rule is. It contains 3 parts ABC like below:
 
-![css-specificity](css-specificity)
+![css-specificity](./assets/images/css-specificity.png)
 
 - Inheritance – some property values of an element will be inherited form the elements parents. Like text in div which is inside paragraph will inherit paragraph font size. But border, margin, paddings will not inherited form the parents. So, border set on paragraph will not have border on div or em or other tags inside it.
 
@@ -154,11 +162,11 @@ color: White
 
 - Width – when we specify the exact width it will specify of the content area. Any border, margin, or padding that we add will add to the width and require more space.
 
-![css-width](css-width)
+![css-width](./assets/images/css-width.png)
 
-- Layout with CSS - default position value is static. it stacked up elements one after the other down the page. relative position moves an element from its default position in some direction.  we can set the top and left properties values. fixed and absolute removes the elements from the flow of documents.  Absolute position moves an element to a specific position relative to the body of the document the top and left will be consider from the body element. while fixed position is relative to the window itself. When we apply relative position, we can set top or left kind of properties on it, it is unlike the padding and margin. It will sit on top on the element instead of just pushing them around.
+- Layout with CSS - default position value is static. it stacked up elements one after the other down the page. relative position moves an element from its default position in some direction. we can set the top and left properties values. fixed and absolute removes the elements from the flow of documents. Absolute position moves an element to a specific position relative to the body of the document the top and left will be consider from the body element. while fixed position is relative to the window itself. When we apply relative position, we can set top or left kind of properties on it, it is unlike the padding and margin. It will sit on top on the element instead of just pushing them around.
 
-![css-position](css-position)
+![css-position](./assets/images/css-position.png)
 
 - Fixed positioning – it fixes the position of an element relative to the browser window. The element always stays fixed in place, even when scrolling. Generally, we use this in menu bar or navigation.
 
@@ -166,11 +174,11 @@ color: White
 
 - By default, if the element is inside a container and we apply absolute on the element then it will relative to the body top left corner, but if we apply absolute on the container as well then it will be relative to that container.
 
-- Relative Positioning -  in this, other elements do not ignore its width and height. It doesn’t take out from the document flow. The original space will be maintained. The bottom: 0 value will make it to stay as it is because the bottom will be the same bottom of the element unlike absolute which will move it to the bottom of the window. And setting the position of the container element as relative does nothing at all unlike absolute positioning. If we have container with relative positioning and element as absolute, then the element will be relative to the container.
+- Relative Positioning - in this, other elements do not ignore its width and height. It doesn’t take out from the document flow. The original space will be maintained. The bottom: 0 value will make it to stay as it is because the bottom will be the same bottom of the element unlike absolute which will move it to the bottom of the window. And setting the position of the container element as relative does nothing at all unlike absolute positioning. If we have container with relative positioning and element as absolute, then the element will be relative to the container.
 
 - Z-index – it allows us to control the stacking order of the elements. It will start from the negative value -1 and all the way up to highest z-index value.
 
-- We should not have an orphan character on a new line, we can use typogrify module to make last two letters with “no break space” on every line.
+- We should not have an orphan character on a new line, we can use typography module to make last two letters with “no break space” on every line.
 
 - The full form of SASS is syntactically awesome stylesheets.
 
@@ -178,18 +186,17 @@ color: White
 
 - Visual break points in Bootstrap
 
-![css-bootstrap-visual-break-points](css-bootstrap-visual-break-points)
+![css-bootstrap-visual-break-points](./assets/images/css-bootstrap-visual-break-points.png)
 
-- types of selectors - relational, atribute, structural
+- types of selectors - relational, attribute, structural
 
-- Relational selectors 
+- Relational selectors
 
-![css-relational-selectors](css-relational-selectors)
-
+![css-relational-selectors](./assets/images/css-relational-selectors.png)
 
 - Other selectors
 
-![css-other-selectors](css-other-selectors)
+![css-other-selectors](./assets/images/css-other-selectors.png)
 
 - Earlier we use table-based layout, then fluid-based layout came, now flexbox is the latest layout technique.
 
@@ -199,18 +206,17 @@ color: White
 
 - Flexbox controls how items flow in one dimension, where the grid controls how items flow in two dimensions. Flexbox is great in handling alignment, distribution and order of content in space. CSS grid on the other hand is suited to lay items out in both dimensions. CSS grid, like flexbox, is all about the relationship between parent container and child items, grid-container, grid-items. It establishes a grid context for its children.
 
-
-![css-flexlayout-vs-grid](css-flexlayout-vs-grid)
+![css-flex-layout-vs-grid](./assets/images/css-flex-layout-vs-grid.png)
 
 - Responsive web design is a technique for creating a website that adapts to accommodate various device widths. It involves Fluid Grid, media queries, flexible images.
 
 - raster vs. vector images
 
-![css-raster-vs-vector-images](css-raster-vs-vector-images)
+![css-raster-vs-vector-images](./assets/images/css-raster-vs-vector-images.png)
 
 - JPEG format usage: progressive JPEG means it will render with the lowest quality first then get improved over time, unlike normal JPEG which gets render line by line paint with full quality. It is a best format for photos, lossy compression and progressive.
 
-- Other formats - GIF (now a days use in animation only), PNG (lossy compression not as much as JPEG, mainly used to allow trasnparency scenario), WEBP (created by goodgle, animation and transparency, limited browser support), SVG (XML vector image format, pionts, lines, shapes, resolution independent).
+- Other formats - GIF (now a days use in animation only), PNG (lossy compression not as much as JPEG, mainly used to allow transparency scenario), WEBP (created by google, animation and transparency, limited browser support), SVG (XML vector image format, points, lines, shapes, resolution independent).
 
 - We use use SVG images wherever possible.
 
@@ -220,11 +226,11 @@ color: White
 
 - CSS is crafted to be simple, but scaling simplicity is difficult. It is Sass not SASS, full form is syntactically awesome stylesheets. Its extension is “.scss”.
 
-- Responsive design got started when Steve Jobs launched iPhone in 2007 with web browser. Four mobile strategy - ignore them, build a seperate mobile web site, build an appfor the apple store, build a responsive site
+- Responsive design got started when Steve Jobs launched iPhone in 2007 with web browser. Four mobile strategy - ignore them, build a seperate mobile web site, build an app for the apple store, build a responsive site
 
 - We should follow mobile first approach, then add media queries rules medium and large screen as required. So, we don’t have to add media queries in CSS reset and small screen. Due to this maximum CSS style rules will in small.css, then fewer in medium.css and few in large.css:
 
-![css-mobile-first-approach-style-files](css-mobile-first-approach-style-files)
+![css-mobile-first-approach-style-files](./assets/images/css-mobile-first-approach-style-files.png)
 
 - In progressive enhancement we first apply rule for small screen then by media query apply rules for medium screen and then finally for large screen.
 
@@ -237,40 +243,43 @@ color: White
 - In 2007 iPhone release a phone in which he made the browser tell a lie to the website that it is having desktop size browser and then it shrinking the size to fit on the mobile, in other mobile on those days were not able to render complete website and making the website unusable. But as a responsive design now a days we want to know the actual size of browser on mobile not a lie, so we need to add below tag.
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1.0. maxium-scale=1.0. user-scalable=0" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0. maximum-scale=1.0. user-scalable=0"
+/>
 ```
 
 - Pseudo classes allow us to conditionally select an element based on state or position, they start with a colon (:).
 
 - 12 column grid layout – it has history in newspaper because when we had multiple editions coming out in a single day, we need to lay them out quickly and 12 columns can easily be divided into halves, quarters or thirds. So, it is an easy layout to achieve.
 
-- The data-* attributes on HTML allows us to store extra information on standard, semantic HTML elements without other hacks, such as non-standard attributes, extra properties on DOM, or Node.setUserData(). So, they are allows us to target javascript.
+- The `data-*` attributes on HTML allows us to store extra information on standard, semantic HTML elements without other hacks, such as non-standard attributes, extra properties on DOM, or Node.setUserData(). So, they are allows us to target javascript.
 
 - By using forkJoin we can make two calls simultaneously, it is like q.all() functionality in promises, these calls will happen in parallel.
 
 - Popover – It is like tooltip but gives us additional features like title. Tooltips are usually smalls, quick hints, and appear on hover. Popovers have an explicit title area and get additional related content. They are generally bigger and typically dismiss with click rather than hover status, popovers are more like a modal.
 
-- Fonts of a typeface – 
+- Fonts of a typeface –
 
-![css-fonts-of-a-typeface](css-fonts-of-a-typeface)
+![css-fonts-of-a-typeface](./assets/images/css-fonts-of-a-typeface.png)
 
 - Anatomy of typeface –
 
-![css-anatomy-of-a-typeface](css-anatomy-of-a-typeface)
+![css-anatomy-of-a-typeface](./assets/images/css-anatomy-of-a-typeface.png)
 
 - Hyphenation – dividing words at the end of a line. Doesn’t look clean. No clear advantage. On digital application do not hyphenate.
 
-![css-hyphenation](css-hyphenation)
+![css-hyphenation](./assets/images/css-hyphenation.png)
 
 - Don’t put indent first paragraph in digital world –
 
-![css-indent](css-indent)
+![css-indent](./assets/images/css-indent.png)
 
 - Use all caps sparingly – instead of this try to use title cases
 
 - Pull quotes – it should not be a copy of original text.
 
-![css-pull-quotes](css-pull-quotes)
+![css-pull-quotes](./assets/images/css-pull-quotes.png)
 
 - Use maximum two different typefaces in the application like serif and sans-serif. Like one for header and another for content. We can use website fontjoy.com and fontinuse.com for font pairing.
 
@@ -280,25 +289,25 @@ color: White
 
 - CSS grid properties –
 
-![css-grid-properties](css-grid-properties)
+![css-grid-properties](./assets/images/css-grid-properties.png)
 
 - When not to use flexbox – they are good for simple layout where we can control over the components. But they are not meant for complex application grid systems. Better suited for individual components. So, should use more CSS grids instead of flexbox on entire page. Flexbox provide limited control over order. CSS grids provides better control over text layouts.
 
 - Building colors in RGB
 
-![css-rgb-colors](css-rgb-colors)
+![css-rgb-colors](./assets/images/css-rgb-colors.png)
 
 - Different ways to represent colors – RGB, CYMK, HSL, HSV and Pantone. RGB rules the world.
 
 - Choosing an image format (bitmap, tiff, compressed TIFF, gif, jpeg) only gif and jpeg can be used over the internet. Use gif for illustrations, logs and backgrounds and jpeg for photographs. We don’t use gif for photos because the compression would be lousy and if we use jpeg for illustration then its compression will be lousy.
 
-- Portable network graphics (PiNG) because GIF compression was patented. PiNG (PNG) provides lossless compression means we can save it over and over again without losing information. JPEG still have smaller size than PNG. But PNGs don’t do animation. GIF and PNG can do transparency, JPEG cannot. Transparency allows the color of the parent layer to shine through. So, use PNG unless we are sure you need JPEG, JPEG compression is lossy, don’t use for working copies. 
+- Portable network graphics (PiNG) because GIF compression was patented. PiNG (PNG) provides lossless compression means we can save it over and over again without losing information. JPEG still have smaller size than PNG. But PNGs don’t do animation. GIF and PNG can do transparency, JPEG cannot. Transparency allows the color of the parent layer to shine through. So, use PNG unless we are sure you need JPEG, JPEG compression is lossy, don’t use for working copies.
 
 - Rater vs. vector based images – for vector we use .svg files -
 
-![css-raster-vs-vector-images2](css-raster-vs-vector-images2)
+![css-raster-vs-vector-images2](./assets/images/css-raster-vs-vector-images2.png)
 
-- CSS filters – we can apply effects on images or other elements. Supported filters – blur, brigtness, contrast, drop-shadow, grayscale, hue-rotate, invert, opacity, saturate, sepie
+- CSS filters – we can apply effects on images or other elements. Supported filters – blur, brightness, contrast, drop-shadow, gray-scale, hue-rotate, invert, opacity, saturate, sepie
 
 - What is missing in CSS – no CSS constant and no cross browser supports, for this we should use SASS. SASS is the technology platform and SCSS is syntax. It has more features like nested style as below second one is more cleaner with SASS. SASS modules – color, list, map, math, meta, selector, string.
 
@@ -306,12 +315,12 @@ color: White
 
 - Theme colors –
 
-![css-theme-colors](css-theme-colors)
+![css-theme-colors](./assets/images/css-theme-colors.png)
 
 - Flexbox is a collection of CSS properties used to align content and distribute space. It includes concepts such as flex containers, flex items and flex lines. Flex containers control layout of child items.
 
 ## Angular
-    
+
 - Angular 1 is an MVC pattern, but Angular 2 is component-based pattern, it is like a directive in angular 1 but smoother.
 
 - The interpolation {{}} represents one-way binding.
@@ -320,7 +329,7 @@ color: White
 
 - Angular need to know the exact URL where our app is hosted, so that it can knows what its routes are relative to so that it can parse the URL. For this we need to provide the base tag in our index.html.
 
-- Content project is an ability to change the content inside of a component based on the needs of the application. Like a dialog box and reuse it with different pieces of content for save and cancel button or reposting logic. This is called transclusion in angular JS. In multiple slot projection we have more than one slot into which the variable content can go. We need to use ng-content tag which will tell angular whatever content exists inside of my component, put it inside of it.
+- Content project is an ability to change the content inside of a component based on the needs of the application. Like a dialog box and reuse it with different pieces of content for save and cancel button or re-posting logic. This is called transclusion in angular JS. In multiple slot projection we have more than one slot into which the variable content can go. We need to use ng-content tag which will tell angular whatever content exists inside of my component, put it inside of it.
 
 - Mutability – objects and arrays in JavaScript are mutable; they can change any time without changing their identity. By default, angular only runs a pipe when the identity of the source has changed. Using impure pipes, it runs on every cycle of the change detection engine, this method of executing the filtering or sorting code every time change detection runs is how angular JS filter worked. Pipes are no longer recommended as the way to filter and sort our data. We should do it ourselves using component so that we can filter and sort the data when source gets changed by ourselves.
 
@@ -336,7 +345,7 @@ color: White
 
 - Using debug element – debugEl has a query method which we can use to select from the root node using “By” predicate.
 
-![angular-debug-element](angular-debug-element)
+![angular-debug-element](./assets/images/angular-debug-element.png)
 
 - Tree shaking removes the properties and functions from production build code that is never called.
 
@@ -346,7 +355,7 @@ color: White
 
 - Optimistic bundle download – eager lazy loading of the module. It will download it as soon as there is available download. We do not want to wait to render the application until it is downloaded.
 
-![angular-preload-all-modules](angular-preload-all-modules)
+![angular-preload-all-modules](./assets/images/angular-preload-all-modules.png)
 
 - Using a Testbed – Using fixture gives us a hold on the component, but not just its class with its method and properties but also its template, the actual HTML template. We can inspect the template, change it, ask angular to run change detection and expect, this is also a main benefit of testbed to able to get a hold of this fixture. Also using Testbed, we can setup the dependencies in a bit of an easier way. Testbed is also just an angular module.
 
@@ -360,7 +369,7 @@ color: White
 
 - To make the ngOnInit() method to get called as a lifecycle event we need to raise changeDetect() event. We can manually call ngOnInit() but it is not recommended approach.
 
-- Using the fakeAsync helper function to avoid slowness and increase readability. We can use tick() function to call any code that should be called inside of that timeframe, then we can call our expect() statement. The reason we can do this is because angular itself funs inside of zone.js and fakeAsync function makes this code run in a special kind of zone, that zone.js will create that allows us to essentially control the clock inside of that zone. So, we can tell it to tick forward.
+- Using the fakeAsync helper function to avoid slowness and increase readability. We can use tick() function to call any code that should be called inside of that time-frame, then we can call our expect() statement. The reason we can do this is because angular itself runs inside of zone.js and fakeAsync function makes this code run in a special kind of zone, that zone.js will create that allows us to essentially control the clock inside of that zone. So, we can tell it to tick forward.
 
 - If we don’t know the actual tick times then use flush() it will make zone.js to run all the pending tasks in its queue.
 
@@ -378,35 +387,35 @@ color: White
 
 - Query decorator - if template is inside view then use @ViewChild otherwise @ContentChild if template is inside component
 
-![angular-query-decorator](angular-query-decorator)
+![angular-query-decorator](./assets/images/angular-query-decorator.png)
 
 - Directive selectors
 
-![angular-directive-selectors](angular-directive-selectors)
+![angular-directive-selectors](./assets/images/angular-directive-selectors.png)
 
 - Native element using cautions – it tight couple our back-end code with front-end presentation, it is unavailable in angular universal, and we cannot move any logic directly using nativeElement into a web worker. So, if we use it property then these problems will not arise. For this we should use Renderer2 class.
 
 - Building templates with ngTemplate – by default it’s just add an empty element as comment <!----> on DOM. We can also use it with ngIf-then-else condition:
 
-![angular-ng-tempalte](angular-ng-tempalte)
+![angular-ng-template](./assets/images/angular-ng-template.png)
 
 - NgTempalteOutlet – by this we can decide the position of template to display on the DOM, other use-cases can be alternate UI, repeated UI elements, dynamic UI placement:
 
-![angular-ng-tempalte-outlet.png](angular-ng-tempalte-outlet.png)
+![angular-ng-template-outlet](./assets/images/angular-ng-template-outlet.png)
 
 - ngTemplateOutlet Context: we can pass some JSON which will alter the templateOutlet, it is useful for simple template modification scenarios:
 
-![angular-ng-tempalte-outlet-context.png](angular-ng-tempalte-outlet-context.png)
+![angular-ng-template-outlet-context](./assets/images/angular-ng-template-outlet-context.png)
 
-- Dynamic component creation - *ngComponentOutlet, ComponentFactoryResolver, resolveComponentFactory
+- Dynamic component creation - `*ngComponentOutlet`, `ComponentFactoryResolver`, `resolveComponentFactory`
 
 - Use ng-container wherever possible instead of div or span.
 
-![angular-ng-container](angular-ng-container)
+![angular-ng-container](./assets/images/angular-ng-container.png)
 
 - ngSwitch Bloat – instead of this use NgTemplateOutlet:
 
-![angualr-avoid-switch-bloat](angualr-avoid-switch-bloat)
+![angular-avoid-switch-bloat](./assets/images/angualr-avoid-switch-bloat.png)
 
 - A pipe shouldn’t do a lot, for this a component will be a better choice. All built-in pipe are pure, except - splice, json, async
 
@@ -414,52 +423,53 @@ color: White
 
 - Angular lifecycle hooks – the blue blocks hooks don’t available in directives only in components:
 
-![angular-lifecycle-hooks](angular-lifecycle-hooks)
+![angular-lifecycle-hooks](./assets/images/angular-lifecycle-hooks.png)
 
-![angular-lifecycle-hooks-playground.png](angular-lifecycle-hooks-playground.png)
+![angular-lifecycle-hooks-playground](./assets/images/angular-lifecycle-hooks-playground.png)
 
-![angular-lifecycle-hooks-playground2.png](angular-lifecycle-hooks-playground2.png)
+![angular-lifecycle-hooks-playground2](./assets/images/angular-lifecycle-hooks-playground2.png)
 
-- Angular treats the UI as a DMZ, accessible to anyone untrusted and untrustable. Angular treats all values as untrusted by default. Angular only trusts template HTML, binding expressions, and attributes. It will sanitize or cleanse any content it doesn’t trust before adding it to the DOM. It will still display it like a script by converting first into simple string text so that browser doesn’t parse it.
+- Angular treats the UI as a DMZ, accessible to anyone untrusted and un-trustable. Angular treats all values as untrusted by default. Angular only trusts template HTML, binding expressions, and attributes. It will sanitize or cleanse any content it doesn’t trust before adding it to the DOM. It will still display it like a script by converting first into simple string text so that browser doesn’t parse it.
 
-- structural directives - *ngIf
+- structural directives - `*ngIf`
 
-- View child -  it is like getElementById() method.
+- View child - it is like getElementById() method.
 
 - We can create three types of services to share the data – property bag, basic statement management of entities, and state management with notification. For advance we can use redux.
 
 - For change detection we can use the timer pool if the property is not binding by angular expression:
 
-```
+```typescript
 onOnInit() {
-timer(0, 1000).subscribe(t => {
-console.log(this.prod)
-}
+    timer(0, 1000).subscribe(t => {
+        console.log(this.prod);
+    }
 }
 ```
 
 - angular communication approaches
 
-![angular-communication-approaches](angular-communication-approaches)
+![angular-communication-approaches](./assets/images/angular-communication-approaches.png)
 
 - Angular Material is a reference implementation of Google’s material design specification. It provides a set of reusables, well tested, and accessible UI components based on Material Design. It supports Asymmetric acceleration and deceleration which create more natural and delightful motion than symmetric motion:
 
-![angular-Asymmetric-accelaration-and-decelaration](angular-Asymmetric-accelaration-and-decelaration)
+![angular-asymmetric-acceleration-and-deceleration](./assets/images/angular-asymmetric-acceleration-and-deceleration.png)
 
-- The goal of angular CDK is to give developers more tools to build awesome components for the web. This will be especially useful for projects that want to take advantage  of the features of Angular Material without adopting  the material design visual language.
+- The goal of angular CDK is to give developers more tools to build awesome components for the web. This will be especially useful for projects that want to take advantage of the features of Angular Material without adopting the material design visual language.
 
-![angular-flex-layout-model](angular-flex-layout-model)
+![angular-flex-layout-model](./assets/images/angular-flex-layout-model.png)
 
 - AOT Compiler – improve performance, earlier JIT process compile the functions in DOM functions it takes time. But now using AOT it directly sends the DOM function without compiler.
 
-![angular-jit-process](angular-jit-process)
-![angular-jit-process](angular-aot-process)
+![angular-jit-process](./assets/images/angular-jit-process.png)
+
+![angular-jit-process](./assets/images/angular-aot-process.png)
 
 - We get the below CORS error unless the URL’s match, including the ports themselves:
 
-![angular-cors-error](angular-cors-error)
+![angular-cors-error](./assets/images/angular-cors-error.png)
 
--Pure and impure pipe performance – pipes are pure by default means they do not work with data mutation, they only get re-evaluated if the object reference got changes that the pipes is applied to. We can resolve this by making the pipe impure but it will impact the performance. Like even initial loading of page this sorting pipe will be called many times due to object changes
+- Pure and impure pipe performance – pipes are pure by default means they do not work with data mutation, they only get re-evaluated if the object reference got changes that the pipes is applied to. We can resolve this by making the pipe impure but it will impact the performance. Like even initial loading of page this sorting pipe will be called many times due to object changes
 
 - While doing interpolation we can’t use assignments, it only allows read-only data.
 
@@ -467,23 +477,23 @@ console.log(this.prod)
 
 - Content projection is same as transclusion in angular 1.x, now we use term ng-content tag for it
 
-- Lifecycle hooks - Constructor() – only  dependency injection will happen in this step, ngOnChanges() – anytime an input property changes this lifecycle hook gets called, ngOnInit() – input properties have been initialized, ngDoCheck() – when we are working with change detection, when input property gets changes if we want to perform our own change detection, ngAfterContentInit() – when the components or directives content has been initialized, ngAfterContentChecked() – content has been checked out and we are being notified that the checking is complete, ngAfterViewInit() – when the components view has been initialized, ngAfterViewChecked() when view gets checked, ngOnDestroy() – gets called right before the instance gets destroyed and we can free up any resources we have.
+- Lifecycle hooks - Constructor() – only dependency injection will happen in this step, ngOnChanges() – anytime an input property changes this lifecycle hook gets called, ngOnInit() – input properties have been initialized, ngDoCheck() – when we are working with change detection, when input property gets changes if we want to perform our own change detection, ngAfterContentInit() – when the components or directives content has been initialized, ngAfterContentChecked() – content has been checked out and we are being notified that the checking is complete, ngAfterViewInit() – when the components view has been initialized, ngAfterViewChecked() when view gets checked, ngOnDestroy() – gets called right before the instance gets destroyed and we can free up any resources we have.
 
 - Module organization – Core module should contain single use classes or singleton for the entire application, it should be imported only once in app module. We should have one more module i.e. AppRoutingModule for containing routing related information. Shared module should contain modules which are re-exported and shared throughout the app.
 
-![angular-module-organization](angular-module-organization)
+![angular-module-organization](./assets/images/angular-module-organization.png)
 
 - Unit Test – jasmine is main testing framework, and karma is the framework that executes our tests.
 
 - If we want to take up the control while newing up the instance of the recipe class, we need to create a factory that will be executed to create a new service instance. By this we will have more control for how it is created:
 
-![anguar-use-factory](anguar-use-factory)
+![angular-use-factory](./assets/images/angular-use-factory.png)
 
-![angular-use-factory2](angular-use-factory2)
+![angular-use-factory2](./assets/images/angular-use-factory2.png)
 
 - SkipSelf decorators to make sure it is properly checking for a separate input of the core.module. SkipSelf tells the injection system to begin looking for an existing instance of the module in the parent injector. Optional instructs the injector to pass in null if no other instance is found.
 
-- The execution will become pause at the await keyword, so we need to use async keywork in function method name so that it will not block the caller of this function.
+- The execution will become pause at the await keyword, so we need to use async keyword in function method name so that it will not block the caller of this function.
 
 - RxJS is a library for building asynchronous applications with observable sequences. It provides an API layer which abstraction different implementation of synchronous, async, single value or multiple value responses. RxJS is written in TypeScript.
 
@@ -493,14 +503,14 @@ console.log(this.prod)
 
 - Subjects – they are observables. They are implemented as a child class of the observable class. They can also act as observers. They have a state and maintain a list of observers. Due to which they can push values to more than one observer at a time. This makes them multicast instead of unicast.
 
-- Multicasting operators – multicast() it takes subject as a parameter, it returns a connectableObservable type on which we need to call method connect(). The refCount() operator can be used with other multicasting operators to automatically trigger execution of the source observable when the number of observers is greater than 0. The publish() operator is thin wrapper around multicast that doesn’t require us to pass it a subject. It will create one for us behind the scene. The share() operator is similar to using publish and refCount together.
+- Multi-casting operators – multicast() it takes subject as a parameter, it returns a connectableObservable type on which we need to call method connect(). The refCount() operator can be used with other multi-casting operators to automatically trigger execution of the source observable when the number of observers is greater than 0. The publish() operator is thin wrapper around multicast that doesn’t require us to pass it a subject. It will create one for us behind the scene. The share() operator is similar to using publish and refCount together.
 
 - Schedulers give us control on how our observables are executing. queueScheduler, asyncScheduler, asapScheduler, animationFrameScheduler, TestScheduler.
 
 - Understanding Schedulers and the Event loop: microtask queue has high priority than async task queue.
 
-![angular-schduler-and-event-loop1](angular-schduler-and-event-loop1)
-![angular-schduler-and-event-loop](angular-schduler-and-event-loop)
+![angular-scheduler-and-event-loop1](./assets/images/angular-scheduler-and-event-loop1.png)
+![angular-scheduler-and-event-loop](./assets/images/angular-scheduler-and-event-loop.png)
 
 - Using flatMap to process inner observables – flatMap operator is more sophisticated than map operation, it will also subscribe to the returning observable and deliver it throughout the rest of the pipeline.
 
@@ -514,11 +524,11 @@ console.log(this.prod)
 
 - Subjects are similar to observables but have a few important additional features. Observables can only produce values for a single observer, so they are unicast. Since subject can produce the same value for multiple observers, they known as multicast.
 
-- A scheduler controls when a subscription starts and when notifications are delivered. Observables can be configured with schdulers to control the execution context for the observable. Types – queueScheduler (for sync operations), asyncScheduler, asapScheduler (micro tasking).
+- A scheduler controls when a subscription starts and when notifications are delivered. Observables can be configured with schedulers to control the execution context for the observable. Types – queueScheduler (for sync operations), asyncScheduler, asapScheduler (micro tasking).
 
 - RXJS operators
 
-![angular-rxjs-operators](angular-rxjs-operators)
+![angular-rxjs-operators](./assets/images/angular-rxjs-operators.png)
 
 - Types of observables – cold (Netflix / movie @ home) and hot (movie theatre)
 
@@ -526,11 +536,11 @@ console.log(this.prod)
 
 - subscribeOn – it is similar to observerOn, it changes observable scheduler used by source observable.
 
-- Multicasting - Taking values from source and sharing or passing them along to multiple subscribers, typically placing some type of control or limit on how the subscribers receive values or the values they receive.
+- Multi-casting - Taking values from source and sharing or passing them along to multiple subscribers, typically placing some type of control or limit on how the subscribers receive values or the values they receive.
 
 - Core and shared module – core or common module is designed for singleton type of services, which will be shared throughout the service like logging service, error service and data service. Service that are specific to a feature can go in the feature’s folder. Shared folder should contain reusable components, pipes and directives like calendar component, auto complete component. Shared module will be imported many times in different modules, but core module should be imported only one time into root module.
 
-![angular-module-organization2.png](angular-module-organization2.png)
+![angular-module-organization2](./assets/images/angular-module-organization2.png)
 
 - Change detection strategies – in case of container presentation pattern, we don’t want the child component changing the state of the data at all, because that is the job of the parent or container component. When using OnPush detectors, then the framework will check an OnPush component when any of its input properties changes, when it fires and event, or when an observable fire an event.
 
@@ -544,9 +554,9 @@ console.log(this.prod)
 
 - General architecture of application with libraries
 
-![angular-general-architecture-with-libraries](angular-general-architecture-with-libraries)
+![angular-general-architecture-with-libraries](./assets/images/angular-general-architecture-with-libraries.png)
 
-- The best way to test our angular library is to use npm pack command which is used to change directory into the library dist folder. We need to type command cd my-folder/dist then npm pack. It will create a tarball file (*.tgz) then we can install it using npm install my-folder/dist/package.tgz. other alternatives to test the library on local are npm install, npm link, but npm pack is best approach.
+- The best way to test our angular library is to use npm pack command which is used to change directory into the library dist folder. We need to type command cd my-folder/dist then npm pack. It will create a tarball file (`*.tgz`) then we can install it using npm install my-folder/dist/package.tgz. other alternatives to test the library on local are npm install, npm link, but npm pack is best approach.
 
 - Push based architecture using RxJS and Facades. Traditional pull based – we call them once, they respond, they are done. They are not going to return values over the future. Push based services – we construct a stream like user stream using another stream that will extract our users out whenever that state changes. Our views react to that change of data from that stream.
 
@@ -566,37 +576,37 @@ console.log(this.prod)
 
 - Usage of RxJS operators in different scenario –
 
-![angular-rxjs-operators-different-scenarios](angular-rxjs-operators-different-scenarios)
+![angular-rxjs-operators-different-scenarios](./assets/images/angular-rxjs-operators-different-scenarios.png)
 
-- Now we can use changeDetectionStratergy onPush, it will optimize our view performance. It means that the change detector’s mode will be initially set to CheckOnce. Any asynchronous API events like XHR or promise based events will not trigger change detection once we change to this strategy of OnPush and the components template will not get updated. In default strategy it will every time changes in our application as a result of any user events, timers, XHR requests, promises, etc change detection will run on all components.
+- Now we can use `changeDetectionStrategy` onPush, it will optimize our view performance. It means that the change detector’s mode will be initially set to CheckOnce. Any asynchronous API events like XHR or promise based events will not trigger change detection once we change to this strategy of OnPush and the components template will not get updated. In default strategy it will every time changes in our application as a result of any user events, timers, XHR requests, promises, etc change detection will run on all components.
 
-![angular-without-change-detection-on-push-approach](angular-without-change-detection-on-push-approach)
+![angular-without-change-detection-on-push-approach](./assets/images/angular-without-change-detection-on-push-approach.png)
 
-![angular-without-change-detection-on-push-approach](angular-without-change-detection-on-push-approach)
+![angular-without-change-detection-on-push-approach](./assets/images/angular-without-change-detection-on-push-approach.png)
 
 - Now above component will be changed only if new input reference is passed or a dom event is raised in our component or its children otherwise the view will not get updated.
 
-- Angular language service main features – hover tooltip (quick info), go to definition, code completion Intellisense, diagnostics, syntax highlighting. It will automatically shows the properties which are available if we type [], and available events if we type () on a <div> element. Angular language service is built on top of Language Server Protocol (LSP) which makes is editor agnostic.
+- Angular language service main features – hover tooltip (quick info), go to definition, code completion Intellisense, diagnostics, syntax highlighting. It will automatically shows the properties which are available if we type [], and available events if we type () on a `<div>` element. Angular language service is built on top of Language Server Protocol (LSP) which makes is editor agnostic.
 
 - Benefits of rendering the application on server-side using Angular universal – show the first page quickly, improve performance, facilitate web crawlers (SEO).
 
 - On console if we type ‘ng’ it will give us below methods –
 
-![angular-ng-console-functions](angular-ng-console-functions)
+![angular-ng-console-functions](./assets/images/angular-ng-console-functions.png)
 
 - Angular CLI Builders - Builder are wrongly given name, they just know that they are just given a set of options, run a function and return the results.
 
 - The term ‘state’ is kind of fancy term for saying the data in your application that changes like list of movies. A side-effect is a term that we use to describe code that has to talk to the outside world like making REST calls, handling a web socket connection or dealing with time, these side-effects generally triggered by like ‘search’ button call. The term state change is the act of after we subscribe and get the movie list result, we update that component is managing to the results that came back from the API request.
 
-- Selectors are consumers of action, but their responsibility is to help you bind your state to your components, it helps to bind state to our components. We have actions as some kind of indirection that allows a component to talk to the store without actually having to directly inject the store. Selectors are just functions. Selectors are like Global @input() for our application. Components don’t know how that state is derived or where that state comes from, their only responsibility is to subscribe to those selectors to be notified when that  data changes, using async pipe in template which will automatically subscribe to that observable and then unsubscribe when the component is destroyed.
+- Selectors are consumers of action, but their responsibility is to help you bind your state to your components, it helps to bind state to our components. We have actions as some kind of indirection that allows a component to talk to the store without actually having to directly inject the store. Selectors are just functions. Selectors are like Global @input() for our application. Components don’t know how that state is derived or where that state comes from, their only responsibility is to subscribe to those selectors to be notified when that data changes, using async pipe in template which will automatically subscribe to that observable and then unsubscribe when the component is destroyed.
 
 - Actions are unified interface to describe events, it just have data, no functionality, has a minimum a type property, strongly typed using classes and enums. This is the main communication layer between so many independent pieces of the application. It is how components are going to be describing events, and it is what reducers and effects are going to be using to trigger state changes and to trigger side effects. Unique events get unique actions, actions are grouped by their source, actions are never reused. Mention what caused it to happen, and who produced it.
 
 - Optimistic UI is where we remove the records from the UI at once by assigning some temporary ID and then after getting call from server we update it, it makes UI more user friendly.
 
-- If a user goes away from the desk for couple of hour, to avoid the stale data we can use websockets which will dispatch method in our backend that can notify clients when changes to our data model occur, and then using NgRx effects connect to that web socket and map notifications coming out of that web socket connection into actions that can then go update state by this we are always getting a live UI.
+- If a user goes away from the desk for couple of hour, to avoid the stale data we can use web-sockets which will dispatch method in our backend that can notify clients when changes to our data model occur, and then using NgRx effects connect to that web socket and map notifications coming out of that web socket connection into actions that can then go update state by this we are always getting a live UI.
 
-- To implement session expire functionality that to show message like ‘this is going to expire after certain minutes of time’ we can do it by setting up an effect that on enter could run like every minute of five minute or every hour to retrigger that HTTP request and rehydrate the store if we don’t want to go the web socket method.
+- To implement session expire functionality that to show message like ‘this is going to expire after certain minutes of time’ we can do it by setting up an effect that on enter could run like every minute of five minute or every hour to re-trigger that HTTP request and rehydrate the store if we don’t want to go the web socket method.
 
 - To clear the data if user logs out, we can trigger the logout action and trigger state change that could pass undefined to our reducer and have them all clear.
 
@@ -610,10 +620,9 @@ console.log(this.prod)
 
 - Anyone below we can use in effects. Exhaust map will discard any additional emission until one that is currently working on is complete, it is like going to postoffice and the front person is taking too much time and leave in-between. switchMap is opposite of exhaustMap, it will cancel the current work if new effect comes up. mergeMap, exhaustMap and switchMap can lead to raise condition as they are either cancelling the requests or discarding the new runs so concatMap is the safest operator but there is risk of back pressure and it will keep the emissions in order, it will lead to bad user experience of waiting. It is like waiting in a queue to get food, and we will only get the food when priors persons received the food.
 
+![angular-map-use-case](./assets/images/angular-map-use-case.png)
 
-![angular-map-usecase](angular-map-usecase)
-
-![angular-map-usecase2.png](angular-map-usecase2.png)
+![angular-map-use-case2](./assets/images/angular-map-use-case2.png)
 
 - takeUntil is like throwing a person out of lunch line but everyone else will just continue. exhaustMap is like no line will ever perform, if someone is buying a lunch the other will just went away from there and never comes back.
 
@@ -621,7 +630,7 @@ console.log(this.prod)
 
 - Monorepos – everything that belongs to a system should get in there and it should have one version for all of these libraries not different version for different libraries by this we won’t have version conflicts, no burden with distributing lists
 
-![angular-monorepos](angular-monorepos)
+![angular-monorepos](./assets/images/angular-monorepos.png)
 
 - Earlier compiler used to build the packages also if someone changes something in a project file, but now ngcc compiler will compile the package separately to make the build process faster. No more JSON conversion of typescript components.
 
@@ -629,7 +638,7 @@ console.log(this.prod)
 
 - HttpBackend will be last interceptor –
 
-![angular-inteceptor-sequence](angular-inteceptor-sequence)
+![angular-interceptor-sequence](./assets/images/angular-interceptor-sequence.png)
 
 - Firebase was initial created to integrate online chat functionality. Google acquired it into 2014. Cloud functions can be triggered from different firebase services, google cloud services or even third parties through web hooks.
 
@@ -643,13 +652,13 @@ console.log(this.prod)
 
 - Injector tree – an angular application is a tree of components. Each component instance has its own injector. The tree of components parallels the tree of injectors.
 
-- How angular router works – runs the guards that are defined, resolves the required data, activate the angular components, manages navigations and repeats the steps
+- How angular router works – runs the guards that are defined, resolves the required data, activate the angular components, manages navigation and repeats the steps
 
 - Three types of data bindings – interpolation, event binding, property binding. Interpolation is a one way data binding.
 
 - Angular does not have built-in two way data binding, however, by combining property binding and event binding we can achieve two way data binding.
 
-- Inbuilt structural directives are *ngFor, *ngIf and attribute directives are NgStyle and NgModel
+- Inbuilt structural directives are `*ngFor`,`*ngIf` and attribute directives are `NgStyle` and `NgModel`
 
 - The main.js file contains all the code in our application, the polyfills.js file loads all the polyfill script to make sure it can be compatible with all the modern browsers. The runtime.js loads all the other files. The syltes.js file loads the styles as the name suggests and vendor.js file loads all the imported libraries.
 
@@ -669,9 +678,11 @@ console.log(this.prod)
 
 - Service worker expands on web worker, this means that it has no access to the DOM, isn’t tied to a particular page and run on its own global script context, works only with HTTPS, run without a page and is event-driven, it also triggered again even when in inactive state.
 
-![angular-service-worker-lifecycle](angular-service-worker-lifecycle)
+![angular-service-worker-lifecycle](./assets/images/angular-service-worker-lifecycle.png)
 
-- What Is an "App"? - Application Richness and Reachability evolution, native app like IOS has increased the richness but reduced the availability. Expections from an app - findable on app store, icon on home screen, touch controls, workks offline, receives notifications, background processing, access to hardware feature and sensors.
+- What Is an "App"? - Application Richness and Reachability evolution, native app like IOS has increased the richness but reduced the availability.
+
+- Expectations from an app - findable on app store, icon on home screen, touch controls, works offline, receives notifications, background processing, access to hardware feature and sensors.
 
 - The progressive web app is a thing that will give us both richness and reach without compromise.
 
@@ -681,7 +692,7 @@ console.log(this.prod)
 
 - The smart component will pass the updated data towards the dumb components
 
-![angular-smart-component-data-passing](angular-smart-component-data-passing)
+![angular-smart-component-data-passing](./assets/images/angular-smart-component-data-passing.png)
 
 - We should only use behaviors like logging in the tap operator, we should not use side-effects in it.
 
@@ -705,15 +716,15 @@ console.log(this.prod)
 
 - So the [src] binding actually manipulates the src property of the image object, and NOT the src attribute of the img tag.
 
-- The difference between ElementRef, TemplateRef, and viewContainterRef with examples.
+- The difference between ElementRef, TemplateRef, and viewContainerRef with examples.
 
-![angular-element-ref-remplate-ref-vs-view-containter-ref](angular-element-ref-remplate-ref-vs-view-containter-ref)
+![angular-element-ref-template-ref-vs-view-container-ref](./assets/images/angular-element-ref-template-ref-vs-view-container-ref.png)
 
-![angular-ng-congtent-ng-template-ng-container](angular-ng-congtent-ng-template-ng-container)
+![angular-ng-content-ng-template-ng-container](./assets/images/angular-ng-congtent-ng-template-ng-container.png)
 
-![angular-ng-content-ng-template-outlet](angular-ng-content-ng-template-outlet)
+![angular-ng-content-ng-template-outlet](./assets/images/angular-ng-content-ng-template-outlet.png)
 
-- Angular 2 we have structural directive which are indicated by the prefix ‘*’ because it is changing the structure of our DOM.
+- Angular 2 we have structural directive which are indicated by the prefix `*` because it is changing the structure of our DOM.
 
 - No more $apply, repeated digest cycles, no more watches, no more performance issues with digest cycle and watcher limits.
 
@@ -751,13 +762,13 @@ console.log(this.prod)
 
 - Different types of modules which we can have: root application module (AppModule), feature modules, shared modules, core module, routing modules
 
-![angular-for-root-vs-for-child](angular-for-root-vs-for-child)
+![angular-for-root-vs-for-child](./assets/images/angular-for-root-vs-for-child.png)
 
 - We need to use query parameters to retain the user setting when navigating to the different navigation. To define parameters that work across multiple routes. Like on product list user has some search data, then navigated to the details page then coming to the product list page. Just like optional parameter we use query parameters to pass optimal or complex information. Unlike optional parameters they can be retained across routing paths. Like optional parameters, query parameters are not part of the route configuration and are not involved with matching route paths.
 
-- We can use child routes to display routes within other routes for better route hierarchy, encapsulate and navigate through our application. Also makes easier to lazy load routes. 
+- We can use child routes to display routes within other routes for better route hierarchy, encapsulate and navigate through our application. Also makes easier to lazy load routes.
 
-![angular-lazy-loading-vs-preloading](angular-lazy-loading-vs-preloading)
+![angular-lazy-loading-vs-preloading](./assets/images/angular-lazy-loading-vs-preloading.png)
 
 - A form model is the data structure that represents the HTML form – it retains the form state, form value, child controls.
 
@@ -785,7 +796,7 @@ console.log(this.prod)
 
 - For data caching we can use shareReplay and share operators.
 
-![angular-life-cycle-steps](angular-life-cycle-steps)
+![angular-life-cycle-steps](./assets/images/angular-life-cycle-steps.png)
 
 - Angular is a tool to help you build interactive websites, you can call it a framework. It provides tools to communicate with the server and to improve the performance, package application, maintain state, organize code/logic, ease display of data, synchronize state as it changes.
 
@@ -817,17 +828,18 @@ console.log(this.prod)
 
 - Note that the ngOnDestroy is not called when the user refreshes the page or closes the browser. So, in case you need to handle some cleanup logic on those occasions as well, you can use the HostListener decorator
 
-```
+```typescript
 @HostListener('window:beforeunload')
 ngOnDestroy() {}
 ```
 
 - We can understand the lifecycle hooks by splitting the process into two steps,” first-time hooks”, and “in every change detection cycle hooks”. “first-time hooks”, the triggered hooks are: onChanges, onInit, doCheck, afterContentInit, afterContentChecked, afterViewInit, afterViewChecked. “in every change detection cycle hooks”, the triggered hooks are: onChanges, doCheck, afterContentChecked, afterViewChecked.
 
-![angular-lifecycle-hooks-workflow](angular-lifecycle-hooks-workflow)
+![angular-lifecycle-hooks-workflow](./assets/images/angular-lifecycle-hooks-workflow.png)
 
 - How the Angular Compiler Works - The Angular Compiler (which we call ngc) is the tool used to compile Angular applications and libraries. ngc is built on the TypeScript compiler (called tsc) and extends the process of compiling TypeScript code to add additional code generation related to Angular’s capabilities.
-Angular’s compiler serves as a bridge between developer experience and run time performance: Angular users author applications against an ergonomic, decorator-based API, and ngc translates this code into more efficient runtime instructions. In this way, ngc can be considered an extended TypeScript compiler which also knows how to “execute” Angular decorators, applying their effects to the decorated classes at build time (as opposed to run time).
+
+- Angular’s compiler serves as a bridge between developer experience and run time performance: Angular users author applications against an ergonomic, decorator-based API, and ngc translates this code into more efficient runtime instructions. In this way, ngc can be considered an extended TypeScript compiler which also knows how to “execute” Angular decorators, applying their effects to the decorated classes at build time (as opposed to run time).
 
 - The ngc has several important goals: Compile Angular decorators, including components and their templates. Apply TypeScript’s type-checking rules to component templates. Re-compile quickly when the developer makes a change.
 
@@ -840,7 +852,7 @@ ng new my-app --create-application=false | ng new my-app --createApplication=fal
 ```
 
 ## Soft Skills
-    
+
 - LinkedIn - A place to find and be found. Profile pic should be a head shot with proper background color.
 
 - 5 parts of formula for more effective message – don’t have the long paragraph. Next step is phone call, over the email, or face to face meeting.
@@ -853,19 +865,19 @@ ng new my-app --create-application=false | ng new my-app --createApplication=fal
 
 - We can ask the complex problem they have worked upon, any new technology how they will learn, any project or shared code or ask for any homework. And then ask questions based on that homework. We can first have panel interview then give homework then call.
 
-- Interview questions-
+- Interview questions -
 
-how many technologies you have worked and how much you would rate each of these?
-which languages are you procient in and could teach others?
-tell me about the users you have worked with? what do your users do that make you upset
-how long have you worked with this language? what are the best and worst changes you have seen since started
-if you were asked to present to a group of engineers about a particular technology, what would you present?
-what technical projects do your do at home
-if you had more time what technology you would study
-what do you think of working with older technology
-when you are learning a new technology, what process do you use to bring yourself up to speed
-what do you do when you see a colleague is approaching a problem the wrong way? let them do it and learn, or...?
-do you read books? what arethe last three books you have read?
+  - how many technologies you have worked and how much you would rate each of these?
+  - which languages are you proficient in and could teach others?
+  - tell me about the users you have worked with? what do your users do that make you upset
+  - how long have you worked with this language? what are the best and worst changes you have seen since started
+  - if you were asked to present to a group of engineers about a particular technology, what would you present?
+  - what technical projects do your do at home
+  - if you had more time what technology you would study
+  - what do you think of working with older technology
+  - when you are learning a new technology, what process do you use to bring yourself up to speed
+  - what do you do when you see a colleague is approaching a problem the wrong way? let them do it and learn, or...?
+  - do you read books? what are the last three books you have read?
 
 - Illegal questions – age, religion, arrested, married, children, weight, personal finances, alcoholic, health, nationality, disabilities, military discharge.
 
@@ -895,21 +907,21 @@ do you read books? what arethe last three books you have read?
 
 - High performance consultant would often arrive the next day with a solution to a problem that he’d managed to solve at home the night before.
 
-- A consultant who handles this competence with difficulty, takes on too much and then finds it hard to admit that the workload is too much for him. 
+- A consultant who handles this competence with difficulty, takes on too much and then finds it hard to admit that the workload is too much for him.
 
 - Whether you are young professional, a student, or a CEO, understanding yourself is critical for becoming a better professional. It will help you enhance your strengths and improve your weakness to make you a better boss and a better colleague.
 
-![soft-skills-johari-window](soft-skills-johari-window)
+![soft-skills-johari-window](./assets/images/soft-skills-johari-window.png)
 
 - Values act as our personal compass, helping us to navigate choices and decisions, both personally and professionally. Values are formed by your life experience.
 
-![soft-skills-4-factors-of-trust](soft-skills-4-factors-of-trust)
+![soft-skills-4-factors-of-trust](./assets/images/soft-skills-4-factors-of-trust.png)
 
 - Credibility is essential for hiring, promoting and trusting people. Those who end up establishing expertise are confident about showcasing their qualifications and achievements. The more we care about the success of others around us, the more they will trust us, paving the way for collaboration.
 
-![soft-skill-trust-factors](soft-skill-trust-factors)
+![soft-skill-trust-factors](./assets/images/soft-skill-trust-factors.png)
 
-- Just being chatty is not same as being open. The attributes of openness are vulnerability, trasperancy and maintaining confidentiality.
+- Just being chatty is not same as being open. The attributes of openness are vulnerability, transparency and maintaining confidentiality.
 
 - If we do something extra over and beyond which we normally do early on that will help us build the trust, then we can reap onto it rest of the time of the relationship.
 
@@ -921,179 +933,50 @@ do you read books? what arethe last three books you have read?
 
 - Teams Calling - It uses phone system technology and PSTN to call internally and externally.
 
-    
-## Miscellaneous - Life
-    
-- It is not the finances that should scare you, it is the loneliness and illness during your sunset years
-
-- Bertrand Russell: “The fundamental cause of the trouble is that in the modern world the stupid are cocksure while the intelligent are full of doubt.”
-
-- Don’t interrupt the other person while they are speaking - by your interruption, you’re insinuating that your thoughts and ideas are more important than theirs.”
-
-- Be tough on the process, but gentle on the output - You need to set aside time to write and that is where you cannot be easy on yourself. You need to follow the process. If you plan to write for two hours every day, do that. If you wake up at 5 and your process is to be at your desk by 5:30 and you feel like sleeping in, that’s the time to be tough on yourself. Protect the process of writing every day.
-
-- You can go fast or go far. Not both.
-
-- Mind is made for processing of things not for remind them. so note down everything which are important to you.
-
-- We should never ask our children, instead we should tell them what they will be eating for dinner – a steady, simple and nutritious meal.
-
-- Ayurveda rejects the stale, easy, ready-in-a-minute choices in the urban world and encourages all things natural.
-
-- The nature of water is dry and sharp. It slowly pulls natural oils from our skin, which is naturally unctuous in its healthy state. That is why Ayurveda advises us to oil our bodies before rinsing with water.
-
-- We should have seven inner small bowls with one lid – mustard, jeera, kalonji, ajwain, turmeric, panchaparan and fennel.
-
-- Life is very short and anxious for those who forget the past, neglect the present, and fear the future.
-
-- What would have happened, Doctor if you died first, and your wife would have had to survive you?
-
-- Don’t try to see God. Act in such a way that God will see you.
-
-- Many Japanese people never really retire – they keep doing what they love for as long as their health allows.
-
-- The greater the stress, the greater the degenerative effect on cells.
-
-- If you keep moving with your fingers working, 100 years will come to you.
-
-- Put your hand on a hot stove for a minute and it seems like an hour. Sit with a pretty girl for an hour, and it seems like a minute. That is relativity.
-
-- Flow state is when pleasure, delight, creativity, and process when we are completely immersed in life.
-
-- We often think that combing tasks will save us time, but scientific evidence shows that it has the opposite effect.
-
-- Food won’t help you live longer. The secret is smiling and having a good time. To live a long time you need to do three things: exercise to stay healthy, eat well and spend time with people.
-
-- The things we love are like the leaves of a tree: They can fall at any moment with a gust of wind.
-
-- Surround yourself with good friends.
-
-- We should never forget what a privilege it is to be in the here and now in a world so full of possibilities.
-    
-## Miscellaneous - Health
-
-- Engineers used to give complex names for the technology but under the hood it is very simple and have same base concept.
-
-- Now a day, the technology and hardware are not the bottlenecks but the people skillsets.
-
-- Skill transfer is very easy in angular, as most of the angular projects looks the same.
-
-- When you use angular, you are getting everything like route, forms package, http package, there is a kind of prescribed way to code with angular but products like react are much more pick and choose, so you can choose which router you want, which http package you want to use.
-
-- By low-code we can deliver better software faster. One way is to abstracting automating things so professional developers can go faster. It also takes the constraint away from people who can only build that and it open an ability to adapt to this new world in real time with people who has no traditional skills in software development. It provides speed, simplicity, no huge army of engineers and get live quickly and save tons of the cost to the business, anybody can develop software, business and IT will be on same page by providing common language, has guidance and guard rails, no long red tape of processes.
-
-- Many developers still behave like unskilled, unmotivated workers, providing very poor service to their employers and clients.
-
-- Companies are demanding professional software developers and not just cheap coders who do whatever they are told to do.
-
-- Software development should be qualified as art, craft, trade, engineering, or science.
-
-- Well-crafted software means that , regardless of how old the application is, developers can understand it easily. The side effects are well known and controlled. It has high and reliable test coverage, clear and simple design, and business language well expressed in the code.
-
-- Software craftsmanship is a mindset – a lifestyle that many professional developers adopt. Software craftsmen live and breathe software. They see software as a craft and are committed to do whatever they can to master their craft.
-
-- When we say yes, people take that into account and make plans based on it. Our bosses will make promises to their bosses, other teams, customers, or partners based on what we said. Not being honest and transparent may cause huge damage to the entire team company.
-
-- Always saying no is also not a professional attitude. Every no, ideally, should be followed by a list of alternatives. Remember the story of getting orange by two different persons with different approach.
-
-- Craftsmen are gardeners. They are constantly looking after the code base, quickly refactoring it without fear – they are backed by a good battery of automated tests that can test the entire application in just few minutes.
-
-- Use job description template provided at page #127. (software craftsman)
-
-- When a software craftsman makes recommendation, it is implied that the recommended developer is also a software craftsman, and that he or she shares the same passion, values, principles, and dedication.
-
-- A good interview is like a good and informal chat between passionate developers. It is an exchange of information: a good debate about techniques, tools, challenges, and approaches to software development.
-
-- Clients may decide not to pay for quality and ask for a quick and cheap solution, but deep inside, they will always be expected quality and won’t be happy if they don’t get it.
-
-- Well-crafted code is simple, small, testable, easy to understand, and most important, does the job.
-
-- Software craftsmen are humble, always ready to learn from more-experienced developers and eager to help the less experienced.
-
-- Chrome dev tools - Elements, console, sources tabs are called panel and windows inside each of them are called pane.
-
-- Time begins on 1st jan 1970 with the unix epoch, when we say Date.now(), it gives miliseconds from this time.
-
-- IDE’s Evaluation -  vi -> emics -> vim -> neo vim -> nano -> notepad++ -> Dreamweaver -> visual studio code -> visual studio -> WebStorm (features looks more reliable and polished than vs code)
-
-- Choosing the framework depends whether website mostly have static content or highly interactive, if highly interactive then whether it needs SEO, if SEO and content rarely change like in blogs website then use JAM stack and prerender the content and cache on the CDN. if dynamic content then need full SSR + hydration.
-
-- Angular bootstrap process - angular.json (main) -> main.ts (bootstrapModule) -> app.module (bootstrap) -> app.component -> app.compnent.html -> index.html (<app-root></app-root> selector is used as an element to get the app component) -> The javascript files {runtime.js, polyfile.js, … etc } are responsible to make our application a single page and they are handled by the browser itself. But, the Html code should be available in our application itself.
-
-- If you act without thinking, you are wasting the very edge that you have over machines. You are a candidate to being replaced in the near future (either by a thoughtful human or for a cheaper dumb machine). Always try to understand what’s the purpose of the task you’ve been assigned to. Unless, of course, you want to become a bad developer.
-
-- Google searching tips - cut the crap - Forget “what,” “how,” and other words that serve only a syntactical purpose. Demand answers using meaningful and descriptive verbs example - instead of 'what is algorithmic complexity' use 'define algorithmic complexity'. Order keywords from broad to specific, instead of 'consume an api using typescript with axios' use 'typescript axios consume api'. Use Images for Diagrams and Visualizations. Many times, Images will contain concise and informative graphics that will answer your question much faster than a web page could.
-
-- Useful http status codes - 100 Information - 100 — Continue; 101 — Switching protocol; 103 — Checkpoints. 200 Successful. 300 Redirection - 301 — Moved Permanently; 302 — Found; 304 — Not Modified; 305 — Use Proxy; 307 — Temporary Redirect. 400 Client Errors - 400: Bad Request; 401: Unauthorized; 403: Forbidden; 404: Not Found; 408: Request Timeout; 410: Gone; 429: Too Many Requests. 500 Server Errors - 500 — Internal Server Error; 502 — Bad Gateway; 503 — Service Unavailable; 504 — Gateway Timeout.
-
-- Keep yourself healthy, keep yourself fit and keep writing amazing code!!!
-
 ## Architectural
-    
+
 - We should use arrows one way and two accordingly and shapes doesn’t represent any meaning, we just need to be consistent in shapes.
 
 - We should have a key section to define the meaning of different attributes used in the diagrams
 
 - We describe the following levels and diagram names:
-	- Level 0 — Business Capabilities Diagram: The key audience is business executives and non-technical stakeholders.
-	- Level 1 — Technology Capabilities Diagram: The key audience is CIOs, CTOs, CISOs and Strategy & Planning managers.
-	- Level 2 — Architecture Diagram: The key audience is Designers and Project Managers.
-	- Level 3 — Design Diagram: The key audience is coders, testers and architects.
 
+  - Level 0 — Business Capabilities Diagram: The key audience is business executives and non-technical stakeholders.
+  - Level 1 — Technology Capabilities Diagram: The key audience is CIOs, CTOs, CISOs and Strategy & Planning managers.
+  - Level 2 — Architecture Diagram: The key audience is Designers and Project Managers.
+  - Level 3 — Design Diagram: The key audience is coders, testers and architects.
 
 - Five architecture diagrams types
-	- Application Architecture Diagram
-	- Integration Architecture Diagram
-	- Deployment Architecture Diagram
-	- DevOps Architecture Diagram
-	- Data Architecture Diagram
 
+  - Application Architecture Diagram
+  - Integration Architecture Diagram
+  - Deployment Architecture Diagram
+  - DevOps Architecture Diagram
+  - Data Architecture Diagram
 
 - The Flow Diagram - This diagram illustrates the moving parts in a business process.
 
-![architectural-flow-diagram](architectural-flow-diagram)
+![architectural-flow-diagram](./assets/images/architectural-flow-diagram.png)
 
 - The Persona Diagram - It is important to show that your architecture solves the business problem. A persona diagram describes a chronological view and actors in a particular workflow. This is your best tool for proving that you’ve taken the business into consideration when developing your solution.
 
-![architectural-personal-diagram.png](architectural-personal-diagram.png)
+![architectural-personal-diagram](./assets/images/architectural-personal-diagram.png)
 
 - The Infrastructure Diagram - The purpose of this diagram is to show what has been built and how the system currently works. Consider this a blueprint of the application you built.
 
-![architectural-infrastructural-diagram](architectural-infrastructural-diagram.png)
+![architectural-infrastructural-diagram](./assets/images/architectural-infrastructural-diagram.png)
 
-![architectural-infrastructural-diagram2](architectural-infrastructural-diagram2.png)
+![architectural-infrastructural-diagram2](./assets/images/architectural-infrastructural-diagram2.png)
 
-![architectural-technology-diagram](architectural-technology-diagram)
+![architectural-technology-diagram](./assets/images/architectural-technology-diagram.png)
 
-![architectural-application-diagram.png](architectural-application-diagram)
-    
-## Digit Magazine
-    
-- WordPress is an open-source, free platform for building and developing websites. WordPress is the most user-friendly and efficient blogging and website builder on the market right now.
+![architectural-application-diagram](./assets/images/architectural-application-diagram.png)
 
-- Anonymous comments can cause serious damage to your website’s reputation.
-
-- WWW or no WWW – whether your website is brand-new or has been hosted for a few months already will depend entirely on its stage. If it brand-new, you must definitely choose whether to use www or non-www in the URL of your site.
-
-- One calorie of heat energy is the amount of energy that is required to raise the temperature of 1g of water from 14.5 degree Celsius to 15.5 degree Celsius.
-
-- Temperature is defined as a parameter that helps us define the level of hotness or coldness of its body.
-
-- The quantity of heat that is absorbed by  a body is generally dependent on three factors, which are as follows – mass, increase in temperature, material.
-
-- Not all the materials can have transfer of heat through this process, for example, plastic. Such material called insulators. Conductors are known to carry heat easily because of their low specific heat capacities.
-
-- The process of heat transfer through a vacuum is called radiation.
-
-- Motion is a combined outcome of a body under observation and the observer.
-
-- Magnetism – The core of the earth was made from iron, while the planet itself was a magnet, which he quoted to be the reason for compasses to point to the north. The unit of the strength of a magnetic field is Tesla. Magnet types – permanent, temporary and electromagnets. A current-carrying wire produces a magnetic field around it. Magnet uses – scrap lifting, surgical extraction, dc motor, ac generators. The payment card strip is made of magnet, audio cassette, CRT’s monitor, speaker system. Over-exposure to static magnetic fields can be harmful to our health.
-    
- ## Mongo DB
+## Mongo DB
 
 - BSON - MongoDB represents JSON documents in binary form called BSON internally. It enriches JSON with additional data types that Mongo uses like Object Id, date, etc.
 
-- Mongo DB is schemaless. Mongo does not enforces a schema, but documents inside the same collection should have a similar structure for consistency.
+- Mongo DB is schema-less. Mongo does not enforces a schema, but documents inside the same collection should have a similar structure for consistency.
 
 - The find() method returns a cursor to the documents that match the query criteria. In projection, 1 means inclusion and 0 for exclusion.
 
@@ -1140,7 +1023,7 @@ db.aircraft.find({$and:[{capacity: 124}, {range: {$gt: 6000}}]})
 db.aircraft.find({range: {$lt: 600, $gt: 6000}}) // short-hand syntax if same field
 ```
 
-- CAP Theoram - consistency, availability, partition tolerance (system won't fail). MongoDB supports consistency and partition tolerance.
+- CAP Theorem - consistency, availability, partition tolerance (system won't fail). MongoDB supports consistency and partition tolerance.
 
 - Types of NoSQL databases - relational database, document database, key-value databases (Redis DB), white-column stores (Cassandra DB), Graph Database
 
@@ -1150,7 +1033,7 @@ db.aircraft.find({range: {$lt: 600, $gt: 6000}}) // short-hand syntax if same fi
 
 - JSON is a UTF-8 String but BSON is a Binary. JSON is human and machine readable but BSON is a machine readable only.
 
-- We cannot replace the _id value with another value.
+- We cannot replace the `_id` value with another value.
 
 - MongoDB is a case-sensitive language. It supports MongoDB query language (MQL). It has dynamic JSON based schema unlike predefined in MySQL. It has no foreign keys or joins or triggers. It follows CAP theorem not ACID properties. It is horizontal scalable unlike SQL which have vertical scalable.
 
@@ -1162,13 +1045,13 @@ db.aircraft.find({range: {$lt: 600, $gt: 6000}}) // short-hand syntax if same fi
 
 - By using the BSON and memory mapped files concept to store the data, makes the MongoDB very fast and efficient.
 
-- The _id can contains any type of data except array.
+- The `_id` can contains any type of data except array.
 
 - The ObjectId() will return a new object id and it also contains a timestamp ObjectId().getTimestamp() in ISODate format. We can use it for sorting in created by format.
 
 - MongoDB uses a cursor to support the efficient retrieval of the document as documents might be in huge number which might support the memory to load. By this, it will give you a batch of documents and close the connection.
 
-- We can use index to speed up the queries. The scanning ofeach location on the disk is bad for performance which finding a record, the solution is to use an index, it basically holds mapping to those locations from field values. By this, we can jump directly to the disk location where document is stored is good for performance and less i/o operations. It also good for sorting performance purpose as-well. Without index it will show n number of objects has been scanned, after index it will show 1 number od object has been scanned. Index on the _id field can not be dropped.
+- We can use index to speed up the queries. The scanning of each location on the disk is bad for performance which finding a record, the solution is to use an index, it basically holds mapping to those locations from field values. By this, we can jump directly to the disk location where document is stored is good for performance and less i/o operations. It also good for sorting performance purpose as-well. Without index it will show n number of objects has been scanned, after index it will show 1 number od object has been scanned. Index on the `_id` field can not be dropped.
 
 - Index types - Regular (B-tree), Geo (sort nearby locations), Text, Hashed, TTL (expiration date for documents)
 
@@ -1178,10 +1061,31 @@ db.aircraft.find({range: {$lt: 600, $gt: 6000}}) // short-hand syntax if same fi
 db.animals.find({name: 'cat}).explain()
 ```
 
-- Covering index - we use query using index and all the information is with index itself then there is no need to go to the dist to get the actual document, we can use the index itself to the actual result. In the explain() it will say indexOnly as true. Suppose we have applied index on name field and returning only the name field, not even _id, then the covering index will be used.
+- Covering index - we use query using index and all the information is with index itself then there is no need to go to the dist to get the actual document, we can use the index itself to the actual result. In the explain() it will say indexOnly as true. Suppose we have applied index on name field and returning only the name field, not even `_id`, then the covering index will be used.
 
 - When our database is large, we can create index in the background so that read and write action won't get blocked.
 
+## Digit Magazine
+
+- WordPress is an open-source, free platform for building and developing websites. WordPress is the most user-friendly and efficient blogging and website builder on the market right now.
+
+- Anonymous comments can cause serious damage to your website’s reputation.
+
+- WWW or no WWW – whether your website is brand-new or has been hosted for a few months already will depend entirely on its stage. If it brand-new, you must definitely choose whether to use www or non-www in the URL of your site.
+
+- One calorie of heat energy is the amount of energy that is required to raise the temperature of 1g of water from 14.5 degree Celsius to 15.5 degree Celsius.
+
+- Temperature is defined as a parameter that helps us define the level of hotness or coldness of its body.
+
+- The quantity of heat that is absorbed by a body is generally dependent on three factors, which are as follows – mass, increase in temperature, material.
+
+- Not all the materials can have transfer of heat through this process, for example, plastic. Such material called insulators. Conductors are known to carry heat easily because of their low specific heat capacities.
+
+- The process of heat transfer through a vacuum is called radiation.
+
+- Motion is a combined outcome of a body under observation and the observer.
+
+- Magnetism – The core of the earth was made from iron, while the planet itself was a magnet, which he quoted to be the reason for compasses to point to the north. The unit of the strength of a magnetic field is Tesla. Magnet types – permanent, temporary and electromagnets. A current-carrying wire produces a magnetic field around it. Magnet uses – scrap lifting, surgical extraction, dc motor, ac generators. The payment card strip is made of magnet, audio cassette, CRT’s monitor, speaker system. Over-exposure to static magnetic fields can be harmful to our health.
 
 ## Miscellaneous Technical
 
@@ -1197,13 +1101,13 @@ db.animals.find({name: 'cat}).explain()
 
 - JOSE (JavaScript object signing and encryption) standards – JWON Web Tokens, JSON Web Signature, JSON Web Encryption, JSON Web Key, JSON Web Algorithms.
 
-- Initial format check of JWT  - three sections, two dots, base64url data, valid JSON objects.
+- Initial format check of JWT - three sections, two dots, base64url data, valid JSON objects.
 
 - We should first validate the token like checking the issuer, subject value, audience, expiration date, before parsing it.
 
 - JWE has 5 distinct section instead of 3 of JWT –
 
-![misc-technical-jwe](misc-technical-jwe)
+![misc-technical-jwe](./assets/images/misc-technical-jwe.png)
 
 - When to use JWE – if we use PII (personally identifiable information) like names, email address street address, IP address, account number, telephone number etc., if token needs to be passed through multiple systems (including the 3rd party).
 
@@ -1213,35 +1117,41 @@ db.animals.find({name: 'cat}).explain()
 
 - It has two style – block (human readable) and flow (less human readable like JSON)
 
-![misc-technical-block-vs-flow-style](misc-technical-block-vs-flow-style)
+![misc-technical-block-vs-flow-style](./assets/images/misc-technical-block-vs-flow-style.png)
 
 - Building blocks – sequence (arrays), mapping (key-value) and scalar (string, number, boolean and dates). We should do indentation with spaces not with tabs.
-For list we need to use (-) and for key-value we need to (:). Scalar values – with string values we can use quotes or without quotes. By using the ‘#’ we can add comment.
-One YAML file can contain multiple documents. The documents can be separated by 3 hyphens (---).
 
-![misc-technical-yaml-key-value-and-array](misc-technical-yaml-key-value-and-array)
-![misc-technical-yaml-nested-array.png](misc-technical-yaml-nested-array.png)
-![misc-technical-yaml-nested-mappings.png](misc-technical-yaml-nested-mappings.png)
+- For list we need to use (-) and for key-value we need to (:).
+
+- Scalar values – with string values we can use quotes or without quotes. By using the `#` we can add comment.
+
+- One YAML file can contain multiple documents. The documents can be separated by 3 hyphens (---).
+
+![misc-technical-yaml-key-value-and-array](./assets/images/misc-technical-yaml-key-value-and-array.png)
+
+![misc-technical-yaml-nested-array](./assets/images/misc-technical-yaml-nested-array.png)
+
+![misc-technical-yaml-nested-mappings](./assets/images/misc-technical-yaml-nested-mappings.png)
 
 - Explicit typing – by using like !!str is an explicit typing which will convert the date into a string type.
 
-![misc-technical-yaml-explicit-typing.png](misc-technical-yaml-explicit-typing.png)
+![misc-technical-yaml-explicit-typing](./assets/images/misc-technical-yaml-explicit-typing.png)
 
 - Repeated nodes – to avoid code repeat.
 
-![misc-technical-repeated-nodes](misc-technical-repeated-nodes)
+![misc-technical-repeated-nodes](./assets/images/misc-technical-repeated-nodes.png)
 
 - Processing of YAML –
 
-![misc-technical-processing-of-yaml](misc-technical-processing-of-yaml)
+![misc-technical-processing-of-yaml](./assets/images/misc-technical-processing-of-yaml.png)
 
 - YAML vs. JSON – YAML is standard for configuration and JSON is standard for service API.
 
-![misc-technical-yaml-vs-json.png](misc-technical-yaml-vs-json.png)
+![misc-technical-yaml-vs-json](./assets/images/misc-technical-yaml-vs-json.png)
 
 - YAML vs. XML
 
-![misc-technical-yaml-vs-xmsl.png](misc-technical-yaml-vs-xmsl.png)
+![misc-technical-yaml-vs-xmsl](./assets/images/misc-technical-yaml-vs-xmsl.png)
 
 - GitLab is a single platform that provides entire DevOps toolchain for organizations of any scale and size.
 
@@ -1253,5 +1163,110 @@ One YAML file can contain multiple documents. The documents can be separated by 
 
 - We can run a workflow on any Github event –
 
-![misc-technical-github-events](misc-technical-github-events)
+![misc-technical-github-events](./assets/images/misc-technical-github-events.png)
 
+## Miscellaneous - Life
+
+- It is not the finances that should scare you, it is the loneliness and illness during your sunset years
+
+- Bertrand Russell: “The fundamental cause of the trouble is that in the modern world the stupid are cocksure while the intelligent are full of doubt.”
+
+- Don’t interrupt the other person while they are speaking - by your interruption, you’re insinuating that your thoughts and ideas are more important than theirs.”
+
+- Be tough on the process, but gentle on the output - You need to set aside time to write and that is where you cannot be easy on yourself. You need to follow the process. If you plan to write for two hours every day, do that. If you wake up at 5 and your process is to be at your desk by 5:30 and you feel like sleeping in, that’s the time to be tough on yourself. Protect the process of writing every day.
+
+- You can go fast or go far. Not both.
+
+- Mind is made for processing of things not for remind them. so note down everything which are important to you.
+
+- We should never ask our children, instead we should tell them what they will be eating for dinner – a steady, simple and nutritious meal.
+
+- Ayurveda rejects the stale, easy, ready-in-a-minute choices in the urban world and encourages all things natural.
+
+- The nature of water is dry and sharp. It slowly pulls natural oils from our skin, which is naturally unctuous in its healthy state. That is why Ayurveda advises us to oil our bodies before rinsing with water.
+
+- We should have seven inner small bowls with one lid – mustard, jeera, kalonji, ajwain, turmeric, panchaparan and fennel.
+
+- Life is very short and anxious for those who forget the past, neglect the present, and fear the future.
+
+- What would have happened, Doctor if you died first, and your wife would have had to survive you?
+
+- Don’t try to see God. Act in such a way that God will see you.
+
+- Many Japanese people never really retire – they keep doing what they love for as long as their health allows.
+
+- The greater the stress, the greater the degenerative effect on cells.
+
+- If you keep moving with your fingers working, 100 years will come to you.
+
+- Put your hand on a hot stove for a minute and it seems like an hour. Sit with a pretty girl for an hour, and it seems like a minute. That is relativity.
+
+- Flow state is when pleasure, delight, creativity, and process when we are completely immersed in life.
+
+- We often think that combing tasks will save us time, but scientific evidence shows that it has the opposite effect.
+
+- Food won’t help you live longer. The secret is smiling and having a good time. To live a long time you need to do three things: exercise to stay healthy, eat well and spend time with people.
+
+- The things we love are like the leaves of a tree: They can fall at any moment with a gust of wind.
+
+- Surround yourself with good friends.
+
+- We should never forget what a privilege it is to be in the here and now in a world so full of possibilities.
+
+## Miscellaneous - Health
+
+- Engineers used to give complex names for the technology but under the hood it is very simple and have same base concept.
+
+- Now a day, the technology and hardware are not the bottlenecks but the people skill sets.
+
+- Skill transfer is very easy in angular, as most of the angular projects looks the same.
+
+- When you use angular, you are getting everything like route, forms package, http package, there is a kind of prescribed way to code with angular but products like react are much more pick and choose, so you can choose which router you want, which http package you want to use.
+
+- By low-code we can deliver better software faster. One way is to abstracting automating things so professional developers can go faster. It also takes the constraint away from people who can only build that and it open an ability to adapt to this new world in real time with people who has no traditional skills in software development. It provides speed, simplicity, no huge army of engineers and get live quickly and save tons of the cost to the business, anybody can develop software, business and IT will be on same page by providing common language, has guidance and guard rails, no long red tape of processes.
+
+- Many developers still behave like unskilled, unmotivated workers, providing very poor service to their employers and clients.
+
+- Companies are demanding professional software developers and not just cheap coders who do whatever they are told to do.
+
+- Software development should be qualified as art, craft, trade, engineering, or science.
+
+- Well-crafted software means that , regardless of how old the application is, developers can understand it easily. The side effects are well known and controlled. It has high and reliable test coverage, clear and simple design, and business language well expressed in the code.
+
+- Software craftsmanship is a mindset – a lifestyle that many professional developers adopt. Software craftsmen live and breathe software. They see software as a craft and are committed to do whatever they can to master their craft.
+
+- When we say yes, people take that into account and make plans based on it. Our bosses will make promises to their bosses, other teams, customers, or partners based on what we said. Not being honest and transparent may cause huge damage to the entire team company.
+
+- Always saying no is also not a professional attitude. Every no, ideally, should be followed by a list of alternatives. Remember the story of getting orange by two different persons with different approach.
+
+- Craftsmen are gardeners. They are constantly looking after the code base, quickly refactoring it without fear – they are backed by a good battery of automated tests that can test the entire application in just few minutes.
+
+- Use job description template provided at page #127. (software craftsman)
+
+- When a software craftsman makes recommendation, it is implied that the recommended developer is also a software craftsman, and that he or she shares the same passion, values, principles, and dedication.
+
+- A good interview is like a good and informal chat between passionate developers. It is an exchange of information: a good debate about techniques, tools, challenges, and approaches to software development.
+
+- Clients may decide not to pay for quality and ask for a quick and cheap solution, but deep inside, they will always be expected quality and won’t be happy if they don’t get it.
+
+- Well-crafted code is simple, small, testable, easy to understand, and most important, does the job.
+
+- Software craftsmen are humble, always ready to learn from more-experienced developers and eager to help the less experienced.
+
+- Chrome dev tools - Elements, console, sources tabs are called panel and windows inside each of them are called pane.
+
+- Time begins on 1st jan 1970 with the unix epoch, when we say Date.now(), it gives milliseconds from this time.
+
+- IDE’s Evaluation - vi -> emics -> vim -> neo vim -> nano -> notepad++ -> Dreamweaver -> visual studio code -> visual studio -> WebStorm (features looks more reliable and polished than vs code)
+
+- Choosing the framework depends whether website mostly have static content or highly interactive, if highly interactive then whether it needs SEO, if SEO and content rarely change like in blogs website then use JAM stack and pre-render the content and cache on the CDN. if dynamic content then need full SSR + hydration.
+
+- Angular bootstrap process - angular.json (main) -> main.ts (bootstrapModule) -> app.module (bootstrap) -> app.component -> app.component.html -> index.html (`<app-root></app-root>` selector is used as an element to get the app component) -> The javascript files {runtime.js, polyfile.js, … etc } are responsible to make our application a single page and they are handled by the browser itself. But, the Html code should be available in our application itself.
+
+- If you act without thinking, you are wasting the very edge that you have over machines. You are a candidate to being replaced in the near future (either by a thoughtful human or for a cheaper dumb machine). Always try to understand what’s the purpose of the task you’ve been assigned to. Unless, of course, you want to become a bad developer.
+
+- Google searching tips - cut the crap - Forget “what,” “how,” and other words that serve only a syntactical purpose. Demand answers using meaningful and descriptive verbs example - instead of 'what is algorithmic complexity' use 'define algorithmic complexity'. Order keywords from broad to specific, instead of 'consume an api using typescript with axios' use 'typescript axios consume api'. Use Images for Diagrams and Visualizations. Many times, Images will contain concise and informative graphics that will answer your question much faster than a web page could.
+
+- Useful http status codes - 100 Information - 100 — Continue; 101 — Switching protocol; 103 — Checkpoints. 200 Successful. 300 Redirection - 301 — Moved Permanently; 302 — Found; 304 — Not Modified; 305 — Use Proxy; 307 — Temporary Redirect. 400 Client Errors - 400: Bad Request; 401: Unauthorized; 403: Forbidden; 404: Not Found; 408: Request Timeout; 410: Gone; 429: Too Many Requests. 500 Server Errors - 500 — Internal Server Error; 502 — Bad Gateway; 503 — Service Unavailable; 504 — Gateway Timeout.
+
+- Keep yourself healthy, keep yourself fit and keep writing amazing code!!!
