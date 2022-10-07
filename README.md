@@ -1,30 +1,31 @@
-# Frontend Learnings
+# Full Stack Learnings
 
 ## Overview
 
 This is a web application to showcase various learnings acquired from different resources like articles, trainings, etc.
 
-## Features
+## Projects
 
-- Angular
-- Typescript
+### Frontend
+
+It contains learnings for frontend development like `Angular`, `TypeScript`, `SCSS`, `HTML`, Jasmine, `Cypress`, `User Experience`, `Accessibility`, etc. Refer [README File](./frontend/README.md) for more details.
+
+### Backend
+
+It contains learnings for backend development like `Node JS`, `Express Framework`, `MongoDB`, etc. Refer [README File](./backend/README.md) for more details.
 
 ## Documents
 
 - [Roadmap](./ROADMAP.md)
 - [Changelog](./CHANGELOG.md)
 - [Commands](./COMMANDS.md)
+- [Useful Links](./USEFUL_LINKS.md)
+- [Troubleshooting](./TROUBLESHOOTING.md)
 - [Keyboard Shortcuts](./KEYBOARD_SHORTCUTS.md)
 - [Best Practices](./BEST_PRACTICES.md)
-- [Extracted Notes](./EXTRACTED_NOTES.md)
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Deployed Server
-
-This application has been deployed on Firebase at <https://frontend-learnings-75836.web.app>
+- [Extracted Notes - Part 1](./EXTRACTED_NOTES_PART1.md)
+- [Extracted Notes - Part 2](./EXTRACTED_NOTES_PART2.md)
+- [Extracted Notes - Part 3](./EXTRACTED_NOTES_PART3.md)
 
 ## Any Feedback
 

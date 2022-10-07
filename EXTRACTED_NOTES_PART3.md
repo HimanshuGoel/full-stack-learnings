@@ -1,10 +1,16 @@
+# Extracted Notes - Part 3
+
+## Table of Contents
+
+- [TypeScript](#typescript)
+
 ## TypeScript
 
 - The overall computer system doesn’t care for the source code, but the compile or interpreter does. It only understands the binary instructions. Source code is for us to understand and for developers.
 
 - Alert pop-up box is given by the browser not by the JavaScript.
 
-- In JavaScript, the variable does not have types but value has types. So, any variable can have any type of values. It is different behaviour from the static languages.
+- In JavaScript, the variable does not have types but value has types. So, any variable can have any type of values. It is different behavior from the static languages.
 
 - While passing the values to a function called arguments, and in function declaration they are called parameters. These two terminology cannot be used interchangeably.
 
@@ -18,18 +24,19 @@
 
 - If we set the configurable as false then we cannot change the attribute of that object except the writable attribute, also we cannot delete the property.
 
-- A prototype is an object that exists on every function in JavaScript. Initially it is just empty object for new created function. New object do not have prototype property but __proto__. If current object do not have required asked property then JavaScript will search in its prototype. Functions also behave in the same way because functions are also a property in JavaScript. Object prototype is null.
+- A prototype is an object that exists on every function in JavaScript. Initially it is just empty object for new created function. New object do not have prototype property but `__proto__`. If current object do not have required asked property then JavaScript will search in its prototype. Functions also behave in the same way because functions are also a property in JavaScript. Object prototype is null.
 
-- The jQuery is the best example of Façade pattern on over complicated object interface like DOM. It provides common vocabulary while discussing the problem.
+- The jQuery is the best example of Facade pattern on over complicated object interface like DOM. It provides common vocabulary while discussing the problem.
 
 - Types of patterns
-	- Creational – deals with creation of new objects. Example – constructor, module, factory, singleton
-	- Structural – making up the actual objects themselves. Example- decorator, façade, flyweight
-	- Behavioral – how objects are relates to each other and operates. Example – command, mediator and observer.
 
-- Façade pattern – it is used to provide a simplified interface to a complicated system. It is like seeing a building from outside, which looks very clean but inside there might be chaos. So, it hides the chaos form us. It is different from decorator, as we are not adding any functionality to it.
+  - Creational – deals with creation of new objects. Example – constructor, module, factory, singleton
+  - Structural – making up the actual objects themselves. Example - decorator, facade, flyweight
+  - Behavioral – how objects are relates to each other and operates. Example – command, mediator and observer.
 
-- Observer Pattern – it allows a collection of objects to watch an object and be notified of changes. It allows for loosely coupled system. One object is the focal point and group of objects watch for changes. There are three vocabulary subject, notification and observers. Subject has ObjserverList {} and Notify () function.
+- Facade pattern – it is used to provide a simplified interface to a complicated system. It is like seeing a building from outside, which looks very clean but inside there might be chaos. So, it hides the chaos form us. It is different from decorator, as we are not adding any functionality to it.
+
+- Observer Pattern – it allows a collection of objects to watch an object and be notified of changes. It allows for loosely coupled system. One object is the focal point and group of objects watch for changes. There are three vocabulary subject, notification and observers. Subject has ObserverList {} and Notify () function.
 
 - Flyweight pattern – conserves memory by sharing portions of an object between objects. Like I have created 5000 tasks and for the name property the data will be the same and repeated. Flyweight shares data across objects. So, my name string will be shared among other object data. It is like creating prototype instead of creating function on an object for reuse. It is only useful if it has large numbers of objects.
 
@@ -41,13 +48,13 @@
 
 - The smallest timeout delay period will be 4 milliseconds, even 0 will be bumped to 4 milliseconds. Timers will not start until the outer most function is finished.
 
-- Browsers are typically single threaded, either do update UI or executing JavaScript a piece of time. Unless we use web workers concept to avoid this. Long running process make UI unresponsive. To avoid this use timeout for realise the thread to go back to the UI process quickly to avoid this unresponsiveness.
+- Browsers are typically single threaded, either do update UI or executing JavaScript a piece of time. Unless we use web workers concept to avoid this. Long running process make UI unresponsive. To avoid this use timeout for realize the thread to go back to the UI process quickly to avoid this unresponsiveness.
 
 - Promises are like pub/sub but more designed for asynchronous operations.
 
 - Ways in which we can define JavaScript function, last one is preferred and myObject name should be like a namespace name for your application. Function 2 and function 5 will be available on the global scope.
 
-![typescript-function-defining-ways](typescript-function-defining-ways)
+![typescript-function-defining-ways](./assets/images/typescript-function-defining-ways.png)
 
 - Event handlers are not supposed to return any value at all. But if we return false it will tell browser to stop any subsequent processing associated with that event. But we should use a JavaScript function by name preventDefault() to cancel and event because all browser do not support to cancel the event if we return as false. Example scenario if we apply double click event on div which contains text then it will by default also select the text.
 
@@ -59,7 +66,7 @@
 
 - A deferred object is really just a wrapper that can be placed around asynchronous processing. Instead of trying to manage multiple success and failure callbacks for a series of async calls, the deferred object can wrap them all together in to a single process that will work regardless of the sequence. Once a deferred is rejected or resolved, it cannot change state again. The jQuery deferred object can only have one failure as soon as that happened, all subsequent failures were ignored.
 
-- Hoisting is JavaScript’s default behaviour of moving all declarations to the top of the current scope.
+- Hoisting is JavaScript’s default behavior of moving all declarations to the top of the current scope.
 
 - Function has a ‘function’ type in JavaScript. In JavaScript functions are first class object we can assign them to a variable.
 
@@ -67,11 +74,11 @@
 
 - Arrow functions are used to make ‘this’ easier to understand. Below code will return the window object, not the document object which would be the case if we do not use arrow function. So, we are no more limited to have access only object which called the function means context of the function:
 
-![typescript-arrow-function-issue](typescript-arrow-function-issue)
+![typescript-arrow-function-issue](./assets/images/typescript-arrow-function-issue.png)
 
 - Below code as well will return the window object not the invoice object:
 
-![typescript-arrow-function-issue2.png](typescript-arrow-function-issue2.png)
+![typescript-arrow-function-issue2](./assets/images/typescript-arrow-function-issue2.png)
 
 - Symbols is a concept in ES6 to provide some unique string. It is a unique and immutable data type and may be used as an identifier for object properties. There is no way to access its unique ID value. Well-known symbols used in meta programming, meta programming involves looking more deeply in objects or functions even how JavaScript operates.
 
@@ -113,13 +120,13 @@
 
 - Module pattern – this is useful ness of closure mechanism. Classic module pattern has two characteristics, first there must be wrapping function that’s gets executed, secondly there must be one or more functions that get returned from that function call, so one or more inner function that have colure over the inner private scope. So by this it can access the internal state that makes it a module. It implements encapsulation and principle of least exposure. It is like a module factory.
 
-- Prototype – every single “object” is built by a constructor function. Each time a constructor is called, a new object is created. A constructor makes an object linked to its own prototype. [[prototype]] are called internal linkage with its constructor call function’s porotype.
+- Prototype – every single “object” is built by a constructor function. Each time a constructor is called, a new object is created. A constructor makes an object linked to its own prototype. [[prototype]] are called internal linkage with its constructor call function’s prototype.
 
 - JavaScript and Lua are only two languages which are object oriented; others like C# are just class oriented languages. Only in these languages we can create object without a class.
 
-- The alternate name for __proto__ is dunder proto. It is a getter function, which is actually resides only at main object prototype object. This getter function returns the internal prototype linkage. IE11 above supports it, we can use Object.getPrototypeOf() function in IE9.
+- The alternate name for `__proto__` is dunder proto. It is a getter function, which is actually resides only at main object prototype object. This getter function returns the internal prototype linkage. IE11 above supports it, we can use Object.getPrototypeOf() function in IE9.
 
-- Prototype linkages – it will go one level up to the porotype if that property / function doesn’t get found on the current instance. If we have same property on the object same as prototype then object property will over shadow the prototype ones. Need to use foo.prototype.identify.
+- Prototype linkages – it will go one level up to the prototype if that property / function doesn’t get found on the current instance. If we have same property on the object same as prototype then object property will over shadow the prototype ones. Need to use foo.prototype.identify.
 
 - Using same method name at multiple levels in an object is called shadowing.
 
@@ -161,7 +168,7 @@
 
 - Module formats are just a syntax which is used to define a module, module loaders are generally JS library which we can include in our project that understand the module format we have decided to use and how to load and execute the modules we define in that format. This relationship is similar to JS and browser and itself.
 
-![typescript-module-type-format](typescript-module-type-format)
+![typescript-module-type-format](./assets/images/typescript-module-type-format.png)
 
 - Common JS format is used mostly with server side, Universal module definition (UMD) is a single format that attempts to be compatible with both the AMD and Common JS formats. We might consider using this format if we need to same module on the server in a node application and as part of a browser application. It would be supported by the CommonJS module loader in Node, as well as an AMD loader in the browser like RequireJS.
 
@@ -201,11 +208,11 @@
 
 - Using inheritance, we can create new objects with our existing objects as prototypes
 
-- hasOwnProperty() methods helps identify property location, searching prototype chains for potential overridden properties becomes easy with this function, it helps us in finding the owner of a particular property. Use __proto__ to move up the prototype chain to find that property.
+- hasOwnProperty() methods helps identify property location, searching prototype chains for potential overridden properties becomes easy with this function, it helps us in finding the owner of a particular property. Use `__proto__` to move up the prototype chain to find that property.
 
 - Pure Functions - List transformation (map), list exclusion (filter), list composition (reduce), list iteration (forEach).
 
-- An impure function is a function that produces side-effects, it changes the state of the programs by indirect means. The console.log() is also side-effect, or a function is returning value on each time. Below is the example of impure function. We should not leave something impure publically exposed. To make a impure function pure, we should wrap a another function on it to contain all of those side effects within that function and from outside world that function itself the outer function becomes pure, it has be pure on highest most level not all the deep nested level. Impure functions make the code harder to reason about
+- An impure function is a function that produces side-effects, it changes the state of the programs by indirect means. The console.log() is also side-effect, or a function is returning value on each time. Below is the example of impure function. We should not leave something impure publicly exposed. To make a impure function pure, we should wrap a another function on it to contain all of those side effects within that function and from outside world that function itself the outer function becomes pure, it has be pure on highest most level not all the deep nested level. Impure functions make the code harder to reason about
 
 - A pure function is a function that has no side-effects, it operates entirely on its own variables, its own state or any of the things that are passed into it like arguments. It can access the outside variables but don’t change them.
 
@@ -219,9 +226,9 @@
 
 - Crude computation bug – below will make the infinite loop. JavaScript only has 1 number type and it is IEEE 754 double-precision floating point, by this we can represent wide range of values but downside is that some of the precession can be lost in the process.
 
-![typescript-number-type](typescript-number-type)
+![typescript-number-type](./assets/images/typescript-number-type.png)
 
-![javascript-number-type-2](javascript-number-type-2)
+![javascript-number-type-2](./assets/images/typescript-number-type-2.png)
 
 - The new operator creates a new object, sets its prototype to the constructors prototype, executes the constructor using the new object as the ‘this’ context, and then returns the new object. So if we call it like below without using new keyword, no new object will be created and the name will be on global object. So, consider best practice to upper-case for your constructor function to signify to developer that it needs to be new’ed up. This technique is meant to protect against accidental creation of objects without using new
 
@@ -229,9 +236,9 @@
 
 - Value of ‘this’ in function for different cases invocation. We need to use call, bind or prototype to control this context –
 
-![typescript-value-of-this-based-on-context](typescript-value-of-this-based-on-context)
+![typescript-value-of-this-based-on-context](./assets/images/typescript-value-of-this-based-on-context.png)
 
-![typescript-value-of-this-based-on-context2.png](typescript-value-of-this-based-on-context2.png)
+![typescript-value-of-this-based-on-context2](./assets/images/typescript-value-of-this-based-on-context2.png)
 
 - We cannot compare NaN with NaN, it will give false. So we need to call isNaN(NaN) function instead
 
@@ -245,7 +252,7 @@
 
 - Issues with using Objects as Maps – when using objects as maps, its key are always converted to strings. We should stop using the object, but use Map objects which is a simple key/value data structure. Any value may be used as either a key or a value, and the objects are not converted to strings. Also, we can use maps when keys are unknown until runtime, use objects if keys are predefined. We should also use maps when keys are of same type and all values are of same type. Maps are iterable, so they can be used in a for-of loop. Each run of the loops returns a [key, value] pair for an entry in the Map.
 
-![typescript-using-maps-instead-of-objects](typescript-using-maps-instead-of-objects)
+![typescript-using-maps-instead-of-objects](./assets/images/typescript-using-maps-instead-of-objects.png)
 
 - The WeakMap is a type of Map where only objects can be passed as keys, primitive data types such as strings, numbers, Booleans, etc. are not allowed. WeekMaps are not iterable, so they can’t be used with for-of loop. Weakmaps are better with memory, they can be garbage collected. Individual entries in a weakmap can be garbage collected, while the weakmap itself still exists.
 
@@ -257,7 +264,7 @@
 
 - ES2017 is unofficially called ES8. JS was created by Brendan Eich, he was told to create java like language for Netscape browser. ES is a standard that guides the path of JS.
 
-- The exponentiation operator can be use by ‘**’, earlier we used to use Math.pow() method.
+- The exponentiation operator can be use by `**`, earlier we used to use Math.pow() method.
 
 - A web-worker is another option to run tasks in parallel in JS. They are designed for browsers. They are started by main thread and every worker gets his own isolated global environment, nothing is shared between main thread and worker thread. SharedArrayBuffer supports a scenario where many worker thread need to share same data. Normal arrays are not optimized for this kind of work, due to which ArrayBuffer and TypedArrays have been introduced, they reduces memory footprint and optimize data transfer.
 
@@ -271,15 +278,15 @@
 
 - Pure functions – similar to math functions, they don’t depend on data other than what is passed in, and don’t alter data other than what they returned, but math.random() is not a pure function.
 
-- Module Pattern - This is the pattern Douglas Crockford came up initially. The main pros is that it expose only public members which hiding private members. So, unlike porotype pattern we can define variables or functions as public or private. Main con is that function will get duplicated because we are not using prototype, also it is very hard to extend, so we want to create a library that can be extend by consumer then this is not a good pattern, we should choose porotype pattern in this case.
+- Module Pattern - This is the pattern Douglas Crockford came up initially. The main pros is that it expose only public members which hiding private members. So, unlike prototype pattern we can define variables or functions as public or private. Main con is that function will get duplicated because we are not using prototype, also it is very hard to extend, so we want to create a library that can be extend by consumer then this is not a good pattern, we should choose prototype pattern in this case.
 
 - The revealing module pattern is similar to this only, it will just make the return object much simpler and easy to read.
 
-- Revealing Prototype Pattern - It combines porotype and revealing module pattern to get the best from both of them. Functions loaded into memory once, also it is extensible.
+- Revealing Prototype Pattern - It combines prototype and revealing module pattern to get the best from both of them. Functions loaded into memory once, also it is extensible.
 
 - Webpack process –
 
-![typescript-webpack-process](typescript-webpack-process)
+![typescript-webpack-process](./assets/images/typescript-webpack-process.png)
 
 - The call() and apply() methods allows us to call a function and change the ‘this’ value, but sometimes we need to make a copy of the function and also change the this value, we can do this by ‘bind()’ method.
 
@@ -289,7 +296,7 @@
 
 - Window is a global object in JS, we can access it from anywhere. Important key things are below –
 
-![typescript-important-document-api](typescript-important-document-api)
+![typescript-important-document-api](./assets/images/typescript-important-document-api.png)
 
 - By using eval() keyword, it will open our application for injection attacks. Like the string is coming from database or web api which might be compromised, then eval will execute then string as a javascript script.
 
@@ -303,25 +310,24 @@
 
 - The event queue – if at a time only person can go to the teller, then there has to be a queue to hold the other people, this queue is a part of event loop in JS. This is where work is stored until the current operation or task is done executing.
 
-
-![typescript-event-queue](typescript-event-queue)
+![typescript-event-queue](./assets/images/typescript-event-queue.png)
 
 - The javascript engine will only execute one piece of JS code at a time, behind the scenes there are a pool of threads that are used for things like making web requests. This pool of threads can have multiple connections open to multiple different servers to request data for multiple different requests at the same time. This is all hidden behind the scenes, this is how we can still achieve parallelism within JS. We still have behind the scenes the ability for multithreading, it is not just applied to our JS code itself.
 
 - So, JS supports concurrency by not blocking for I/O, the non-blocking nature of code in JS allows us to still have performant programs because we don’t have to wait for results of long running operations to complete like a web requests or opening a file. It is like a person forget the ID or paperwork, then the teller can serve the next person in queue, and once that person come back then the teller can pick up where they left off.
 
-- Run to completion – for a blocking operation it will run for completion, until that code runs completely like a ‘for’ loop, then only next code will rung. It is like satisfy customer before next by a teller. If we need to avoid this then we need to use web workers, it would be lot like opening up another line at the bank if somebody is taking a long time. This run to completion approach in JS is in stark contrast to multithreaded language where it is possible that a chunk of code could be pre-empted, means essentially interrupting our code wherever it is executing, to give the thread to somebody else. It is like if a person is taking more time, then moving him back at the bottom of line and serving next customer.
+- Run to completion – for a blocking operation it will run for completion, until that code runs completely like a ‘for’ loop, then only next code will rung. It is like satisfy customer before next by a teller. If we need to avoid this then we need to use web workers, it would be lot like opening up another line at the bank if somebody is taking a long time. This run to completion approach in JS is in stark contrast to multithreaded language where it is possible that a chunk of code could be pre-emptied, means essentially interrupting our code wherever it is executing, to give the thread to somebody else. It is like if a person is taking more time, then moving him back at the bottom of line and serving next customer.
 
 - Cooperative concurrency – the person servicing the queue usually has control over the queue like the teller can eject someone from the queue, but in JavaScript that is not the case, in JS it is much more like bar/bathroom situation. The person who is using the bar has control over the rest of the line means he use read newspaper while others are waiting outside. Cooperative concurrency means customers play nice to each other. As long as our program doesn’t abuse and hold up the rest of the queue, our programs will appear to have the ability to execute multiple things at the same time. So, each program should execute itself in smaller pieces of chunks.
 
 - The JS engine and the browser tab that we are working has a separate event loop dedicated just to our application, this event loop contains a queue, inside of this queue work can be placed that will be eventually executed when whatever is running is complete. In addition to this queue, there is a call stack it contains whatever is executing at this current time, a call stack is like a todo list while performing a task. Work will be pushed on call stack and then once it is done it will vanish. A todo item can also have sub-task like to create a hamburger we might need to find many items to look for same with the work, it will be further pushed to the stack only, as usual after completion of that subtask, it will be removed from the stack and controls get back to the earlier item on the stack.
 
-![typescript-event-loop2](typescript-event-loop2)
+![typescript-event-loop2](./assets/images/typescript-event-loop2.png)
 
 - The black box items will be handle by browser behind the scenes for us, and a mechanism in browser will also listen for the their responses as-well, after getting the response it will push those response inside the queue. Behind the scene the browser is handling these requests not the JS engine, so that multiple threads handling multiple request at the same time. So it is possible while our single-
-threaded JS engine is doing work that behind the scenes other things can be happening, we just don’t have those things happening inside of our JS engine –
+  threaded JS engine is doing work that behind the scenes other things can be happening, we just don’t have those things happening inside of our JS engine –
 
-![typescript-event-loop3](typescript-event-loop3)
+![typescript-event-loop3](./assets/images/typescript-event-loop3.png)
 
 - In setTimeout() function there is not guarantee that our function will be called at exactly at the mentioned time, at that time elapse the function will be pushed in the queue, but it will called once all other prior work in the queue gets completed. Also when we say 0 milliseconds the browser is putting in as 4.
 
@@ -341,11 +347,11 @@ threaded JS engine is doing work that behind the scenes other things can be happ
 
 - Currying is the act of taking a function which accepts 1 to n parameters, and producing a collection of 1 to n function, which each take 1 parameter.
 
-- Immutablity helps in performance, if we have an object that needs to be change the value stored in one of its properties, it may take a long time for JS to recognize that that properties has been changed, basically every property on that object has to be checked to see if its changed in order to determine that our data has changed. By enforcing immutability all JS has to do is check the object reference to see if that’s changed. If it has changed then that some property value is changed, checking for object reference changes in very fast. So in this case immutability is performance enhancer. It is mainly for objects/arrays other data types are already immutable.
+- Immutability helps in performance, if we have an object that needs to be change the value stored in one of its properties, it may take a long time for JS to recognize that that properties has been changed, basically every property on that object has to be checked to see if its changed in order to determine that our data has changed. By enforcing immutability all JS has to do is check the object reference to see if that’s changed. If it has changed then that some property value is changed, checking for object reference changes in very fast. So in this case immutability is performance enhancer. It is mainly for objects/arrays other data types are already immutable.
 
 - Human head has two systems – head and gut. Head is the higher level one, its analytic, its algorithm, it is where we do mathematics and reasoning and logic, it requires tremendous amount of effort and a bit slow, most of the time we need to turn it off, due to its slowness only we needed to invent computer. Another part is gut, it is intuitive, heuristic, associative and very, very fast, requires no effort and we cannot turn it off, it is on all the time. Head gets its assumptions from gut and it is not aware of that connection, its think it is getting results from vault of deep truth, but as it is getting from gut, sometimes head can get wrong input.
 
-- The computer programs are most complicated thigs that people make, there is nothing else in human experience which is composed of as many tiny little pieces which all have to go together perfectly that have to work in real time with changing states and changing inputs in a dynamic situation.
+- The computer programs are most complicated things that people make, there is nothing else in human experience which is composed of as many tiny little pieces which all have to go together perfectly that have to work in real time with changing states and changing inputs in a dynamic situation.
 
 - Initially the goal of the AI originally was to figure out a way to have the computer write their own programs because it was just too hard to have humans writing them.
 
@@ -369,7 +375,7 @@ threaded JS engine is doing work that behind the scenes other things can be happ
 
 - History of JS – at the national centre for super computing applications at the university of Illinois, there were couple of kids who were developing a client program for internet for number of protocols like WAIS, Archie, Gopher, FTB, Finger and WWW, they called this program MOSAIC. Finally, out of these protocols the WWW won, this format can also display image tag. A bunch of the people from that project were lured to California where they become part of a company called Netscape. Netscape made the first commercial web browser called Netscape navigator and it was a huge hit. For the new release of this navigator they also wanted to make it easy for end-user programming, they remembered something that had been on Macintosh called HyperCard, that was a simple application program based on a simple metaphor of stacks of cards and it was an event driven script thing and remarkably easy to use and they wanted something like that in the web browser. So, they gave this job to Brendan Eich, his idea was he would write a scheme interpreter to do this like he was told to do in a language like java or visual basic which people like and popular at that time, this if for the kids. He was given 10 days to create a prototype of this new interactive browser and in those 10 days he designed and implemented a new programming language which is an amazing achievement. So, from java he took syntax another language was scheme which is a dialect of LISP, scheme has lambdas i.e. functions, there is a dialect of small talk called Self it was having better performance and expressive, from Self he didn’t took the feature of classes, by removing classes they could make it much faster and much better to program. Netscape called this initial language as LiveScript. While this is going on another language that was being developed by a guy at Sun named Jim Gosling, they wrote a web browser in this language the browser called hot java, the language name was Java and become wildly successful. These both companies were working against Microsoft, so they form an alliance the first thing they agreed upon that Netscape adds java to the web browser in-exchange for that Sun will drop their hot java browser. Another thing is that they have to kill LiveScript as they were saying to the world that Java is the last programming language world ever need, but Netscape denied that because Java was not for beginners and they also wanted to launch the new browser right away and so the way they put Java in was they had Java talk to LiveScript through an interface called Live Connect. So, LiveScript could talk to the browser and java could talk to LiveScript through Live Connect. And if they took LiveScript out, Java wouldn’t work, so to save the alliance they change the name of language from LiveScript to javascript, and to showcase not a new language but as a subset to javas, interpreted java and they lied about the relationships of these two languages.
 
-- Meanwhile after seeing this Microsoft had completely missed the web and the internet, they thought the future of telecommunications was going to be fax and cable TV. So they bought out a browser company, it was another spinoff out of Illinois called spyglass, took their thing and relabelled it as IE and decided that they also need one more thing related to JS. So, they reverse engineering the first JS engine. MS also noticed all the blunders, bugs, errors, design defects, MS carefully documents all of them and replicates them, they called it Jscript. Then Netscape went to w3c to make the standard of their language, but w3c denied then they went to ISO, and then European computer manufactures association (ECMA), MS also joined this committee and dominates the committee. Also, MS told that all the bugs will remain in the standard, those standards where published by name ECMAScript.
+- Meanwhile after seeing this Microsoft had completely missed the web and the internet, they thought the future of telecommunications was going to be fax and cable TV. So they bought out a browser company, it was another spinoff out of Illinois called spyglass, took their thing and relabelled it as IE and decided that they also need one more thing related to JS. So, they reverse engineering the first JS engine. MS also noticed all the blunders, bugs, errors, design defects, MS carefully documents all of them and replicates them, they called it JScript. Then Netscape went to w3c to make the standard of their language, but w3c denied then they went to ISO, and then European computer manufactures association (ECMA), MS also joined this committee and dominates the committee. Also, MS told that all the bugs will remain in the standard, those standards where published by name ECMAScript.
 
 - Other OO programming language has inheritance is classical where objects are instance of classes and classes inherit from other classes, but in JS it is based on prototypes where objects inherit from objects and that’s it. There are no classes, this idea it got from Self language.
 
@@ -385,7 +391,7 @@ threaded JS engine is doing work that behind the scenes other things can be happ
 
 - The Date function is based on Java’s Date class and due to this it was no Y2K ready.
 
-- RegExp are not readable and understandable easily if they are long, there is tool regulex (http://jex.im/regulex/) which we can use to see it in a diagrammatic form to understand it better.
+- RegExp are not readable and understandable easily if they are long, there is tool regulex (<http://jex.im/regulex/>) which we can use to see it in a diagrammatic form to understand it better.
 
 - In JS all values are objects, except null and undefined, they are bottom values in JS. So, we should only choose one bottom values that is undefined.
 
@@ -417,7 +423,7 @@ threaded JS engine is doing work that behind the scenes other things can be happ
 
 - Meta object API – a property is a named collection of attributes, earlier this api wasn’t exposed for outside world.
 
-![typescript-meta-object-api](typescript-meta-object-api)
+![typescript-meta-object-api](./assets/images/typescript-meta-object-api.png)
 
 - We can stop object extensibility by using preventExtensions() method, the object won’t accept new property assignment. The freeze() stop its extension and also make all property as read-only and immutable. By this we can pass this object to third party and be confident that third party can’t be able to corrupt this object
 
@@ -425,13 +431,13 @@ threaded JS engine is doing work that behind the scenes other things can be happ
 
 - Object.toString() doesn’t show you anything about what it is in the object so it is useless, so we need to use JSON.stringify()
 
-- Retursion -it is when we have a function that returns itself. In recursion a function calls itself.
+- Retursion - it is when we have a function that returns itself. In recursion a function calls itself.
 
 - We have two distinct kind of objects, we have objects which just contain data, only data, and objects contain only functions, which are frozen, and those objects are very strong and very reliable, they cannot be tempered with, they provide the interface for dealing with the objects which are containing the data. By this we can create good API which can defend themselves, which can remain robust in the face of all the confusion happening inside our system. So, in above image put data in member variables.
 
 - Event driven model was inspired by HyperCard
 
-![typescript-hyper-card](typescript-hyper-card)
+![typescript-hyper-card](./assets/images/typescript-hyper-card.png)
 
 - In node.js we got non-blocking file i/o which is the main advantage. Node.js implements a web server in a JS event loop. It is a high-performance event pump.
 
@@ -449,31 +455,31 @@ threaded JS engine is doing work that behind the scenes other things can be happ
 
 - In 40s when the first Von Neumann machines start coming online they are integer-only machines, but most of the programmers are mathematicians and they are trying to figure out how to do read computation and it is hard, they were trying to do stuff with scaled integers and it is lot of work, and it is error prone. And someone figures out floating point, that we will have two numbers per number, one is the number itself and other is a scale factor, which tells us how many positions to move the decimal point. Then we can just give it to a subroutine, and subroutine will figure out how to add these things. And it worked and it made programming much easier to do. Unfortunately, those libraries were really slow. So, when we get to the 50s, there is now interest in putting floating point into hardware, but we were making out stuff of tubes, and it is hard to do. Someone has figured it out that if we use binary floating pinot instead of decimal floating point, we don’t have to implement a dive by 10 in order to do a scaling, we can just shift 1 bit, which is free. That worked great for scientific computing because in scientific computing, our lower digits are probably wrong anyway, but it doesn’t work for business processing because they are adding up money and they need to be exact. They have to give the cents exact. So, even successor like java is not good with business types, that is the tragedy we are in now. The solution might be below, this might be only 1 number system which a future language needs to be adopt –
 
-![typescript-dec-64](typescript-dec-64)
+![typescript-dec-64](./assets/images/typescript-dec-64.png)
 
 - If we are adding integers in a software implementation, it can add two integers and five instructions, in a hardware implementation adding integers should happen in once cycle, which means we don’t need to have int as a separate type in order to get performance. We can get performance and range of values that we need in one number type.
 
 - CSS was designed to format technical document, that was its purpose of life, but that is not what we use it for. We use it for all kinds of stuff that it is very badly suited for. We use it as it is only option.
 
-- Using Glob we can specify which files should be compiled. It lets us specify a file named patter for the compiler to match. “.” Is for the current directory, “**” for the searching recursively inside the child directories.
+- Using Glob we can specify which files should be compiled. It lets us specify a file named patter for the compiler to match. `.` Is for the current directory, `**` for the searching recursively inside the child directories.
 
 - Basic typescript types – Boolean, Number, String, Arrays, Enum, Void, Null, Undefined, Never – it’s the type assigned to values that will never occur like function that will never return because it throws exception or kicks off an infinite loop, Any – use when we effectively want to opt out of type checking of the compiler like while using third party javascript library .
 
-- Type assertions – if we do not know the type of a variable, then we can assign it a specific using type assertion. (<number> value) or use “as” keyword
+- Type assertions – if we do not know the type of a variable, then we can assign it a specific using type assertion. (`<number>` value) or use “as” keyword
 
 - Traditional functions are still easier to read when we are writing function that will be called from multiple places, however arrow functions are nice when we need to pass an anonymous function to another function.
 
 - TypeScript implements structural type system, so in below the object developer can be directly treated as interface as it has all the interface properties. As long as the structure match, we can treat the object as the type with that structure event if it wasn’t explicitly declared with that type. This is also called duck typing:
 
-![typescript-duck-typing](typescript-duck-typing)
- 
+![typescript-duck-typing](./assets/images/typescript-duck-typing.png)
+
 - Static members are a nice way to add utility or helper methods that are related to the purpose of class but aren’t dependent on any data that might be stored in instances of the class.
 
 - Constructors – special type of function gets executed when new instance of the class are created. Using super() we call constructor of parent class from child class, if child class has constructor method then we need to call super()
 
 - There is different module syntax like AMD, Common JS, TS has adapted ES2015 module syntax by default. Benefits – encapsulation, reusability, create higher-level abstraction. We will also need module loader/bundler to run our code. Webpack will prepare our modules to execute in a browser as part of a build step.
 
-![typescript-supported-technologies](typescript-supported-technologies)
+![typescript-supported-technologies](./assets/images/typescript-supported-technologies.png)
 
 - Relative vs. non-relative imports – ‘./’, ‘/’, ‘../’ all are same for current directive. We should give relative reference when giving our own modules and non-relative paths when referring third party modules.
 
@@ -489,7 +495,7 @@ threaded JS engine is doing work that behind the scenes other things can be happ
 
 - Duck Typing – in below we don’t need to specify the probablyADuck variable as a Duck type, it is considered automatically as it has all its methods.
 
-![typescript-duck-typing2](typescript-duck-typing2)
+![typescript-duck-typing2](./assets/images/typescript-duck-typing2.png)
 
 - Abstract class are created with the abstract keyword, we cannot directly instantiate this class but they can contain the implementation details but also can have abstract methods which are not implemented but these methods must be implemented in derived classes.
 
@@ -501,11 +507,11 @@ threaded JS engine is doing work that behind the scenes other things can be happ
 
 - Ambient modules – large JS libraries could potentially have lots of modules in them. Each module in a large library would have its own d.ts file and that would quickly become unwieldy and inconvenient. The solution is to declare ambient modules inside a single d.ts file. Ambient modules don’t provide any implementation details. In type definition files they are just the wrapper aournd an implementing that defined in the actual library. Since there aren’t any top-level exports, it can’t be imported directly. We first need to add a triple slash reference to the d.ts file, then we can write the import statement, we don’t need to define the path for the module to import but just the name of the module in the double quote exactly it was defined in d.ts file.
 
-![typescript-ambient-modules](typescript-ambient-modules)
+![typescript-ambient-modules](./assets/images/typescript-ambient-modules.png)
 
 - Babel is a second stage transpiler and provides a handy backup plan just in case Typescript doesn’t transpile something as we expected.
 
-![typescript-babel-working](typescript-babel-working)
+![typescript-babel-working](./assets/images/typescript-babel-working.png)
 
 - Nested arrow functions share the same ‘this’ instance, the ‘this’ value is always the containing code which is also called Lexical Binding.
 
@@ -513,37 +519,37 @@ threaded JS engine is doing work that behind the scenes other things can be happ
 
 - UMD module format – at runtime scripts in the UMD format check for global variables that are distinctive between AMD and CommonJS and depending upon which globals are found the module will be initialized in the appropriate manner. If we writing a module that is appropriate to use in both CommonJS and AMD environments we can consider using the UMD format.
 
-- Declaration merging - The compiler merges two seperate declarations declared with the same same into a single defination. allowed merges - interfaces, enums, namespaces with classes/functions/enums. disallowed - classes with classes. We can use declaration merging to implement module augmentation. It is a technique that allows us to extend existing modules with new members. It is a nice way to extend modules that we might not maintain or to extend the 3rd party code that we may not be responsible for maintaining.
+- Declaration merging - The compiler merges two seperate declarations declared with the same same into a single definition. allowed merges - interfaces, enums, namespaces with classes/functions/enums. disallowed - classes with classes. We can use declaration merging to implement module augmentation. It is a technique that allows us to extend existing modules with new members. It is a nice way to extend modules that we might not maintain or to extend the 3rd party code that we may not be responsible for maintaining.
 
-![typescript-declaration-merging](typescript-declaration-merging)
+![typescript-declaration-merging](./assets/images/typescript-declaration-merging.png)
 
 - Type Guards – they are a way for us to check the type of a variable. They are a way for the compiler to narrow a variable to a specific type. By this the compiler can check more error based on type. The typeof type guard, instanceof guard, user-defined type guards
 
 - Symbols – they are new primitive data type, they are unique and immutable. Every symbol we create is different from every other symbol. Once we created them we can’t change them. Use case for them – to make good unique constants, enum like behaviour, computer property declarations to avoid name collisions, customize internal language behaviour. The string passed below in symbol is just for debugging purpose.
 
-![typescript-symbol1](typescript-symbol1)
+![typescript-symbol1](./assets/images/typescript-symbol1.png)
 
-![typescript-symbol2](typescript-symbol2)
+![typescript-symbol2](./assets/images/typescript-symbol2.png)
 
 - Decorators - They are like annotations in java and attributes in c#. In JS they are implemented as functions.
 
 - Promises – much cleaner code than callbacks. Simple API – then and catch methods, chain together as then function also returns promise.
 
-- Generics are not supported in Javascript, due to this it is a feature of Typescript. It is a reusable code that works with multiple types. It may be function, interfaces or classes, it uses a type (<T>) parameter. Generic constraints increase practicality and generic function type add flexibility. We can’t use generic with static functions or classes as generic gets applied on the instances. Generic classes offer type-safe versality (with or without implementing an interface).
+- Generics are not supported in Javascript, due to this it is a feature of Typescript. It is a reusable code that works with multiple types. It may be function, interfaces or classes, it uses a type (`<T>`) parameter. Generic constraints increase practicality and generic function type add flexibility. We can’t use generic with static functions or classes as generic gets applied on the instances. Generic classes offer type-safe versatility (with or without implementing an interface).
 
 - It is like a JavaScript, with guard rails.
 
 - An interface defines the shape of data. It is like a mold used to create baked goods such as muffins. It drives consistency across the objects. Unlike Interface, Type can also be used to represent primary types not just object like data structure.
 
-![typescript-interface-vs-types](typescript-interface-vs-types)
+![typescript-interface-vs-types](./assets/images/typescript-interface-vs-types.png)
 
 - The ‘typeof null’ will return generic ‘object’ value.
 
 - By using an immediately-invoked function, we can call returning function instantly instead of variable storage.
 
-- A closure wraps up an entire environment, binding necessary variable from other scope. It is unlike a function’s local variables as they aren’t available once the function’s scope is closed. Closures are very useful in creating function ‘construction zones’, a closure can make the creation of very similar functions ultra-efficient. We should aware that bound variables won’t be evident in the stored function, examining the contents of our new variables doesn’t reveal closures. 
+- A closure wraps up an entire environment, binding necessary variable from other scope. It is unlike a function’s local variables as they aren’t available once the function’s scope is closed. Closures are very useful in creating function ‘construction zones’, a closure can make the creation of very similar functions ultra-efficient. We should aware that bound variables won’t be evident in the stored function, examining the contents of our new variables doesn’t reveal closures.
 
-![typescript-closuer](typescript-closuer)
+![typescript-closure](./assets/images/typescript-closure.png)
 
 - Order of operations – PEMDAS.
 
@@ -553,11 +559,11 @@ threaded JS engine is doing work that behind the scenes other things can be happ
 
 - Iterables return an iterator object. This object knows how to access items from a collection 1 at a time, while keeping track of its current position within the same sequence.
 
-![typescript-iterables](typescript-iterables)
+![typescript-iterables](./assets/images/typescript-iterables.png)
 
 - Proxies and reflection are both forms of meta programming generally to know information about itself or for a program to control how is executing while it is executing other programs. Reflection is getting information about the program and proxy is changing how the program execute during execution. Proxy object sits between other code and target object. Proxies are slower than regular object. Revocable proxies allow the system to recover resources – use in very large applications with lots of data.
 
-![typescript-proxy-and-relfection](typescript-proxy-and-relfection)
+![typescript-proxy-and-reflection](./assets/images/typescript-proxy-and-reflection.png)
 
 - Typescript also support new features of ECMAScript and other features which even didn’t introduced yet in ECMAScript like interface.
 
@@ -569,7 +575,6 @@ threaded JS engine is doing work that behind the scenes other things can be happ
 
 - To define different types of data in a array we can use tuple to enforce king of fixed structure instead of a loosely one. So, if use type as [string, number, boolean] then the values should match the same order type unlike union type.
 
-- We cannot add a property to interface declaration if it is private or protected. Only public properties can be added to the interface signature. 
+- We cannot add a property to interface declaration if it is private or protected. Only public properties can be added to the interface signature.
 
 - Module formats – es2015 syntax is in-built one which TypeScript adapted from JavaScript. Earlier ones were CommonJS, AMD (for browser), UMD, System JS formats.
-	
