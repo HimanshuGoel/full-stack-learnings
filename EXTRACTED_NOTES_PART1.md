@@ -596,6 +596,8 @@ req.book.save((err) => {
 
 ![node-js-event-loop](node-js-event-loop)
 
+![node-js-event-loop-extra](node-js-event-loop-extra)
+
 - Node JS server can simultaneously handle uploading of two files, one of main reason of Node JS creation is to handle the file upload. Other web apps try to load entire file into memory before writing it to the disk which can cause all sorts of issue at server side, also tricky to provide the progress of file uploads, but in Node JS we can do it very simply.
 
 - Express is Sinatra inspired web development for Node.js, i.e. insanely fast, flexible, and simple.
@@ -992,7 +994,7 @@ Best practices – we should avoid using id’s or css classes to select element
 
 - Cypress additioal events -
 
-- .click(), .click({force: true}), .click(5, 10), .click('topLeft'), .type('text'), .type('text', {delay: 10}), .type({backspace}), .select('value'), .select('val', {log: false}), .select([val1, val2]), 
+- .click(), .click({force: true}), .click(5, 10), .click('topLeft'), .type('text'), .type('text', {delay: 10}), .type({backspace}), .select('value'), .select('val', {log: false}), .select([val1, val2]),
 
 - Cypress commands do not return their subjects. They yield them. Cypress commands are asynchronous.
 
@@ -1203,193 +1205,193 @@ Best practices – we should avoid using id’s or css classes to select element
 
 ## Data Structures
 
-- Node chains – 
-  
+- Node chains –
+
   ![ds-node-chains](ds-node-chains)
-  
+
 - Linked list – single chain of nodes, head pointer, tail pointer, operations – add, remove, find, enumerate.
 
   - Doubly linked list – singly linked list works great when we need only forward access to the nodes, but for backwords combability as-well we need to use doubly linked list.
 
 !{ds-doubly-linked-list](ds-doubly-linked-list)
-  
+
 - Stack - It is based on LIFO concept. Each pop reduces the stack depth.
 
 - Stack using linked list – pros with linked list approach – no hard size limit, easy to implement – no bounds checking, empty list means empty stack, cons – memory allocation on push, per node memory overhead, potential performance issues.
 
 - Stack using arrays – cons with arrays approach – overallocation of array. While enumerating we need to iterate it backwords.
-  
+
 - Postfix calculator – postfix notation also known as reverse polish notation in this approach operator follows the operands by this, we can avoid the ambiguity in operation order.
-  
+
 - ![ds-postfix-calculator](ds-postfix-calculator)
-  
+
 - Undo implementation using Stack – we use stack to store the changes and to reverse the changes when undo is clicked.
-  
+
 - Queue - It is based on FIFO concepts. We can do enqueue and dequeue operations on it.
 
 - Queue using linked list implementation – in this we will add last and remove first, not add first and remove last due to enumeration order. Add last/remove first allow list enumeration to “just work”. Queue allows to take incoming data and store it in a way that allows us to process it later, but in the order, it showed up, which is a sort of fairness.
-  
+
 - Handling growth of an array – we also need to copy from 0 to head – 1 in case of non-empty values. Arrays has benefits over linked list approach like data locality and performance gains, reducing the overall number of allocations and incredibly fast enqueue and dequeue times when there isn’t an allocation being performed.
-  
+
 - Priority queue – highest priority items dequeued first, not first in and first out. Only enqueue operation need to be change in implementation others operations will be same.
-  
+
 - What is a tree – instead of a linear structure which can be traversed backword and forward, these are a hierarchical rather than a linear manner. Terms are root or head node, leaf nodes, child nodes. A node can have any number of children but only one parent. Fundamental rule for a tree structure is that there is exactly one path from the head node to any other node in the tree and likewise exactly one path from any node in the tree back to the head node, therefore there is exactly one path can be taken between any nodes in the tree.
-  
+
 - Binary tree – it can have most 2 child nodes called left and right children.
-  
+
 - Binary search tree – sorted hierarchy of data. Small values on left and larger values are on right. Left most node contains the smallest value and right most node contains the largest value.
-  
+
 - Finding data – searching. Data ordering requirements make the binary search tree a really efficient structure for searching for data, as we don’t need to traverse all node to search the data.
-  
+
 Traversals – to enumerate in well-defined order they are pre-order, in-order and post-order. Pre-order and post-order are used in mathematical expression evaluation, and evaluation of run time behaviours in a language like compilers use trees, dependency graph for which depends upon which operation.
-  
+
 - Hash Tables - Hash tables are fit into the broad category of structures knows as associative arrays. Associative arrays provide the storage of key/value pairs into an array or an array like collection. But unlike an array, the index can be any comparable type not just an integer, each key is unique. The key type is mapped to an index.
 
- - This GetIndex() method hashed the string, hashing is a process that derives a fixed size result from an arbitrary input. Any string of any length when hashed would return a fixed size i.e. 32-bit integer hash value. The features of a hashing algorithm - stable (same input generates the same output everytime), uniform (hash value should be uniformly distributed through available space), efficeint and secure.
-  
- - String hashing - Naive implementation - summing of the ASCII value of character.
-  
- - Handling collisions – if two distinct items have same hash value, then we have collision as items are assigned to the same index in the has table. To handle this, we can follow two strategies – open addressing (moving to next index in table), chaining (storing item in a linked list)
-  
- - Counting words – real world example of hash table. Hash table shines in a scenario where key/value pairs we are updating the values and we have a stable key.
-  
- - Sorting means arranging data in a collection based on a comparison algorithm like any object with a notion of greater-than/less-than/equality. Two general families of sorting algorithms – linear sorting, divide and conquer. Linear algorithms treat the problem of sorting as a single large operation. Divide and conquer algorithms partition the data to be sorted into smaller sets that can be independently sorted. Measuring performance – number of comparisons, swaps operations.
+- This GetIndex() method hashed the string, hashing is a process that derives a fixed size result from an arbitrary input. Any string of any length when hashed would return a fixed size i.e. 32-bit integer hash value. The features of a hashing algorithm - stable (same input generates the same output everytime), uniform (hash value should be uniformly distributed through available space), efficeint and secure.
+
+- String hashing - Naive implementation - summing of the ASCII value of character.
+
+- Handling collisions – if two distinct items have same hash value, then we have collision as items are assigned to the same index in the has table. To handle this, we can follow two strategies – open addressing (moving to next index in table), chaining (storing item in a linked list)
+
+- Counting words – real world example of hash table. Hash table shines in a scenario where key/value pairs we are updating the values and we have a stable key.
+
+- Sorting means arranging data in a collection based on a comparison algorithm like any object with a notion of greater-than/less-than/equality. Two general families of sorting algorithms – linear sorting, divide and conquer. Linear algorithms treat the problem of sorting as a single large operation. Divide and conquer algorithms partition the data to be sorted into smaller sets that can be independently sorted. Measuring performance – number of comparisons, swaps operations.
 
 - Bubble sort – simplest sorting algorithm. Consist of many passes until no swaps are performed in a pass. Performance is not good O(n2), not appropriate for large unsorted data sets. But for the best-case performance is very good i.e. O(n) also for the space requirement it is good i.e. O(n) as it directly operates on the input array and it is a candidate algorithm when minimizing space is paramount.
 
   ![ds-bubble-sort1](ds-bubble-sort1)
   ![ds-bubble-sort2](ds-bubble-sort2)
-  
+
   - Insertion sort – sorts each item in the array as they are encountered. It uses only simple pass, everything left of the item is known to be sorted and everything to the right is unsorted. Performance and space matrixes are same as bubble sort.
-  
+
   ![ds-insertion-sort](ds-insertion-sort)
-  
+
 - Selection sort – another linear algorithm, hybrid between bubble and insertion sort. It sorts the data by finding the smallest item and swapping it into the array in the first unsorted location. Performance is similar to bubble and insertion sort. Best case performance is O(n2). It Is not appropriate for large unsorted data set. For a system where comparison is cheap and swaps are costly then we can use this algorithm.
-  
+
 ![ds-selection-sort1](ds-selection-sort1)
 ![ds-selection-sort2](ds-selection-sort2)
-  
+
 - Merge sort – it is a divide and conquer algorithm. They array is recursively split in half, and splitting continues until the array is in groups of 1, it is reconstructed in the sort order. Each reconstructed array is merged with the other half. Worst, average and best cases performance is O (n log n), data splitting means that the algorithm can be made parallel, that’s why it is appropriate for large datasets. Space required is O(n), merge can be, but is often not, performed in-place. These extra allocations increase the memory footprint required to sort data.
-  
+
  ![ds-merge-sort](ds-merge-sort)
-  
+
 - Quick sort – commonly used general purpose language and also based on divide and conquer. Pick a pivot value and partition the array.
-  
+
  ![ds-quick-sort1](ds-quick-sort1)
   ![ds-quick-sort2](ds-quick-sort2)
   ![ds-quick-sort3](ds-quick-sort3)
-  
+
 - Worst case is O (n2) not appropriate for large pathologically sorted (inverse sorted) data sets, average case performance is O (n log n) appropriate for large data sets, best case performance is O (n log n) very good best case performance and can efficiently sort small and nearly sorted data sets, space required O (n).
-  
+
 - AVL Tree - Binary tree is a collection that stores data in a tree structure. AVL tree are self-balancing binary tree invented by Adelson-velsky and landis (1942). Only insertion and deletion differ in running the balance algorithm from binary tree. AVL tree new concepts are self-balancing, height, balance factor, right/left heavy. An unbalance binary tree can cause performance issues like reduce the search time; it might become a linked list as below, like loading a English dictionary –
 
   ![ds-avl-unbalance-tree](ds-avl-unbalance-tree)
-  
+
 Balanced binary tree – the tree remains balanced as nodes are inserted or deleted, height or left and right tree differ by at most 1.
-  
+
 ![ds-balance-tree](ds-balance-tree)
-  
+
 - Balancing is done using node rotation. Rotation changes the physical structure of the tree within the constraints of the binary tree, smaller values on the left and larger or equal on the right. Rotation algorithms are right rotation, left rotation, right-left rotation, left-right rotation.
-  
+
 - AVL tree vs. Binary tree visualization – AVL tree won’t get much height and depth unlike binary tree. For bad 100 number, the binary tree will become the linked list like linear structure. Also, it is shows the difference between balanced tree and unbalanced trees.
-  
+
 ![ds-avl-tree-visualization](ds-avl-tree-visualization)
   ![ds-binary-tree-visualization](ds-binary-tree-visualization)
-  
+
 - String Searching Algorithms - API Overview – by using interface we can implement algorithms in a uniform manner and this will allow us to use them interchangeably.
 
   - Naïve Search - We can use run the loop till the string length minus the search string length to get some optimization. This algorithm is most appropriate when the string to search and find are both small.
-  
+
   ![ds-naive-search1](ds-naive-search1)
   ![ds-naive-search2](ds-naive-search2)
-  
+
   Boyer Moore Horspool Search – it minimizes the overall cost of search by skipping as many characters as possible. This is appropriate as a general-purpose string search algorithm. It will also improve the performance if search string is longer.
-  
+
   ![ds-boyer-moore-horspool-search.png](ds-boyer-moore-horspool-search.png)
-  
+
   - Data structures is a way of storing data. Data structures and algorithms are heavily linked. DS typically use some sort of algorithm to perform their inner organization, and algorithms typically uses data structure to store internal states.
-  
+
 - Ways of measuring performance – timing with stopwatch (but it depends on hardware, programming language, environment, etc.), counting instructions executed by machine, looking at execution curve, best case, worst case, average case.
-  
+
 - Asymptotic performance – In Asymptotic Analysis, we evaluate the performance of an algorithm in terms of input size (we don’t measure the actual running time). We calculate, how does the time (or space) taken by an algorithm increases with the input size.
-  
+
 - Big Theta – it can be used to express the complexity of a program.
-  
+
 - Big O – worst-case complexity of the program.
-  
- - Binary search – complexity in terms of Big O
-  
+
+- Binary search – complexity in terms of Big O
+
   ![ds-binary-search-big-o](ds-binary-search-big-o)
-  
-  - Amortized complexity – it deals with the complexity of performing the same operation multiple times for varying inputs like inserting multiple elements in a data structure.
-  
- - Priority queues – internally elements are organized in a data structure called heap, types of heaps are min heap, max heap and min-max heap, interval heap. A heap is an binary balanced tree structure where each node has at most two children, in min-heap each element is smaller than its immediate children.
-  
+
+- Amortized complexity – it deals with the complexity of performing the same operation multiple times for varying inputs like inserting multiple elements in a data structure.
+
+- Priority queues – internally elements are organized in a data structure called heap, types of heaps are min heap, max heap and min-max heap, interval heap. A heap is an binary balanced tree structure where each node has at most two children, in min-heap each element is smaller than its immediate children.
+
 - Hash table – two flavours – first is a container that store the values that are added directly, just like arrays and linked lists, this container is often called a set or a hash set. The other flavour is a container that maps a setup of keys to a set of values, this is referred to as a map or a dictionary. Search operation is much faster in hash table.
-  
+
 - By hash table we can quickly lookup the name of a certain user id and this makes hash tables ideal data structure for caches, fast insertion, fast lookup and fast deletion, but elements order as per we receive them can’t be possible in hash table unlike arrays.
-  
+
   ![ds-common-big-o-examples](ds-common-big-o-examples)
-  
+
 - Brute force and greedy algorithm – problem solving strategy where all possible combinations or solution candidates are tried out blindly until a solution is found is called brute force.
-  
+
   ![ds-brute-force-combinations](ds-brute-force-combinations)
-  
+
   - Greedy algorithms work smarter than brute faster, they may speed up the search for a solution, but they come with a catch of stalling at a local maximum or minimum if we search for a small solution.
-  
+
   ![ds-greedy-algorithms](ds-greedy-algorithms)
-  
+
 - Divide and conquer – key ingredient is to discover how to divide the larger, original problem into sub-problems. Once divided, each of the smaller and easier-to-understand sub-problems are solved, leaving us with sub-solutions. Finally, find a way to combine, or deduce these sub-solutions into a solution to the original and larger problem, thereby conquering it. We can also apply it recursively. Example – quicksort
-  
+
   ![ds-quick-sort-divide-and-conquer](ds-quick-sort-divide-and-conquer)
-  
+
   - Dynamic programming – this is also built on the core idea of divide and conquer. If sub problems cannot be separated but overlaps, then overlapping part would need to be solved in both sub-problems. We can cache the solved result of sub-problem. It will improve the performance.
-  
+
 - The 0/1 Knapsack problem – using dynamic problem we can get the performance advantages as it has lower complexity.
-  
+
   ![ds-knapsack-problem](ds-knapsack-problem)
-  
+
 - Other examples – where to put line breaks to obtain a nice and even text justification, finding shortest paths, finding difference between two files, sequence alignment, various games
-  
+
   ![ds-knapsack-problem-other-examples.png](ds-knapsack-problem-other-examples.png)
-  
+
   - P vs. NP – exponential functions grow much faster than polynomials. The complexity category P covers problems that can be solved in polynomial time i.e. easy problems like sorting, traversing, lists, etc. But problems in NP category are decision problems (in which answer is yes or no) verifiable in polynomial time.
-  
+
   ![ds-p-vs-np1](ds-p-vs-np1)
   ![ds-p-vs-np2](ds-p-vs-np2)
-  
+
   NP hard – at least as hard as NP complete, they don’t need to be decision problem, and they do not need to be verifiable in polynomial time like knapsack problem, halting problem, traveling salesman problem.
-  
+
   ![ds-np-hard](ds-np-hard)
-  
+
   - Heuristics and approximation algorithms – they are general techniques for dealing with computationally hard problems. Heuristics – wanted speed, trade with accuracy.
 
   - Cuckoo hashing to create hash table – it is an open addressing scheme, inspired by cuckoo bird.
-  
+
   - Prefix-querying Sequences Efficiently with Tries - Tries – represent a number of strings in a single tree structure where the root node represents the enter string with no letters added yet and with each subsequent level of the tree corresponding to a pending one more letter to a string.
 
   ![ds-tries](ds-tries)
-  
+
   Radix tree – a compressed tries structure, it improves the performance. We can use it if read-only or read-mostly operations. Tries is useful for autocompletion, prefix only scenario.
-  
+
   ![ds-radix-trees](ds-radix-trees)
-  
+
   Suffix trees also allows to search a pattern anywhere in a string.
-  
+
   ![ds-suffix-trees](ds-suffix-trees)
-  
+
   - Data structure is a method of organizing information so that the information can be stored and retrieved efficiently.
-  
+
   - Big O notation – computer science defines performance by something called Big O notation. It shows how the data structure will perform as the data increase.
-  
+
   ![ds-big-o-notation](ds-big-o-notation)
   ![ds-big-o-notation2](ds-big-o-notation2)
   ![ds-big-o-notation3](ds-big-o-notation3)
-  
+
 - One of the problems with a hash structure is when we run into collisions when putting data into the hash. Collisions slow down the performance of the hash, which kind of defeats one of the main points of using the hash. We can reduce has collisions by increasing the has capacity or improve the hashCode() method quality to improve the uniqueness of hash value.
-  
+
 - The binary tree doesn’t need to always have two nodes per parent. the tree additions are based on comparisons rather than keeping the tree balanced. Because the tree data is dispersed based on comparison, it makes adding and finding the data quite efficient, so don’t have to traversed all the elements like array list due to which the Big O notation would be logarithmic which is one of the best access performance we can get out of a data structure. But implementing a tree data structure is a bit of complex in code.
-  
+
 - Safely Using Arrays - Arrays are used in examples like storing share prices of a company in different points of time, use arrays of pixels to store and process images. Arrays properties – contiguous memory locations as it is a very cache friendly data structure, same element type cannot have mixed up type of elements in a same array, direct fast element access by index, indexes are zero-based.
 
 - Big O notation and Asymptotic runtime complexity – Big O also commonly known as asymptotic complexity is a notation that is often used to express a trend to evaluate the performance of algorithm when some quantity grows like number of items that algorithm process. By Big O we get estimate the runtime performance, by this metrices we can pick one algorithm or another.
@@ -1398,39 +1400,39 @@ Balanced binary tree – the tree remains balanced as nodes are inserted or dele
 
   ![ds-physical-vs-internet-data-transer](ds-physical-vs-internet-data-transer)
   ![ds-physical-vs-internet-data-transer2](ds-physical-vs-internet-data-transer2)
-  
+
 - Stack overflow – if internal array to store stack values gets full, then push operation will cause it outside of stack area which is not owned by stack. In this case, we should throw an exception from code.
-  
+
 - Arrays vs. linked lists – memory layout – direct fast element access by index not possible in linked list we have to traverse all the elements, also it is not cache friendly as it is not having continuous memory allocations. Linked list is good for inserting new item as all don’t have to shift. So, no reallocation overhead. The nodes of the linked list are stored in sparse memory locations. They are scattered all over computer’s memory.
-  
+
 ![ds-array-vs-linked-list](ds-array-vs-linked-list)
-  
+
 ## Angular JS
-  
+
 - Binding expression {{}}
 
 - Modules provide some sort of container for the code that we write so that it will not leak-out to some other code.
-  
+
 - Modules provide some sort of container for the code that we write so that it will not leak-out to some other code.
-  
+
 - Angular is an opinionated software. It extends HTML vocabulary using the concept of directive.
-  
-- The ngCloak directive allows us to hide portions or all of our page and tell angular a chance to run to go though and parse the HTML and replace the directives or bindings with the actual values which it wants to display to avoid the flashes of unbound HTML on slower computer. 
-  
+
+- The ngCloak directive allows us to hide portions or all of our page and tell angular a chance to run to go though and parse the HTML and replace the directives or bindings with the actual values which it wants to display to avoid the flashes of unbound HTML on slower computer.
+
 - HTML doesn’t allow forms to be nested but using ngForm directive we can have nested forms to allow creating the smaller sections of the form.
-  
+
 - $compile service – is used heavily internally by angular whenever a page is loaded it uses to look through the directive and process them. We can also generally used them inside directives. $compile return a ‘link’ function in which we passed the scope.
-  
+
 - Using $parse service – it is also similar with the $compile service and used by angular internally. It is used to evaluate and expression and turn that expression into function that can be evaluated against a given context.
-  
+
 - $rootScope – one $rootScope per application. When we create a new scope it is created from $rootScope getting prototypal inheritance. We can inject global data on it. Avoid using it as a best practice.
-  
+
 - It is helpful in creating single page application. Gmail website is an example of single page application. Routing is a key part in writing single page application.
-  
+
 - Keyboard shortcut: hold down mouse click on history button on browser to see history. Angular will take care of managing history in the browser as we are not actually loading pages but just loading the angular templates.
-  
+
 - If we use ‘&’ means that we will execute this function into the parent scope instead in the isolate scope. ‘=’ means we are expecting an object. The ‘@’ sign indicates that we are going expect a string to be passed in, so we pass a string or an expression using evaluation {{}} operator.
-  
+
 - Understanding Transclution – it typically refers to taking a portion of a document and embedding it inside a document. In angular we take an HTML and embedded it inside a directive.
 
 - If we have some HTML content side a directive like below angular will not show it because it is replacing the <collapsible> tag with the HTML inside the template, so we need to use transude to true and in template need to specify where it needs to be shown
@@ -1440,140 +1442,140 @@ Balanced binary tree – the tree remains balanced as nodes are inserted or dele
 - We can return from the compile function a link function then that link function will be executed for each element. So compile function runs once and affects all the instances of the directive the same way then the link function runs individually for each directive. Most often when we create a directive we will not create a compile function, typically we can take care of kinds of things that we need to do using the linking function and the template to manipulate the HTML. The angular ng-repeat directive uses the compile function in order to do its work.
 
 - We can achieve the same functionality using link and inside it using compile but it will be expensive because compile will run many times as per ‘for’ loop value.
-  
+
 - Previously Karma called testacular and it is independent of angular, it can used to test other javascript code as well.
-  
+
 - Angular was originally written by Misko Hevery. Why angular – it is a complete solution and easy to learn. Abstract away complexity and open source backed by google. Highly testable. Benefits – code reduction. Makes forms more interactive using 2 way bindings. Poor API hiding like using directly ng-click. It supports accessibility using ngAria for screen readers and internationalization.
-  
-- Angular auto do the change detection unlike in other technologies like in asp.net using component.render() where user has to do it which cause many problems. 
+
+- Angular auto do the change detection unlike in other technologies like in asp.net using component.render() where user has to do it which cause many problems.
 
 - Angular use dirty checking as in javascript comparing two objects is very fast operation. Angular watch all events which can change the data like ng-click or service call then run digest cycle, do dirty check and re-render the page.
 
 - Angular uses dependency injection to make it easy to get a hold of components, or services that can hold encapsulated functionality and data that we can use to build complex application out of small and simple pieces.
 
 - JQuery – Angular included jQuery in its core library for basic selection and manipulation functions. If we give reference of jQuery then it will use its full version. When a directive does need to manipulate the DOM directly, jQuery is a tool used to do it.
-  
+
 - Because angular utilize the client side rendering technique, means most of our HTML isn’t sent directly with the page but instead it comes later on. Due to this most search engines almost see nothing of our site because without the javascript rendering the HTML our site has almost nothing to display. If SEO is important to you then need to use some technique like rely on google only, render portions of site of server, or use a pre-renderer.
-  
+
 - React suffer from Frankenstein framework syndrome, means React by itself is really only a rendering engine, it doesn’t do other things like routing or server communication so we need to look around and piece together the different libraries and parts that we ne need to make a complete solution. So need a good architect person to decide which piece will work best. But angular is a complete solution.
-  
+
 - In angular 2 the angular team has completely revamped the framework to move it forward in a way that really wouldn’t be possible without major changes, due to this angular 2 doesn’t have backwards compatibility with angular 1 framework.
 
 - Angular 2 is created keeping performance in mind so it is much faster than angular 1 which is like 5 to 10 times faster. It has simplified the conceptual model and removed the idea of controllers and modules and simplified how services works and removed much of the configuration overhead. Angular 2 is designed to be more mobile friendly and web standards in mind.
 
 - 5 types of services - provider(), factory(), service(), value(), constant()
-  
+
 - The $q service makes it easy to implement async patterns in our app. It is an object which represent the pending result of an async operation. It provides and API to work with promises and deferred objects that return promises to the calling code. when first client make request to server, the server will first create the deferred object using $q, which is used to communicate the status of the async work back to the client. This deferred object will immediately return a promise back to the client. Then client can use promise API to configure a callback function to execute when the work and the service is complete.
 
 - Client side routing doesn’t replace the server side routing. But while using client side routing the call to server is for getting the little bit of information rather than complete webpages and all of it related resources. SPA need client side routing as a means of referring to different locations with the SPA. There still be interaction with server but for partial data.
-  
+
 ![angular-js-server-side-routing](angular-js-server-side-routing)
 ![angular-js-client-side-routing](angular-js-client-side-routing)
-  
+
 - Hashbang versus HTML5 Mode – this is the default mode. There will be “#” character after the domain name in the URL. All the text on URL after this character will be for client side routing and angular will handle it. The alternate to this mode is HTML mode
-  
+
 - When angular is configured to run in HTML5 mode it attempts to use the browser’s HTML5 history API.
-  
+
   ![angular-js-hashbang-vs-html5mode](angular-js-hashbang-vs-html5mode)
-  
+
   - Jasmine is a behaviour driven development framework, it gives us mechanism to write and then execute the unit tests in javascript. The describe function provides the logical grouping of the multiple test cases, and the ‘it’ function state the name of the test cases.
 
 - The main ability karma gives us to execute our unit tests via the command line, so instead of every time do switching between browser and text editor we can easily run it in the command line. Phantom JS will allow us to use the headless browser for even faster test feedback.
-  
+
 - Whenever we construct a new date its base value will always be in UTC, it is a time standard by which the world regulates clocks and time. If we specify a date without an offset, UTC is assumed. A date instance has two states the UTC time and a local time based on the system settings. These two states cause problems in unit tests.
-  
+
 - TzDate is a wrapper for the native javascript date type to construct date with time zone information. We can setup a time zone that will not change according to the local machine. It is not a complete implementation of date type object. Its main purposeis to create Date-like instances with timezone fixed to the specified timezone offset, so that we can test code that depends on local timezone settings without dependency on the time zone settings of the machine where the code is running.
-  
+
 - Creating directive by using attribute or element are only recommended because other two are easy to overlook while reading HTML. By using attribute it means we are modifying an existing element while if we use it like element then it means we are adding a new object on the page.
 
 - Because HTML is case insensitive so we need to use dasherization or snake casing while using directive name in HTML. We can also use colon or underscore.
-  
+
 - Types of directives:
-    - Component type – it represents some data and its associated HTML and related functionality, and always implemented as a custom element or also called widget. Like buttons
-    - Decorator type – most commonly used. It adds additional functionality to an existing tag or modifies that tag’s display. Like ng-click. These are always implemented as an attribute never have template.
-    - Structural/Templating type – like ng-repeat. These type of directive manipulates the DOM structurally to produce a display.
+  - Component type – it represents some data and its associated HTML and related functionality, and always implemented as a custom element or also called widget. Like buttons
+  - Decorator type – most commonly used. It adds additional functionality to an existing tag or modifies that tag’s display. Like ng-click. These are always implemented as an attribute never have template.
+  - Structural/Templating type – like ng-repeat. These type of directive manipulates the DOM structurally to produce a display.
 
 Best Practice: do not use the replace attribute. And always prefix your directive name with some custom project specific text.
 
 - There are three ways by which we can set the relationship among the directive’s scope and containing controller scope, the default is or the directive to share the scope with the containing controller.
-    - Shared type 
-    - Inherited directive scope – if we create new item on the directive then it will be internal to that directive only. To implement this just create a scope property on directive and set it as true. Its parent and proto property will be containing controller scope. False value will be shared scope.
-    - Isolated scope – isolated scope can’t see everything on the parent scope, but it can see specific items that we make visible to the isolated scope. Its parent scope will still have the containing container but the proto property would not have the containing controller scope. By using this we will be able to create a directive that is truly reusable.
+  - Shared type
+  - Inherited directive scope – if we create new item on the directive then it will be internal to that directive only. To implement this just create a scope property on directive and set it as true. Its parent and proto property will be containing controller scope. False value will be shared scope.
+  - Isolated scope – isolated scope can’t see everything on the parent scope, but it can see specific items that we make visible to the isolated scope. Its parent scope will still have the containing container but the proto property would not have the containing controller scope. By using this we will be able to create a directive that is truly reusable.
 
 - We should break a component/directive into multiple small directives. It is just like not to putting all your code in main class but break into multiple classes as per object orientation.
-  
+
 - Transclusion - It is like a picture frame. Like frame is completely separate from the picture inside of it. Just set the transclude property to true, and use the ng-transclude attribute inside the template html.
 
 ![angular-js-transclusion](angular-js-transclusion)
-  
+
 - Structural Directive - These types of directives are complex and rarely created. These are also template directives. It modifies the overall HTML structure. Like ng-if it removes the entire element from the DOM unlike ng-hide which only use simple css display rule to none and ng-repeat, ng-switch. They all use transclusion and control where and when the transclusion will be available in the node.
 
 - If we use the '^' then it will look the directive on the parent node, for '?' sign means that directive may not be present then in that case it will give is as null. If we use the '^^' then we only looking on the parent node not on the current node.
-  
+
 - Why to use Angular? Expressive HTML, modularity, Rule based navigation, powerful data binding, testable, popular so better support and help.
 
 - Key factors in building a line of business application – data is an asset, amount of data is significant, number of input/output data fields is significant, data integrity is critical, data visualization
 
 ![angular-js-line-of-business-application-structure](angular-js-line-of-business-application-structure)
-  
+
 - Bootstrap is a framework for prettifying the web pages, help you build responsive web applications means responsive to changes in layout, it scales to multiple form factors – phones, tablets, laptops and desktops and handle browser differences. It is developed by twitter.
-  
+
 - For routing angular use fragment identifier because it gets processed on client side and doesn’t get submitted on server, so we assign a unique fragment identifier to each view. The ngRoute is based on fragment identifies while uiRouter is based on application states URL fragment identifier is optional in it. Nester routing can provide the navigation for a tab-based set of edit pages.
 
 - Controller should not have more than 5 collaborators means dependency. We can also use the façade class to arrogate the interaction with several collaborator sin to a single collaborator.  Value provider can be used to create global data. Controller should be testable by following the guidelines like too many used collaborators will make it difficult, like manipulating the DOM or too many business logic, too much work it will be tough to test.
-  
+
 - Avoid FOUC (flash of un-styled or un-compiled content) – we can avoid that by using ngCloak, ngBind or waiting image. The ng-bind gives us ability to do the same thing as {{}}.
-  
+
 - Treating HTML as a DSL (domain specific language) – by using directive we can create HTML like DSL which will specify our page functionality.
-  
+
 - For bootstrap logic which is required to start the app, should be in app.run().
-  
+
 - We can organize our app using by feature or type. For large project ‘by feature’ would be better or mix with both types. The LIFT principle (locating our code is easy, identify code at a glance, flat structure as long as we can, try to stay DRY). Have below format while writing controller to have ‘above the fold’ concept, and should not have more than 3 level for folder, it should be flat.
-  
+
 ![angular-js-lift-principle](angular-js-lift-principle)
-  
+
 - 3 categories of modules – angular js modules, 3rd party modules, custom modules (which we create our self).
-  
+
 - Exceptions cannot be avoided entirely but they can be handled gracefully.
-  
+
 - It is developed by Misko Hevery. Publicly released as version 0.9.0 in October 2010.
-  
+
 - Bower is a NPM for the web components, to get the dependency files.
-  
+
 - Lifecycle - When the page loads it loads our static DOM. Angular JS is then loaded then we have our ‘on content ready’ event that’s fired. Which kicks off, that’s what Angular is listening for. That is the entry point. Then angular looks for the application within the HTML, so that is our ng-app. From there it goes through and compile all of our services, and controller and everything that we have declared on our model basically gets compiled. It then goes through the DOM and says what directives do I have, what are the angular js pieces within the HTML and generate the template. This is the compilation phase.
 Then it goes back through and it links it together says this template gets this scope, binds it together and we have our view.
 
   ![angular-js-lifecycle](angular-js-lifecycle)
-  
+
   - $digest() processes all of the watchers of the currentscope, $apply() is used to notify that something has happend outside of the Angular JS domaim, $apply forces a $digest cycle.
-  
+
 ![angular-js-digest-loop](angular-js-digest-loop)
-  
+
 - If we use factory then it works on revealing module pattern, and service is worked with ‘.’ dot syntax pattern, in this we are attaching methods and properties to a ‘this’ object. Prefer to use factory.
-  
+
 - DSL – directives allows HTML to be extended into DSL. By creating custom tags in HTML, we can start to show what we are doing and convey it in a way that makes sense for domain experts. HTML becomes very expressive and self-documented. People find DSLs valuable because a well-designed DSL can be much easier to program with than a traditional library. This improves programmer productivity, which is always valuable. In particular it may also improve communication with domain experts which is an important tool for tackling one of the hardest problem in software developemnt.
-  
+
 - Angular does not have dependency on jQuery, it has subset of jQLite and have DOM querying functionality baked into it, except other like Ajax calls capabilities. So above element is a jQuery object.
-  
+
 - Use the compiler function for template manipulation before the directive was actually attached to the DOM. The compile function takes our HTML and scope and put them together. The compile function gets broke into two functions pre and post. What we get from post link, in the compile function, is what we look in the linker which is our scope and HTML together.
-  
+
 - Use Green Sock for javascript HTML5 animations.
-  
+
 - Cookies present problems today, because the browser sends a cookie on every request, even on requests that do not need a cookie to authenticate the user, and sometines on requests that have been put together as part of a malicious cross-site request forgery, a CSRF. Cookies do not work well with web API that works on a different domain as they are limited to a specific domain. We have more control over token.
-  
+
 - when we use an ng-repeat and you repeat over something like ‘star in stars’ collection from the scope, angular really wants to see distinct values inside of there, so distinct object references, or distinct number values, or distinct strings. So in case like we have an array with empty elements, in order to work with ng-repeat, we need to tell angular to track these elements by index, instead of the values that are inside of the elements.
 
   - Creating stars ratings functionality:
-  
+
   ![angular-js-creating-starts-review1](angular-js-creating-starts-review1)
   ![angular-js-creating-starts-review2](angular-js-creating-starts-review2)
 
 - Forms are always start off simple, but then the business wants to add rounded corners and cute icons to make the form look friendly and inviting, and the real complexity starts when the business starts adding validation rules to a form.
-  
+
 - Function binding to isolate scope: whenever we use the ‘&’ binding, we are essentially creating a proxy function on our isolated scope, when we invoke this proxy function, angular goes out and looks at the expression here and it figures out how to invoke that expression to get it to work. We have to understand that angular actually understands expressions like this at a very deep level. If we look thorough the angular source code, we will see lots of regular expression to parse things out, and angular even knows the name of this parameter that of this parameter that we want to pass to the method on objects. Angular understands that it needs a value to pass into this function. So when want to invoke these proxy function, we do not want to just pass parameters along, we to want to pass essentially, a hash that tells angular in the expression being used, if there is something with this name value, then pass along what is inside of this variable for that function argument. So we need to use an object literal syntax like below to get a parameter into an expression that is bound to a proxy function on our isolated scope.
-  
+
 - The first version of angular known as Angular JS. Angular 2.0 or above known as just Angular.
-  
+
 ## HTML
-  
-- 
+
+-
