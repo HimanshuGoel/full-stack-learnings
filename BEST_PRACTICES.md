@@ -1521,6 +1521,48 @@ if (hasOwnProperty.call(object, 'foo')) {
      console.log('cause', err.cause)
   })
   ```
+  
+  >Optional properties - Defining properties as optional that are sometimes there and sometimes not. We should clearly expressed,model which combinations exist and which don’t. Defining properties as optional in lieu of dividing types is easier and generates less code. It also needs a sound understanding of the product being developed and can limit usage of code if assumptions about the product change.
+
+**Avoid**
+
+interface Product {
+id: string,
+type: 'digital' | 'physical',
+weightInKg?: number,
+sizeInMb?: number
+}
+
+**Prefer**
+
+interface Product {
+id: string,
+type: 'digital' | 'physical',
+}
+
+interface DigitalProduct extends Product {
+type: 'digital'
+sizeInMb?: number
+}
+
+interface PhysicalProduct extends Product {
+type: 'physical'
+sizeInKg?: number
+}
+
+>One letter generics - Should Give a full descriptive type name.
+
+**Avoid**
+function head<T>(arr: T[]): T | undefined {
+return arr[0]
+}
+
+**Prefer**
+
+function head<Element>(arr: Element[]): Element | undefined {
+return arr[0]
+}
+
 
 ## Node JS
 
