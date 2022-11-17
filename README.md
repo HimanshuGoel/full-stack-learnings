@@ -18,7 +18,7 @@ It contains learnings for backend development like `Node JS`, `Express Framework
 
 - [Roadmap](./ROADMAP.md)
 - [Changelog](./CHANGELOG.md)
-- [Commands](./COMMANDS.md)
+- [Console Commands](./CONSOLE_COMMANDS.md)
 - [Useful Links](./USEFUL_LINKS.md)
 - [Troubleshooting](./TROUBLESHOOTING.md)
 - [Keyboard Shortcuts](./KEYBOARD_SHORTCUTS.md)

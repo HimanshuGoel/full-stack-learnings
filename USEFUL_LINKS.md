@@ -1,8 +1,13 @@
 # Useful Links
 
-## Tools
+## Table of Contents
 
-- Markdown Editor - <https://stackedit.io/app>#
+- [Research Sites](#research-sites)
+- [Documentations](#documentations)
+- [Interesting](#interesting)
+- [Playgrounds](#playgrounds)
+- [Cheat Sheets](#cheat-sheets)
+- [Role model websites](#role-model-websites)
 
 ## Research Sites
 
@@ -22,9 +27,7 @@
 
 - Hacker News Search - <https://news.ycombinator.com/>
 
-## Templates
-
-### Documentations
+## Documentations
 
 - <https://ej2.syncfusion.com/angular/documentation/introduction/>
 
@@ -63,6 +66,8 @@
 - RxJS - <https://rxviz.com/>
 
 - JavaScript Event Loop - <http://latentflip.com/loupe/>
+
+- Markdown Editor - <https://stackedit.io/app>
 
 ## Cheat Sheets
 

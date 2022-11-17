@@ -1,5 +1,14 @@
 # Keyboard Shortcuts
 
+- [NPM](#npm)
+- [MS Teams](#ms-teams)
+- [VS Code](#vs-code)
+- [Chrome Dev Tools](#chrome-dev-tools)
+
+## NPM
+
+- list for all of the components that NPM's installed globally - `npm list –g –depth=0`
+
 ## MS Teams
 
 - use spacebar to mute/unmute during a call
@@ -27,10 +36,6 @@
 - move line up and down - `alt + down / up`
 
 - select all occurences to find match - `ctrl + d`
-
-## NPM
-
-- list for all of the components that NPM's installed globally - `npm list –g –depth=0`
 
 ## Chrome Dev Tools
 
