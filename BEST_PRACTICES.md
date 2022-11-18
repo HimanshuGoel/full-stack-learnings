@@ -1521,7 +1521,7 @@ if (hasOwnProperty.call(object, 'foo')) {
      console.log('cause', err.cause)
   })
   ```
-  
+
 ### 1.46 Optional properties
 
 Defining properties as optional that are sometimes there and sometimes not. We should clearly expressed,model which combinations exist and which don’t. Defining properties as optional in lieu of dividing types is easier and generates less code. It also needs a sound understanding of the product being developed and can limit usage of code if assumptions about the product change.
@@ -1580,7 +1580,6 @@ return arr[0]
 }
 
 ```
-
 
 ## Node JS
 
@@ -1866,6 +1865,12 @@ We should keep all software and its components up-to-date, remove unused feature
 
 ```shell
 docs - , feat - , fix - , perf - , refactor - , revert - , style - , test -
+```
+
+### 1.2 Good message examples
+
+```shell
+chore: update npm dependency to the latest version
 ```
 
 ## Markdown

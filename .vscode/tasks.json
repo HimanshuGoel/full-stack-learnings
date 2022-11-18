@@ -1,0 +1,52 @@
+{
+  "tasks": [
+    {
+      "label": "start-frontend",
+      "type": "npm",
+      "script": "start",
+      "options": {
+        "cwd": "${workspaceFolder}/frontend"
+      },
+      "presentation": {
+        "reveal": "always"
+      },
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "label": "build-frontend",
+      "type": "npm",
+      "script": "build-frontend",
+      "options": {
+        "cwd": "${workspaceFolder}/frontend"
+      },
+      "presentation": {
+        "reveal": "always"
+      },
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "label": "deploy-frontend",
+      "type": "npm",
+      "script": "deploy",
+      "options": {
+        "cwd": "${workspaceFolder}/frontend"
+      },
+      "presentation": {
+        "reveal": "always"
+      },
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "label": "verify-frontend",
+      "type": "npm",
+      "script": "verify",
+      "options": {
+        "cwd": "${workspaceFolder}/frontend"
+      },
+      "presentation": {
+        "reveal": "always"
+      },
+      "problemMatcher": ["$tsc"]
+    }
+  ]
+}
