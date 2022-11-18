@@ -80,3 +80,7 @@
 ## Role model websites
 
 - E-commerce site - <https://www.mcmaster.com/>
+
+## Other resources
+
+- Configure Prettier and ESLint - <https://dev.to/this-is-angular/configure-prettier-and-eslint-with-angular-526c>
