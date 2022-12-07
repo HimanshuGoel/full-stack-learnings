@@ -3,11 +3,11 @@
 ## Table of Contents
 
 - [Research Sites](#research-sites)
-- [Documentations](#documentations)
+- [Documentation Templates](#documentation-templates)
 - [Interesting](#interesting)
 - [Playgrounds](#playgrounds)
 - [Cheat Sheets](#cheat-sheets)
-- [Role model websites](#role-model-websites)
+- [Role model websites or components](#role-model-websites-or-components)
 
 ## Research Sites
 
@@ -27,7 +27,7 @@
 
 - Hacker News Search - <https://news.ycombinator.com/>
 
-## Documentations
+## Documentation Templates
 
 - <https://ej2.syncfusion.com/angular/documentation/introduction/>
 
@@ -77,9 +77,12 @@
 
 - Grid Layout - <https://grid.malven.co/>
 
-## Role model websites
+## Role model websites or components
 
 - E-commerce site - <https://www.mcmaster.com/>
+- Folding ticket detail - <https://codepen.io/pizza3/pen/bGVPZvo>
+- Paper plane button -  <https://codepen.io/aaroniker/pen/BajabVN>
+- Confirm button - <https://codepen.io/aaroniker/pen/bGVGNrV>
 
 ## Other resources
 
