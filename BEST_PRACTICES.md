@@ -1866,6 +1866,10 @@ We should keep all software and its components up-to-date, remove unused feature
 ```shell
 docs - , feat - , fix - , perf - , refactor - , revert - , style - , test -
 ```
+  
+### 1.2 Code review guildelines
+  
+Checklist - readability, performance, reusability, test coverage (edge cases), maintainability
 
 ### 1.2 Good message examples
 
