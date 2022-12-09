@@ -6,4 +6,4 @@ jobs:
   my-first-workflow:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "HG LOGS ${github.event_name} ${runner.os} ${github.ref} ${github.repository} ${job.status}"
+      - run: echo "HG LOGS ${{github.event_name}} ${{runner.os}} ${{github.ref}} ${{github.repository}} ${{job.status}}"
