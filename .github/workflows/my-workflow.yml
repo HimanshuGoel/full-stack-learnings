@@ -9,5 +9,7 @@ jobs:
       - run: echo "HG LOGS ${{github.event_name}} ${{runner.os}} ${{github.ref}} ${{github.repository}} ${{job.status}}"
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
+      - working-directory: ./frontend
       - run: npm install
+      - working-directory: ./frontend
       - run: npm run lint
